@@ -1,5 +1,5 @@
 ---
-title: "Bruno e Lucas"
+title: "Bruno Henrique e Lucas Felipe"
 image: "logo.png"
 links:
   - label: GitHub
@@ -14,4 +14,4 @@ output:
   postcards::jolla
 ---
 
-Descrição ...
+Discentes da disciplina Estatística Aplicada a Inovações Tecnológicas (EAIT).
