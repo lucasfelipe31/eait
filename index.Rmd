@@ -14,4 +14,4 @@ output:
   postcards::jolla
 ---
 
-Discentes da disciplina Estatística Aplicada a Inovações Tecnológicas (EAIT).
+Página destinada aos discentes da disciplina Estatística Aplicada a Inovações Tecnológicas (EAIT).
