@@ -144,7 +144,13 @@ window.Quarto = {
   <li><a href="#fundamentação-teórica" id="toc-fundamentação-teórica" class="nav-link" data-scroll-target="#fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</a>
   <ul class="collapse">
   <li><a href="#introdução-ao-ambiente-r" id="toc-introdução-ao-ambiente-r" class="nav-link" data-scroll-target="#introdução-ao-ambiente-r"><span class="header-section-number">3.1</span> Introdução ao Ambiente R</a></li>
-  <li><a href="#como-o-r-guarda-o-que-é-criado" id="toc-como-o-r-guarda-o-que-é-criado" class="nav-link" data-scroll-target="#como-o-r-guarda-o-que-é-criado"><span class="header-section-number">3.2</span> 3.7. Como o R Guarda o que é Criado</a></li>
+  <li><a href="#como-o-r-guarda-o-que-é-criado" id="toc-como-o-r-guarda-o-que-é-criado" class="nav-link" data-scroll-target="#como-o-r-guarda-o-que-é-criado"><span class="header-section-number">3.2</span> Como o R Guarda o que é Criado</a></li>
+  <li><a href="#conceitos-fundamentais" id="toc-conceitos-fundamentais" class="nav-link" data-scroll-target="#conceitos-fundamentais"><span class="header-section-number">3.3</span> Conceitos Fundamentais</a></li>
+  <li><a href="#notação-de-somatório" id="toc-notação-de-somatório" class="nav-link" data-scroll-target="#notação-de-somatório"><span class="header-section-number">3.4</span> Notação de Somatório</a></li>
+  <li><a href="#organização-de-dados-e-frequências" id="toc-organização-de-dados-e-frequências" class="nav-link" data-scroll-target="#organização-de-dados-e-frequências"><span class="header-section-number">3.5</span> Organização de Dados e Frequências</a></li>
+  <li><a href="#medidas-de-posição-tendência-central" id="toc-medidas-de-posição-tendência-central" class="nav-link" data-scroll-target="#medidas-de-posição-tendência-central"><span class="header-section-number">3.6</span> Medidas de Posição (Tendência Central)</a></li>
+  <li><a href="#medidas-de-dispersão-variabilidade" id="toc-medidas-de-dispersão-variabilidade" class="nav-link" data-scroll-target="#medidas-de-dispersão-variabilidade"><span class="header-section-number">3.7</span> Medidas de Dispersão (Variabilidade)</a></li>
+  <li><a href="#quadro-resumo-de-aplicação" id="toc-quadro-resumo-de-aplicação" class="nav-link" data-scroll-target="#quadro-resumo-de-aplicação"><span class="header-section-number">3.8</span> Quadro-Resumo de Aplicação</a></li>
   </ul></li>
   <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</a></li>
   <li><a href="#resultados-e-discussão" id="toc-resultados-e-discussão" class="nav-link" data-scroll-target="#resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</a>
@@ -160,12 +166,19 @@ window.Quarto = {
 </div>
 <main class="content" id="quarto-document-content">
 <div class="logos" style="display: flex; justify-content: center; align-items: center; height: 200px; gap: 20px;">
+
   <a href="https://ufsj.edu.br">
+
     <img src="imagens/ufsj.png" width="220px">
+
   </a>
+
   <a href="https://ufsj.edu.br/defim">
+
     <img src="imagens/defim.png" width="220px">
+
   </a>
+
 </div>
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -188,7 +201,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">21/08/2026, 18:06</p>
+      <p class="date">21/08/2026, 20:14</p>
     </div>
   </div>
   
@@ -206,6 +219,10 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p>Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.</p>
 </blockquote>
+<p>A análise estatística constitui uma importante ferramenta para a compreensão, organização e interpretação de dados no campo da Engenharia Civil, especialmente em situações que envolvem ensaios experimentais, levantamentos técnicos, controle de qualidade e avaliação do comportamento de materiais e sistemas construtivos. Nesse contexto, o uso de recursos computacionais permite tornar os procedimentos estatísticos mais eficientes, precisos e reprodutíveis, favorecendo uma análise fundamentada dos resultados obtidos.</p>
+<p>Entre as ferramentas disponíveis, o ambiente R destaca-se por oferecer recursos para manipulação, tratamento, representação gráfica e análise de dados, possibilitando a aplicação prática de diferentes conceitos estatísticos. Aliado ao pacote leem, o R permite explorar conjuntos de dados de maneira sistemática, desde sua organização e tabulação até o cálculo e a interpretação de medidas estatísticas. Entretanto, a utilização dessas ferramentas não deve se limitar à obtenção automática de resultados, sendo fundamental compreender os conceitos e procedimentos que fundamentam cada análise realizada.</p>
+<p>Nesse sentido, a estatística descritiva apresenta-se como uma etapa essencial para a caracterização de um conjunto de dados. Medidas de posição e dispersão permitem sintetizar as principais características das observações, enquanto os coeficientes de assimetria e curtose fornecem informações adicionais sobre a forma e o comportamento da distribuição. A utilização de tabelas e representações gráficas complementa essa análise, permitindo identificar tendências, padrões, variabilidade e possíveis valores discrepantes.</p>
+<p>Assim, esta prática propõe a integração entre os fundamentos da linguagem R, os conhecimentos de estatística descritiva e sua aplicação a dados relacionados à Engenharia Civil. A partir de um banco de dados de natureza experimental ou técnico-engenheirística, serão empregados os recursos do ambiente R e do pacote leem para organizar, representar e analisar as informações, buscando não apenas executar os procedimentos estatísticos, mas também compreender seus fundamentos e interpretar criticamente os resultados no contexto da Engenharia Civil.</p>
 </section>
 <section id="objetivos" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">2</span> 🎯 Objetivos</h2>
@@ -236,9 +253,9 @@ window.Quarto = {
 <h3 data-number="3.1" class="anchored" data-anchor-id="introdução-ao-ambiente-r"><span class="header-section-number">3.1</span> Introdução ao Ambiente R</h3>
 <section id="o-que-é-o-r" class="level4" data-number="3.1.1">
 <h4 data-number="3.1.1" class="anchored" data-anchor-id="o-que-é-o-r"><span class="header-section-number">3.1.1</span> O que é o R</h4>
-<p>O R é um <strong>ambiente de software livre e de código aberto</strong> voltado para manipulação de dados, cálculo estatístico e geração de gráficos. Por isso, é comum ouvir duas formas de tratamento: “<strong>o R</strong>”, quando se fala do programa/sistema como um todo, e “<strong>a linguagem R</strong>”, quando se fala especificamente da sintaxe usada para escrever os comandos. Diferente de programas estatísticos comerciais fechados, o R permite que o próprio usuário crie novas funções e as compartilhe livremente com a comunidade por meio de pacotes.</p>
-<p>O projeto nasceu em <strong>1991</strong>, em uma Universidade da Nova Zelândia, e foi criado por <strong>Ross Ihaka</strong> e <strong>Robert Gentleman</strong>. O primeiro lançamento oficial ocorreu em <strong>1995</strong>, e em <strong>1997</strong> foi criado o <strong>CRAN</strong>, uma rede de servidores que distribui o programa, sua documentação e milhares de pacotes até hoje.</p>
-<p>Já o <strong>RStudio</strong> é a interface (IDE — <em>Integrated Development Environment</em>) mais usada para trabalhar com o R. Ele não substitui o R, apenas facilita seu uso por meio de janelas, botões e atalhos: sem o R instalado, o RStudio não funciona. A tela do RStudio é dividida em quatro áreas principais: o editor de scripts (onde o código é escrito), o console (onde o código é executado), o painel de ambiente/histórico (onde aparecem os objetos criados) e o painel de arquivos/gráficos/pacotes/ajuda.</p>
+<p>O R é um <strong>ambiente de software livre e de código aberto</strong> voltado para manipulação de dados, cálculo estatístico e geração de gráficos. Por isso, é comum ouvir duas formas de tratamento: “o R”, quando se fala do programa/sistema como um todo, e “a linguagem R”, quando se fala especificamente da sintaxe usada para escrever os comandos. Diferente de programas estatísticos comerciais fechados, o R permite que o próprio usuário crie novas funções e as compartilhe livremente com a comunidade por meio de pacotes.</p>
+<p>O projeto nasceu em 1991, em uma Universidade da Nova Zelândia, e foi criado por Ross Ihaka e Robert Gentleman. O primeiro lançamento oficial ocorreu em 1995, e em 1997 foi criado o CRAN, uma rede de servidores que distribui o programa, sua documentação e milhares de pacotes até hoje.</p>
+<p>Já o RStudio é a interface (IDE — <em>Integrated Development Environment</em>) mais usada para trabalhar com o R. Ele não substitui o R, apenas facilita seu uso por meio de janelas, botões e atalhos: sem o R instalado, o RStudio não funciona. A tela do RStudio é dividida em quatro áreas principais: o editor de scripts (onde o código é escrito), o console (onde o código é executado), o painel de ambiente/histórico (onde aparecem os objetos criados) e o painel de arquivos/gráficos/pacotes/ajuda.</p>
 </section>
 <section id="os-três-princípios-que-governam-o-r" class="level4" data-number="3.1.2">
 <h4 data-number="3.1.2" class="anchored" data-anchor-id="os-três-princípios-que-governam-o-r"><span class="header-section-number">3.1.2</span> Os Três Princípios que Governam o R</h4>
@@ -251,10 +268,10 @@ window.Quarto = {
 </section>
 <section id="sintaxe-e-semântica-do-r" class="level4" data-number="3.1.3">
 <h4 data-number="3.1.3" class="anchored" data-anchor-id="sintaxe-e-semântica-do-r"><span class="header-section-number">3.1.3</span> Sintaxe e Semântica do R</h4>
-<p>Sintaxe é o conjunto de regras que definem <em>como</em> o código deve ser escrito; semântica é o significado por trás de cada comando — ou seja, <em>o que</em> ele realmente faz quando executado. Entender essa diferença evita a maioria dos erros cometidos por quem está começando.</p>
+<p>Sintaxe é o conjunto de regras que definem como o código deve ser escrito; semântica é o significado por trás de cada comando — ou seja, o que ele realmente faz quando executado. Entender essa diferença evita a maioria dos erros cometidos por quem está começando.</p>
 <section id="o-console-e-o-prompt-de-comando" class="level5" data-number="3.1.3.1">
 <h5 data-number="3.1.3.1" class="anchored" data-anchor-id="o-console-e-o-prompt-de-comando"><span class="header-section-number">3.1.3.1</span> O Console e o Prompt de Comando</h5>
-<p>Ao abrir o R (ou o RStudio), aparece o símbolo <code>&gt;</code>, chamado de <strong>prompt de comando</strong>. Ele indica que o R está pronto para receber uma instrução. Se o comando digitado estiver incompleto — por exemplo, um parêntese aberto que não foi fechado — o símbolo muda para <code>+</code>, indicando que o R está esperando o restante da instrução.</p>
+<p>Ao abrir o R (ou o RStudio), aparece o símbolo <code>&gt;</code>, chamado de prompt de comando. Ele indica que o R está pronto para receber uma instrução. Se o comando digitado estiver incompleto — por exemplo, um parêntese aberto que não foi fechado — o símbolo muda para <code>+</code>, indicando que o R está esperando o restante da instrução.</p>
 </section>
 <section id="comentários" class="level5" data-number="3.1.3.2">
 <h5 data-number="3.1.3.2" class="anchored" data-anchor-id="comentários"><span class="header-section-number">3.1.3.2</span> Comentários</h5>
@@ -271,14 +288,14 @@ window.Quarto = {
 <li><strong>Nomes inválidos</strong>: começam com número, contêm espaços ou operadores matemáticos.</li>
 <li><strong>Palavras reservadas</strong>: termos que já têm função própria na linguagem e não podem ser usados como nome de objeto, como <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, <code>function</code>, <code>TRUE</code>, <code>FALSE</code>, <code>NULL</code>, <code>NA</code>, entre outros.</li>
 </ul>
-<p>O R também é <strong>sensível a maiúsculas e minúsculas</strong> (<em>case-sensitive</em>): <code>idade</code> e <code>Idade</code> são dois objetos completamente diferentes.</p>
+<p>O R também é sensível a maiúsculas e minúsculas (<em>case-sensitive</em>): <code>idade</code> e <code>Idade</code> são dois objetos completamente diferentes.</p>
 </section>
 <section id="expressões-versus-atribuições" class="level5" data-number="3.1.3.4">
 <h5 data-number="3.1.3.4" class="anchored" data-anchor-id="expressões-versus-atribuições"><span class="header-section-number">3.1.3.4</span> Expressões versus Atribuições</h5>
 <p>Existem dois tipos básicos de comando no R:</p>
 <ul>
 <li><strong>Expressão</strong>: o R calcula e mostra o resultado na tela, mas não guarda esse valor para uso posterior.</li>
-<li><strong>Atribuição</strong>: o R calcula o resultado e o guarda de forma permanente em um nome escolhido, mas <strong>não mostra nada na tela</strong>. Para ver o valor guardado, basta digitar o nome do objeto.</li>
+<li><strong>Atribuição</strong>: o R calcula o resultado e o guarda de forma permanente em um nome escolhido, mas não mostra nada na tela. Para ver o valor guardado, basta digitar o nome do objeto.</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span>        <span class="co"># expressão: mostra 25 na tela, mas não guarda</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>soma <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span>  <span class="co"># atribuição: guarda o resultado no objeto "soma"</span></span>
@@ -288,7 +305,7 @@ window.Quarto = {
 <h5 data-number="3.1.3.5" class="anchored" data-anchor-id="o-operador-de-atribuição---versus"><span class="header-section-number">3.1.3.5</span> O Operador de Atribuição: <code>&lt;-</code> versus <code>=</code></h5>
 <p>Embora o R aceite o sinal de igual (<code>=</code>) para atribuir valores, a prática recomendada é sempre usar a seta <code>&lt;-</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nome_do_objeto <span class="ot">&lt;-</span> valor_ou_expressao</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>O motivo é evitar confusão: o <code>=</code> já tem uma função própria e exclusiva no R, que é atribuir valores aos <strong>argumentos dentro de uma função</strong> (por exemplo, <code>plot(x = dados)</code>). Usar <code>=</code> também para criar objetos no ambiente de trabalho pode gerar erros difíceis de identificar em códigos mais longos.</p>
+<p>O motivo é evitar confusão: o <code>=</code> já tem uma função própria e exclusiva no R, que é atribuir valores aos argumentos dentro de uma função (por exemplo, <code>plot(x = dados)</code>). Usar <code>=</code> também para criar objetos no ambiente de trabalho pode gerar erros difíceis de identificar em códigos mais longos.</p>
 </section>
 <section id="múltiplos-comandos-na-mesma-linha" class="level5" data-number="3.1.3.6">
 <h5 data-number="3.1.3.6" class="anchored" data-anchor-id="múltiplos-comandos-na-mesma-linha"><span class="header-section-number">3.1.3.6</span> Múltiplos Comandos na Mesma Linha</h5>
@@ -298,18 +315,18 @@ window.Quarto = {
 </section>
 </section>
 <section id="como-o-r-guarda-o-que-é-criado" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="como-o-r-guarda-o-que-é-criado"><span class="header-section-number">3.2</span> 3.7. Como o R Guarda o que é Criado</h3>
-<p>Todo objeto criado com <code>&lt;-</code> fica armazenado no <strong>Ambiente Global</strong> (<code>.GlobalEnv</code>), que funciona como a área de trabalho ativa da sessão. É possível consultar tudo o que já foi criado com o comando:</p>
+<h3 data-number="3.2" class="anchored" data-anchor-id="como-o-r-guarda-o-que-é-criado"><span class="header-section-number">3.2</span> Como o R Guarda o que é Criado</h3>
+<p>Todo objeto criado com <code>&lt;-</code> fica armazenado no Ambiente Global (<code>.GlobalEnv</code>), que funciona como a área de trabalho ativa da sessão. É possível consultar tudo o que já foi criado com o comando:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>E é possível saber em qual pasta do computador o R está trabalhando (o <strong>diretório de trabalho</strong>) com:</p>
+<p>E é possível saber em qual pasta do computador o R está trabalhando (o diretório de trabalho) com:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ou alterar essa pasta com:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/meu_projeto_R"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Atenção:</strong> o R não aceita barra invertida (<code>\</code>) em caminhos de pastas — é preciso usar sempre a barra normal (<code>/</code>).</p>
 <section id="objetos-tipos-e-pacotes-visão-geral" class="level4" data-number="3.2.1">
 <h4 data-number="3.2.1" class="anchored" data-anchor-id="objetos-tipos-e-pacotes-visão-geral"><span class="header-section-number">3.2.1</span> Objetos, Tipos e Pacotes (Visão Geral)</h4>
-<p>Todo objeto no R possui um <strong>tipo básico</strong>, que define que tipo de dado ele guarda: <code>logical</code> (verdadeiro/falso), <code>integer</code> (números inteiros), <code>double</code> (números decimais) e <code>character</code> (texto). Estruturas mais elaboradas, como tabelas (<em>data frames</em>), não são tipos novos — são, na verdade, listas que receberam atributos extras para se comportar como tabela na tela.</p>
-<p>Além dos recursos nativos, o R pode ser expandido por <strong>pacotes</strong>: conjuntos de funções extras criados pela comunidade. Um pacote precisa primeiro ser <strong>instalado</strong> (baixado uma única vez) e depois <strong>carregado</strong> em cada sessão de trabalho para poder ser usado:</p>
+<p>Todo objeto no R possui um tipo básico, que define que tipo de dado ele guarda: <code>logical</code> (verdadeiro/falso), <code>integer</code> (números inteiros), <code>double</code> (números decimais) e <code>character</code> (texto). Estruturas mais elaboradas, como tabelas (<em>data frames</em>), não são tipos novos — são, na verdade, listas que receberam atributos extras para se comportar como tabela na tela.</p>
+<p>Além dos recursos nativos, o R pode ser expandido por pacotes: conjuntos de funções extras criados pela comunidade. Um pacote precisa primeiro ser instalado (baixado uma única vez) e depois carregado em cada sessão de trabalho para poder ser usado:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nome_do_pacote"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nome_do_pacote)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Quando se quer usar apenas uma função de um pacote, sem carregá-lo por completo, usa-se o operador de dois-pontos duplo:</p>
@@ -322,11 +339,267 @@ window.Quarto = {
 <li>Desvio padrão</li>
 <li>Amostragem</li>
 </ul>
-<p><span class="math display">\[
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-\]</span></p>
+</section>
+</section>
+<section id="conceitos-fundamentais" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="conceitos-fundamentais"><span class="header-section-number">3.3</span> Conceitos Fundamentais</h3>
+<section id="população-n-e-amostra-n" class="level4" data-number="3.3.1">
+<h4 data-number="3.3.1" class="anchored" data-anchor-id="população-n-e-amostra-n"><span class="header-section-number">3.3.1</span> População (<span class="math inline">\(N\)</span>) e Amostra (<span class="math inline">\(n\)</span>)</h4>
+<ul>
+<li><strong>População:</strong> conjunto finito ou infinito de todos os elementos que compartilham pelo menos uma característica de interesse; tamanho denotado por <span class="math inline">\(N\)</span>. É <em>finita</em> se pode ser totalmente enumerada, <em>infinita</em> caso contrário.</li>
+<li><strong>Amostra:</strong> subconjunto representativo extraído da população, tamanho <span class="math inline">\(n\)</span>. É sempre finita, pois todos os seus elementos precisam ser efetivamente examinados. Quando se tem acesso a todos os elementos da população, faz-se um <strong>Censo</strong>, o que elimina a necessidade de inferência estatística.</li>
+</ul>
+<p>Esses dois símbolos (<span class="math inline">\(N\)</span> para população, <span class="math inline">\(n\)</span> para amostra) percorrem quase toda fórmula do restante do documento — inclusive determinando qual versão de uma fórmula usar (populacional ou amostral).</p>
+</section>
+<section id="classificação-de-variáveis" class="level4" data-number="3.3.2">
+<h4 data-number="3.3.2" class="anchored" data-anchor-id="classificação-de-variáveis"><span class="header-section-number">3.3.2</span> Classificação de Variáveis</h4>
+<p>A variável é a característica pela qual se deseja descrever a população — o mecanismo operacional da pesquisa. Classifica-se assim:</p>
+<ul>
+<li><strong>Qualitativa</strong> (expressa atributo/categoria): <em>Nominal</em> — sem ordenação natural (ex.: sexo, estado); <em>Ordinal</em> — com hierarquia lógica (ex.: classe social, faixa etária).</li>
+<li><strong>Quantitativa</strong> (valor numérico inerente): <em>Discreta</em> — resulta de contagem, sem valores intermediários possíveis (ex.: número de erros); <em>Contínua</em> — resulta de mensuração, pode assumir qualquer valor real num intervalo (ex.: resistência à tração).</li>
+</ul>
+<p>Três ressalvas importantes do texto: (1) uma variável quantitativa pode ser recodificada como qualitativa ordinal (idade em anos → faixa etária); (2) números que servem só como identificador (código de sexo 1/2) continuam sendo qualitativos; (3) na prática toda variável contínua sofre alguma discretização pela limitação dos instrumentos de medição, mas sua modelagem teórica permanece contínua.</p>
 <hr>
 </section>
+</section>
+<section id="notação-de-somatório" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="notação-de-somatório"><span class="header-section-number">3.4</span> Notação de Somatório</h3>
+<p>Base algébrica de quase todas as fórmulas seguintes — necessária para sintetizar somas repetitivas de forma compacta.</p>
+<section id="somatório-simples" class="level4" data-number="3.4.1">
+<h4 data-number="3.4.1" class="anchored" data-anchor-id="somatório-simples"><span class="header-section-number">3.4.1</span> Somatório Simples</h4>
+<p><span class="math display">\[\sum_{i=1}^{m} X_i = X_1 + X_2 + \dots + X_m\]</span></p>
+<p><span class="math inline">\(i\)</span> é o índice de posição (começa em 1), <span class="math inline">\(m\)</span> é o limite superior (pode ser <span class="math inline">\(n\)</span> ou <span class="math inline">\(N\)</span>), <span class="math inline">\(X_i\)</span> é o valor da observação <span class="math inline">\(i\)</span>. Representa a soma acumulada de todos os valores de <span class="math inline">\(X\)</span> da primeira até a <span class="math inline">\(m\)</span>-ésima observação. Em R: <code>sum(X)</code>.</p>
+</section>
+<section id="somatório-dos-quadrados-vs.-quadrado-do-somatório" class="level4" data-number="3.4.2">
+<h4 data-number="3.4.2" class="anchored" data-anchor-id="somatório-dos-quadrados-vs.-quadrado-do-somatório"><span class="header-section-number">3.4.2</span> Somatório dos Quadrados vs.&nbsp;Quadrado do Somatório</h4>
+<p><span class="math display">\[\text{(A) } \sum_{i=1}^{n} X_i^2 = X_1^2+\dots+X_n^2 \qquad \text{(B) } \left( \sum_{i=1}^{n} X_i \right)^2 = (X_1+\dots+X_n)^2\]</span></p>
+<p>O texto marca essa distinção como <strong>fundamental</strong> por ser a fonte de erro mais comum no cálculo de medidas de dispersão: em (A) eleva-se cada observação ao quadrado e depois soma-se (<code>sum(X^2)</code>); em (B) soma-se tudo primeiro e eleva-se o resultado final ao quadrado (<code>sum(X)^2</code>).</p>
+</section>
+<section id="duplo-somatório" class="level4" data-number="3.4.3">
+<h4 data-number="3.4.3" class="anchored" data-anchor-id="duplo-somatório"><span class="header-section-number">3.4.3</span> Duplo Somatório</h4>
+<p><span class="math display">\[\sum_{i=1}^{n} \sum_{j=1}^{n} X_i Y_j\]</span></p>
+<p>Usado quando se soma sobre duas indexações distintas (modelos multivariados, tabelas de dupla entrada, regressão linear): fixa-se o índice externo <span class="math inline">\(i\)</span> e percorre-se toda a variação do índice interno <span class="math inline">\(j\)</span>, repetindo até esgotar todas as combinações — soma dos produtos cruzados entre dois conjuntos de dados.</p>
+</section>
+<section id="propriedades-algébricas-do-somatório-teorema-1.1" class="level4" data-number="3.4.4">
+<h4 data-number="3.4.4" class="anchored" data-anchor-id="propriedades-algébricas-do-somatório-teorema-1.1"><span class="header-section-number">3.4.4</span> Propriedades Algébricas do Somatório (Teorema 1.1)</h4>
+<p><span class="math display">\[\text{I) } \sum a X_i = a\sum X_i \qquad \text{II) } \sum_{i=1}^n k = nk \qquad \text{III) } \sum (aX_i \pm bY_i) = a\sum X_i \pm b\sum Y_i\]</span></p>
+<p>I: constante multiplicativa sai do somatório. II: somar uma constante <span class="math inline">\(k\)</span>, <span class="math inline">\(n\)</span> vezes, equivale ao produto <span class="math inline">\(nk\)</span>. III: o somatório de uma combinação linear de duas variáveis é igual à combinação linear dos somatórios individuais.</p>
+<p><span class="math display">\[\text{IV) } \sum_{i=1}^{n} (X_i - \bar{X}) = 0\]</span></p>
+<p><strong>Propriedade do Desvio Nulo:</strong> a média é o ponto de equilíbrio perfeito da distribuição — a soma dos desvios positivos se anula exatamente com a soma dos desvios negativos. É por isso que medidas de dispersão baseadas em desvios (Tópico 5) precisam elevar ao quadrado ou usar módulo, senão o resultado seria sempre zero.</p>
+<p><span class="math display">\[\text{V) } \sum_{i=1}^{n} (X_i - \bar{X})^2 = \sum_{i=1}^{n} X_i^2 - \frac{\left( \sum_{i=1}^{n} X_i \right)^2}{n}\]</span></p>
+<p><strong>Identidade Descritiva da Soma de Quadrados de Desvios:</strong> permite calcular a soma de quadrados dos desvios usando apenas a soma dos quadrados dos dados brutos e o quadrado da soma geral — evitando ter que calcular cada desvio individual manualmente. É a “fórmula prática” usada por trás de <code>var()</code> no R.</p>
+<hr>
+</section>
+</section>
+<section id="organização-de-dados-e-frequências" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="organização-de-dados-e-frequências"><span class="header-section-number">3.5</span> Organização de Dados e Frequências</h3>
+<p>Dados coletados sem ordenação são dados brutos; o primeiro tratamento é organizá-los.</p>
+<section id="dados-em-rol" class="level4" data-number="3.5.1">
+<h4 data-number="3.5.1" class="anchored" data-anchor-id="dados-em-rol"><span class="header-section-number">3.5.1</span> Dados em Rol</h4>
+<p><span class="math display">\[X_{(1)}, X_{(2)}, \dots, X_{(n)}\]</span></p>
+<p>Ordenação alfanumérica crescente ou decrescente dos dados brutos. Os parênteses no índice indicam posição após a ordenação: <span class="math inline">\(X_{(1)}=\min(X_i)\)</span>, <span class="math inline">\(X_{(n)}=\max(X_i)\)</span>. É a fase inicial indispensável de qualquer análise de variável quantitativa, pois já revela os limites do conjunto e é pré-requisito para o cálculo da mediana. Em R: <code>sort(X)</code>.</p>
+</section>
+<section id="frequência-relativa" class="level4" data-number="3.5.2">
+<h4 data-number="3.5.2" class="anchored" data-anchor-id="frequência-relativa"><span class="header-section-number">3.5.2</span> Frequência Relativa</h4>
+<p><span class="math display">\[F_{ri} = \frac{F_i}{\sum_{i=1}^{k} F_i}\]</span></p>
+<p><span class="math inline">\(F_i\)</span> = frequência absoluta do grupo <span class="math inline">\(i\)</span> (número de vezes que o valor/grupo foi observado, com <span class="math inline">\(\sum F_i = n\)</span>). <span class="math inline">\(F_{ri}\)</span> padroniza essa contagem em proporção (intervalo <span class="math inline">\([0,1]\)</span>), o que facilita comparar grupos com totais diferentes.</p>
+</section>
+<section id="frequência-percentual" class="level4" data-number="3.5.3">
+<h4 data-number="3.5.3" class="anchored" data-anchor-id="frequência-percentual"><span class="header-section-number">3.5.3</span> Frequência Percentual</h4>
+<p><span class="math display">\[F_{\%i} = F_{ri} \times 100\]</span></p>
+<p>Conversão da frequência relativa para escala percentual — a soma de todas as frequências percentuais é sempre 100%. É a forma de apresentação padrão em relatórios técnicos.</p>
+</section>
+<section id="frequência-acumulada-abaixo-de-e-acima-de" class="level4" data-number="3.5.4">
+<h4 data-number="3.5.4" class="anchored" data-anchor-id="frequência-acumulada-abaixo-de-e-acima-de"><span class="header-section-number">3.5.4</span> Frequência Acumulada “Abaixo de” e “Acima de”</h4>
+<p><span class="math display">\[F_{ac\downarrow i} = \sum_{j=1}^{i} F_j \qquad\qquad F_{ac\uparrow i} = \sum_{j=i}^{k} F_j\]</span></p>
+<p>A primeira responde “no máximo, quantas observações têm valor igual ou inferior a este patamar?” — soma do primeiro grupo até o grupo <span class="math inline">\(i\)</span>; o último valor acumulado é sempre <span class="math inline">\(n\)</span>. A segunda responde “no mínimo, quantas observações têm valor igual ou superior?” — soma do grupo <span class="math inline">\(i\)</span> até o último (<span class="math inline">\(k\)</span>); o primeiro valor acumulado é <span class="math inline">\(n\)</span>, decrescendo até coincidir com a frequência simples do último grupo. Se a pergunta exigir exclusão do limite da própria classe (“estritamente acima/abaixo”), os somatórios mudam para <span class="math inline">\(\sum_{j=1}^{i-1}\)</span> e <span class="math inline">\(\sum_{j=i+1}^{k}\)</span>.</p>
+</section>
+<section id="construção-de-intervalos-de-classe-variáveis-contínuas-algoritmo-de-7-passos" class="level4" data-number="3.5.5">
+<h4 data-number="3.5.5" class="anchored" data-anchor-id="construção-de-intervalos-de-classe-variáveis-contínuas-algoritmo-de-7-passos"><span class="header-section-number">3.5.5</span> Construção de Intervalos de Classe (variáveis contínuas — algoritmo de 7 passos)</h4>
+<p>Como valores contínuos raramente se repetem, agrupam-se em classes para tornar a análise inteligível.</p>
+<p><strong>Passo 1 — número de classes:</strong> <span class="math display">\[k \approx \begin{cases} \sqrt{m}, &amp; m \le 100 \\ 5\log_{10}(m), &amp; m &gt; 100 \end{cases}\]</span> Arredonda-se para o inteiro mais próximo; evita-se <span class="math inline">\(k&lt;3\)</span>, e reinicia-se o cálculo se alguma classe resultante tiver frequência zero.</p>
+<p><strong>Passo 2 — amplitude total:</strong> <span class="math inline">\(A_t = X_{(n)} - X_{(1)}\)</span> (distância entre maior e menor valor).</p>
+<p><strong>Passo 3 — amplitude de cada classe:</strong> <span class="math display">\[c = \begin{cases} \dfrac{A_t}{k-1}, &amp; \text{Amostra} \\ \dfrac{A_t}{k}, &amp; \text{População} \end{cases}\]</span> A divisão por <span class="math inline">\(k-1\)</span> na amostra funciona como correção, sob a premissa de que uma amostra dificilmente contém os valores extremos reais da população (Ferreira, 2009).</p>
+<p><strong>Passo 4 — limite inferior da 1ª classe:</strong> <span class="math display">\[L_{i1^a} = \begin{cases} X_{(1)} - \dfrac{c}{2}, &amp; \text{Amostra} \\ X_{(1)}, &amp; \text{População} \end{cases}\]</span></p>
+<p><strong>Passo 5 — construção das classes:</strong> notação <span class="math inline">\(L_i \mid\!\!\text{---}\, L_s\)</span>, com limite inferior inclusive (fechado) e superior exclusive (aberto); o limite superior de uma classe vira o inferior da seguinte. A última classe pode, opcionalmente, fechar os dois lados.</p>
+<p><strong>Passo 6 — ponto médio da classe:</strong> <span class="math display">\[X_{\sim i} = \frac{L_{i} + L_{s}}{2}\]</span> Sua adoção se justifica pela hipótese tabular básica: assume-se que os dados dentro de uma classe se distribuem aproximadamente de forma uniforme, tornando o ponto médio o valor que minimiza o erro de representação. É o valor usado em todos os cálculos posteriores (média, variância, desvio padrão) quando só se tem a tabela de frequências, não os dados brutos.</p>
+<p><strong>Passo 7:</strong> computa-se as frequências absolutas, relativas, percentuais e acumuladas de cada classe.</p>
+</section>
+<section id="ângulo-do-gráfico-de-setores" class="level4" data-number="3.5.6">
+<h4 data-number="3.5.6" class="anchored" data-anchor-id="ângulo-do-gráfico-de-setores"><span class="header-section-number">3.5.6</span> Ângulo do Gráfico de Setores</h4>
+<p><span class="math display">\[\text{Ângulo (graus)} = \frac{F_{\%i} \times 360}{100}\]</span></p>
+<p>Regra de três simples para converter a frequência percentual de uma categoria em ângulo dentro do círculo de 360°. O texto observa que gráficos de barras são preferíveis a gráficos de setores em ambientes científicos, porque a percepção humana avalia comprimentos com mais precisão do que áreas circulares ou ângulos.</p>
+<hr>
+</section>
+</section>
+<section id="medidas-de-posição-tendência-central" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="medidas-de-posição-tendência-central"><span class="header-section-number">3.6</span> Medidas de Posição (Tendência Central)</h3>
+<p>Resumem em um único valor o ponto em torno do qual os dados tendem a se agrupar.</p>
+<section id="média-aritmética-simples" class="level4" data-number="3.6.1">
+<h4 data-number="3.6.1" class="anchored" data-anchor-id="média-aritmética-simples"><span class="header-section-number">3.6.1</span> Média Aritmética Simples</h4>
+<p><span class="math display">\[\mu = \frac{\sum_{i=1}^{N} X_i}{N} \quad \text{(populacional)} \qquad \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} \quad \text{(amostral)}\]</span></p>
+<p>Pode ser entendida fisicamente como o centro de gravidade de um sistema de pesos distribuído ao longo do eixo das observações — o valor que cada unidade teria se a soma total fosse igualmente redistribuída entre todos os elementos. <span class="math inline">\(\mu\)</span> é o parâmetro (geralmente desconhecido na prática); <span class="math inline">\(\bar{X}\)</span> é o estimador não viesado calculado na amostra. Indicada para variáveis quantitativas simétricas e sem outliers. Em R: <code>mean(X)</code>.</p>
+</section>
+<section id="média-para-dados-agrupados" class="level4" data-number="3.6.2">
+<h4 data-number="3.6.2" class="anchored" data-anchor-id="média-para-dados-agrupados"><span class="header-section-number">3.6.2</span> Média para Dados Agrupados</h4>
+<p><span class="math display">\[\bar{X} = \frac{\sum_{i=1}^{k} X_{\sim i} \times F_i}{\sum_{i=1}^{k} F_i}\]</span></p>
+<p>Usada quando os dados brutos já foram consolidados em tabela de frequência (para economizar processamento ou por ausência dos dados originais). Para variáveis contínuas há leve perda de precisão frente à média dos dados brutos, pois cada observação real é substituída pelo ponto médio <span class="math inline">\(X_{\sim i}\)</span> de sua classe.</p>
+</section>
+<section id="propriedades-da-média-teorema-3.1" class="level4" data-number="3.6.3">
+<h4 data-number="3.6.3" class="anchored" data-anchor-id="propriedades-da-média-teorema-3.1"><span class="header-section-number">3.6.3</span> Propriedades da Média (Teorema 3.1)</h4>
+<p><span class="math display">\[Y_i = X_i \pm c \Rightarrow \bar{Y} = \bar{X} \pm c \qquad\qquad Y_i = X_i \times c \Rightarrow \bar{Y} = \bar{X} \times c\]</span></p>
+<p>Somar/subtrair uma constante desloca a média exatamente por essa constante; multiplicar/dividir escala a média pelo mesmo fator. Além disso, a soma <span class="math inline">\(\sum (X_i-c)^2\)</span> atinge seu mínimo absoluto exatamente quando <span class="math inline">\(c=\bar{X}\)</span> (demonstrável igualando a derivada em relação a <span class="math inline">\(c\)</span> a zero) — ou seja, a média é o ponto que minimiza a soma de quadrados dos desvios, propriedade que fundamenta o método dos mínimos quadrados.</p>
+</section>
+<section id="média-aparada" class="level4" data-number="3.6.4">
+<h4 data-number="3.6.4" class="anchored" data-anchor-id="média-aparada"><span class="header-section-number">3.6.4</span> Média Aparada</h4>
+<p><span class="math display">\[\bar{X}_{ap} = \frac{\sum_{i=2}^{n-1} X_{(i)}}{n-2}\]</span></p>
+<p>A média tradicional é muito vulnerável a outliers — uma única observação discrepante pode distorcer o resultado. A média aparada descarta uma fração fixa dos extremos (aqui, 1 observação em cada cauda do Rol) antes de calcular a média, funcionando como alternativa robusta. Indicada em amostras pequenas com suspeita de outliers ou erro de digitação. Em R: <code>mean(X, trim = ...)</code>.</p>
+</section>
+<section id="mediana-dados-não-agrupados" class="level4" data-number="3.6.5">
+<h4 data-number="3.6.5" class="anchored" data-anchor-id="mediana-dados-não-agrupados"><span class="header-section-number">3.6.5</span> Mediana — dados não agrupados</h4>
+<p><span class="math display">\[M_d(X) = \begin{cases} \dfrac{X_{(n/2)} + X_{(n/2+1)}}{2}, &amp; n \text{ par} \\[6pt] X_{((n+1)/2)}, &amp; n \text{ ímpar} \end{cases}\]</span></p>
+<p>Divide a distribuição ordenada exatamente ao meio (50% abaixo, 50% acima). Por depender só da posição e não da magnitude dos valores, é uma medida robusta, insensível a outliers — ao contrário da média. Aplicável também a variáveis qualitativas ordinais. Em R: <code>median(X)</code>.</p>
+</section>
+<section id="mediana-dados-agrupados-em-classes" class="level4" data-number="3.6.6">
+<h4 data-number="3.6.6" class="anchored" data-anchor-id="mediana-dados-agrupados-em-classes"><span class="header-section-number">3.6.6</span> Mediana — dados agrupados em classes</h4>
+<p><span class="math display">\[M_d(X) = L_{IMd} + \left\{ \frac{\dfrac{n}{2} - f_{ant}}{f_{Md}} \right\} \times c\]</span></p>
+<p>Interpolação linear dentro da classe da mediana (identificada acumulando frequências até atingir o valor igual ou imediatamente superior a <span class="math inline">\(n/2\)</span>): <span class="math inline">\(L_{IMd}\)</span> é o limite inferior dessa classe, <span class="math inline">\(f_{ant}\)</span> a frequência acumulada “abaixo de” até a classe anterior, <span class="math inline">\(f_{Md}\)</span> a frequência simples da própria classe, <span class="math inline">\(c\)</span> a amplitude da classe. Existe um método equivalente baseado no limite superior (<span class="math inline">\(L_{SMd}\)</span> e <span class="math inline">\(f_{post}\)</span>). Geometricamente, é o ponto que divide a área do histograma em duas metades iguais — coincide com o ponto de interseção das ogivas crescente e decrescente.</p>
+</section>
+<section id="moda-dados-discretos" class="level4" data-number="3.6.7">
+<h4 data-number="3.6.7" class="anchored" data-anchor-id="moda-dados-discretos"><span class="header-section-number">3.6.7</span> Moda — dados discretos</h4>
+<p>Valor de maior frequência simples. Distribuições podem ser amodais (todas as frequências iguais), unimodais, bimodais/multimodais (dois ou mais picos).</p>
+</section>
+<section id="moda-dados-agrupados-fórmula-de-czuber" class="level4" data-number="3.6.8">
+<h4 data-number="3.6.8" class="anchored" data-anchor-id="moda-dados-agrupados-fórmula-de-czuber"><span class="header-section-number">3.6.8</span> Moda — dados agrupados (Fórmula de Czuber)</h4>
+<p><span class="math display">\[M_o(X) = L_{IMo} + \left\{ \frac{\Delta_1}{\Delta_1 + \Delta_2} \right\} \times c, \qquad \Delta_1 = f_{Mo}-f_{iant},\;\; \Delta_2 = f_{Mo}-f_{ipost}\]</span></p>
+<p>Como valores contínuos raramente se repetem exatamente, estima-se a moda a partir da classe de maior densidade (classe modal, frequência <span class="math inline">\(f_{Mo}\)</span>): <span class="math inline">\(L_{IMo}\)</span> é o limite inferior dessa classe; <span class="math inline">\(\Delta_1\)</span> e <span class="math inline">\(\Delta_2\)</span> comparam a frequência modal com a das classes vizinhas (anterior e posterior). O ponto estimado é “puxado” na direção da classe vizinha mais concentrada — o texto descreve isso como ponderação pela “atração gravitacional” das frequências vizinhas.</p>
+</section>
+<section id="relação-empírica-de-pearson" class="level4" data-number="3.6.9">
+<h4 data-number="3.6.9" class="anchored" data-anchor-id="relação-empírica-de-pearson"><span class="header-section-number">3.6.9</span> Relação Empírica de Pearson</h4>
+<p><span class="math display">\[M_o(X) = 3\,M_d(X) - 2\,\bar{X}\]</span></p>
+<p>Aproximação prática da moda quando já se conhecem média e mediana, válida em distribuições unimodais moderadamente assimétricas: a distância entre média e moda é aproximadamente o triplo da distância entre média e mediana.</p>
+<hr>
+</section>
+</section>
+<section id="medidas-de-dispersão-variabilidade" class="level3" data-number="3.7">
+<h3 data-number="3.7" class="anchored" data-anchor-id="medidas-de-dispersão-variabilidade"><span class="header-section-number">3.7</span> Medidas de Dispersão (Variabilidade)</h3>
+<p>Grupos com médias idênticas podem ter dispersões totalmente diferentes — essas medidas indicam o quão representativa a média realmente é.</p>
+<section id="amplitude-total" class="level4" data-number="3.7.1">
+<h4 data-number="3.7.1" class="anchored" data-anchor-id="amplitude-total"><span class="header-section-number">3.7.1</span> Amplitude Total</h4>
+<p><span class="math display">\[A_p = X_{(N)} - X_{(1)} \quad \text{(populacional)} \qquad A = X_{(n)} - X_{(1)} \quad \text{(amostral)}\]</span></p>
+<p>Distância entre a maior e a menor observação. Serve como indicador inicial rápido de variabilidade (controle de qualidade, definição preliminar de classes), mas ignora completamente a distribuição interna dos dados intermediários, é muito sensível a outliers, e tende a subestimar a amplitude real da população quando calculada só na amostra (estimador viesado). Em R: <code>diff(range(X))</code>.</p>
+</section>
+<section id="desvio-médio-simples" class="level4" data-number="3.7.2">
+<h4 data-number="3.7.2" class="anchored" data-anchor-id="desvio-médio-simples"><span class="header-section-number">3.7.2</span> Desvio Médio Simples</h4>
+<p><span class="math display">\[DM = \sum_{i=1}^{n} (X_i - \bar{X})\]</span></p>
+<p><strong>Limitação matemática insuperável:</strong> por causa da propriedade do desvio nulo (Tópico 2.4-IV), essa soma é sempre zero, para qualquer distribuição — não serve como medida de dispersão sem correção. Para evitar o cancelamento de sinais, usa-se módulo (<span class="math inline">\(\sum|X_i-\bar{X}|\)</span>) ou, mais comumente, elevação ao quadrado (mais fácil de derivar matematicamente), o que leva à soma de quadrados abaixo.</p>
+</section>
+<section id="soma-de-quadrados-sq" class="level4" data-number="3.7.3">
+<h4 data-number="3.7.3" class="anchored" data-anchor-id="soma-de-quadrados-sq"><span class="header-section-number">3.7.3</span> Soma de Quadrados (SQ)</h4>
+<p><span class="math display">\[SQ = \sum_{i=1}^{n} (X_i - \bar{X})^2 = \sum_{i=1}^{n} X_i^2 - \frac{\left( \sum_{i=1}^{n} X_i \right)^2}{n}\]</span></p>
+<p>Soma das diferenças quadráticas de cada observação em relação ao centro. Ao elevar ao quadrado, penaliza fortemente as observações mais distantes da média. É medida intermediária essencial no cálculo de variância e em ANOVA.</p>
+</section>
+<section id="variância" class="level4" data-number="3.7.4">
+<h4 data-number="3.7.4" class="anchored" data-anchor-id="variância"><span class="header-section-number">3.7.4</span> Variância</h4>
+<p><span class="math display">\[\sigma^2 = \frac{\sum_{i=1}^{N}(X_i-\mu)^2}{N} \quad \text{(populacional)} \qquad S^2 = \frac{\sum_{i=1}^{n}(X_i-\bar{X})^2}{n-1} \quad \text{(amostral)}\]</span></p>
+<p>Média das somas de desvios quadráticos. Por que dividir por <span class="math inline">\(n-1\)</span> na amostra? Dividir simplesmente por <span class="math inline">\(n\)</span> gera um estimador viesado — sistematicamente subestimado em relação à <span class="math inline">\(\sigma^2\)</span> real. O ajuste por <span class="math inline">\(n-1\)</span> (graus de liberdade) corrige essa distorção, garantindo um estimador não viesado. Maior desvantagem prática: a escala fica ao quadrado da unidade original (ex.: metros → metros²). Em R, <code>var(X)</code> já usa <span class="math inline">\(n-1\)</span>.</p>
+</section>
+<section id="variância-para-dados-agrupados" class="level4" data-number="3.7.5">
+<h4 data-number="3.7.5" class="anchored" data-anchor-id="variância-para-dados-agrupados"><span class="header-section-number">3.7.5</span> Variância para Dados Agrupados</h4>
+<p><span class="math display">\[S^2 = \frac{\displaystyle\sum_{i=1}^{k} X_{\sim i}^2 F_i - \frac{\left(\sum_{i=1}^{k} X_{\sim i} F_i\right)^2}{\sum_{i=1}^{k} F_i}}{\sum_{i=1}^{k} F_i - 1}\]</span></p>
+<p>Versão ponderada por frequência da identidade do Tópico 2.4-V, usando o ponto médio <span class="math inline">\(X_{\sim i}\)</span> de cada classe. Para dados discretos tabulados, o resultado coincide perfeitamente com o cálculo em dados brutos; para variáveis contínuas, difere sutilmente por causa da substituição dos valores individuais pelo ponto médio (hipótese tabular básica).</p>
+</section>
+<section id="desvio-padrão" class="level4" data-number="3.7.6">
+<h4 data-number="3.7.6" class="anchored" data-anchor-id="desvio-padrão"><span class="header-section-number">3.7.6</span> Desvio Padrão</h4>
+<p><span class="math display">\[\sigma = \sqrt{\sigma^2} \quad \text{(populacional)} \qquad S = \sqrt{S^2} \quad \text{(amostral)}\]</span></p>
+<p>Restabelece a equivalência de dimensionalidade com os dados originais (aplicando raiz quadrada à variância). É a medida de dispersão absoluta mais usada em relatórios técnicos e científicos, geralmente reportada junto com a média. Descreve o afastamento médio esperado de uma observação individual em relação ao centro, na mesma unidade dos dados. Nota de viés: embora <span class="math inline">\(S^2\)</span> seja não viesado para <span class="math inline">\(\sigma^2\)</span>, a operação não linear de raiz quadrada faz de <span class="math inline">\(S\)</span> um estimador levemente viesado de <span class="math inline">\(\sigma\)</span>. Em R: <code>sd(X)</code>.</p>
+</section>
+<section id="propriedades-do-desvio-padrão-e-variância-teoremas-4.2-e-4.3" class="level4" data-number="3.7.7">
+<h4 data-number="3.7.7" class="anchored" data-anchor-id="propriedades-do-desvio-padrão-e-variância-teoremas-4.2-e-4.3"><span class="header-section-number">3.7.7</span> Propriedades do Desvio Padrão e Variância (Teoremas 4.2 e 4.3)</h4>
+<p><span class="math display">\[Y_i = X_i \pm c \Rightarrow S_Y^2 = S_X^2,\; S_Y = S_X \qquad\qquad Y_i = X_i \times c \Rightarrow S_Y^2 = c^2 S_X^2,\; S_Y = c\, S_X\]</span></p>
+<p>Diferente da média, somar/subtrair uma constante não altera a dispersão — desloca a distribuição inteira como um bloco rígido, sem mudar o espaçamento interno entre observações. Multiplicar por uma constante escala as distâncias proporcionalmente: isso se reflete de forma <strong>quadrática</strong> na variância e linear no desvio padrão.</p>
+</section>
+<section id="coeficiente-de-variação" class="level4" data-number="3.7.8">
+<h4 data-number="3.7.8" class="anchored" data-anchor-id="coeficiente-de-variação"><span class="header-section-number">3.7.8</span> Coeficiente de Variação</h4>
+<p><span class="math display">\[CV_p = \frac{\sigma}{\mu} \times 100 \quad \text{(populacional)} \qquad CV = \frac{S}{\bar{X}} \times 100 \quad \text{(amostral)}\]</span></p>
+<p>Medidas absolutas de dispersão são influenciadas pela escala e pela magnitude da média, o que impede comparação direta de variabilidade entre grupos. O <span class="math inline">\(CV\)</span> padroniza a dispersão em termos relativos à própria média — quanto menor, mais homogêneo o grupo. Limitação estrutural crítica: só é interpretável em variáveis com zero absoluto significativo (peso, volume, contagens). Em escalas com zero arbitrário (ex.: temperatura em °C ou °F), médias próximas de zero inflam artificialmente o <span class="math inline">\(CV\)</span>, tornando-o inútil.</p>
+</section>
+<section id="erro-padrão-da-média" class="level4" data-number="3.7.9">
+<h4 data-number="3.7.9" class="anchored" data-anchor-id="erro-padrão-da-média"><span class="header-section-number">3.7.9</span> Erro Padrão da Média</h4>
+<p><span class="math display">\[\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \quad \text{(populacional)} \qquad S_{\bar{X}} = \frac{S}{\sqrt{n}} \quad \text{(amostral)}\]</span></p>
+<p>Enquanto o desvio padrão mede o espalhamento das observações individuais em torno da média de uma amostra, o erro padrão mede a dispersão teórica esperada das médias de infinitas amostras possíveis em torno de <span class="math inline">\(\mu\)</span>. É diretamente proporcional à dispersão da população e inversamente proporcional a <span class="math inline">\(\sqrt{n}\)</span>: conforme <span class="math inline">\(n\)</span> cresce, <span class="math inline">\(S_{\bar{X}}\to 0\)</span>, indicando que amostras maiores produzem médias mais estáveis. Base para intervalos de confiança e testes de hipótese. Em R: <code>sd(X)/sqrt(length(X))</code>.</p>
+<hr>
+</section>
+</section>
+<section id="quadro-resumo-de-aplicação" class="level3" data-number="3.8">
+<h3 data-number="3.8" class="anchored" data-anchor-id="quadro-resumo-de-aplicação"><span class="header-section-number">3.8</span> Quadro-Resumo de Aplicação</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 27%">
+<col style="width: 27%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Medida</th>
+<th style="text-align: center;">Robustez a outliers</th>
+<th style="text-align: center;">Sensibilidade a escala</th>
+<th style="text-align: left;">Situação ótima de aplicação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Média Aritmética</td>
+<td style="text-align: center;">Baixa</td>
+<td style="text-align: center;">Alta</td>
+<td style="text-align: left;">Dados normais, sem valores discrepantes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Média Aparada</td>
+<td style="text-align: center;">Alta</td>
+<td style="text-align: center;">Média</td>
+<td style="text-align: left;">Amostras pequenas com outliers suspeitos nas caudas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mediana</td>
+<td style="text-align: center;">Alta</td>
+<td style="text-align: center;">Baixa</td>
+<td style="text-align: left;">Distribuições assimétricas ou outliers severos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Moda</td>
+<td style="text-align: center;">Alta</td>
+<td style="text-align: center;">Baixa</td>
+<td style="text-align: left;">Dados categóricos nominais; picos de concentração</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Amplitude</td>
+<td style="text-align: center;">Nula</td>
+<td style="text-align: center;">Alta</td>
+<td style="text-align: left;">Análise preliminar rápida; controle de qualidade</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Variância / Desvio Padrão</td>
+<td style="text-align: center;">Baixa</td>
+<td style="text-align: center;">Alta</td>
+<td style="text-align: left;">Distribuições simétricas, rigor aditivo dos desvios</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Coeficiente de Variação</td>
+<td style="text-align: center;">Baixa</td>
+<td style="text-align: center;">Adimensional</td>
+<td style="text-align: left;">Comparar dispersão entre escalas diferentes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Erro Padrão da Média</td>
+<td style="text-align: center;">Baixa</td>
+<td style="text-align: center;">Alta</td>
+<td style="text-align: left;">Estimar margem de erro de médias</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
 </section>
 <section id="metodologia" class="level2" data-number="4">
@@ -905,234 +1178,489 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
 <span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.</span></span>
 <span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>A análise estatística constitui uma importante ferramenta para a compreensão, organização e interpretação de dados no campo da Engenharia Civil, especialmente em situações que envolvem ensaios experimentais, levantamentos técnicos, controle de qualidade e avaliação do comportamento de materiais e sistemas construtivos. Nesse contexto, o uso de recursos computacionais permite tornar os procedimentos estatísticos mais eficientes, precisos e reprodutíveis, favorecendo uma análise fundamentada dos resultados obtidos.</span>
 <span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>Entre as ferramentas disponíveis, o ambiente R destaca-se por oferecer recursos para manipulação, tratamento, representação gráfica e análise de dados, possibilitando a aplicação prática de diferentes conceitos estatísticos. Aliado ao pacote leem, o R permite explorar conjuntos de dados de maneira sistemática, desde sua organização e tabulação até o cálculo e a interpretação de medidas estatísticas. Entretanto, a utilização dessas ferramentas não deve se limitar à obtenção automática de resultados, sendo fundamental compreender os conceitos e procedimentos que fundamentam cada análise realizada.</span>
 <span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>Nesse sentido, a estatística descritiva apresenta-se como uma etapa essencial para a caracterização de um conjunto de dados. Medidas de posição e dispersão permitem sintetizar as principais características das observações, enquanto os coeficientes de assimetria e curtose fornecem informações adicionais sobre a forma e o comportamento da distribuição. A utilização de tabelas e representações gráficas complementa essa análise, permitindo identificar tendências, padrões, variabilidade e possíveis valores discrepantes.</span>
 <span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>O objetivo geral desta prática é desenvolver a capacidade de utilizar o ambiente R e o pacote <span class="in">`leem`</span> como ferramentas de apoio à análise estatística de dados aplicados à Engenharia Civil, integrando conhecimentos de sintaxe e semântica da linguagem R, fundamentos de estatística descritiva e interpretação de resultados. Busca-se, a partir de um banco de dados de natureza experimental ou técnico-engenheirística, organizar, tabular, representar graficamente e analisar os dados por meio de medidas de posição, dispersão, assimetria e curtose, compreendendo os procedimentos estatísticos empregados e estabelecendo uma interpretação crítica dos resultados obtidos.</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>Assim, esta prática propõe a integração entre os fundamentos da linguagem R, os conhecimentos de estatística descritiva e sua aplicação a dados relacionados à Engenharia Civil. A partir de um banco de dados de natureza experimental ou técnico-engenheirística, serão empregados os recursos do ambiente R e do pacote leem para organizar, representar e analisar as informações, buscando não apenas executar os procedimentos estatísticos, mas também compreender seus fundamentos e interpretar criticamente os resultados no contexto da Engenharia Civil.</span>
 <span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Introduzir os fundamentos do ambiente R e de sua linguagem**, com base nas 26 aulas do curso *R Básico 2024*, abordando aspectos relacionados à sintaxe, à semântica, à criação e manipulação de objetos e à execução de operações necessárias ao tratamento e à análise de dados;</span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Revisar os fundamentos da estatística descritiva**, contemplando os conteúdos dos quatro primeiros capítulos do livro *Estatística para Análise de Experimentos e Controle* (EPAEC), com ênfase na organização, tabulação e representação dos dados, bem como nas principais medidas estatísticas;</span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Aprofundar o estudo das medidas de assimetria e curtose**, compreendendo seus conceitos, formas de cálculo e interpretação como instrumentos complementares à caracterização da distribuição dos dados;</span>
-<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Utilizar um banco de dados relacionado à Engenharia Civil**, contendo informações quantitativas adequadas à aplicação dos procedimentos de estatística descritiva e à discussão de fenômenos de interesse da área;</span>
-<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Aplicar o pacote `leem` para a descrição estatística dos dados**, empregando recursos computacionais para organização, tabulação, apresentação gráfica e cálculo das principais medidas estatísticas;</span>
-<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Construir e interpretar representações gráficas e tabelas**, de modo a evidenciar padrões, tendências, variabilidade e possíveis valores discrepantes presentes no conjunto de dados;</span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Calcular e interpretar medidas de posição e dispersão**, incluindo medidas de tendência central e indicadores de variabilidade, relacionando os resultados às características do banco de dados analisado;</span>
-<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Determinar e interpretar os coeficientes de assimetria e curtose**, avaliando a forma da distribuição dos dados e suas implicações para a compreensão do comportamento das variáveis estudadas;</span>
-<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Compreender os procedimentos estatísticos realizados pelo pacote `leem`**, não se limitando à obtenção automática dos resultados, mas reconhecendo os fundamentos matemáticos e estatísticos envolvidos na tabulação, no cálculo das medidas e na construção das representações gráficas;</span>
-<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Discutir tecnicamente os resultados obtidos**, relacionando as características estatísticas observadas às propriedades e aos fenômenos associados ao contexto da Engenharia Civil e avaliando criticamente a informação fornecida pelo conjunto de dados.</span>
-<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>O objetivo geral desta prática é desenvolver a capacidade de utilizar o ambiente R e o pacote <span class="in">`leem`</span> como ferramentas de apoio à análise estatística de dados aplicados à Engenharia Civil, integrando conhecimentos de sintaxe e semântica da linguagem R, fundamentos de estatística descritiva e interpretação de resultados. Busca-se, a partir de um banco de dados de natureza experimental ou técnico-engenheirística, organizar, tabular, representar graficamente e analisar os dados por meio de medidas de posição, dispersão, assimetria e curtose, compreendendo os procedimentos estatísticos empregados e estabelecendo uma interpretação crítica dos resultados obtidos.</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Introduzir os fundamentos do ambiente R e de sua linguagem**, com base nas 26 aulas do curso *R Básico 2024*, abordando aspectos relacionados à sintaxe, à semântica, à criação e manipulação de objetos e à execução de operações necessárias ao tratamento e à análise de dados;</span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Revisar os fundamentos da estatística descritiva**, contemplando os conteúdos dos quatro primeiros capítulos do livro *Estatística para Análise de Experimentos e Controle* (EPAEC), com ênfase na organização, tabulação e representação dos dados, bem como nas principais medidas estatísticas;</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Aprofundar o estudo das medidas de assimetria e curtose**, compreendendo seus conceitos, formas de cálculo e interpretação como instrumentos complementares à caracterização da distribuição dos dados;</span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Utilizar um banco de dados relacionado à Engenharia Civil**, contendo informações quantitativas adequadas à aplicação dos procedimentos de estatística descritiva e à discussão de fenômenos de interesse da área;</span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Aplicar o pacote `leem` para a descrição estatística dos dados**, empregando recursos computacionais para organização, tabulação, apresentação gráfica e cálculo das principais medidas estatísticas;</span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Construir e interpretar representações gráficas e tabelas**, de modo a evidenciar padrões, tendências, variabilidade e possíveis valores discrepantes presentes no conjunto de dados;</span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Calcular e interpretar medidas de posição e dispersão**, incluindo medidas de tendência central e indicadores de variabilidade, relacionando os resultados às características do banco de dados analisado;</span>
 <span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Determinar e interpretar os coeficientes de assimetria e curtose**, avaliando a forma da distribuição dos dados e suas implicações para a compreensão do comportamento das variáveis estudadas;</span>
 <span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Compreender os procedimentos estatísticos realizados pelo pacote `leem`**, não se limitando à obtenção automática dos resultados, mas reconhecendo os fundamentos matemáticos e estatísticos envolvidos na tabulação, no cálculo das medidas e na construção das representações gráficas;</span>
 <span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### Introdução ao Ambiente R</span></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Discutir tecnicamente os resultados obtidos**, relacionando as características estatísticas observadas às propriedades e aos fenômenos associados ao contexto da Engenharia Civil e avaliando criticamente a informação fornecida pelo conjunto de dados.</span>
 <span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a><span class="fu">#### O que é o R</span></span>
-<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>O R é um **ambiente de software livre e de código aberto** voltado para manipulação de dados, cálculo estatístico e geração de gráficos. Por isso, é comum ouvir duas formas de tratamento: "**o R**", quando se fala do programa/sistema como um todo, e "**a linguagem R**", quando se fala especificamente da sintaxe usada para escrever os comandos. Diferente de programas estatísticos comerciais fechados, o R permite que o próprio usuário crie novas funções e as compartilhe livremente com a comunidade por meio de pacotes.</span>
-<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>O projeto nasceu em **1991**, em uma Universidade da Nova Zelândia, e foi criado por **Ross Ihaka** e **Robert Gentleman**. O primeiro lançamento oficial ocorreu em **1995**, e em **1997** foi criado o **CRAN**, uma rede de servidores que distribui o programa, sua documentação e milhares de pacotes até hoje.</span>
-<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>Já o **RStudio** é a interface (IDE — *Integrated Development Environment*) mais usada para trabalhar com o R. Ele não substitui o R, apenas facilita seu uso por meio de janelas, botões e atalhos: sem o R instalado, o RStudio não funciona. A tela do RStudio é dividida em quatro áreas principais: o editor de scripts (onde o código é escrito), o console (onde o código é executado), o painel de ambiente/histórico (onde aparecem os objetos criados) e o painel de arquivos/gráficos/pacotes/ajuda.</span>
-<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Os Três Princípios que Governam o R</span></span>
-<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>Toda a lógica interna do R pode ser resumida em três ideias simples, propostas por John Chambers, criador da linguagem S (base histórica do R):</span>
-<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tudo que existe no R é um objeto** — números, textos, tabelas, gráficos e até as próprias funções são objetos guardados na memória do computador.</span>
-<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tudo que acontece no R é uma chamada de função** — até uma simples soma como <span class="in">`10 + 15`</span> é, por trás dos panos, uma função sendo executada.</span>
-<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Interfaces com outros programas fazem parte do R** — o R se comunica nativamente com linguagens como C, C++, Python e com tecnologias web (HTML, JavaScript), estendendo seu uso muito além da estatística básica.</span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sintaxe e Semântica do R</span></span>
-<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>Sintaxe é o conjunto de regras que definem *como* o código deve ser escrito; semântica é o significado por trás de cada comando — ou seja, *o que* ele realmente faz quando executado. Entender essa diferença evita a maioria dos erros cometidos por quem está começando.</span>
-<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="fu">##### O Console e o Prompt de Comando</span></span>
-<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>Ao abrir o R (ou o RStudio), aparece o símbolo <span class="in">`&gt;`</span>, chamado de **prompt de comando**. Ele indica que o R está pronto para receber uma instrução. Se o comando digitado estiver incompleto — por exemplo, um parêntese aberto que não foi fechado — o símbolo muda para <span class="in">`+`</span>, indicando que o R está esperando o restante da instrução.</span>
-<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Comentários</span></span>
-<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>Qualquer linha iniciada pelo símbolo <span class="in">`#`</span> é ignorada pelo R e serve apenas para o programador documentar o próprio raciocínio:</span>
-<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Isso é um comentário e não será executado</span></span>
-<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span></span>
-<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a><span class="fu">### Introdução ao Ambiente R</span></span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a><span class="fu">#### O que é o R</span></span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>O R é um **ambiente de software livre e de código aberto** voltado para manipulação de dados, cálculo estatístico e geração de gráficos. Por isso, é comum ouvir duas formas de tratamento: "o R", quando se fala do programa/sistema como um todo, e "a linguagem R", quando se fala especificamente da sintaxe usada para escrever os comandos. Diferente de programas estatísticos comerciais fechados, o R permite que o próprio usuário crie novas funções e as compartilhe livremente com a comunidade por meio de pacotes.</span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>O projeto nasceu em 1991, em uma Universidade da Nova Zelândia, e foi criado por Ross Ihaka e Robert Gentleman. O primeiro lançamento oficial ocorreu em 1995, e em 1997 foi criado o CRAN, uma rede de servidores que distribui o programa, sua documentação e milhares de pacotes até hoje.</span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>Já o RStudio é a interface (IDE — *Integrated Development Environment*) mais usada para trabalhar com o R. Ele não substitui o R, apenas facilita seu uso por meio de janelas, botões e atalhos: sem o R instalado, o RStudio não funciona. A tela do RStudio é dividida em quatro áreas principais: o editor de scripts (onde o código é escrito), o console (onde o código é executado), o painel de ambiente/histórico (onde aparecem os objetos criados) e o painel de arquivos/gráficos/pacotes/ajuda.</span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Os Três Princípios que Governam o R</span></span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>Toda a lógica interna do R pode ser resumida em três ideias simples, propostas por John Chambers, criador da linguagem S (base histórica do R):</span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tudo que existe no R é um objeto** — números, textos, tabelas, gráficos e até as próprias funções são objetos guardados na memória do computador.</span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tudo que acontece no R é uma chamada de função** — até uma simples soma como <span class="in">`10 + 15`</span> é, por trás dos panos, uma função sendo executada.</span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Interfaces com outros programas fazem parte do R** — o R se comunica nativamente com linguagens como C, C++, Python e com tecnologias web (HTML, JavaScript), estendendo seu uso muito além da estatística básica.</span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sintaxe e Semântica do R</span></span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>Sintaxe é o conjunto de regras que definem como o código deve ser escrito; semântica é o significado por trás de cada comando — ou seja, o que ele realmente faz quando executado. Entender essa diferença evita a maioria dos erros cometidos por quem está começando.</span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a><span class="fu">##### O Console e o Prompt de Comando</span></span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>Ao abrir o R (ou o RStudio), aparece o símbolo <span class="in">`&gt;`</span>, chamado de prompt de comando. Ele indica que o R está pronto para receber uma instrução. Se o comando digitado estiver incompleto — por exemplo, um parêntese aberto que não foi fechado — o símbolo muda para <span class="in">`+`</span>, indicando que o R está esperando o restante da instrução.</span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Comentários</span></span>
 <span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>**Boa prática:** evitar acentos e caracteres especiais (ç, ã, á etc.) em comentários e nomes de variáveis, pois diferentes sistemas operacionais podem interpretar essa codificação de forma diferente e corromper a exibição do texto.</span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>Qualquer linha iniciada pelo símbolo <span class="in">`#`</span> é ignorada pelo R e serve apenas para o programador documentar o próprio raciocínio:</span>
 <span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Nomes de Objetos</span></span>
-<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>Para criar um objeto, é preciso dar a ele um nome válido. As regras básicas são:</span>
-<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Nomes válidos**: começam com letra (ou ponto, desde que não seguido de número) e podem conter letras, números, pontos (<span class="in">`.`</span>) e underlines (<span class="in">`_`</span>).</span>
-<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Nomes inválidos**: começam com número, contêm espaços ou operadores matemáticos.</span>
-<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Palavras reservadas**: termos que já têm função própria na linguagem e não podem ser usados como nome de objeto, como <span class="in">`if`</span>, <span class="in">`else`</span>, <span class="in">`for`</span>, <span class="in">`while`</span>, <span class="in">`function`</span>, <span class="in">`TRUE`</span>, <span class="in">`FALSE`</span>, <span class="in">`NULL`</span>, <span class="in">`NA`</span>, entre outros.</span>
-<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>O R também é **sensível a maiúsculas e minúsculas** (*case-sensitive*): <span class="in">`idade`</span> e <span class="in">`Idade`</span> são dois objetos completamente diferentes.</span>
-<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Expressões versus Atribuições</span></span>
-<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a>Existem dois tipos básicos de comando no R:</span>
-<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Expressão**: o R calcula e mostra o resultado na tela, mas não guarda esse valor para uso posterior.</span>
-<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Atribuição**: o R calcula o resultado e o guarda de forma permanente em um nome escolhido, mas **não mostra nada na tela**. Para ver o valor guardado, basta digitar o nome do objeto.</span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Isso é um comentário e não será executado</span></span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span></span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>**Boa prática:** evitar acentos e caracteres especiais (ç, ã, á etc.) em comentários e nomes de variáveis, pois diferentes sistemas operacionais podem interpretar essa codificação de forma diferente e corromper a exibição do texto.</span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Nomes de Objetos</span></span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a>Para criar um objeto, é preciso dar a ele um nome válido. As regras básicas são:</span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Nomes válidos**: começam com letra (ou ponto, desde que não seguido de número) e podem conter letras, números, pontos (<span class="in">`.`</span>) e underlines (<span class="in">`_`</span>).</span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Nomes inválidos**: começam com número, contêm espaços ou operadores matemáticos.</span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Palavras reservadas**: termos que já têm função própria na linguagem e não podem ser usados como nome de objeto, como <span class="in">`if`</span>, <span class="in">`else`</span>, <span class="in">`for`</span>, <span class="in">`while`</span>, <span class="in">`function`</span>, <span class="in">`TRUE`</span>, <span class="in">`FALSE`</span>, <span class="in">`NULL`</span>, <span class="in">`NA`</span>, entre outros.</span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>O R também é sensível a maiúsculas e minúsculas (*case-sensitive*): <span class="in">`idade`</span> e <span class="in">`Idade`</span> são dois objetos completamente diferentes.</span>
 <span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span>        <span class="co"># expressão: mostra 25 na tela, mas não guarda</span></span>
-<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a>soma <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span>  <span class="co"># atribuição: guarda o resultado no objeto "soma"</span></span>
-<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>soma             <span class="co"># agora sim, mostra o valor guardado</span></span>
-<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a><span class="fu">##### O Operador de Atribuição: `&lt;-` versus `=`</span></span>
-<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a>Embora o R aceite o sinal de igual (<span class="in">`=`</span>) para atribuir valores, a prática recomendada é sempre usar a seta <span class="in">`&lt;-`</span>:</span>
-<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a>nome_do_objeto <span class="ot">&lt;-</span> valor_ou_expressao</span>
-<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a>O motivo é evitar confusão: o <span class="in">`=`</span> já tem uma função própria e exclusiva no R, que é atribuir valores aos **argumentos dentro de uma função** (por exemplo, <span class="in">`plot(x = dados)`</span>). Usar <span class="in">`=`</span> também para criar objetos no ambiente de trabalho pode gerar erros difíceis de identificar em códigos mais longos.</span>
-<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Múltiplos Comandos na Mesma Linha</span></span>
-<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>É possível executar mais de um comando em uma única linha, separando-os por ponto e vírgula (<span class="in">`;`</span>). O R processa cada um, da esquerda para a direita:</span>
-<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span>; y <span class="ot">&lt;-</span> <span class="dv">10</span>; x <span class="sc">+</span> y</span>
-<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.7. Como o R Guarda o que é Criado</span></span>
-<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>Todo objeto criado com <span class="in">`&lt;-`</span> fica armazenado no **Ambiente Global** (<span class="in">`.GlobalEnv`</span>), que funciona como a área de trabalho ativa da sessão. É possível consultar tudo o que já foi criado com o comando:</span>
-<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span>
-<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a>E é possível saber em qual pasta do computador o R está trabalhando (o **diretório de trabalho**) com:</span>
-<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a>Ou alterar essa pasta com:</span>
-<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/meu_projeto_R"</span>)</span>
-<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>**Atenção:** o R não aceita barra invertida (<span class="in">`\`</span>) em caminhos de pastas — é preciso usar sempre a barra normal (<span class="in">`/`</span>).</span>
-<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Objetos, Tipos e Pacotes (Visão Geral)</span></span>
-<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>Todo objeto no R possui um **tipo básico**, que define que tipo de dado ele guarda: <span class="in">`logical`</span> (verdadeiro/falso), <span class="in">`integer`</span> (números inteiros), <span class="in">`double`</span> (números decimais) e <span class="in">`character`</span> (texto). Estruturas mais elaboradas, como tabelas (*data frames*), não são tipos novos — são, na verdade, listas que receberam atributos extras para se comportar como tabela na tela.</span>
-<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>Além dos recursos nativos, o R pode ser expandido por **pacotes**: conjuntos de funções extras criados pela comunidade. Um pacote precisa primeiro ser **instalado** (baixado uma única vez) e depois **carregado** em cada sessão de trabalho para poder ser usado:</span>
-<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nome_do_pacote"</span>)</span>
-<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nome_do_pacote)</span>
-<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Expressões versus Atribuições</span></span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a>Existem dois tipos básicos de comando no R:</span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Expressão**: o R calcula e mostra o resultado na tela, mas não guarda esse valor para uso posterior.</span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Atribuição**: o R calcula o resultado e o guarda de forma permanente em um nome escolhido, mas não mostra nada na tela. Para ver o valor guardado, basta digitar o nome do objeto.</span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span>        <span class="co"># expressão: mostra 25 na tela, mas não guarda</span></span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a>soma <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span>  <span class="co"># atribuição: guarda o resultado no objeto "soma"</span></span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a>soma             <span class="co"># agora sim, mostra o valor guardado</span></span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a><span class="fu">##### O Operador de Atribuição: `&lt;-` versus `=`</span></span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>Embora o R aceite o sinal de igual (<span class="in">`=`</span>) para atribuir valores, a prática recomendada é sempre usar a seta <span class="in">`&lt;-`</span>:</span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>nome_do_objeto <span class="ot">&lt;-</span> valor_ou_expressao</span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>O motivo é evitar confusão: o <span class="in">`=`</span> já tem uma função própria e exclusiva no R, que é atribuir valores aos argumentos dentro de uma função (por exemplo, <span class="in">`plot(x = dados)`</span>). Usar <span class="in">`=`</span> também para criar objetos no ambiente de trabalho pode gerar erros difíceis de identificar em códigos mais longos.</span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Múltiplos Comandos na Mesma Linha</span></span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>É possível executar mais de um comando em uma única linha, separando-os por ponto e vírgula (<span class="in">`;`</span>). O R processa cada um, da esquerda para a direita:</span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span>; y <span class="ot">&lt;-</span> <span class="dv">10</span>; x <span class="sc">+</span> y</span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a><span class="fu">### Como o R Guarda o que é Criado</span></span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>Todo objeto criado com <span class="in">`&lt;-`</span> fica armazenado no Ambiente Global (<span class="in">`.GlobalEnv`</span>), que funciona como a área de trabalho ativa da sessão. É possível consultar tudo o que já foi criado com o comando:</span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>E é possível saber em qual pasta do computador o R está trabalhando (o diretório de trabalho) com:</span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a>Ou alterar essa pasta com:</span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/meu_projeto_R"</span>)</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>**Atenção:** o R não aceita barra invertida (<span class="in">`\`</span>) em caminhos de pastas — é preciso usar sempre a barra normal (<span class="in">`/`</span>).</span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Objetos, Tipos e Pacotes (Visão Geral)</span></span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a>Todo objeto no R possui um tipo básico, que define que tipo de dado ele guarda: <span class="in">`logical`</span> (verdadeiro/falso), <span class="in">`integer`</span> (números inteiros), <span class="in">`double`</span> (números decimais) e <span class="in">`character`</span> (texto). Estruturas mais elaboradas, como tabelas (*data frames*), não são tipos novos — são, na verdade, listas que receberam atributos extras para se comportar como tabela na tela.</span>
 <span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>Quando se quer usar apenas uma função de um pacote, sem carregá-lo por completo, usa-se o operador de dois-pontos duplo:</span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>Além dos recursos nativos, o R pode ser expandido por pacotes: conjuntos de funções extras criados pela comunidade. Um pacote precisa primeiro ser instalado (baixado uma única vez) e depois carregado em cada sessão de trabalho para poder ser usado:</span>
 <span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a>nome_do_pacote<span class="sc">::</span><span class="fu">nome_da_funcao</span>(argumentos)</span>
-<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a>O R é, ao mesmo tempo, uma linguagem e um ambiente: sua sintaxe é organizada em torno de poucos elementos centrais — o prompt de comando, os comentários, as regras de nomeação, a atribuição com <span class="in">`&lt;-`</span> e a chamada de funções — e sua semântica segue três princípios simples (tudo é objeto, tudo é função, e o R se comunica com outros sistemas). Compreender essa base é o primeiro passo para escrever código limpo, reprodutível e livre de erros comuns de digitação e de interpretação.</span>
-<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"nome_do_pacote"</span>)</span>
+<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nome_do_pacote)</span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>Quando se quer usar apenas uma função de um pacote, sem carregá-lo por completo, usa-se o operador de dois-pontos duplo:</span>
 <span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>Apresente os conceitos principais:</span>
-<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Média</span>
-<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variância</span>
-<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Desvio padrão</span>
-<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Amostragem</span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a>nome_do_pacote<span class="sc">::</span><span class="fu">nome_da_funcao</span>(argumentos)</span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>O R é, ao mesmo tempo, uma linguagem e um ambiente: sua sintaxe é organizada em torno de poucos elementos centrais — o prompt de comando, os comentários, as regras de nomeação, a atribuição com <span class="in">`&lt;-`</span> e a chamada de funções — e sua semântica segue três princípios simples (tudo é objeto, tudo é função, e o R se comunica com outros sistemas). Compreender essa base é o primeiro passo para escrever código limpo, reprodutível e livre de erros comuns de digitação e de interpretação.</span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a>\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i</span>
-<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
-<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
-<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
-<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
-<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a>Apresente os conceitos principais:</span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Média</span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variância</span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Desvio padrão</span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Amostragem</span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conceitos Fundamentais</span></span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a><span class="fu">#### População ($N$) e Amostra ($n$)</span></span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**População:** conjunto finito ou infinito de todos os elementos que compartilham pelo menos uma característica de interesse; tamanho denotado por $N$. É *finita* se pode ser totalmente enumerada, *infinita* caso contrário.</span>
+<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Amostra:** subconjunto representativo extraído da população, tamanho $n$. É sempre finita, pois todos os seus elementos precisam ser efetivamente examinados. Quando se tem acesso a todos os elementos da população, faz-se um **Censo**, o que elimina a necessidade de inferência estatística.</span>
+<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a>Esses dois símbolos ($N$ para população, $n$ para amostra) percorrem quase toda fórmula do restante do documento — inclusive determinando qual versão de uma fórmula usar (populacional ou amostral).</span>
 <span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Classificação de Variáveis</span></span>
 <span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
+<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a>A variável é a característica pela qual se deseja descrever a população — o mecanismo operacional da pesquisa. Classifica-se assim:</span>
 <span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
-<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
-<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
-<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
-<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
+<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Qualitativa** (expressa atributo/categoria): *Nominal* — sem ordenação natural (ex.: sexo, estado); *Ordinal* — com hierarquia lógica (ex.: classe social, faixa etária).</span>
+<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Quantitativa** (valor numérico inerente): *Discreta* — resulta de contagem, sem valores intermediários possíveis (ex.: número de erros); *Contínua* — resulta de mensuração, pode assumir qualquer valor real num intervalo (ex.: resistência à tração).</span>
+<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a>Três ressalvas importantes do texto: (1) uma variável quantitativa pode ser recodificada como qualitativa ordinal (idade em anos → faixa etária); (2) números que servem só como identificador (código de sexo 1/2) continuam sendo qualitativos; (3) na prática toda variável contínua sofre alguma discretização pela limitação dos instrumentos de medição, mas sua modelagem teórica permanece contínua.</span>
+<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
+<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### Notação de Somatório</span></span>
 <span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
-<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
-<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
-<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
-<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
-<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
-<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
-<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
-<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
+<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a>Base algébrica de quase todas as fórmulas seguintes — necessária para sintetizar somas repetitivas de forma compacta.</span>
+<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Somatório Simples</span></span>
+<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a>$$\sum_{i=1}^{m} X_i = X_1 + X_2 + \dots + X_m$$</span>
+<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a>$i$ é o índice de posição (começa em 1), $m$ é o limite superior (pode ser $n$ ou $N$), $X_i$ é o valor da observação $i$. Representa a soma acumulada de todos os valores de $X$ da primeira até a $m$-ésima observação. Em R: <span class="in">`sum(X)`</span>.</span>
+<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Somatório dos Quadrados vs. Quadrado do Somatório</span></span>
+<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a>$$\text{(A) } \sum_{i=1}^{n} X_i^2 = X_1^2+\dots+X_n^2 \qquad \text{(B) } \left( \sum_{i=1}^{n} X_i \right)^2 = (X_1+\dots+X_n)^2$$</span>
+<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a>O texto marca essa distinção como **fundamental** por ser a fonte de erro mais comum no cálculo de medidas de dispersão: em (A) eleva-se cada observação ao quadrado e depois soma-se (<span class="in">`sum(X^2)`</span>); em (B) soma-se tudo primeiro e eleva-se o resultado final ao quadrado (<span class="in">`sum(X)^2`</span>).</span>
 <span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
+<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Duplo Somatório</span></span>
 <span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a>distancia</span>
-<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-249"><a href="#cb12-249" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb12-250"><a href="#cb12-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-251"><a href="#cb12-251" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
-<span id="cb12-252"><a href="#cb12-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-253"><a href="#cb12-253" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
-<span id="cb12-254"><a href="#cb12-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
-<span id="cb12-255"><a href="#cb12-255" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
-<span id="cb12-256"><a href="#cb12-256" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
+<span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a>$$\sum_{i=1}^{n} \sum_{j=1}^{n} X_i Y_j$$</span>
+<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a>Usado quando se soma sobre duas indexações distintas (modelos multivariados, tabelas de dupla entrada, regressão linear): fixa-se o índice externo $i$ e percorre-se toda a variação do índice interno $j$, repetindo até esgotar todas as combinações — soma dos produtos cruzados entre dois conjuntos de dados.</span>
+<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Propriedades Algébricas do Somatório (Teorema 1.1)</span></span>
+<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a>$$\text{I) } \sum a X_i = a\sum X_i \qquad \text{II) } \sum_{i=1}^n k = nk \qquad \text{III) } \sum (aX_i \pm bY_i) = a\sum X_i \pm b\sum Y_i$$</span>
+<span id="cb12-249"><a href="#cb12-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-250"><a href="#cb12-250" aria-hidden="true" tabindex="-1"></a>I: constante multiplicativa sai do somatório. II: somar uma constante $k$, $n$ vezes, equivale ao produto $nk$. III: o somatório de uma combinação linear de duas variáveis é igual à combinação linear dos somatórios individuais.</span>
+<span id="cb12-251"><a href="#cb12-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-252"><a href="#cb12-252" aria-hidden="true" tabindex="-1"></a>$$\text{IV) } \sum_{i=1}^{n} (X_i - \bar{X}) = 0$$</span>
+<span id="cb12-253"><a href="#cb12-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-254"><a href="#cb12-254" aria-hidden="true" tabindex="-1"></a>**Propriedade do Desvio Nulo:** a média é o ponto de equilíbrio perfeito da distribuição — a soma dos desvios positivos se anula exatamente com a soma dos desvios negativos. É por isso que medidas de dispersão baseadas em desvios (Tópico 5) precisam elevar ao quadrado ou usar módulo, senão o resultado seria sempre zero.</span>
+<span id="cb12-255"><a href="#cb12-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-256"><a href="#cb12-256" aria-hidden="true" tabindex="-1"></a>$$\text{V) } \sum_{i=1}^{n} (X_i - \bar{X})^2 = \sum_{i=1}^{n} X_i^2 - \frac{\left( \sum_{i=1}^{n} X_i \right)^2}{n}$$</span>
 <span id="cb12-257"><a href="#cb12-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-258"><a href="#cb12-258" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
+<span id="cb12-258"><a href="#cb12-258" aria-hidden="true" tabindex="-1"></a>**Identidade Descritiva da Soma de Quadrados de Desvios:** permite calcular a soma de quadrados dos desvios usando apenas a soma dos quadrados dos dados brutos e o quadrado da soma geral — evitando ter que calcular cada desvio individual manualmente. É a "fórmula prática" usada por trás de <span class="in">`var()`</span> no R.</span>
 <span id="cb12-259"><a href="#cb12-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-260"><a href="#cb12-260" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb12-260"><a href="#cb12-260" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb12-261"><a href="#cb12-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-262"><a href="#cb12-262" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb12-262"><a href="#cb12-262" aria-hidden="true" tabindex="-1"></a><span class="fu">### Organização de Dados e Frequências</span></span>
 <span id="cb12-263"><a href="#cb12-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-264"><a href="#cb12-264" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<span id="cb12-264"><a href="#cb12-264" aria-hidden="true" tabindex="-1"></a>Dados coletados sem ordenação são dados brutos; o primeiro tratamento é organizá-los.</span>
+<span id="cb12-265"><a href="#cb12-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-266"><a href="#cb12-266" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Dados em Rol</span></span>
+<span id="cb12-267"><a href="#cb12-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-268"><a href="#cb12-268" aria-hidden="true" tabindex="-1"></a>$$X_{(1)}, X_{(2)}, \dots, X_{(n)}$$</span>
+<span id="cb12-269"><a href="#cb12-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-270"><a href="#cb12-270" aria-hidden="true" tabindex="-1"></a>Ordenação alfanumérica crescente ou decrescente dos dados brutos. Os parênteses no índice indicam posição após a ordenação: $X_{(1)}=\min(X_i)$, $X_{(n)}=\max(X_i)$. É a fase inicial indispensável de qualquer análise de variável quantitativa, pois já revela os limites do conjunto e é pré-requisito para o cálculo da mediana. Em R: <span class="in">`sort(X)`</span>.</span>
+<span id="cb12-271"><a href="#cb12-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-272"><a href="#cb12-272" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Frequência Relativa</span></span>
+<span id="cb12-273"><a href="#cb12-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-274"><a href="#cb12-274" aria-hidden="true" tabindex="-1"></a>$$F_{ri} = \frac{F_i}{\sum_{i=1}^{k} F_i}$$</span>
+<span id="cb12-275"><a href="#cb12-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-276"><a href="#cb12-276" aria-hidden="true" tabindex="-1"></a>$F_i$ = frequência absoluta do grupo $i$ (número de vezes que o valor/grupo foi observado, com $\sum F_i = n$). $F_{ri}$ padroniza essa contagem em proporção (intervalo $<span class="co">[</span><span class="ot">0,1</span><span class="co">]</span>$), o que facilita comparar grupos com totais diferentes.</span>
+<span id="cb12-277"><a href="#cb12-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-278"><a href="#cb12-278" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Frequência Percentual</span></span>
+<span id="cb12-279"><a href="#cb12-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-280"><a href="#cb12-280" aria-hidden="true" tabindex="-1"></a>$$F_{\%i} = F_{ri} \times 100$$</span>
+<span id="cb12-281"><a href="#cb12-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-282"><a href="#cb12-282" aria-hidden="true" tabindex="-1"></a>Conversão da frequência relativa para escala percentual — a soma de todas as frequências percentuais é sempre 100%. É a forma de apresentação padrão em relatórios técnicos.</span>
+<span id="cb12-283"><a href="#cb12-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-284"><a href="#cb12-284" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Frequência Acumulada "Abaixo de" e "Acima de"</span></span>
+<span id="cb12-285"><a href="#cb12-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-286"><a href="#cb12-286" aria-hidden="true" tabindex="-1"></a>$$F_{ac\downarrow i} = \sum_{j=1}^{i} F_j \qquad\qquad F_{ac\uparrow i} = \sum_{j=i}^{k} F_j$$</span>
+<span id="cb12-287"><a href="#cb12-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-288"><a href="#cb12-288" aria-hidden="true" tabindex="-1"></a>A primeira responde "no máximo, quantas observações têm valor igual ou inferior a este patamar?" — soma do primeiro grupo até o grupo $i$; o último valor acumulado é sempre $n$. A segunda responde "no mínimo, quantas observações têm valor igual ou superior?" — soma do grupo $i$ até o último ($k$); o primeiro valor acumulado é $n$, decrescendo até coincidir com a frequência simples do último grupo. Se a pergunta exigir exclusão do limite da própria classe ("estritamente acima/abaixo"), os somatórios mudam para $\sum_{j=1}^{i-1}$ e $\sum_{j=i+1}^{k}$.</span>
+<span id="cb12-289"><a href="#cb12-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-290"><a href="#cb12-290" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Construção de Intervalos de Classe (variáveis contínuas — algoritmo de 7 passos)</span></span>
+<span id="cb12-291"><a href="#cb12-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-292"><a href="#cb12-292" aria-hidden="true" tabindex="-1"></a>Como valores contínuos raramente se repetem, agrupam-se em classes para tornar a análise inteligível.</span>
+<span id="cb12-293"><a href="#cb12-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-294"><a href="#cb12-294" aria-hidden="true" tabindex="-1"></a>**Passo 1 — número de classes:**</span>
+<span id="cb12-295"><a href="#cb12-295" aria-hidden="true" tabindex="-1"></a>$$k \approx \begin{cases} \sqrt{m}, &amp; m \le 100 <span class="sc">\\</span> 5\log_{10}(m), &amp; m &gt; 100 \end{cases}$$</span>
+<span id="cb12-296"><a href="#cb12-296" aria-hidden="true" tabindex="-1"></a>Arredonda-se para o inteiro mais próximo; evita-se $k&lt;3$, e reinicia-se o cálculo se alguma classe resultante tiver frequência zero.</span>
+<span id="cb12-297"><a href="#cb12-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-298"><a href="#cb12-298" aria-hidden="true" tabindex="-1"></a>**Passo 2 — amplitude total:** $A_t = X_{(n)} - X_{(1)}$ (distância entre maior e menor valor).</span>
+<span id="cb12-299"><a href="#cb12-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-300"><a href="#cb12-300" aria-hidden="true" tabindex="-1"></a>**Passo 3 — amplitude de cada classe:**</span>
+<span id="cb12-301"><a href="#cb12-301" aria-hidden="true" tabindex="-1"></a>$$c = \begin{cases} \dfrac{A_t}{k-1}, &amp; \text{Amostra} <span class="sc">\\</span> \dfrac{A_t}{k}, &amp; \text{População} \end{cases}$$</span>
+<span id="cb12-302"><a href="#cb12-302" aria-hidden="true" tabindex="-1"></a>A divisão por $k-1$ na amostra funciona como correção, sob a premissa de que uma amostra dificilmente contém os valores extremos reais da população (Ferreira, 2009).</span>
+<span id="cb12-303"><a href="#cb12-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-304"><a href="#cb12-304" aria-hidden="true" tabindex="-1"></a>**Passo 4 — limite inferior da 1ª classe:**</span>
+<span id="cb12-305"><a href="#cb12-305" aria-hidden="true" tabindex="-1"></a>$$L_{i1^a} = \begin{cases} X_{(1)} - \dfrac{c}{2}, &amp; \text{Amostra} <span class="sc">\\</span> X_{(1)}, &amp; \text{População} \end{cases}$$</span>
+<span id="cb12-306"><a href="#cb12-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-307"><a href="#cb12-307" aria-hidden="true" tabindex="-1"></a>**Passo 5 — construção das classes:** notação $L_i \mid<span class="sc">\!\!</span>\text{---}\, L_s$, com limite inferior inclusive (fechado) e superior exclusive (aberto); o limite superior de uma classe vira o inferior da seguinte. A última classe pode, opcionalmente, fechar os dois lados.</span>
+<span id="cb12-308"><a href="#cb12-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-309"><a href="#cb12-309" aria-hidden="true" tabindex="-1"></a>**Passo 6 — ponto médio da classe:**</span>
+<span id="cb12-310"><a href="#cb12-310" aria-hidden="true" tabindex="-1"></a>$$X_{\sim i} = \frac{L_{i} + L_{s}}{2}$$</span>
+<span id="cb12-311"><a href="#cb12-311" aria-hidden="true" tabindex="-1"></a>Sua adoção se justifica pela hipótese tabular básica: assume-se que os dados dentro de uma classe se distribuem aproximadamente de forma uniforme, tornando o ponto médio o valor que minimiza o erro de representação. É o valor usado em todos os cálculos posteriores (média, variância, desvio padrão) quando só se tem a tabela de frequências, não os dados brutos.</span>
+<span id="cb12-312"><a href="#cb12-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-313"><a href="#cb12-313" aria-hidden="true" tabindex="-1"></a>**Passo 7:** computa-se as frequências absolutas, relativas, percentuais e acumuladas de cada classe.</span>
+<span id="cb12-314"><a href="#cb12-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-315"><a href="#cb12-315" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ângulo do Gráfico de Setores</span></span>
+<span id="cb12-316"><a href="#cb12-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-317"><a href="#cb12-317" aria-hidden="true" tabindex="-1"></a>$$\text{Ângulo (graus)} = \frac{F_{\%i} \times 360}{100}$$</span>
+<span id="cb12-318"><a href="#cb12-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-319"><a href="#cb12-319" aria-hidden="true" tabindex="-1"></a>Regra de três simples para converter a frequência percentual de uma categoria em ângulo dentro do círculo de 360°. O texto observa que gráficos de barras são preferíveis a gráficos de setores em ambientes científicos, porque a percepção humana avalia comprimentos com mais precisão do que áreas circulares ou ângulos.</span>
+<span id="cb12-320"><a href="#cb12-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-321"><a href="#cb12-321" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-322"><a href="#cb12-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-323"><a href="#cb12-323" aria-hidden="true" tabindex="-1"></a><span class="fu">### Medidas de Posição (Tendência Central)</span></span>
+<span id="cb12-324"><a href="#cb12-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-325"><a href="#cb12-325" aria-hidden="true" tabindex="-1"></a>Resumem em um único valor o ponto em torno do qual os dados tendem a se agrupar.</span>
+<span id="cb12-326"><a href="#cb12-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-327"><a href="#cb12-327" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Média Aritmética Simples</span></span>
+<span id="cb12-328"><a href="#cb12-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-329"><a href="#cb12-329" aria-hidden="true" tabindex="-1"></a>$$\mu = \frac{\sum_{i=1}^{N} X_i}{N} \quad \text{(populacional)} \qquad \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} \quad \text{(amostral)}$$</span>
+<span id="cb12-330"><a href="#cb12-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-331"><a href="#cb12-331" aria-hidden="true" tabindex="-1"></a>Pode ser entendida fisicamente como o centro de gravidade de um sistema de pesos distribuído ao longo do eixo das observações — o valor que cada unidade teria se a soma total fosse igualmente redistribuída entre todos os elementos. $\mu$ é o parâmetro (geralmente desconhecido na prática); $\bar{X}$ é o estimador não viesado calculado na amostra. Indicada para variáveis quantitativas simétricas e sem outliers. Em R: <span class="in">`mean(X)`</span>.</span>
+<span id="cb12-332"><a href="#cb12-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-333"><a href="#cb12-333" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Média para Dados Agrupados</span></span>
+<span id="cb12-334"><a href="#cb12-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-335"><a href="#cb12-335" aria-hidden="true" tabindex="-1"></a>$$\bar{X} = \frac{\sum_{i=1}^{k} X_{\sim i} \times F_i}{\sum_{i=1}^{k} F_i}$$</span>
+<span id="cb12-336"><a href="#cb12-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-337"><a href="#cb12-337" aria-hidden="true" tabindex="-1"></a>Usada quando os dados brutos já foram consolidados em tabela de frequência (para economizar processamento ou por ausência dos dados originais). Para variáveis contínuas há leve perda de precisão frente à média dos dados brutos, pois cada observação real é substituída pelo ponto médio $X_{\sim i}$ de sua classe.</span>
+<span id="cb12-338"><a href="#cb12-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-339"><a href="#cb12-339" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Propriedades da Média (Teorema 3.1)</span></span>
+<span id="cb12-340"><a href="#cb12-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-341"><a href="#cb12-341" aria-hidden="true" tabindex="-1"></a>$$Y_i = X_i \pm c \Rightarrow \bar{Y} = \bar{X} \pm c \qquad\qquad Y_i = X_i \times c \Rightarrow \bar{Y} = \bar{X} \times c$$</span>
+<span id="cb12-342"><a href="#cb12-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-343"><a href="#cb12-343" aria-hidden="true" tabindex="-1"></a>Somar/subtrair uma constante desloca a média exatamente por essa constante; multiplicar/dividir escala a média pelo mesmo fator. Além disso, a soma $\sum (X_i-c)^2$ atinge seu mínimo absoluto exatamente quando $c=\bar{X}$ (demonstrável igualando a derivada em relação a $c$ a zero) — ou seja, a média é o ponto que minimiza a soma de quadrados dos desvios, propriedade que fundamenta o método dos mínimos quadrados.</span>
+<span id="cb12-344"><a href="#cb12-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-345"><a href="#cb12-345" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Média Aparada</span></span>
+<span id="cb12-346"><a href="#cb12-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-347"><a href="#cb12-347" aria-hidden="true" tabindex="-1"></a>$$\bar{X}_{ap} = \frac{\sum_{i=2}^{n-1} X_{(i)}}{n-2}$$</span>
+<span id="cb12-348"><a href="#cb12-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-349"><a href="#cb12-349" aria-hidden="true" tabindex="-1"></a>A média tradicional é muito vulnerável a outliers — uma única observação discrepante pode distorcer o resultado. A média aparada descarta uma fração fixa dos extremos (aqui, 1 observação em cada cauda do Rol) antes de calcular a média, funcionando como alternativa robusta. Indicada em amostras pequenas com suspeita de outliers ou erro de digitação. Em R: <span class="in">`mean(X, trim = ...)`</span>.</span>
+<span id="cb12-350"><a href="#cb12-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-351"><a href="#cb12-351" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Mediana — dados não agrupados</span></span>
+<span id="cb12-352"><a href="#cb12-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-353"><a href="#cb12-353" aria-hidden="true" tabindex="-1"></a>$$M_d(X) = \begin{cases} \dfrac{X_{(n/2)} + X_{(n/2+1)}}{2}, &amp; n \text{ par} <span class="sc">\\</span><span class="co">[</span><span class="ot">6pt</span><span class="co">]</span> X_{((n+1)/2)}, &amp; n \text{ ímpar} \end{cases}$$</span>
+<span id="cb12-354"><a href="#cb12-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-355"><a href="#cb12-355" aria-hidden="true" tabindex="-1"></a>Divide a distribuição ordenada exatamente ao meio (50% abaixo, 50% acima). Por depender só da posição e não da magnitude dos valores, é uma medida robusta, insensível a outliers — ao contrário da média. Aplicável também a variáveis qualitativas ordinais. Em R: <span class="in">`median(X)`</span>.</span>
+<span id="cb12-356"><a href="#cb12-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-357"><a href="#cb12-357" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Mediana — dados agrupados em classes</span></span>
+<span id="cb12-358"><a href="#cb12-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-359"><a href="#cb12-359" aria-hidden="true" tabindex="-1"></a>$$M_d(X) = L_{IMd} + \left<span class="sc">\{</span> \frac{\dfrac{n}{2} - f_{ant}}{f_{Md}} \right<span class="sc">\}</span> \times c$$</span>
+<span id="cb12-360"><a href="#cb12-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-361"><a href="#cb12-361" aria-hidden="true" tabindex="-1"></a>Interpolação linear dentro da classe da mediana (identificada acumulando frequências até atingir o valor igual ou imediatamente superior a $n/2$): $L_{IMd}$ é o limite inferior dessa classe, $f_{ant}$ a frequência acumulada "abaixo de" até a classe anterior, $f_{Md}$ a frequência simples da própria classe, $c$ a amplitude da classe. Existe um método equivalente baseado no limite superior ($L_{SMd}$ e $f_{post}$). Geometricamente, é o ponto que divide a área do histograma em duas metades iguais — coincide com o ponto de interseção das ogivas crescente e decrescente.</span>
+<span id="cb12-362"><a href="#cb12-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-363"><a href="#cb12-363" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Moda — dados discretos</span></span>
+<span id="cb12-364"><a href="#cb12-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-365"><a href="#cb12-365" aria-hidden="true" tabindex="-1"></a>Valor de maior frequência simples. Distribuições podem ser amodais (todas as frequências iguais), unimodais, bimodais/multimodais (dois ou mais picos).</span>
+<span id="cb12-366"><a href="#cb12-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-367"><a href="#cb12-367" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Moda — dados agrupados (Fórmula de Czuber)</span></span>
+<span id="cb12-368"><a href="#cb12-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-369"><a href="#cb12-369" aria-hidden="true" tabindex="-1"></a>$$M_o(X) = L_{IMo} + \left<span class="sc">\{</span> \frac{\Delta_1}{\Delta_1 + \Delta_2} \right<span class="sc">\}</span> \times c, \qquad \Delta_1 = f_{Mo}-f_{iant},\;\; \Delta_2 = f_{Mo}-f_{ipost}$$</span>
+<span id="cb12-370"><a href="#cb12-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-371"><a href="#cb12-371" aria-hidden="true" tabindex="-1"></a>Como valores contínuos raramente se repetem exatamente, estima-se a moda a partir da classe de maior densidade (classe modal, frequência $f_{Mo}$): $L_{IMo}$ é o limite inferior dessa classe; $\Delta_1$ e $\Delta_2$ comparam a frequência modal com a das classes vizinhas (anterior e posterior). O ponto estimado é "puxado" na direção da classe vizinha mais concentrada — o texto descreve isso como ponderação pela "atração gravitacional" das frequências vizinhas.</span>
+<span id="cb12-372"><a href="#cb12-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-373"><a href="#cb12-373" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Relação Empírica de Pearson</span></span>
+<span id="cb12-374"><a href="#cb12-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-375"><a href="#cb12-375" aria-hidden="true" tabindex="-1"></a>$$M_o(X) = 3\,M_d(X) - 2\,\bar{X}$$</span>
+<span id="cb12-376"><a href="#cb12-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-377"><a href="#cb12-377" aria-hidden="true" tabindex="-1"></a>Aproximação prática da moda quando já se conhecem média e mediana, válida em distribuições unimodais moderadamente assimétricas: a distância entre média e moda é aproximadamente o triplo da distância entre média e mediana.</span>
+<span id="cb12-378"><a href="#cb12-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-379"><a href="#cb12-379" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-380"><a href="#cb12-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-381"><a href="#cb12-381" aria-hidden="true" tabindex="-1"></a><span class="fu">### Medidas de Dispersão (Variabilidade)</span></span>
+<span id="cb12-382"><a href="#cb12-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-383"><a href="#cb12-383" aria-hidden="true" tabindex="-1"></a>Grupos com médias idênticas podem ter dispersões totalmente diferentes — essas medidas indicam o quão representativa a média realmente é.</span>
+<span id="cb12-384"><a href="#cb12-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-385"><a href="#cb12-385" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Amplitude Total</span></span>
+<span id="cb12-386"><a href="#cb12-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-387"><a href="#cb12-387" aria-hidden="true" tabindex="-1"></a>$$A_p = X_{(N)} - X_{(1)} \quad \text{(populacional)} \qquad A = X_{(n)} - X_{(1)} \quad \text{(amostral)}$$</span>
+<span id="cb12-388"><a href="#cb12-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-389"><a href="#cb12-389" aria-hidden="true" tabindex="-1"></a>Distância entre a maior e a menor observação. Serve como indicador inicial rápido de variabilidade (controle de qualidade, definição preliminar de classes), mas ignora completamente a distribuição interna dos dados intermediários, é muito sensível a outliers, e tende a subestimar a amplitude real da população quando calculada só na amostra (estimador viesado). Em R: <span class="in">`diff(range(X))`</span>.</span>
+<span id="cb12-390"><a href="#cb12-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-391"><a href="#cb12-391" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Desvio Médio Simples</span></span>
+<span id="cb12-392"><a href="#cb12-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-393"><a href="#cb12-393" aria-hidden="true" tabindex="-1"></a>$$DM = \sum_{i=1}^{n} (X_i - \bar{X})$$</span>
+<span id="cb12-394"><a href="#cb12-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-395"><a href="#cb12-395" aria-hidden="true" tabindex="-1"></a>**Limitação matemática insuperável:** por causa da propriedade do desvio nulo (Tópico 2.4-IV), essa soma é sempre zero, para qualquer distribuição — não serve como medida de dispersão sem correção. Para evitar o cancelamento de sinais, usa-se módulo ($\sum|X_i-\bar{X}|$) ou, mais comumente, elevação ao quadrado (mais fácil de derivar matematicamente), o que leva à soma de quadrados abaixo.</span>
+<span id="cb12-396"><a href="#cb12-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-397"><a href="#cb12-397" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Soma de Quadrados (SQ)</span></span>
+<span id="cb12-398"><a href="#cb12-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-399"><a href="#cb12-399" aria-hidden="true" tabindex="-1"></a>$$SQ = \sum_{i=1}^{n} (X_i - \bar{X})^2 = \sum_{i=1}^{n} X_i^2 - \frac{\left( \sum_{i=1}^{n} X_i \right)^2}{n}$$</span>
+<span id="cb12-400"><a href="#cb12-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-401"><a href="#cb12-401" aria-hidden="true" tabindex="-1"></a>Soma das diferenças quadráticas de cada observação em relação ao centro. Ao elevar ao quadrado, penaliza fortemente as observações mais distantes da média. É medida intermediária essencial no cálculo de variância e em ANOVA.</span>
+<span id="cb12-402"><a href="#cb12-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-403"><a href="#cb12-403" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Variância</span></span>
+<span id="cb12-404"><a href="#cb12-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-405"><a href="#cb12-405" aria-hidden="true" tabindex="-1"></a>$$\sigma^2 = \frac{\sum_{i=1}^{N}(X_i-\mu)^2}{N} \quad \text{(populacional)} \qquad S^2 = \frac{\sum_{i=1}^{n}(X_i-\bar{X})^2}{n-1} \quad \text{(amostral)}$$</span>
+<span id="cb12-406"><a href="#cb12-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-407"><a href="#cb12-407" aria-hidden="true" tabindex="-1"></a>Média das somas de desvios quadráticos. Por que dividir por $n-1$ na amostra? Dividir simplesmente por $n$ gera um estimador viesado — sistematicamente subestimado em relação à $\sigma^2$ real. O ajuste por $n-1$ (graus de liberdade) corrige essa distorção, garantindo um estimador não viesado. Maior desvantagem prática: a escala fica ao quadrado da unidade original (ex.: metros → metros²). Em R, <span class="in">`var(X)`</span> já usa $n-1$.</span>
+<span id="cb12-408"><a href="#cb12-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-409"><a href="#cb12-409" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Variância para Dados Agrupados</span></span>
+<span id="cb12-410"><a href="#cb12-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-411"><a href="#cb12-411" aria-hidden="true" tabindex="-1"></a>$$S^2 = \frac{\displaystyle\sum_{i=1}^{k} X_{\sim i}^2 F_i - \frac{\left(\sum_{i=1}^{k} X_{\sim i} F_i\right)^2}{\sum_{i=1}^{k} F_i}}{\sum_{i=1}^{k} F_i - 1}$$</span>
+<span id="cb12-412"><a href="#cb12-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-413"><a href="#cb12-413" aria-hidden="true" tabindex="-1"></a>Versão ponderada por frequência da identidade do Tópico 2.4-V, usando o ponto médio $X_{\sim i}$ de cada classe. Para dados discretos tabulados, o resultado coincide perfeitamente com o cálculo em dados brutos; para variáveis contínuas, difere sutilmente por causa da substituição dos valores individuais pelo ponto médio (hipótese tabular básica).</span>
+<span id="cb12-414"><a href="#cb12-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-415"><a href="#cb12-415" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Desvio Padrão</span></span>
+<span id="cb12-416"><a href="#cb12-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-417"><a href="#cb12-417" aria-hidden="true" tabindex="-1"></a>$$\sigma = \sqrt{\sigma^2} \quad \text{(populacional)} \qquad S = \sqrt{S^2} \quad \text{(amostral)}$$</span>
+<span id="cb12-418"><a href="#cb12-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-419"><a href="#cb12-419" aria-hidden="true" tabindex="-1"></a>Restabelece a equivalência de dimensionalidade com os dados originais (aplicando raiz quadrada à variância). É a medida de dispersão absoluta mais usada em relatórios técnicos e científicos, geralmente reportada junto com a média. Descreve o afastamento médio esperado de uma observação individual em relação ao centro, na mesma unidade dos dados. Nota de viés: embora $S^2$ seja não viesado para $\sigma^2$, a operação não linear de raiz quadrada faz de $S$ um estimador levemente viesado de $\sigma$. Em R: <span class="in">`sd(X)`</span>.</span>
+<span id="cb12-420"><a href="#cb12-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-421"><a href="#cb12-421" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Propriedades do Desvio Padrão e Variância (Teoremas 4.2 e 4.3)</span></span>
+<span id="cb12-422"><a href="#cb12-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-423"><a href="#cb12-423" aria-hidden="true" tabindex="-1"></a>$$Y_i = X_i \pm c \Rightarrow S_Y^2 = S_X^2,\; S_Y = S_X \qquad\qquad Y_i = X_i \times c \Rightarrow S_Y^2 = c^2 S_X^2,\; S_Y = c\, S_X$$</span>
+<span id="cb12-424"><a href="#cb12-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-425"><a href="#cb12-425" aria-hidden="true" tabindex="-1"></a>Diferente da média, somar/subtrair uma constante não altera a dispersão — desloca a distribuição inteira como um bloco rígido, sem mudar o espaçamento interno entre observações. Multiplicar por uma constante escala as distâncias proporcionalmente: isso se reflete de forma **quadrática** na variância e linear no desvio padrão.</span>
+<span id="cb12-426"><a href="#cb12-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-427"><a href="#cb12-427" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Coeficiente de Variação</span></span>
+<span id="cb12-428"><a href="#cb12-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-429"><a href="#cb12-429" aria-hidden="true" tabindex="-1"></a>$$CV_p = \frac{\sigma}{\mu} \times 100 \quad \text{(populacional)} \qquad CV = \frac{S}{\bar{X}} \times 100 \quad \text{(amostral)}$$</span>
+<span id="cb12-430"><a href="#cb12-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-431"><a href="#cb12-431" aria-hidden="true" tabindex="-1"></a>Medidas absolutas de dispersão são influenciadas pela escala e pela magnitude da média, o que impede comparação direta de variabilidade entre grupos. O $CV$ padroniza a dispersão em termos relativos à própria média — quanto menor, mais homogêneo o grupo. Limitação estrutural crítica: só é interpretável em variáveis com zero absoluto significativo (peso, volume, contagens). Em escalas com zero arbitrário (ex.: temperatura em °C ou °F), médias próximas de zero inflam artificialmente o $CV$, tornando-o inútil.</span>
+<span id="cb12-432"><a href="#cb12-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-433"><a href="#cb12-433" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Erro Padrão da Média</span></span>
+<span id="cb12-434"><a href="#cb12-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-435"><a href="#cb12-435" aria-hidden="true" tabindex="-1"></a>$$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \quad \text{(populacional)} \qquad S_{\bar{X}} = \frac{S}{\sqrt{n}} \quad \text{(amostral)}$$</span>
+<span id="cb12-436"><a href="#cb12-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-437"><a href="#cb12-437" aria-hidden="true" tabindex="-1"></a>Enquanto o desvio padrão mede o espalhamento das observações individuais em torno da média de uma amostra, o erro padrão mede a dispersão teórica esperada das médias de infinitas amostras possíveis em torno de $\mu$. É diretamente proporcional à dispersão da população e inversamente proporcional a $\sqrt{n}$: conforme $n$ cresce, $S_{\bar{X}}\to 0$, indicando que amostras maiores produzem médias mais estáveis. Base para intervalos de confiança e testes de hipótese. Em R: <span class="in">`sd(X)/sqrt(length(X))`</span>.</span>
+<span id="cb12-438"><a href="#cb12-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-439"><a href="#cb12-439" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-440"><a href="#cb12-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-441"><a href="#cb12-441" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quadro-Resumo de Aplicação</span></span>
+<span id="cb12-442"><a href="#cb12-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-443"><a href="#cb12-443" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Medida <span class="pp">|</span> Robustez a outliers <span class="pp">|</span> Sensibilidade a escala <span class="pp">|</span> Situação ótima de aplicação <span class="pp">|</span></span>
+<span id="cb12-444"><a href="#cb12-444" aria-hidden="true" tabindex="-1"></a><span class="pp">| :---</span> <span class="pp">| :---:</span> <span class="pp">| :---:</span> <span class="pp">| :---</span> <span class="pp">|</span></span>
+<span id="cb12-445"><a href="#cb12-445" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Média Aritmética <span class="pp">|</span> Baixa <span class="pp">|</span> Alta <span class="pp">|</span> Dados normais, sem valores discrepantes <span class="pp">|</span></span>
+<span id="cb12-446"><a href="#cb12-446" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Média Aparada <span class="pp">|</span> Alta <span class="pp">|</span> Média <span class="pp">|</span> Amostras pequenas com outliers suspeitos nas caudas <span class="pp">|</span></span>
+<span id="cb12-447"><a href="#cb12-447" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mediana <span class="pp">|</span> Alta <span class="pp">|</span> Baixa <span class="pp">|</span> Distribuições assimétricas ou outliers severos <span class="pp">|</span></span>
+<span id="cb12-448"><a href="#cb12-448" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Moda <span class="pp">|</span> Alta <span class="pp">|</span> Baixa <span class="pp">|</span> Dados categóricos nominais; picos de concentração <span class="pp">|</span></span>
+<span id="cb12-449"><a href="#cb12-449" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Amplitude <span class="pp">|</span> Nula <span class="pp">|</span> Alta <span class="pp">|</span> Análise preliminar rápida; controle de qualidade <span class="pp">|</span></span>
+<span id="cb12-450"><a href="#cb12-450" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variância / Desvio Padrão <span class="pp">|</span> Baixa <span class="pp">|</span> Alta <span class="pp">|</span> Distribuições simétricas, rigor aditivo dos desvios <span class="pp">|</span></span>
+<span id="cb12-451"><a href="#cb12-451" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Coeficiente de Variação <span class="pp">|</span> Baixa <span class="pp">|</span> Adimensional <span class="pp">|</span> Comparar dispersão entre escalas diferentes <span class="pp">|</span></span>
+<span id="cb12-452"><a href="#cb12-452" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Erro Padrão da Média <span class="pp">|</span> Baixa <span class="pp">|</span> Alta <span class="pp">|</span> Estimar margem de erro de médias <span class="pp">|</span></span>
+<span id="cb12-453"><a href="#cb12-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-454"><a href="#cb12-454" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-455"><a href="#cb12-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-456"><a href="#cb12-456" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
+<span id="cb12-457"><a href="#cb12-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-458"><a href="#cb12-458" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb12-459"><a href="#cb12-459" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
+<span id="cb12-460"><a href="#cb12-460" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-461"><a href="#cb12-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-462"><a href="#cb12-462" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
+<span id="cb12-463"><a href="#cb12-463" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
+<span id="cb12-464"><a href="#cb12-464" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
+<span id="cb12-465"><a href="#cb12-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-466"><a href="#cb12-466" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-467"><a href="#cb12-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-468"><a href="#cb12-468" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
+<span id="cb12-469"><a href="#cb12-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-470"><a href="#cb12-470" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
+<span id="cb12-471"><a href="#cb12-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-472"><a href="#cb12-472" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
+<span id="cb12-473"><a href="#cb12-473" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
+<span id="cb12-474"><a href="#cb12-474" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
+<span id="cb12-475"><a href="#cb12-475" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
+<span id="cb12-476"><a href="#cb12-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-477"><a href="#cb12-477" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
+<span id="cb12-478"><a href="#cb12-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-479"><a href="#cb12-479" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
+<span id="cb12-480"><a href="#cb12-480" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
+<span id="cb12-481"><a href="#cb12-481" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
+<span id="cb12-482"><a href="#cb12-482" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
+<span id="cb12-483"><a href="#cb12-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-484"><a href="#cb12-484" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
+<span id="cb12-485"><a href="#cb12-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-486"><a href="#cb12-486" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
+<span id="cb12-487"><a href="#cb12-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-488"><a href="#cb12-488" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
+<span id="cb12-489"><a href="#cb12-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-490"><a href="#cb12-490" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
+<span id="cb12-491"><a href="#cb12-491" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
+<span id="cb12-492"><a href="#cb12-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-493"><a href="#cb12-493" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
+<span id="cb12-494"><a href="#cb12-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-497"><a href="#cb12-497" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-498"><a href="#cb12-498" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
+<span id="cb12-499"><a href="#cb12-499" aria-hidden="true" tabindex="-1"></a>distancia</span>
+<span id="cb12-500"><a href="#cb12-500" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-501"><a href="#cb12-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-502"><a href="#cb12-502" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb12-503"><a href="#cb12-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-504"><a href="#cb12-504" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
+<span id="cb12-505"><a href="#cb12-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-506"><a href="#cb12-506" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
+<span id="cb12-507"><a href="#cb12-507" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
+<span id="cb12-508"><a href="#cb12-508" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
+<span id="cb12-509"><a href="#cb12-509" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
+<span id="cb12-510"><a href="#cb12-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-511"><a href="#cb12-511" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
+<span id="cb12-512"><a href="#cb12-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-513"><a href="#cb12-513" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb12-514"><a href="#cb12-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-515"><a href="#cb12-515" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb12-516"><a href="#cb12-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-517"><a href="#cb12-517" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<span id="cb12-518"><a href="#cb12-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-519"><a href="#cb12-519" aria-hidden="true" tabindex="-1"></a></span>
 </code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
