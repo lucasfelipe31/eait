@@ -1,6 +1,6 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
+author: " Bruno Henrique e Lucas Felipe"
 title: "Relatório de Aula Prática 01"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
@@ -16,7 +16,7 @@ format:
     toc: true
     number-sections: true
     theme: bootstrap
-    #css: styles.css
+    css: styles.css
     code-fold: true
     code-tools: true
 execute:
@@ -38,18 +38,156 @@ Descreva o contexto da prática e sua importância.
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+O objetivo geral desta prática é desenvolver a capacidade de utilizar o ambiente R e o pacote `leem` como ferramentas de apoio à análise estatística de dados aplicados à Engenharia Civil, integrando conhecimentos de sintaxe e semântica da linguagem R, fundamentos de estatística descritiva e interpretação de resultados. Busca-se, a partir de um banco de dados de natureza experimental ou técnico-engenheirística, organizar, tabular, representar graficamente e analisar os dados por meio de medidas de posição, dispersão, assimetria e curtose, compreendendo os procedimentos estatísticos empregados e estabelecendo uma interpretação crítica dos resultados obtidos.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- **Introduzir os fundamentos do ambiente R e de sua linguagem**, com base nas 26 aulas do curso *R Básico 2024*, abordando aspectos relacionados à sintaxe, à semântica, à criação e manipulação de objetos e à execução de operações necessárias ao tratamento e à análise de dados;
+
+- **Revisar os fundamentos da estatística descritiva**, contemplando os conteúdos dos quatro primeiros capítulos do livro *Estatística para Análise de Experimentos e Controle* (EPAEC), com ênfase na organização, tabulação e representação dos dados, bem como nas principais medidas estatísticas;
+
+- **Aprofundar o estudo das medidas de assimetria e curtose**, compreendendo seus conceitos, formas de cálculo e interpretação como instrumentos complementares à caracterização da distribuição dos dados;
+
+- **Utilizar um banco de dados relacionado à Engenharia Civil**, contendo informações quantitativas adequadas à aplicação dos procedimentos de estatística descritiva e à discussão de fenômenos de interesse da área;
+
+- **Aplicar o pacote `leem` para a descrição estatística dos dados**, empregando recursos computacionais para organização, tabulação, apresentação gráfica e cálculo das principais medidas estatísticas;
+
+- **Construir e interpretar representações gráficas e tabelas**, de modo a evidenciar padrões, tendências, variabilidade e possíveis valores discrepantes presentes no conjunto de dados;
+
+- **Calcular e interpretar medidas de posição e dispersão**, incluindo medidas de tendência central e indicadores de variabilidade, relacionando os resultados às características do banco de dados analisado;
+
+- **Determinar e interpretar os coeficientes de assimetria e curtose**, avaliando a forma da distribuição dos dados e suas implicações para a compreensão do comportamento das variáveis estudadas;
+
+- **Compreender os procedimentos estatísticos realizados pelo pacote `leem`**, não se limitando à obtenção automática dos resultados, mas reconhecendo os fundamentos matemáticos e estatísticos envolvidos na tabulação, no cálculo das medidas e na construção das representações gráficas;
+
+- **Discutir tecnicamente os resultados obtidos**, relacionando as características estatísticas observadas às propriedades e aos fenômenos associados ao contexto da Engenharia Civil e avaliando criticamente a informação fornecida pelo conjunto de dados.
+
 
 ---
 
 ## 📚  Fundamentação Teórica
+
+### Introdução ao Ambiente R
+
+#### O que é o R
+
+O R é um **ambiente de software livre e de código aberto** voltado para manipulação de dados, cálculo estatístico e geração de gráficos. Por isso, é comum ouvir duas formas de tratamento: "**o R**", quando se fala do programa/sistema como um todo, e "**a linguagem R**", quando se fala especificamente da sintaxe usada para escrever os comandos. Diferente de programas estatísticos comerciais fechados, o R permite que o próprio usuário crie novas funções e as compartilhe livremente com a comunidade por meio de pacotes.
+
+O projeto nasceu em **1991**, em uma Universidade da Nova Zelândia, e foi criado por **Ross Ihaka** e **Robert Gentleman**. O primeiro lançamento oficial ocorreu em **1995**, e em **1997** foi criado o **CRAN**, uma rede de servidores que distribui o programa, sua documentação e milhares de pacotes até hoje.
+
+Já o **RStudio** é a interface (IDE — *Integrated Development Environment*) mais usada para trabalhar com o R. Ele não substitui o R, apenas facilita seu uso por meio de janelas, botões e atalhos: sem o R instalado, o RStudio não funciona. A tela do RStudio é dividida em quatro áreas principais: o editor de scripts (onde o código é escrito), o console (onde o código é executado), o painel de ambiente/histórico (onde aparecem os objetos criados) e o painel de arquivos/gráficos/pacotes/ajuda.
+
+#### Os Três Princípios que Governam o R
+
+Toda a lógica interna do R pode ser resumida em três ideias simples, propostas por John Chambers, criador da linguagem S (base histórica do R):
+
+- **Tudo que existe no R é um objeto** — números, textos, tabelas, gráficos e até as próprias funções são objetos guardados na memória do computador.
+- **Tudo que acontece no R é uma chamada de função** — até uma simples soma como `10 + 15` é, por trás dos panos, uma função sendo executada.
+- **Interfaces com outros programas fazem parte do R** — o R se comunica nativamente com linguagens como C, C++, Python e com tecnologias web (HTML, JavaScript), estendendo seu uso muito além da estatística básica.
+
+#### Sintaxe e Semântica do R
+
+Sintaxe é o conjunto de regras que definem *como* o código deve ser escrito; semântica é o significado por trás de cada comando — ou seja, *o que* ele realmente faz quando executado. Entender essa diferença evita a maioria dos erros cometidos por quem está começando.
+
+##### O Console e o Prompt de Comando
+
+Ao abrir o R (ou o RStudio), aparece o símbolo `>`, chamado de **prompt de comando**. Ele indica que o R está pronto para receber uma instrução. Se o comando digitado estiver incompleto — por exemplo, um parêntese aberto que não foi fechado — o símbolo muda para `+`, indicando que o R está esperando o restante da instrução.
+
+##### Comentários
+
+Qualquer linha iniciada pelo símbolo `#` é ignorada pelo R e serve apenas para o programador documentar o próprio raciocínio:
+
+```r
+# Isso é um comentário e não será executado
+10 + 15
+```
+
+**Boa prática:** evitar acentos e caracteres especiais (ç, ã, á etc.) em comentários e nomes de variáveis, pois diferentes sistemas operacionais podem interpretar essa codificação de forma diferente e corromper a exibição do texto.
+
+##### Nomes de Objetos
+
+Para criar um objeto, é preciso dar a ele um nome válido. As regras básicas são:
+
+* **Nomes válidos**: começam com letra (ou ponto, desde que não seguido de número) e podem conter letras, números, pontos (`.`) e underlines (`_`).
+* **Nomes inválidos**: começam com número, contêm espaços ou operadores matemáticos.
+* **Palavras reservadas**: termos que já têm função própria na linguagem e não podem ser usados como nome de objeto, como `if`, `else`, `for`, `while`, `function`, `TRUE`, `FALSE`, `NULL`, `NA`, entre outros.
+
+O R também é **sensível a maiúsculas e minúsculas** (*case-sensitive*): `idade` e `Idade` são dois objetos completamente diferentes.
+
+##### Expressões versus Atribuições
+
+Existem dois tipos básicos de comando no R:
+
+* **Expressão**: o R calcula e mostra o resultado na tela, mas não guarda esse valor para uso posterior.
+* **Atribuição**: o R calcula o resultado e o guarda de forma permanente em um nome escolhido, mas **não mostra nada na tela**. Para ver o valor guardado, basta digitar o nome do objeto.
+
+```r
+10 + 15        # expressão: mostra 25 na tela, mas não guarda
+soma <- 10 + 15  # atribuição: guarda o resultado no objeto "soma"
+soma             # agora sim, mostra o valor guardado
+```
+
+##### O Operador de Atribuição: `<-` versus `=`
+
+Embora o R aceite o sinal de igual (`=`) para atribuir valores, a prática recomendada é sempre usar a seta `<-`:
+
+```r
+nome_do_objeto <- valor_ou_expressao
+```
+
+O motivo é evitar confusão: o `=` já tem uma função própria e exclusiva no R, que é atribuir valores aos **argumentos dentro de uma função** (por exemplo, `plot(x = dados)`). Usar `=` também para criar objetos no ambiente de trabalho pode gerar erros difíceis de identificar em códigos mais longos.
+
+##### Múltiplos Comandos na Mesma Linha
+
+É possível executar mais de um comando em uma única linha, separando-os por ponto e vírgula (`;`). O R processa cada um, da esquerda para a direita:
+
+```r
+x <- 5; y <- 10; x + y
+```
+
+### 3.7. Como o R Guarda o que é Criado
+
+Todo objeto criado com `<-` fica armazenado no **Ambiente Global** (`.GlobalEnv`), que funciona como a área de trabalho ativa da sessão. É possível consultar tudo o que já foi criado com o comando:
+
+```r
+ls()
+```
+
+E é possível saber em qual pasta do computador o R está trabalhando (o **diretório de trabalho**) com:
+
+```r
+getwd()
+```
+
+Ou alterar essa pasta com:
+
+```r
+setwd("C:/meu_projeto_R")
+```
+
+**Atenção:** o R não aceita barra invertida (`\`) em caminhos de pastas — é preciso usar sempre a barra normal (`/`).
+
+#### Objetos, Tipos e Pacotes (Visão Geral)
+
+Todo objeto no R possui um **tipo básico**, que define que tipo de dado ele guarda: `logical` (verdadeiro/falso), `integer` (números inteiros), `double` (números decimais) e `character` (texto). Estruturas mais elaboradas, como tabelas (*data frames*), não são tipos novos — são, na verdade, listas que receberam atributos extras para se comportar como tabela na tela.
+
+Além dos recursos nativos, o R pode ser expandido por **pacotes**: conjuntos de funções extras criados pela comunidade. Um pacote precisa primeiro ser **instalado** (baixado uma única vez) e depois **carregado** em cada sessão de trabalho para poder ser usado:
+
+```r
+install.packages("nome_do_pacote")
+library(nome_do_pacote)
+```
+
+Quando se quer usar apenas uma função de um pacote, sem carregá-lo por completo, usa-se o operador de dois-pontos duplo:
+
+```r
+nome_do_pacote::nome_da_funcao(argumentos)
+```
+
+O R é, ao mesmo tempo, uma linguagem e um ambiente: sua sintaxe é organizada em torno de poucos elementos centrais — o prompt de comando, os comentários, as regras de nomeação, a atribuição com `<-` e a chamada de funções — e sua semântica segue três princípios simples (tudo é objeto, tudo é função, e o R se comunica com outros sistemas). Compreender essa base é o primeiro passo para escrever código limpo, reprodutível e livre de erros comuns de digitação e de interpretação.
+
+
+
 
 Apresente os conceitos principais:
 
