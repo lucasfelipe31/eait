@@ -187,8 +187,6 @@ nome_do_pacote::nome_da_funcao(argumentos)
 O R é, ao mesmo tempo, uma linguagem e um ambiente: sua sintaxe é organizada em torno de poucos elementos centrais — o prompt de comando, os comentários, as regras de nomeação, a atribuição com `<-` e a chamada de funções — e sua semântica segue três princípios simples (tudo é objeto, tudo é função, e o R se comunica com outros sistemas). Compreender essa base é o primeiro passo para escrever código limpo, reprodutível e livre de erros comuns de digitação e de interpretação.
 
 
-
-
 Apresente os conceitos principais:
 
 - Média
