@@ -491,12 +491,34 @@ Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
 - Tudo é um objeto em R [@Rbasico2022]
 
 ### 📊  Análise de Dados
-
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
-```
+# Importando o banco de dados
 
+library(leem)
+
+resistencia25 <- read.csv2(
+  "C:/Relatorios/eait/relatorio/rel01/resistencia25.csv",
+  dec = ","
+)
+
+# Histograma de frequência
+resistencia25$Resistencia_MPa |>
+  new_leem(variable = "continuous") |>
+  tabfreq() |>
+  hist(
+    main = "Distribuição da resistência à compressão",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  )
+
+```
+```{r}
+# Tabulando os dados
+resistencia25$Resistencia_MPa |>
+  new_leem(variable = "continuous") |>
+  tabfreq()
+```
+  
 ## 🧠 Considerações finais
 
 Apresente uma síntese dos principais pontos observados no experimento.
