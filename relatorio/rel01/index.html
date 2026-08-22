@@ -159,8 +159,9 @@ window.Quarto = {
   <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</a></li>
   <li><a href="#resultados-e-discussão" id="toc-resultados-e-discussão" class="nav-link" data-scroll-target="#resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</a>
   <ul class="collapse">
-  <li><a href="#exemplo-de-como-citar-uma-referência-bibliográfica" id="toc-exemplo-de-como-citar-uma-referência-bibliográfica" class="nav-link" data-scroll-target="#exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.1</span> 💬 Exemplo de como citar uma referência bibliográfica</a></li>
+  <li><a href="#dados-do-experimento" id="toc-dados-do-experimento" class="nav-link" data-scroll-target="#dados-do-experimento"><span class="header-section-number">5.1</span> Dados do Experimento</a></li>
   <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</a></li>
+  <li><a href="#exemplo-de-como-citar-uma-referência-bibliográfica" id="toc-exemplo-de-como-citar-uma-referência-bibliográfica" class="nav-link" data-scroll-target="#exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.3</span> 💬 Exemplo de como citar uma referência bibliográfica</a></li>
   </ul></li>
   <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</a></li>
   <li><a href="#aprenda-quarto" id="toc-aprenda-quarto" class="nav-link" data-scroll-target="#aprenda-quarto"><span class="header-section-number">7</span> Aprenda Quarto</a></li>
@@ -198,7 +199,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">21/08/2026, 22:09</p>
+      <p class="date">22/08/2026, 00:05</p>
     </div>
   </div>
   
@@ -625,47 +626,152 @@ Nota
 </section>
 <section id="resultados-e-discussão" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</h2>
-<p>Apresente e interprete os resultados obtidos a partir dos dados coletados.</p>
-<ul>
-<li>Descreva os principais resultados numéricos (média, variabilidade, etc.).</li>
-<li>Comente o comportamento dos dados observados nos gráficos.</li>
-<li>Indique se há presença de valores discrepantes (outliers).</li>
-<li>Avalie se os dados apresentam simetria ou tendência.</li>
-</ul>
-<p>Em seguida, discuta os resultados à luz dos conceitos teóricos:</p>
-<ul>
-<li>Os resultados estão de acordo com o esperado?</li>
-<li>Há grande variabilidade? O que isso significa no contexto do experimento?</li>
-<li>Quais fatores podem ter influenciado os resultados?</li>
-<li>Existem possíveis fontes de erro experimental?</li>
-</ul>
-<p>Procure não apenas descrever, mas <strong>interpretar os dados</strong>.</p>
-<section id="exemplo-de-como-citar-uma-referência-bibliográfica" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.1</span> 💬 Exemplo de como citar uma referência bibliográfica</h3>
-<p>Depois de inserido as informaçõe no arquivo <strong>referencias.bib</strong>, use:</p>
-<ul>
-<li>Segundo <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span></li>
-<li>Tudo é um objeto em R <span class="citation" data-cites="Rbasico2022">(<a href="#ref-Rbasico2022" role="doc-biblioref">Batista e Oliveira, 2022</a>)</span></li>
-</ul>
+<section id="dados-do-experimento" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="dados-do-experimento"><span class="header-section-number">5.1</span> Dados do Experimento</h3>
+<p>Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, tomando como referência a ABNT NBR 5739. A norma estabelece o método para determinação da resistência à compressão de corpos de prova cilíndricos de concreto e define, entre outros aspectos, as condições de realização do ensaio e o cálculo da resistência à compressão a partir da força máxima aplicada.</p>
+<p>Para manter a análise estatística concentrada na variabilidade dos resultados de resistência, foram mantidas constantes as condições do experimento. Considerou-se uma relação água/cimento (A/C) igual a 0,50, idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional no conjunto de dados.</p>
+<p>A partir dessas condições, foram gerados 25 resultados simulados de resistência à compressão, correspondentes a 25 ensaios. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739.</p>
+<div class="tabela-dados">
+<div class="cell">
+<div id="tbl-dados" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1: Resultados simulados de resistência à compressão do concreto aos 28 dias
+</figcaption>
+<div aria-describedby="tbl-dados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Corpo de Prova</th>
+<th style="text-align: center;">Resistência à compressão (MPa)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">40.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">41.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">40.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">40.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">39.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">42.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">39.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">40.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">41.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">38.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">40.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">39.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">41.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">40.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">39.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">42.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">40.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">39.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">41.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">40.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">38.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">39.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">41.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">40.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">42.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>A partir desse conjunto de 25 observações, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote leem, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.</p>
 </section>
 <section id="análise-de-dados" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</h3>
+<section id="representação-tabular" class="level4" data-number="5.2.1">
+<h4 data-number="5.2.1" class="anchored" data-anchor-id="representação-tabular"><span class="header-section-number">5.2.1</span> Representação Tabular</h4>
+<p>A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados experimentais sejam registrados com determinada precisão, essa limitação decorre da resolução dos instrumentos e do procedimento de medição, e não da natureza da variável. Dessa forma, conforme apresentado no Capítulo 2 do Estatística &amp; Probabilidade Aplicada às Engenharias e Ciências (EPAEC), é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.</p>
+<p>No presente estudo, foram considerados <strong>25 resultados simulados de resistência à compressão</strong>, correspondentes aos corpos de prova submetidos à mesma condição experimental. Para a definição do número de classes, adotou-se o critério apresentado no EPAEC, segundo o qual, para conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, para <span class="math inline">\(m = 25\)</span>, obtém-se <span class="math inline">\(k \approx \sqrt{25} = 5\)</span>, resultando na utilização de <strong>cinco classes de frequência</strong>.</p>
+<p>A partir desse procedimento, os resultados foram agrupados em intervalos de resistência à compressão. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a participação de cada classe em relação ao total de observações. As frequências acumuladas permitem identificar a quantidade de observações situada abaixo ou acima de determinada classe. Essas formas de representação são apresentadas no EPAEC como instrumentos para facilitar a interpretação de conjuntos de dados.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando o banco de dados</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leem)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>resistencia25 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"C:/Relatorios/eait/relatorio/rel01/resistencia25.csv"</span>,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">dec =</span> <span class="st">","</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulação</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leem)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulação</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leem)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
@@ -679,14 +785,14 @@ Nota
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Classes"</span>, <span class="st">"Fi"</span>, <span class="st">"PM"</span>, <span class="st">"Fr"</span>, <span class="st">"Fac1"</span>, <span class="st">"Fac2"</span>, <span class="st">"Fp"</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)]</span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Melhorando a apresentação das classes</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Substituindo |--- por |—</span></span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>tabela<span class="sc">$</span>Classes <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">" </span><span class="sc">\\</span><span class="st">|--- "</span>,</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">" – "</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"</span><span class="sc">\\</span><span class="st">|---"</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"|—"</span>,</span>
 <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  tabela<span class="sc">$</span>Classes</span>
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Substituindo ponto decimal por vírgula nas classes</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Substituindo ponto decimal por vírgula</span></span>
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>tabela<span class="sc">$</span>Classes <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>,</span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">","</span>,</span>
@@ -695,29 +801,30 @@ Nota
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
 <span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  tabela,</span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>),</span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(</span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Classe (MPa)"</span>,</span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fi"</span>,</span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PM (MPa)"</span>,</span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fr"</span>,</span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fac↓"</span>,</span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fac↑"</span>,</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fp (%)"</span></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">escape =</span> <span class="cn">TRUE</span></span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="st">"condensed"</span>,</span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"center"</span></span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>),</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Classe (MPa)"</span>,</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fi"</span>,</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PM (MPa)"</span>,</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fr"</span>,</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fac↓"</span>,</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fac↑"</span>,</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fp (%)"</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">escape =</span> <span class="cn">FALSE</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="st">"condensed"</span>,</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"center"</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-frequencia-resistencia" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-frequencia-resistencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;1: Distribuição de frequência da resistência à compressão
+Tabela&nbsp;2: Distribuição de frequência da resistência à compressão
 </figcaption>
 <div aria-describedby="tbl-frequencia-resistencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -735,7 +842,7 @@ Tabela&nbsp;1: Distribuição de frequência da resistência à compressão
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">38,24 – 39,16</td>
+<td style="text-align: left;">38,24 |— 39,16</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">38.70</td>
 <td style="text-align: right;">0.08</td>
@@ -744,7 +851,7 @@ Tabela&nbsp;1: Distribuição de frequência da resistência à compressão
 <td style="text-align: right;">8</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">39,16 – 40,08</td>
+<td style="text-align: left;">39,16 |— 40,08</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">39.62</td>
 <td style="text-align: right;">0.28</td>
@@ -753,7 +860,7 @@ Tabela&nbsp;1: Distribuição de frequência da resistência à compressão
 <td style="text-align: right;">28</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">40,08 – 41</td>
+<td style="text-align: left;">40,08 |— 41</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">40.54</td>
 <td style="text-align: right;">0.32</td>
@@ -762,7 +869,7 @@ Tabela&nbsp;1: Distribuição de frequência da resistência à compressão
 <td style="text-align: right;">32</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">41 – 41,92</td>
+<td style="text-align: left;">41 |— 41,92</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">41.46</td>
 <td style="text-align: right;">0.20</td>
@@ -771,7 +878,7 @@ Tabela&nbsp;1: Distribuição de frequência da resistência à compressão
 <td style="text-align: right;">20</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">41,92 – 42,84</td>
+<td style="text-align: left;">41,92 |— 42,84</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">42.38</td>
 <td style="text-align: right;">0.12</td>
@@ -786,8 +893,12 @@ Tabela&nbsp;1: Distribuição de frequência da resistência à compressão
 </figure>
 </div>
 </div>
-<p>A Tabela apresenta a distribuição de frequência dos valores de resistência à compressão dos corpos de prova. Os dados foram agrupados em cinco classes, permitindo observar a concentração das observações, a frequência absoluta e relativa e as frequências acumuladas.</p>
-<p>Conforme apresentado na Tabela <a href="#tbl-frequencia-resistencia" class="quarto-xref">Tabela&nbsp;1</a>, observa-se que a maior frequência de resistência ocorre na classe de 40,08 a 41,00 MPa, que concentra 8 dos 25 ensaios realizados, correspondendo a 32% das observações.</p>
+<p>A distribuição apresentada na Tabela 1 permite observar que os resultados de resistência à compressão se concentram principalmente nas classes intermediárias. A maior frequência absoluta foi observada no intervalo de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% da amostra. A segunda maior frequência ocorreu entre 39,16 e 40,08 MPa, com 7 observações, equivalentes a 28%.</p>
+<p>Considerando conjuntamente essas duas classes, verifica-se que 15 dos 25 resultados (60%) encontram-se entre 39,16 e 41,00 MPa. Esse comportamento demonstra uma concentração significativa das resistências em torno da região central da distribuição. Por outro lado, apenas 2 resultados (8%) encontram-se na primeira classe, entre 38,24 e 39,16 MPa, enquanto 3 resultados (12%) pertencem à classe superior, entre 41,92 e 42,84 MPa. Portanto, a maior parte dos corpos de prova apresentou resistência relativamente próxima à região central dos dados.</p>
+<p>Do ponto de vista da Engenharia Civil, essa concentração é relevante porque os corpos de prova considerados foram produzidos sob uma mesma relação água/cimento (A/C = 0,50) e submetidos à mesma idade de referência, de 28 dias. Dessa forma, a diferença observada entre os resultados não decorre de uma alteração intencional da relação água/cimento ou da idade do concreto, variáveis que exercem influência importante sobre a resistência à compressão.</p>
+<p>Como os dados são simulados, a distribuição observada deve ser interpretada como uma representação da variabilidade esperada entre resultados de ensaios realizados sob condições semelhantes, e não como evidência experimental de um concreto efetivamente produzido e ensaiado em laboratório. Em uma situação experimental real, diferenças entre os resultados poderiam estar relacionadas a diversos fatores, como homogeneidade da mistura, proporção e características dos agregados, propriedades do cimento, precisão na dosagem da água, procedimento de mistura, adensamento, condições de cura, dimensões e preparação dos corpos de prova e condições de execução do ensaio de compressão.</p>
+<p>Essa observação é importante porque, mantendo-se a relação A/C constante, a análise da distribuição dos resultados passa a ser útil para avaliar a variabilidade da resistência dentro de uma mesma condição de produção. Em termos de controle tecnológico do concreto, quanto maior a dispersão dos resultados, maior a necessidade de investigar possíveis fontes de variabilidade no processo de produção, moldagem, cura ou ensaio. Entretanto, a avaliação dessa dispersão não deve ser realizada apenas pela tabela de frequência; será complementada posteriormente pelas medidas de dispersão, como amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão da média.</p>
+<p>Conforme apresentado na Tabela <a href="#tbl-frequencia-resistencia" class="quarto-xref">Tabela&nbsp;2</a>, observa-se que a maior frequência de resistência ocorre na classe de 40,08 a 41,00 MPa, que concentra 8 dos 25 ensaios realizados, correspondendo a 32% das observações.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -804,11 +915,20 @@ Tabela&nbsp;1: Distribuição de frequência da resistência à compressão
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="exemplo-de-como-citar-uma-referência-bibliográfica" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.3</span> 💬 Exemplo de como citar uma referência bibliográfica</h3>
+<p>Depois de inserido as informaçõe no arquivo <strong>referencias.bib</strong>, use:</p>
+<ul>
+<li>Segundo <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span></li>
+<li>Tudo é um objeto em R <span class="citation" data-cites="Rbasico2022">(<a href="#ref-Rbasico2022" role="doc-biblioref">Batista e Oliveira, 2022</a>)</span></li>
+</ul>
 </section>
 </section>
 <section id="considerações-finais" class="level2" data-number="6">
@@ -1759,128 +1879,155 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
 <span id="cb13-467"><a href="#cb13-467" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-468"><a href="#cb13-468" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
 <span id="cb13-469"><a href="#cb13-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-470"><a href="#cb13-470" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
+<span id="cb13-470"><a href="#cb13-470" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dados do Experimento</span></span>
 <span id="cb13-471"><a href="#cb13-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-472"><a href="#cb13-472" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
-<span id="cb13-473"><a href="#cb13-473" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
-<span id="cb13-474"><a href="#cb13-474" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
-<span id="cb13-475"><a href="#cb13-475" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
-<span id="cb13-476"><a href="#cb13-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-477"><a href="#cb13-477" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
+<span id="cb13-472"><a href="#cb13-472" aria-hidden="true" tabindex="-1"></a>Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, tomando como referência a ABNT NBR 5739. A norma estabelece o método para determinação da resistência à compressão de corpos de prova cilíndricos de concreto e define, entre outros aspectos, as condições de realização do ensaio e o cálculo da resistência à compressão a partir da força máxima aplicada.</span>
+<span id="cb13-473"><a href="#cb13-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-474"><a href="#cb13-474" aria-hidden="true" tabindex="-1"></a>Para manter a análise estatística concentrada na variabilidade dos resultados de resistência, foram mantidas constantes as condições do experimento. Considerou-se uma relação água/cimento (A/C) igual a 0,50, idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional no conjunto de dados.</span>
+<span id="cb13-475"><a href="#cb13-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-476"><a href="#cb13-476" aria-hidden="true" tabindex="-1"></a>A partir dessas condições, foram gerados 25 resultados simulados de resistência à compressão, correspondentes a 25 ensaios. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739.</span>
+<span id="cb13-477"><a href="#cb13-477" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-478"><a href="#cb13-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-479"><a href="#cb13-479" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
-<span id="cb13-480"><a href="#cb13-480" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
-<span id="cb13-481"><a href="#cb13-481" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
-<span id="cb13-482"><a href="#cb13-482" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
-<span id="cb13-483"><a href="#cb13-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-484"><a href="#cb13-484" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
-<span id="cb13-485"><a href="#cb13-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-486"><a href="#cb13-486" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
-<span id="cb13-487"><a href="#cb13-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-488"><a href="#cb13-488" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
-<span id="cb13-489"><a href="#cb13-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-490"><a href="#cb13-490" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
-<span id="cb13-491"><a href="#cb13-491" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
-<span id="cb13-492"><a href="#cb13-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-493"><a href="#cb13-493" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
-<span id="cb13-496"><a href="#cb13-496" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-497"><a href="#cb13-497" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando o banco de dados</span></span>
-<span id="cb13-498"><a href="#cb13-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-499"><a href="#cb13-499" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leem)</span>
-<span id="cb13-500"><a href="#cb13-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-501"><a href="#cb13-501" aria-hidden="true" tabindex="-1"></a>resistencia25 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(</span>
-<span id="cb13-502"><a href="#cb13-502" aria-hidden="true" tabindex="-1"></a>  <span class="st">"C:/Relatorios/eait/relatorio/rel01/resistencia25.csv"</span>,</span>
-<span id="cb13-503"><a href="#cb13-503" aria-hidden="true" tabindex="-1"></a>  <span class="at">dec =</span> <span class="st">","</span></span>
-<span id="cb13-504"><a href="#cb13-504" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-505"><a href="#cb13-505" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-506"><a href="#cb13-506" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulação</span></span>
-<span id="cb13-507"><a href="#cb13-507" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leem)</span>
-<span id="cb13-508"><a href="#cb13-508" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb13-509"><a href="#cb13-509" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb13-481"><a href="#cb13-481" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-482"><a href="#cb13-482" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb13-483"><a href="#cb13-483" aria-hidden="true" tabindex="-1"></a>resistencia25 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(</span>
+<span id="cb13-484"><a href="#cb13-484" aria-hidden="true" tabindex="-1"></a>  <span class="st">"C:/Relatorios/eait/relatorio/rel01/resistencia25.csv"</span>,</span>
+<span id="cb13-485"><a href="#cb13-485" aria-hidden="true" tabindex="-1"></a>  <span class="at">dec =</span> <span class="st">","</span></span>
+<span id="cb13-486"><a href="#cb13-486" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-487"><a href="#cb13-487" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-488"><a href="#cb13-488" aria-hidden="true" tabindex="-1"></a>::: {.tabela-dados}</span>
+<span id="cb13-491"><a href="#cb13-491" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-492"><a href="#cb13-492" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-dados</span></span>
+<span id="cb13-493"><a href="#cb13-493" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Resultados simulados de resistência à compressão do concreto aos 28 dias"</span></span>
+<span id="cb13-494"><a href="#cb13-494" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb13-495"><a href="#cb13-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-496"><a href="#cb13-496" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb13-497"><a href="#cb13-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-498"><a href="#cb13-498" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb13-499"><a href="#cb13-499" aria-hidden="true" tabindex="-1"></a>  resistencia25,</span>
+<span id="cb13-500"><a href="#cb13-500" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Corpo de Prova"</span>, <span class="st">"Resistência à compressão (MPa)"</span>),</span>
+<span id="cb13-501"><a href="#cb13-501" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"c"</span>),</span>
+<span id="cb13-502"><a href="#cb13-502" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">1</span></span>
+<span id="cb13-503"><a href="#cb13-503" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-504"><a href="#cb13-504" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-505"><a href="#cb13-505" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-506"><a href="#cb13-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-507"><a href="#cb13-507" aria-hidden="true" tabindex="-1"></a>A partir desse conjunto de 25 observações, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote leem, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.</span>
+<span id="cb13-508"><a href="#cb13-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-509"><a href="#cb13-509" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-510"><a href="#cb13-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-513"><a href="#cb13-513" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-514"><a href="#cb13-514" aria-hidden="true" tabindex="-1"></a><span class="at">#| label: tbl-frequencia-resistencia</span></span>
-<span id="cb13-515"><a href="#cb13-515" aria-hidden="true" tabindex="-1"></a><span class="at">#| tbl-cap: "Distribuição de frequência da resistência à compressão"</span></span>
-<span id="cb13-516"><a href="#cb13-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-517"><a href="#cb13-517" aria-hidden="true" tabindex="-1"></a><span class="at">tab_resistencia &lt;- resistencia25$Resistencia_MPa |&gt;</span></span>
-<span id="cb13-518"><a href="#cb13-518" aria-hidden="true" tabindex="-1"></a><span class="at">  new_leem(variable = "continuous") |&gt;</span></span>
-<span id="cb13-519"><a href="#cb13-519" aria-hidden="true" tabindex="-1"></a><span class="at">  tabfreq(k = 5)</span></span>
-<span id="cb13-520"><a href="#cb13-520" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-521"><a href="#cb13-521" aria-hidden="true" tabindex="-1"></a><span class="at">tabela &lt;- tab_resistencia$table[, c(</span></span>
-<span id="cb13-522"><a href="#cb13-522" aria-hidden="true" tabindex="-1"></a><span class="at">  "Classes", "Fi", "PM", "Fr", "Fac1", "Fac2", "Fp"</span></span>
-<span id="cb13-523"><a href="#cb13-523" aria-hidden="true" tabindex="-1"></a><span class="at">)]</span></span>
-<span id="cb13-524"><a href="#cb13-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-525"><a href="#cb13-525" aria-hidden="true" tabindex="-1"></a><span class="at"># Melhorando a apresentação das classes</span></span>
-<span id="cb13-526"><a href="#cb13-526" aria-hidden="true" tabindex="-1"></a><span class="at">tabela$Classes &lt;- gsub(</span></span>
-<span id="cb13-527"><a href="#cb13-527" aria-hidden="true" tabindex="-1"></a><span class="at">  " </span><span class="sc">\\</span><span class="at">|--- ",</span></span>
-<span id="cb13-528"><a href="#cb13-528" aria-hidden="true" tabindex="-1"></a><span class="at">  " – ",</span></span>
-<span id="cb13-529"><a href="#cb13-529" aria-hidden="true" tabindex="-1"></a><span class="at">  tabela$Classes</span></span>
-<span id="cb13-530"><a href="#cb13-530" aria-hidden="true" tabindex="-1"></a><span class="at">)</span></span>
-<span id="cb13-531"><a href="#cb13-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-532"><a href="#cb13-532" aria-hidden="true" tabindex="-1"></a><span class="at"># Substituindo ponto decimal por vírgula nas classes</span></span>
-<span id="cb13-533"><a href="#cb13-533" aria-hidden="true" tabindex="-1"></a><span class="at">tabela$Classes &lt;- gsub(</span></span>
-<span id="cb13-534"><a href="#cb13-534" aria-hidden="true" tabindex="-1"></a><span class="at">  "</span><span class="sc">\\</span><span class="at">.",</span></span>
-<span id="cb13-535"><a href="#cb13-535" aria-hidden="true" tabindex="-1"></a><span class="at">  ",",</span></span>
-<span id="cb13-536"><a href="#cb13-536" aria-hidden="true" tabindex="-1"></a><span class="at">  tabela$Classes</span></span>
-<span id="cb13-537"><a href="#cb13-537" aria-hidden="true" tabindex="-1"></a><span class="at">)</span></span>
-<span id="cb13-538"><a href="#cb13-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-539"><a href="#cb13-539" aria-hidden="true" tabindex="-1"></a><span class="at">knitr::kable(</span></span>
-<span id="cb13-540"><a href="#cb13-540" aria-hidden="true" tabindex="-1"></a><span class="at">  tabela,</span></span>
-<span id="cb13-541"><a href="#cb13-541" aria-hidden="true" tabindex="-1"></a><span class="at">  digits = 2,</span></span>
-<span id="cb13-542"><a href="#cb13-542" aria-hidden="true" tabindex="-1"></a><span class="at">  align = c("l", "r", "r", "r", "r", "r", "r"),</span></span>
-<span id="cb13-543"><a href="#cb13-543" aria-hidden="true" tabindex="-1"></a><span class="at">  col.names = c(</span></span>
-<span id="cb13-544"><a href="#cb13-544" aria-hidden="true" tabindex="-1"></a><span class="at">    "Classe (MPa)",</span></span>
-<span id="cb13-545"><a href="#cb13-545" aria-hidden="true" tabindex="-1"></a><span class="at">    "Fi",</span></span>
-<span id="cb13-546"><a href="#cb13-546" aria-hidden="true" tabindex="-1"></a><span class="at">    "PM (MPa)",</span></span>
-<span id="cb13-547"><a href="#cb13-547" aria-hidden="true" tabindex="-1"></a><span class="at">    "Fr",</span></span>
-<span id="cb13-548"><a href="#cb13-548" aria-hidden="true" tabindex="-1"></a><span class="at">    "Fac↓",</span></span>
-<span id="cb13-549"><a href="#cb13-549" aria-hidden="true" tabindex="-1"></a><span class="at">    "Fac↑",</span></span>
-<span id="cb13-550"><a href="#cb13-550" aria-hidden="true" tabindex="-1"></a><span class="at">    "Fp (%)"</span></span>
-<span id="cb13-551"><a href="#cb13-551" aria-hidden="true" tabindex="-1"></a><span class="at">  ),</span></span>
-<span id="cb13-552"><a href="#cb13-552" aria-hidden="true" tabindex="-1"></a><span class="at">  escape = TRUE</span></span>
-<span id="cb13-553"><a href="#cb13-553" aria-hidden="true" tabindex="-1"></a><span class="at">) |&gt;</span></span>
-<span id="cb13-554"><a href="#cb13-554" aria-hidden="true" tabindex="-1"></a><span class="at">  kableExtra::kable_styling(</span></span>
-<span id="cb13-555"><a href="#cb13-555" aria-hidden="true" tabindex="-1"></a><span class="at">    bootstrap_options = "condensed",</span></span>
-<span id="cb13-556"><a href="#cb13-556" aria-hidden="true" tabindex="-1"></a><span class="at">    full_width = FALSE,</span></span>
-<span id="cb13-557"><a href="#cb13-557" aria-hidden="true" tabindex="-1"></a><span class="at">    position = "center"</span></span>
-<span id="cb13-558"><a href="#cb13-558" aria-hidden="true" tabindex="-1"></a><span class="at">  )</span></span>
-<span id="cb13-559"><a href="#cb13-559" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
-<span id="cb13-560"><a href="#cb13-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-561"><a href="#cb13-561" aria-hidden="true" tabindex="-1"></a>A Tabela apresenta a distribuição de frequência dos valores de resistência à compressão dos corpos de prova. Os dados foram agrupados em cinco classes, permitindo observar a concentração das observações, a frequência absoluta e relativa e as frequências acumuladas.</span>
-<span id="cb13-562"><a href="#cb13-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-563"><a href="#cb13-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-564"><a href="#cb13-564" aria-hidden="true" tabindex="-1"></a>Conforme apresentado na Tabela <span class="sc">@</span>tbl<span class="sc">-</span>frequencia<span class="sc">-</span>resistencia, observa<span class="sc">-</span>se que a maior frequência de resistência ocorre na classe de <span class="dv">40</span>,<span class="dv">08</span> a <span class="dv">41</span>,<span class="dv">00</span> MPa, que concentra <span class="dv">8</span> dos <span class="dv">25</span> ensaios realizados, correspondendo a <span class="dv">32</span>% das observações.</span>
-<span id="cb13-565"><a href="#cb13-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-568"><a href="#cb13-568" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-569"><a href="#cb13-569" aria-hidden="true" tabindex="-1"></a><span class="at"># Histograma de frequência</span></span>
-<span id="cb13-570"><a href="#cb13-570" aria-hidden="true" tabindex="-1"></a><span class="at">resistencia25$Resistencia_MPa |&gt;</span></span>
-<span id="cb13-571"><a href="#cb13-571" aria-hidden="true" tabindex="-1"></a><span class="at">  new_leem(variable = "continuous") |&gt;</span></span>
-<span id="cb13-572"><a href="#cb13-572" aria-hidden="true" tabindex="-1"></a><span class="at">  tabfreq() |&gt;</span></span>
-<span id="cb13-573"><a href="#cb13-573" aria-hidden="true" tabindex="-1"></a><span class="at">  hist(</span></span>
-<span id="cb13-574"><a href="#cb13-574" aria-hidden="true" tabindex="-1"></a><span class="at">    main = "Distribuição da resistência à compressão",</span></span>
-<span id="cb13-575"><a href="#cb13-575" aria-hidden="true" tabindex="-1"></a><span class="at">    xlab = "Resistência à compressão (MPa)",</span></span>
-<span id="cb13-576"><a href="#cb13-576" aria-hidden="true" tabindex="-1"></a><span class="at">    ylab = "Frequência"</span></span>
-<span id="cb13-577"><a href="#cb13-577" aria-hidden="true" tabindex="-1"></a><span class="at">  )</span></span>
-<span id="cb13-578"><a href="#cb13-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-579"><a href="#cb13-579" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
-<span id="cb13-580"><a href="#cb13-580" aria-hidden="true" tabindex="-1"></a><span class="do">## 🧠 Considerações finais</span></span>
+<span id="cb13-511"><a href="#cb13-511" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
+<span id="cb13-512"><a href="#cb13-512" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Representação Tabular</span></span>
+<span id="cb13-513"><a href="#cb13-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-514"><a href="#cb13-514" aria-hidden="true" tabindex="-1"></a>A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados experimentais sejam registrados com determinada precisão, essa limitação decorre da resolução dos instrumentos e do procedimento de medição, e não da natureza da variável. Dessa forma, conforme apresentado no Capítulo 2 do Estatística &amp; Probabilidade Aplicada às Engenharias e Ciências (EPAEC), é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.</span>
+<span id="cb13-515"><a href="#cb13-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-516"><a href="#cb13-516" aria-hidden="true" tabindex="-1"></a>No presente estudo, foram considerados **25 resultados simulados de resistência à compressão**, correspondentes aos corpos de prova submetidos à mesma condição experimental. Para a definição do número de classes, adotou-se o critério apresentado no EPAEC, segundo o qual, para conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, para $m = 25$, obtém-se $k \approx \sqrt{25} = 5$, resultando na utilização de **cinco classes de frequência**.</span>
+<span id="cb13-517"><a href="#cb13-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-518"><a href="#cb13-518" aria-hidden="true" tabindex="-1"></a>A partir desse procedimento, os resultados foram agrupados em intervalos de resistência à compressão. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a participação de cada classe em relação ao total de observações. As frequências acumuladas permitem identificar a quantidade de observações situada abaixo ou acima de determinada classe. Essas formas de representação são apresentadas no EPAEC como instrumentos para facilitar a interpretação de conjuntos de dados.</span>
+<span id="cb13-521"><a href="#cb13-521" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-522"><a href="#cb13-522" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulação</span></span>
+<span id="cb13-523"><a href="#cb13-523" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leem)</span>
+<span id="cb13-524"><a href="#cb13-524" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb13-525"><a href="#cb13-525" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb13-526"><a href="#cb13-526" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-529"><a href="#cb13-529" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-530"><a href="#cb13-530" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-frequencia-resistencia</span></span>
+<span id="cb13-531"><a href="#cb13-531" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribuição de frequência da resistência à compressão"</span></span>
+<span id="cb13-532"><a href="#cb13-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-533"><a href="#cb13-533" aria-hidden="true" tabindex="-1"></a>tab_resistencia <span class="ot">&lt;-</span> resistencia25<span class="sc">$</span>Resistencia_MPa <span class="sc">|&gt;</span></span>
+<span id="cb13-534"><a href="#cb13-534" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_leem</span>(<span class="at">variable =</span> <span class="st">"continuous"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-535"><a href="#cb13-535" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabfreq</span>(<span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb13-536"><a href="#cb13-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-537"><a href="#cb13-537" aria-hidden="true" tabindex="-1"></a>tabela <span class="ot">&lt;-</span> tab_resistencia<span class="sc">$</span>table[, <span class="fu">c</span>(</span>
+<span id="cb13-538"><a href="#cb13-538" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Classes"</span>, <span class="st">"Fi"</span>, <span class="st">"PM"</span>, <span class="st">"Fr"</span>, <span class="st">"Fac1"</span>, <span class="st">"Fac2"</span>, <span class="st">"Fp"</span></span>
+<span id="cb13-539"><a href="#cb13-539" aria-hidden="true" tabindex="-1"></a>)]</span>
+<span id="cb13-540"><a href="#cb13-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-541"><a href="#cb13-541" aria-hidden="true" tabindex="-1"></a><span class="co"># Substituindo |--- por |—</span></span>
+<span id="cb13-542"><a href="#cb13-542" aria-hidden="true" tabindex="-1"></a>tabela<span class="sc">$</span>Classes <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
+<span id="cb13-543"><a href="#cb13-543" aria-hidden="true" tabindex="-1"></a>  <span class="st">"</span><span class="sc">\\</span><span class="st">|---"</span>,</span>
+<span id="cb13-544"><a href="#cb13-544" aria-hidden="true" tabindex="-1"></a>  <span class="st">"|—"</span>,</span>
+<span id="cb13-545"><a href="#cb13-545" aria-hidden="true" tabindex="-1"></a>  tabela<span class="sc">$</span>Classes</span>
+<span id="cb13-546"><a href="#cb13-546" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-547"><a href="#cb13-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-548"><a href="#cb13-548" aria-hidden="true" tabindex="-1"></a><span class="co"># Substituindo ponto decimal por vírgula</span></span>
+<span id="cb13-549"><a href="#cb13-549" aria-hidden="true" tabindex="-1"></a>tabela<span class="sc">$</span>Classes <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
+<span id="cb13-550"><a href="#cb13-550" aria-hidden="true" tabindex="-1"></a>  <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>,</span>
+<span id="cb13-551"><a href="#cb13-551" aria-hidden="true" tabindex="-1"></a>  <span class="st">","</span>,</span>
+<span id="cb13-552"><a href="#cb13-552" aria-hidden="true" tabindex="-1"></a>  tabela<span class="sc">$</span>Classes</span>
+<span id="cb13-553"><a href="#cb13-553" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-554"><a href="#cb13-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-555"><a href="#cb13-555" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb13-556"><a href="#cb13-556" aria-hidden="true" tabindex="-1"></a>  tabela,</span>
+<span id="cb13-557"><a href="#cb13-557" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb13-558"><a href="#cb13-558" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb13-559"><a href="#cb13-559" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>),</span>
+<span id="cb13-560"><a href="#cb13-560" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(</span>
+<span id="cb13-561"><a href="#cb13-561" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Classe (MPa)"</span>,</span>
+<span id="cb13-562"><a href="#cb13-562" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fi"</span>,</span>
+<span id="cb13-563"><a href="#cb13-563" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PM (MPa)"</span>,</span>
+<span id="cb13-564"><a href="#cb13-564" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fr"</span>,</span>
+<span id="cb13-565"><a href="#cb13-565" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fac↓"</span>,</span>
+<span id="cb13-566"><a href="#cb13-566" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fac↑"</span>,</span>
+<span id="cb13-567"><a href="#cb13-567" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fp (%)"</span></span>
+<span id="cb13-568"><a href="#cb13-568" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb13-569"><a href="#cb13-569" aria-hidden="true" tabindex="-1"></a>  <span class="at">escape =</span> <span class="cn">FALSE</span></span>
+<span id="cb13-570"><a href="#cb13-570" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb13-571"><a href="#cb13-571" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
+<span id="cb13-572"><a href="#cb13-572" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="st">"condensed"</span>,</span>
+<span id="cb13-573"><a href="#cb13-573" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb13-574"><a href="#cb13-574" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"center"</span></span>
+<span id="cb13-575"><a href="#cb13-575" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-576"><a href="#cb13-576" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-577"><a href="#cb13-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-578"><a href="#cb13-578" aria-hidden="true" tabindex="-1"></a>A distribuição apresentada na Tabela 1 permite observar que os resultados de resistência à compressão se concentram principalmente nas classes intermediárias. A maior frequência absoluta foi observada no intervalo de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% da amostra. A segunda maior frequência ocorreu entre 39,16 e 40,08 MPa, com 7 observações, equivalentes a 28%.</span>
+<span id="cb13-579"><a href="#cb13-579" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-580"><a href="#cb13-580" aria-hidden="true" tabindex="-1"></a>Considerando conjuntamente essas duas classes, verifica-se que 15 dos 25 resultados (60%) encontram-se entre 39,16 e 41,00 MPa. Esse comportamento demonstra uma concentração significativa das resistências em torno da região central da distribuição. Por outro lado, apenas 2 resultados (8%) encontram-se na primeira classe, entre 38,24 e 39,16 MPa, enquanto 3 resultados (12%) pertencem à classe superior, entre 41,92 e 42,84 MPa. Portanto, a maior parte dos corpos de prova apresentou resistência relativamente próxima à região central dos dados.</span>
 <span id="cb13-581"><a href="#cb13-581" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-582"><a href="#cb13-582" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
+<span id="cb13-582"><a href="#cb13-582" aria-hidden="true" tabindex="-1"></a>Do ponto de vista da Engenharia Civil, essa concentração é relevante porque os corpos de prova considerados foram produzidos sob uma mesma relação água/cimento (A/C = 0,50) e submetidos à mesma idade de referência, de 28 dias. Dessa forma, a diferença observada entre os resultados não decorre de uma alteração intencional da relação água/cimento ou da idade do concreto, variáveis que exercem influência importante sobre a resistência à compressão.</span>
 <span id="cb13-583"><a href="#cb13-583" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-584"><a href="#cb13-584" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Retome o objetivo da prática e indique se ele foi alcançado.</span>
-<span id="cb13-585"><a href="#cb13-585" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Destaque os principais aprendizados obtidos.</span>
-<span id="cb13-586"><a href="#cb13-586" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Comente brevemente sobre a qualidade dos dados coletados.</span>
-<span id="cb13-587"><a href="#cb13-587" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Sugira possíveis melhorias no procedimento experimental.</span>
-<span id="cb13-588"><a href="#cb13-588" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-589"><a href="#cb13-589" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas <span class="sc">**</span>conclusões e reflexões<span class="sc">**</span> sobre a prática realizada.</span>
-<span id="cb13-590"><a href="#cb13-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-591"><a href="#cb13-591" aria-hidden="true" tabindex="-1"></a><span class="do">## Aprenda Quarto</span></span>
-<span id="cb13-592"><a href="#cb13-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-593"><a href="#cb13-593" aria-hidden="true" tabindex="-1"></a>Acesse [Quarto](https<span class="sc">:</span><span class="er">//</span>quarto.org<span class="sc">/</span>).</span>
-<span id="cb13-594"><a href="#cb13-594" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-595"><a href="#cb13-595" aria-hidden="true" tabindex="-1"></a><span class="do">## 📖 Referências</span></span>
-<span id="cb13-596"><a href="#cb13-596" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-597"><a href="#cb13-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-584"><a href="#cb13-584" aria-hidden="true" tabindex="-1"></a>Como os dados são simulados, a distribuição observada deve ser interpretada como uma representação da variabilidade esperada entre resultados de ensaios realizados sob condições semelhantes, e não como evidência experimental de um concreto efetivamente produzido e ensaiado em laboratório. Em uma situação experimental real, diferenças entre os resultados poderiam estar relacionadas a diversos fatores, como homogeneidade da mistura, proporção e características dos agregados, propriedades do cimento, precisão na dosagem da água, procedimento de mistura, adensamento, condições de cura, dimensões e preparação dos corpos de prova e condições de execução do ensaio de compressão.</span>
+<span id="cb13-585"><a href="#cb13-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-586"><a href="#cb13-586" aria-hidden="true" tabindex="-1"></a>Essa observação é importante porque, mantendo-se a relação A/C constante, a análise da distribuição dos resultados passa a ser útil para avaliar a variabilidade da resistência dentro de uma mesma condição de produção. Em termos de controle tecnológico do concreto, quanto maior a dispersão dos resultados, maior a necessidade de investigar possíveis fontes de variabilidade no processo de produção, moldagem, cura ou ensaio. Entretanto, a avaliação dessa dispersão não deve ser realizada apenas pela tabela de frequência; será complementada posteriormente pelas medidas de dispersão, como amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão da média.</span>
+<span id="cb13-587"><a href="#cb13-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-588"><a href="#cb13-588" aria-hidden="true" tabindex="-1"></a>Conforme apresentado na Tabela @tbl-frequencia-resistencia, observa-se que a maior frequência de resistência ocorre na classe de 40,08 a 41,00 MPa, que concentra 8 dos 25 ensaios realizados, correspondendo a 32% das observações.</span>
+<span id="cb13-589"><a href="#cb13-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-592"><a href="#cb13-592" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-593"><a href="#cb13-593" aria-hidden="true" tabindex="-1"></a><span class="co"># Histograma de frequência</span></span>
+<span id="cb13-594"><a href="#cb13-594" aria-hidden="true" tabindex="-1"></a>resistencia25<span class="sc">$</span>Resistencia_MPa <span class="sc">|&gt;</span></span>
+<span id="cb13-595"><a href="#cb13-595" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_leem</span>(<span class="at">variable =</span> <span class="st">"continuous"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-596"><a href="#cb13-596" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabfreq</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-597"><a href="#cb13-597" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(</span>
+<span id="cb13-598"><a href="#cb13-598" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"Distribuição da resistência à compressão"</span>,</span>
+<span id="cb13-599"><a href="#cb13-599" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">"Resistência à compressão (MPa)"</span>,</span>
+<span id="cb13-600"><a href="#cb13-600" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">"Frequência"</span></span>
+<span id="cb13-601"><a href="#cb13-601" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-602"><a href="#cb13-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-603"><a href="#cb13-603" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-604"><a href="#cb13-604" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
+<span id="cb13-605"><a href="#cb13-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-606"><a href="#cb13-606" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
+<span id="cb13-607"><a href="#cb13-607" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-608"><a href="#cb13-608" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
+<span id="cb13-609"><a href="#cb13-609" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
+<span id="cb13-610"><a href="#cb13-610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-611"><a href="#cb13-611" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb13-612"><a href="#cb13-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-613"><a href="#cb13-613" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
+<span id="cb13-614"><a href="#cb13-614" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-615"><a href="#cb13-615" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
+<span id="cb13-616"><a href="#cb13-616" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
+<span id="cb13-617"><a href="#cb13-617" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
+<span id="cb13-618"><a href="#cb13-618" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
+<span id="cb13-619"><a href="#cb13-619" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-620"><a href="#cb13-620" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
+<span id="cb13-621"><a href="#cb13-621" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-622"><a href="#cb13-622" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb13-623"><a href="#cb13-623" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-624"><a href="#cb13-624" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb13-625"><a href="#cb13-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-626"><a href="#cb13-626" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<span id="cb13-627"><a href="#cb13-627" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-628"><a href="#cb13-628" aria-hidden="true" tabindex="-1"></a></span>
 </code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

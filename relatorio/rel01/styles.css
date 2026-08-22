@@ -20,3 +20,9 @@
 #quarto-document-content li {
   text-align: justify !important;
 }
+
+.tabela-dados {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -467,45 +467,57 @@ Descreva como o experimento foi realizado.
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
+### Dados do Experimento
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
+Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, tomando como referência a ABNT NBR 5739. A norma estabelece o método para determinação da resistência à compressão de corpos de prova cilíndricos de concreto e define, entre outros aspectos, as condições de realização do ensaio e o cálculo da resistência à compressão a partir da força máxima aplicada.
 
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
+Para manter a análise estatística concentrada na variabilidade dos resultados de resistência, foram mantidas constantes as condições do experimento. Considerou-se uma relação água/cimento (A/C) igual a 0,50, idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional no conjunto de dados.
 
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
+A partir dessas condições, foram gerados 25 resultados simulados de resistência à compressão, correspondentes a 25 ensaios. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739.
 
-Procure não apenas descrever, mas **interpretar os dados**.
 
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
 ```{r}
-# Importando o banco de dados
-
-library(leem)
-
+#| echo: false
 resistencia25 <- read.csv2(
   "C:/Relatorios/eait/relatorio/rel01/resistencia25.csv",
   dec = ","
 )
+```
+::: {.tabela-dados}
+```{r}
+#| label: tbl-dados
+#| tbl-cap: "Resultados simulados de resistência à compressão do concreto aos 28 dias"
+#| echo: false
 
+library(knitr)
+
+kable(
+  resistencia25,
+  col.names = c("Corpo de Prova", "Resistência à compressão (MPa)"),
+  align = c("c", "c"),
+  digits = 1
+)
+```
+:::
+
+A partir desse conjunto de 25 observações, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote leem, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.
+
+
+
+### 📊  Análise de Dados
+#### Representação Tabular
+
+A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados experimentais sejam registrados com determinada precisão, essa limitação decorre da resolução dos instrumentos e do procedimento de medição, e não da natureza da variável. Dessa forma, conforme apresentado no Capítulo 2 do Estatística & Probabilidade Aplicada às Engenharias e Ciências (EPAEC), é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.
+
+No presente estudo, foram considerados **25 resultados simulados de resistência à compressão**, correspondentes aos corpos de prova submetidos à mesma condição experimental. Para a definição do número de classes, adotou-se o critério apresentado no EPAEC, segundo o qual, para conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, para $m = 25$, obtém-se $k \approx \sqrt{25} = 5$, resultando na utilização de **cinco classes de frequência**.
+
+A partir desse procedimento, os resultados foram agrupados em intervalos de resistência à compressão. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a participação de cada classe em relação ao total de observações. As frequências acumuladas permitem identificar a quantidade de observações situada abaixo ou acima de determinada classe. Essas formas de representação são apresentadas no EPAEC como instrumentos para facilitar a interpretação de conjuntos de dados.
+```{r}
 # Tabulação
 library(leem)
 library(knitr)
 library(kableExtra)
-
+```
 ```{r}
 #| label: tbl-frequencia-resistencia
 #| tbl-cap: "Distribuição de frequência da resistência à compressão"
@@ -518,14 +530,14 @@ tabela <- tab_resistencia$table[, c(
   "Classes", "Fi", "PM", "Fr", "Fac1", "Fac2", "Fp"
 )]
 
-# Melhorando a apresentação das classes
+# Substituindo |--- por |—
 tabela$Classes <- gsub(
-  " \\|--- ",
-  " – ",
+  "\\|---",
+  "|—",
   tabela$Classes
 )
 
-# Substituindo ponto decimal por vírgula nas classes
+# Substituindo ponto decimal por vírgula
 tabela$Classes <- gsub(
   "\\.",
   ",",
@@ -534,6 +546,7 @@ tabela$Classes <- gsub(
 
 knitr::kable(
   tabela,
+  format = "html",
   digits = 2,
   align = c("l", "r", "r", "r", "r", "r", "r"),
   col.names = c(
@@ -545,7 +558,7 @@ knitr::kable(
     "Fac↑",
     "Fp (%)"
   ),
-  escape = TRUE
+  escape = FALSE
 ) |>
   kableExtra::kable_styling(
     bootstrap_options = "condensed",
@@ -554,8 +567,15 @@ knitr::kable(
   )
 ```
 
-A Tabela apresenta a distribuição de frequência dos valores de resistência à compressão dos corpos de prova. Os dados foram agrupados em cinco classes, permitindo observar a concentração das observações, a frequência absoluta e relativa e as frequências acumuladas.
+A distribuição apresentada na Tabela 1 permite observar que os resultados de resistência à compressão se concentram principalmente nas classes intermediárias. A maior frequência absoluta foi observada no intervalo de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% da amostra. A segunda maior frequência ocorreu entre 39,16 e 40,08 MPa, com 7 observações, equivalentes a 28%.
 
+Considerando conjuntamente essas duas classes, verifica-se que 15 dos 25 resultados (60%) encontram-se entre 39,16 e 41,00 MPa. Esse comportamento demonstra uma concentração significativa das resistências em torno da região central da distribuição. Por outro lado, apenas 2 resultados (8%) encontram-se na primeira classe, entre 38,24 e 39,16 MPa, enquanto 3 resultados (12%) pertencem à classe superior, entre 41,92 e 42,84 MPa. Portanto, a maior parte dos corpos de prova apresentou resistência relativamente próxima à região central dos dados.
+
+Do ponto de vista da Engenharia Civil, essa concentração é relevante porque os corpos de prova considerados foram produzidos sob uma mesma relação água/cimento (A/C = 0,50) e submetidos à mesma idade de referência, de 28 dias. Dessa forma, a diferença observada entre os resultados não decorre de uma alteração intencional da relação água/cimento ou da idade do concreto, variáveis que exercem influência importante sobre a resistência à compressão.
+
+Como os dados são simulados, a distribuição observada deve ser interpretada como uma representação da variabilidade esperada entre resultados de ensaios realizados sob condições semelhantes, e não como evidência experimental de um concreto efetivamente produzido e ensaiado em laboratório. Em uma situação experimental real, diferenças entre os resultados poderiam estar relacionadas a diversos fatores, como homogeneidade da mistura, proporção e características dos agregados, propriedades do cimento, precisão na dosagem da água, procedimento de mistura, adensamento, condições de cura, dimensões e preparação dos corpos de prova e condições de execução do ensaio de compressão.
+
+Essa observação é importante porque, mantendo-se a relação A/C constante, a análise da distribuição dos resultados passa a ser útil para avaliar a variabilidade da resistência dentro de uma mesma condição de produção. Em termos de controle tecnológico do concreto, quanto maior a dispersão dos resultados, maior a necessidade de investigar possíveis fontes de variabilidade no processo de produção, moldagem, cura ou ensaio. Entretanto, a avaliação dessa dispersão não deve ser realizada apenas pela tabela de frequência; será complementada posteriormente pelas medidas de dispersão, como amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão da média.
 
 Conforme apresentado na Tabela @tbl-frequencia-resistencia, observa-se que a maior frequência de resistência ocorre na classe de 40,08 a 41,00 MPa, que concentra 8 dos 25 ensaios realizados, correspondendo a 32% das observações.
 
@@ -571,6 +591,13 @@ resistencia25$Resistencia_MPa |>
   )
 
 ```
+### 💬 Exemplo de como citar uma referência bibliográfica
+
+Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
+
+- Segundo @Rbasico2022
+- Tudo é um objeto em R [@Rbasico2022]
+
 ## 🧠 Considerações finais
 
 Apresente uma síntese dos principais pontos observados no experimento.
