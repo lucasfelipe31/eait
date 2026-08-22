@@ -501,6 +501,65 @@ resistencia25 <- read.csv2(
   dec = ","
 )
 
+# Tabulação
+library(leem)
+library(knitr)
+library(kableExtra)
+
+```{r}
+#| label: tbl-frequencia-resistencia
+#| tbl-cap: "Distribuição de frequência da resistência à compressão"
+
+tab_resistencia <- resistencia25$Resistencia_MPa |>
+  new_leem(variable = "continuous") |>
+  tabfreq(k = 5)
+
+tabela <- tab_resistencia$table[, c(
+  "Classes", "Fi", "PM", "Fr", "Fac1", "Fac2", "Fp"
+)]
+
+# Melhorando a apresentação das classes
+tabela$Classes <- gsub(
+  " \\|--- ",
+  " – ",
+  tabela$Classes
+)
+
+# Substituindo ponto decimal por vírgula nas classes
+tabela$Classes <- gsub(
+  "\\.",
+  ",",
+  tabela$Classes
+)
+
+knitr::kable(
+  tabela,
+  digits = 2,
+  align = c("l", "r", "r", "r", "r", "r", "r"),
+  col.names = c(
+    "Classe (MPa)",
+    "Fi",
+    "PM (MPa)",
+    "Fr",
+    "Fac↓",
+    "Fac↑",
+    "Fp (%)"
+  ),
+  escape = TRUE
+) |>
+  kableExtra::kable_styling(
+    bootstrap_options = "condensed",
+    full_width = FALSE,
+    position = "center"
+  )
+```
+
+A Tabela apresenta a distribuição de frequência dos valores de resistência à compressão dos corpos de prova. Os dados foram agrupados em cinco classes, permitindo observar a concentração das observações, a frequência absoluta e relativa e as frequências acumuladas.
+
+
+Conforme apresentado na Tabela @tbl-frequencia-resistencia, observa-se que a maior frequência de resistência ocorre na classe de 40,08 a 41,00 MPa, que concentra 8 dos 25 ensaios realizados, correspondendo a 32% das observações.
+
+```{r}
 # Histograma de frequência
 resistencia25$Resistencia_MPa |>
   new_leem(variable = "continuous") |>
@@ -512,13 +571,6 @@ resistencia25$Resistencia_MPa |>
   )
 
 ```
-```{r}
-# Tabulando os dados
-resistencia25$Resistencia_MPa |>
-  new_leem(variable = "continuous") |>
-  tabfreq()
-```
-  
 ## 🧠 Considerações finais
 
 Apresente uma síntese dos principais pontos observados no experimento.
