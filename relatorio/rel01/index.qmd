@@ -398,6 +398,11 @@ Dessa forma, a representação tabular permite identificar onde os resultados es
 
 #### Representação Gráfica
 
+Conforme apresentado por @batista2024estatistica, o histograma é uma representação adequada para variáveis quantitativas contínuas, nas quais os valores são organizados em intervalos de classe. Nesse tipo de gráfico, as classes são representadas por barras adjacentes, cuja altura está relacionada à frequência das observações em cada intervalo.
+
+Neste estudo, foram utilizados histogramas para representar a distribuição da resistência à compressão dos três conjuntos de dados. Como os valores de cada condição experimental foram previamente agrupados em cinco classes de frequência, os histogramas permitem visualizar a concentração das observações, identificar as classes de maior frequência e comparar o comportamento das distribuições entre as diferentes relações água/cimento.
+
+Além de facilitar a visualização da distribuição, a representação gráfica fornece uma primeira indicação sobre a concentração e a forma dos dados, aspectos que serão aprofundados posteriormente por meio das medidas de posição, dispersão, assimetria e curtose. Dessa forma, os histogramas complementam as informações apresentadas nas tabelas de frequência e contribuem para uma interpretação mais integrada dos resultados.
 ```{r}
 #| label: fig-histograma-g1
 #| fig-cap: "Histograma da resistência à compressão — A/C = 0,50"
@@ -413,6 +418,7 @@ G1 |>
   )
 ```
 
+Da mesma forma, para os dados agrupados pertencentes às condições do Grupo 2:
 ```{r}
 #| label: fig-histograma-g2
 #| fig-cap: "Histograma da resistência à compressão — A/C = 0,60"
@@ -428,6 +434,7 @@ G2 |>
   )
 ```
 
+E, para o Grupo 3, o histograma será:
 ```{r}
 #| label: fig-histograma-g3
 #| fig-cap: "Histograma da resistência à compressão — A/C = 0,70"
@@ -446,6 +453,10 @@ G3 |>
 
 
 #### Medidas de Posição
+
+Após a organização dos dados em tabelas e sua representação gráfica, as medidas de posição permitem sintetizar o conjunto de observações por meio de valores que representam sua região central.
+
+Neste estudo, essas medidas serão determinadas para os três grupos de resistência à compressão, permitindo comparar o comportamento central dos resultados para diferentes relações água/cimento. Além dos valores obtidos diretamente a partir das 25 observações, serão consideradas as estimativas provenientes dos dados agrupados em classes, possibilitando observar as diferenças decorrentes do processo de agrupamento. Para variáveis quantitativas contínuas agrupadas em intervalos, o ponto médio das classes é utilizado nos cálculos, podendo ocorrer perda de precisão em relação aos dados não agrupados [@batista2024estatistica].
 ```{r}
 #| echo: false
 
@@ -460,14 +471,6 @@ pos_G2 <- G2 |>
 pos_G3 <- G3 |>
   new_leem(variable = "continuous") |>
   mpos(grouped = TRUE)
-
-
-pos_G1
-
-pos_G2
-
-pos_G3
-
 ```
 
 ```{r}
@@ -547,6 +550,9 @@ knitr::kable(
   )
 ```
   
+
+Nos dados não agrupados, não foi identificada uma moda para os três conjuntos de observações, uma vez que os valores individuais de resistência à compressão não apresentam repetições. Entretanto, após o agrupamento dos dados em classes de frequência, torna-se possível identificar uma classe modal, correspondente à classe que apresenta a maior frequência absoluta. Dessa forma, a moda obtida para os dados agrupados não representa necessariamente um valor originalmente observado, mas uma estimativa da tendência central da classe modal.
+
 **Medidas de Posição representadas no Histograma**
 
 Além da representação da distribuição de frequência, é possível utilizar o histograma para visualizar a localização das principais medidas de posição dos dados. Nesse caso, foram consideradas a média, a mediana e a moda calculadas a partir dos dados agrupados em classes, mantendo a correspondência entre a representação gráfica e o procedimento de tabulação adotado anteriormente. A inserção dessas medidas no histograma permite observar visualmente a posição central da distribuição e facilita a análise da relação entre as medidas de posição e a concentração dos resultados de resistência à compressão.
@@ -558,7 +564,7 @@ Como os dados foram agrupados em cinco classes de frequência, as medidas utiliz
 G1 |>
   new_leem(variable = "continuous") |>
   hist(
-    main = "Distribuição da resistência à compressão — A/C = 0,50",
+    main = "Distribuição da resistência à compressão - A/C = 0,50",
     xlab = "Resistência à compressão (MPa)",
     ylab = "Frequência"
   ) |>
@@ -575,7 +581,7 @@ G1 |>
 G2 |>
   new_leem(variable = "continuous") |>
   hist(
-    main = "Distribuição da resistência à compressão — A/C = 0,60",
+    main = "Distribuição da resistência à compressão - A/C = 0,60",
     xlab = "Resistência à compressão (MPa)",
     ylab = "Frequência"
   ) |>
@@ -591,7 +597,7 @@ G2 |>
 G3 |>
   new_leem(variable = "continuous") |>
   hist(
-    main = "Distribuição da resistência à compressão — A/C = 0,70",
+    main = "Distribuição da resistência à compressão - A/C = 0,70",
     xlab = "Resistência à compressão (MPa)",
     ylab = "Frequência"
   ) |>
@@ -605,6 +611,10 @@ G3 |>
 
 
 #### Medidas de Dispersão
+
+As medidas de posição permitem identificar a região central de um conjunto de dados, porém, isoladamente, não são suficientes para caracterizar sua variabilidade, conforme visto anteriormente. Segundo @batista2024estatistica, diferentes conjuntos podem apresentar valores centrais semelhantes e, ainda assim, possuir diferentes níveis de dispersão. As medidas de dispersão são utilizadas justamente para quantificar o quanto as observações variam em torno de um valor central, geralmente a média aritmética.
+
+Neste estudo, serão analisadas a amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão da média dos três grupos de resistência à compressão. A utilização conjunta dessas medidas permitirá avaliar não apenas a extensão entre os valores mínimo e máximo, mas também a variabilidade das observações e a precisão da estimativa da média. Essa análise é particularmente relevante para comparar a consistência dos resultados obtidos sob diferentes relações água/cimento.
 ```{r}
 #| echo: false
 # AMPLITUDE
@@ -689,8 +699,6 @@ erro_G3 <- G3 |>
 ```
 
 ```{r}
-#| echo: false
-# Criar tabela com dados de dispersão
 #| label: tbl-medidas-dispersao
 #| tbl-cap: "Medidas de dispersão da resistência à compressão para diferentes relações água/cimento"
 #| echo: false
@@ -743,6 +751,68 @@ knitr::kable(
     position = "center"
   )
 ```
+
+
+A Tabela 7 apresenta as medidas de dispersão calculadas para os três grupos de resistência à compressão. Os resultados foram obtidos a partir das 25 observações individuais de cada grupo, ou seja, utilizando os dados não agrupados. Essa abordagem é mais adequada para a análise da variabilidade neste estudo, pois preserva os valores originalmente simulados e evita a aproximação decorrente do agrupamento das observações em classes. A representação agrupada permanece importante para a construção das tabelas de frequência e dos histogramas, mas, para quantificar a dispersão dos resultados, a utilização dos dados individuais fornece uma medida mais diretamente relacionada à variabilidade efetivamente presente no conjunto de observações.
+
+A amplitude, obtida pela diferença entre o maior e o menor valor observado, foi de 3,68 MPa para o Grupo 1, enquanto os Grupos 2 e 3 apresentaram amplitude de 3,72 MPa. Dessa forma, os Grupos 2 e 3 apresentaram a maior variação entre os valores extremos, embora a diferença em relação ao Grupo 1 seja pequena. Considerando as médias dos grupos, essas amplitudes correspondem a aproximadamente 9,1%, 10,5% e 12,3% das respectivas médias para os Grupos 1, 2 e 3. Portanto, os resultados encontram-se relativamente próximos dentro de cada grupo. Entretanto, a amplitude considera somente os dois valores extremos e, por isso, não é suficiente, isoladamente, para caracterizar a dispersão de todas as observações.
+
+A variância apresentou valores de 1,13 MPa² para o Grupo 1 e 1,01 MPa² para os Grupos 2 e 3. Como a variância é expressa em unidade elevada ao quadrado, sua interpretação direta é menos intuitiva. Por essa razão, o desvio-padrão fornece uma medida mais facilmente interpretável da dispersão em relação à média. O Grupo 1 apresentou desvio-padrão de 1,06 MPa, enquanto os Grupos 2 e 3 apresentaram 1,00 MPa. Assim, os valores indicam que as observações dos três grupos estão relativamente concentradas em torno de suas respectivas médias, sendo a dispersão absoluta ligeiramente maior no Grupo 1. De modo geral, quanto menor o desvio-padrão, menor é a dispersão dos resultados em torno da média.
+
+Para comparar a variabilidade entre os grupos de forma relativa, destaca-se o coeficiente de variação (CV). Essa medida relaciona o desvio-padrão à média do conjunto e é particularmente útil neste estudo porque os grupos apresentam diferentes níveis médios de resistência. O CV foi de 2,61% para o Grupo 1, 2,84% para o Grupo 2 e 3,31% para o Grupo 3. Portanto, embora os desvios-padrão sejam bastante semelhantes, a variabilidade relativa aumenta à medida que a relação água/cimento passa de 0,50 para 0,70.
+
+Do ponto de vista da Engenharia Civil, esse comportamento é relevante. A relação água/cimento constitui uma variável importante na resistência do concreto e, neste conjunto simulado, o aumento da A/C foi acompanhado por uma redução da resistência média. Ao mesmo tempo, o CV indica que os resultados do Grupo 1 apresentam a menor variabilidade relativa, enquanto o Grupo 3 apresenta a maior. Isso significa que, embora os três conjuntos apresentem dispersões relativamente baixas, a resistência do Grupo 3 é proporcionalmente menos homogênea em relação à sua média.
+
+A pequena magnitude dos coeficientes de variação (inferiores a 4%) indica baixa variabilidade relativa dentro dos grupos simulados. Em termos de controle tecnológico, resultados mais concentrados são desejáveis porque indicam maior uniformidade entre os corpos de prova produzidos sob uma mesma condição. Entretanto, essa interpretação deve considerar que os dados são simulados e que, em uma situação real, diferenças entre os corpos de prova poderiam decorrer de fatores como dosagem dos materiais, homogeneização da mistura, umidade e características dos agregados, adensamento, moldagem, condições de cura e execução do ensaio.
+
+Por fim, o erro-padrão da média apresentou valores próximos entre os grupos, variando de 0,20 a 0,21 MPa. Essa medida está relacionada à precisão da estimativa da média: valores menores indicam menor variabilidade esperada da média amostral. A proximidade dos valores entre os três grupos é coerente com os desvios-padrão semelhantes e com o mesmo número de observações, 25 corpos de prova por grupo.
+
+
+#### Medidas de Assimetria e Curtose
+
+
+```{r}
+# Assimetria
+assim_G1 <- G1 |>
+  new_leem(variable = "continuous") |>
+  skewness(grouped = TRUE)
+
+assim_G3 <- G3 |>
+  new_leem(variable = "continuous") |>
+  skewness(grouped = TRUE)
+
+assim_G2 <- G2 |>
+  new_leem(variable = "continuous") |>
+  skewness(grouped = TRUE)
+
+assim_G1
+assim_G2
+assim_G3
+
+showskew(mpos = TRUE)
+
+showkur()
+```
+
+```{r}
+# Pacote moments
+library(moments)
+
+# Curtose - Grupo 1
+curtose_G1 <- kurtosis(G1)
+
+# Curtose - Grupo 2
+curtose_G2 <- kurtosis(G2)
+
+# Curtose - Grupo 3
+curtose_G3 <- kurtosis(G3)
+
+curtose_G1
+curtose_G2
+curtose_G3
+
+```
+
 ## 🧠 Considerações finais
 
 A prática possibilitou aplicar conceitos de estatística descritiva no contexto da Engenharia Civil, utilizando o ambiente R e o pacote leem para organização, tabulação, representação e análise de um conjunto de dados relacionados à resistência à compressão do concreto.

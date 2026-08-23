@@ -26,3 +26,12 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Figuras centralizadas */
+.figure {
+  text-align: center;
+}
+
+.figure-caption {
+  text-align: center;
+}
