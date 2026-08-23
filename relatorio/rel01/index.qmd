@@ -157,7 +157,7 @@ O capítulo mostra ainda que a escolha da medida de posição depende das caract
 
 Por fim, o capítulo apresenta aplicações utilizando o LEEM e o R. O LEEM auxilia no cálculo das medidas de posição, como média, mediana e moda, tanto para dados agrupados quanto para dados não agrupados. O R também pode ser utilizado para representar essas medidas graficamente, facilitando a visualização e a interpretação dos resultados. Assim, o capítulo mostra como a média, a mediana, a moda, o LEEM e o R podem ser utilizados para resumir e compreender melhor um conjunto de dados.
 
-### Capítulo 4: Medidas de Disperção
+### Capítulo 4: Medidas de Dispersão
 
 O quarto capítulo apresenta as medidas de dispersão, que são utilizadas para mostrar o quanto os dados de um conjunto estão afastados ou concentrados em relação a um valor central, geralmente a média. O capítulo mostra que conhecer apenas a média não é suficiente para caracterizar um conjunto de dados, pois diferentes grupos podem apresentar a mesma média e possuir níveis de variabilidade muito diferentes.
 
@@ -226,7 +226,7 @@ Para a realização da análise estatística, foi elaborado um banco de dados si
 
 Para a elaboração do banco de dados, foram estabelecidas condições experimentais controladas, mantendo-se constantes os principais parâmetros do ensaio e variando-se a relação água/cimento (A/C) como condição de diferenciação entre os conjuntos de observações. Considerou-se a idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional na interpretação dos resultados.
 
-A partir dessas condições, foram gerados 75 resultados simulados de resistência à compressão, correspondentes a 75 ensaios, distribuídos igualmente entre as condições de relação água/cimento consideradas. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739.
+A partir dessas condições, foram gerados 75 resultados simulados de resistência à compressão, distribuídos igualmente entre as condições de relação água/cimento consideradas. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739 [@nbr5739].
 
 
 ```{r}
@@ -274,9 +274,9 @@ A partir desse conjunto de 75 observações, será realizada a análise de Estat
 ### 📊  Análise de Dados
 #### Representação Tabular
 
-A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados dos ensaios sejam registrados com determinada precisão, essa limitação está relacionada à resolução dos instrumentos e ao procedimento de medição, e não à natureza da variável. Dessa forma, conforme apresentado no Capítulo 2 do Estatística & Probabilidade Aplicada às Engenharias e Ciências (EPAEC), é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.
+A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados dos ensaios sejam registrados com determinada precisão, essa limitação está relacionada à resolução dos instrumentos e ao procedimento de medição, e não à natureza da variável. Dessa forma, conforme apresentado por @batista2024estatistica, é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.
 
-No presente estudo, foram considerados 75 resultados simulados de resistência à compressão, correspondentes aos corpos de prova submetidos às condições experimentais estabelecidas. Para a definição do número de classes, adotou-se o critério apresentado no EPAEC, segundo o qual, para conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, considerando o conjunto de 25 observações correspondente a cada condição experimental, tem-se:  
+No presente estudo, foram considerados 75 resultados simulados de resistência à compressão, submetidos a três condições experimentais diferentes (relação água/cimento). Segundo @batista2024estatistica, para a definição do número de classes e considerando conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, considerando o conjunto de 25 observações correspondente a cada condição experimental, tem-se:  
 $$
 k \approx \sqrt{m}
 $$
@@ -396,6 +396,8 @@ Do ponto de vista da Engenharia Civil, essa comparação é relevante porque dem
 
 Dessa forma, a representação tabular permite identificar onde os resultados estão concentrados e como a distribuição se desloca entre as diferentes condições, mas não quantifica suficientemente o grau de dispersão de cada conjunto. Por essa razão, a análise será complementada pelas medidas de dispersão, incluindo amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão, permitindo avaliar quantitativamente a variabilidade dos resultados e comparar sua uniformidade entre as diferentes relações água/cimento.
 
+#### Representação Gráfica
+
 ```{r}
 #| label: fig-histograma-g1
 #| fig-cap: "Histograma da resistência à compressão — A/C = 0,50"
@@ -443,7 +445,7 @@ G3 |>
 
 
 
-**Medidas de Posição**
+#### Medidas de Posição
 ```{r}
 #| echo: false
 
@@ -545,6 +547,202 @@ knitr::kable(
   )
 ```
   
+**Medidas de Posição representadas no Histograma**
+
+Além da representação da distribuição de frequência, é possível utilizar o histograma para visualizar a localização das principais medidas de posição dos dados. Nesse caso, foram consideradas a média, a mediana e a moda calculadas a partir dos dados agrupados em classes, mantendo a correspondência entre a representação gráfica e o procedimento de tabulação adotado anteriormente. A inserção dessas medidas no histograma permite observar visualmente a posição central da distribuição e facilita a análise da relação entre as medidas de posição e a concentração dos resultados de resistência à compressão.
+
+Como os dados foram agrupados em cinco classes de frequência, as medidas utilizadas na representação gráfica são aquelas obtidas por meio de mpos(grouped = TRUE). Dessa forma, a interpretação mantém coerência com a distribuição de frequência apresentada anteriormente.
+  
+  
+```{r}
+G1 |>
+  new_leem(variable = "continuous") |>
+  hist(
+    main = "Distribuição da resistência à compressão — A/C = 0,50",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  ) |>
+  insert(
+    type = "all",
+    lcol = c("black", "blue", "brown"),
+    ptext = 0.08,
+    larrow = 0.4
+  )
+  
+```
+
+```{r}
+G2 |>
+  new_leem(variable = "continuous") |>
+  hist(
+    main = "Distribuição da resistência à compressão — A/C = 0,60",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  ) |>
+  insert(
+    type = "all",
+    lcol = c("black", "blue", "brown"),
+    ptext = 0.08,
+    larrow = 0.4
+  )
+```
+
+```{r}
+G3 |>
+  new_leem(variable = "continuous") |>
+  hist(
+    main = "Distribuição da resistência à compressão — A/C = 0,70",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  ) |>
+  insert(
+    type = "all",
+    lcol = c("black", "blue", "brown"),
+    ptext = 0.08,
+    larrow = 0.4
+  )
+```
+
+
+#### Medidas de Dispersão
+```{r}
+#| echo: false
+# AMPLITUDE
+amplitude_G1 <- G1 |>
+  new_leem(variable = "continuous") |>
+  amplitude()
+
+amplitude_G2 <- G2 |>
+  new_leem(variable = "continuous") |>
+  amplitude()
+
+amplitude_G3 <- G3 |>
+  new_leem(variable = "continuous") |>
+  amplitude()
+```
+
+
+```{r}
+#| echo: false
+# Variancia dos dados não agrupados
+variancia_G1 <- G1 |>
+  new_leem(variable = "continuous") |>
+  variance()
+
+variancia_G2 <- G2 |>
+  new_leem(variable = "continuous") |>
+  variance()
+
+variancia_G3 <- G3 |>
+  new_leem(variable = "continuous") |>
+  variance()
+```
+
+
+```{r}
+#| echo: false
+# Desvio padrão dos dados não agrupados
+desvio_G1 <- G1 |>
+  new_leem(variable = "continuous") |>
+  sdev()
+
+desvio_G2 <- G2 |>
+  new_leem(variable = "continuous") |>
+  sdev()
+
+desvio_G3 <- G3 |>
+  new_leem(variable = "continuous") |>
+  sdev()
+```
+
+```{r}
+#| echo: false
+# Coeficiente de variação para dados não agrupados
+cv_G1 <- G1 |>
+  new_leem(variable = "continuous") |>
+  cv()
+
+cv_G2 <- G2 |>
+  new_leem(variable = "continuous") |>
+  cv()
+
+cv_G3 <- G3 |>
+  new_leem(variable = "continuous") |>
+  cv()
+```
+
+
+```{r}
+#| echo: false
+# Erro padrão da media
+erro_G1 <- G1 |>
+  new_leem(variable = "continuous") |>
+  mstde()
+
+erro_G2 <- G2 |>
+  new_leem(variable = "continuous") |>
+  mstde()
+
+erro_G3 <- G3 |>
+  new_leem(variable = "continuous") |>
+  mstde()
+```
+
+```{r}
+#| echo: false
+# Criar tabela com dados de dispersão
+#| label: tbl-medidas-dispersao
+#| tbl-cap: "Medidas de dispersão da resistência à compressão para diferentes relações água/cimento"
+#| echo: false
+
+tabela_dispersao <- data.frame(
+  `Medida de Dispersão` = c(
+    "Amplitude (MPa)",
+    "Variância (MPa²)",
+    "Desvio-padrão (MPa)",
+    "Coeficiente de variação (%)",
+    "Erro-padrão da média (MPa)"
+  ),
+  
+  `Grupo 1 (A/C = 0,50)` = c(
+    amplitude_G1,
+    variancia_G1,
+    desvio_G1,
+    cv_G1,
+    erro_G1
+  ),
+  
+  `Grupo 2 (A/C = 0,60)` = c(
+    amplitude_G2,
+    variancia_G2,
+    desvio_G2,
+    cv_G2,
+    erro_G2
+  ),
+  
+  `Grupo 3 (A/C = 0,70)` = c(
+    amplitude_G3,
+    variancia_G3,
+    desvio_G3,
+    cv_G3,
+    erro_G3
+  ),
+  check.names = FALSE
+)
+
+knitr::kable(
+  tabela_dispersao,
+  format = "html",
+  digits = 2,
+  align = c("l", "c", "c", "c"),
+  escape = FALSE
+) |>
+  kableExtra::kable_styling(
+    bootstrap_options = "condensed",
+    full_width = FALSE,
+    position = "center"
+  )
+```
 ## 🧠 Considerações finais
 
 A prática possibilitou aplicar conceitos de estatística descritiva no contexto da Engenharia Civil, utilizando o ambiente R e o pacote leem para organização, tabulação, representação e análise de um conjunto de dados relacionados à resistência à compressão do concreto.
