@@ -69,141 +69,315 @@ Utilizar o ambiente R e o pacote leem como ferramentas de apoio à análise esta
 
 ## 📚  Fundamentação Teórica
 
-### Introdução ao Ambiente R
+### Introdução ao ambiente R
 
-#### O que é o R
+#### O que é o R?
 
-O R é um **ambiente de software livre e de código aberto** voltado para manipulação de dados, cálculo estatístico e geração de gráficos. Por isso, é comum ouvir duas formas de tratamento: "o R", quando se fala do programa/sistema como um todo, e "a linguagem R", quando se fala especificamente da sintaxe usada para escrever os comandos. Diferente de programas estatísticos comerciais fechados, o R permite que o próprio usuário crie novas funções e as compartilhe livremente com a comunidade por meio de pacotes.
+O R é um ambiente de software livre e de código aberto voltado para manipulação de dados, cálculo estatístico e geração de gráficos. Por isso, é comum ouvir duas formas de tratamento: "o R", quando se fala do programa/sistema como um todo, e "a linguagem R", quando se fala especificamente da sintaxe usada para escrever os comandos. Diferente de programas estatísticos comerciais fechados, o R permite que o próprio usuário crie novas funções e as compartilhe livremente com a comunidade por meio de pacotes.
 
 O projeto nasceu em 1991, em uma Universidade da Nova Zelândia, e foi criado por Ross Ihaka e Robert Gentleman. O primeiro lançamento oficial ocorreu em 1995, e em 1997 foi criado o CRAN, uma rede de servidores que distribui o programa, sua documentação e milhares de pacotes até hoje.
 
-Já o RStudio é a interface (IDE — *Integrated Development Environment*) mais usada para trabalhar com o R. Ele não substitui o R, apenas facilita seu uso por meio de janelas, botões e atalhos: sem o R instalado, o RStudio não funciona. A tela do RStudio é dividida em quatro áreas principais: o editor de scripts (onde o código é escrito), o console (onde o código é executado), o painel de ambiente/histórico (onde aparecem os objetos criados) e o painel de arquivos/gráficos/pacotes/ajuda.
+Já o RStudio é a interface (IDE — Integrated Development Environment) mais usada para trabalhar com o R. Ele não substitui o R, apenas facilita seu uso por meio de janelas, botões e atalhos: sem o R instalado, o RStudio não funciona. A tela do RStudio é dividida em quatro áreas principais: o editor de scripts (onde o código é escrito), o console (onde o código é executado), o painel de ambiente/histórico (onde aparecem os objetos criados) e o painel de arquivos/gráficos/pacotes/ajuda.
 
-#### Os Três Princípios que Governam o R
+#### Princípios do R
 
 Toda a lógica interna do R pode ser resumida em três ideias simples, propostas por John Chambers, criador da linguagem S (base histórica do R):
 
-- **Tudo que existe no R é um objeto** — números, textos, tabelas, gráficos e até as próprias funções são objetos guardados na memória do computador.
-- **Tudo que acontece no R é uma chamada de função** — até uma simples soma como `10 + 15` é, por trás dos panos, uma função sendo executada.
-- **Interfaces com outros programas fazem parte do R** — o R se comunica nativamente com linguagens como C, C++, Python e com tecnologias web (HTML, JavaScript), estendendo seu uso muito além da estatística básica.
+- Tudo que existe no R é um objeto — números, textos, tabelas, gráficos e até as próprias funções são objetos guardados na memória do computador.
+- Tudo que acontece no R é uma chamada de função — até uma simples soma como `10 + 15` é, por trás dos panos, uma função sendo executada.
+- Interfaces com outros programas fazem parte do R— o R se comunica nativamente com linguagens como C, C++, Python e com tecnologias web (HTML, JavaScript), estendendo seu uso muito além da estatística básica.
 
-#### Sintaxe e Semântica do R
+#### Interface
 
-Sintaxe é o conjunto de regras que definem como o código deve ser escrito; semântica é o significado por trás de cada comando — ou seja, o que ele realmente faz quando executado. Entender essa diferença evita a maioria dos erros cometidos por quem está começando.
+O RStudio apresenta sua interface organizada em quatro quadrantes principais, cada um destinado a uma função específica durante o desenvolvimento das análises:
 
-##### O Console e o Prompt de Comando
+- 1º Quadrante – Editor de Scripts: espaço destinado à criação, edição e armazenamento dos códigos desenvolvidos em R, normalmente salvos em arquivos com extensão .R. Permite organizar os comandos de forma estruturada e reutilizá-los posteriormente.
+- 2º Quadrante – Console: ambiente no qual os comandos são executados efetivamente, apresentando os resultados diretamente ao usuário. Também é possível inserir comandos manualmente, embora eles não sejam automaticamente organizados no script.
+- 3º Quadrante – Ambiente e Histórico: apresenta os objetos criados durante a sessão, como variáveis, vetores, tabelas, conjuntos de dados e funções. Também possibilita consultar o histórico dos comandos executados e acompanhar os elementos armazenados no ambiente de trabalho.
+- 4º Quadrante – Área de Visualização e Apoio: destinado principalmente à exibição dos gráficos e resultados visuais produzidos pelas análises. Essa área também permite acessar arquivos e diretórios, gerenciar pacotes instalados e consultar a documentação e os recursos de ajuda disponíveis no R.
 
-Ao abrir o R (ou o RStudio), aparece o símbolo `>`, chamado de prompt de comando. Ele indica que o R está pronto para receber uma instrução. Se o comando digitado estiver incompleto — por exemplo, um parêntese aberto que não foi fechado — o símbolo muda para `+`, indicando que o R está esperando o restante da instrução.
+#### Sintaxe e Semântica 
 
-##### Comentários
+A linguagem R, assim como outras linguagens de programação, apresenta regras de sintaxe e semântica, que orientam a forma como os comandos devem ser escritos e interpretados pelo sistema.
 
-Qualquer linha iniciada pelo símbolo `#` é ignorada pelo R e serve apenas para o programador documentar o próprio raciocínio:
+- Sintaxe é o conjunto de regras que definem como o código deve ser escrito; 
 
-```r
-# Isso é um comentário e não será executado
-10 + 15
+- Semântica é o significado por trás de cada comando — ou seja, o que ele realmente faz quando executado. Entender essa diferença evita a maioria dos erros cometidos por quem está começando.
+
+Assim, compreender os conceitos de sintaxe e semântica é fundamental para utilizar o R de maneira adequada. Enquanto a sintaxe está relacionada à forma correta de escrever e estruturar os comandos, a semântica está associada à interpretação e ao significado das operações realizadas. O domínio desses conceitos contribui para a correta aplicação dos procedimentos estatísticos abordados no estudo, incluindo a organização e análise dos dados, as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose.
+
+
+### O livro EPAEC
+
+### Capítulo 1: Definições gerais da Estatística e técnicas de somatórios
+
+O primeiro capítulo apresenta a Estatística como uma área importante para a coleta, organização, análise e interpretação de dados. Seu objetivo é transformar informações em resultados que possam auxiliar na compreensão de situações e na tomada de decisões.
+
+O conteúdo apresenta três áreas principais da Estatística: Estatística Descritiva, Probabilidade e Estatística Inferencial. A Estatística Descritiva organiza e apresenta os dados por meio de tabelas, gráficos e medidas. A Probabilidade trabalha com situações que envolvem incerteza, enquanto a Estatística Inferencial utiliza dados de uma amostra para obter conclusões sobre uma população.
+
+O capítulo também explica a importância da Estatística na pesquisa científica. Uma pesquisa envolve diferentes etapas, como definição do problema, elaboração de hipóteses, escolha da amostra, coleta e organização dos dados, análise dos resultados e elaboração das conclusões.
+
+São apresentados ainda conceitos como população, amostra, variável e dado. As variáveis podem ser qualitativas, quando representam características ou categorias, ou quantitativas, quando são expressas por números. As variáveis quantitativas podem ser discretas ou contínuas.
+
+Por fim, o capítulo apresenta os somatórios, representados pelo símbolo Σ, utilizados para facilitar a escrita e a realização de cálculos que envolvem vários valores. Também são apresentadas algumas propriedades e formas de utilização dos somatórios em operações matemáticas.
+
+### Capítulo 2: Coleta, organização e apresentação dos dados
+
+O segundo capítulo apresenta as etapas de organização e apresentação dos dados, mostrando como transformar dados brutos em informações mais fáceis de analisar. Os dados coletados podem ser organizados em ordem crescente ou decrescente, formando um rol, o que facilita a identificação dos valores e a análise do conjunto.
+
+O capítulo destaca as tabelas de distribuição de frequência, utilizadas para organizar a quantidade de vezes que cada valor aparece. São apresentadas a frequência absoluta, a frequência relativa, a frequência percentual e as frequências acumuladas. Para variáveis quantitativas contínuas, os dados podem ser agrupados em classes ou intervalos, utilizando elementos como amplitude, limites de classe e ponto médio.
+
+Também são apresentados diferentes gráficos, como gráficos de barras, pizza, histograma, polígono de frequências e ogivas. Cada um possui uma finalidade específica e deve ser escolhido de acordo com o tipo de variável e a informação que se deseja apresentar. Além disso, trata da utilização do LEEM e do R como ferramentas para facilitar a organização, os cálculos e a representação dos dados. Com esses recursos, é possível construir tabelas de frequência e gráficos de maneira mais prática.
+
+Por fim, o capítulo mostra que a organização adequada dos dados é fundamental para facilitar sua visualização, interpretação e análise. As tabelas, frequências e gráficos permitem resumir grandes quantidades de informações e identificar características importantes de um conjunto de dados.
+
+### Capítulo 3: Medidas de Posição
+
+Já o terceiro capítulo apresenta as medidas de posição, que são utilizadas para resumir um conjunto de dados por meio de valores que representam sua posição central. Essas medidas facilitam a interpretação dos dados quando existe uma grande quantidade de informações. As principais medidas estudadas são a média aritmética, a mediana e a moda.
+
+A média aritmética é uma das medidas mais conhecidas e representa um valor central dos dados. Ela é calculada considerando todas as observações do conjunto. Quando os dados estão agrupados em tabelas de frequência, o cálculo utiliza também as frequências e, no caso de intervalos de classe, os pontos médios das classes. A média pode ser influenciada por valores extremos ou discrepantes.
+
+$$\mu = \frac{\sum_{i=1}^{N} X_i}{N} \quad \text{(populacional)} \qquad \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} \quad \text{(amostral)}$$
+
+O capítulo também apresenta a média aparada, que pode ser utilizada quando existem valores extremos que podem distorcer a média. Nesse caso, alguns dos menores e maiores valores são retirados antes de realizar o cálculo. Dessa forma, a medida fica menos influenciada por observações muito diferentes das demais.
+
+$$\bar{X}_{ap} = \frac{\sum_{i=2}^{n-1} X_{(i)}}{n-2}$$
+
+A segunda medida estudada é a mediana, que representa o valor central dos dados quando eles estão organizados em ordem crescente. Quando o número de observações é ímpar, a mediana corresponde ao valor que ocupa a posição central. Quando é par, calcula-se a média dos dois valores centrais. Uma característica importante da mediana é que ela não é muito influenciada por valores extremos.
+
+$$M_d(X) = \begin{cases} \dfrac{X_{(n/2)} + X_{(n/2+1)}}{2}, & n \text{ par} \\[6pt] X_{((n+1)/2)}, & n \text{ ímpar} \end{cases}$$
+
+Para dados agrupados em intervalos de classe, o capítulo mostra como encontrar a classe mediana utilizando a frequência acumulada e, a partir dela, estimar o valor da mediana. A mediana também pode ser utilizada em variáveis qualitativas ordinais, situações em que a média não pode ser calculada.
+
+A terceira medida apresentada é a moda, que corresponde ao valor que aparece com maior frequência em um conjunto de dados. Uma distribuição pode ser unimodal, bimodal, trimodal ou multimodal, dependendo da quantidade de valores que apresentam a maior frequência. Também pode ser amodal, quando não existe um valor que se destaque pela frequência. A moda possui a vantagem de poder ser utilizada inclusive com variáveis qualitativas.
+
+Para variáveis quantitativas contínuas agrupadas em intervalos, o capítulo apresenta a moda de Czuber, obtida a partir da classe que possui a maior frequência. Também é apresentada uma relação entre média, mediana e moda que permite estimar a moda quando algumas dessas medidas são conhecidas.
+
+O capítulo mostra ainda que a escolha da medida de posição depende das características dos dados. A média utiliza todos os valores, mas é sensível a valores extremos; a mediana é mais resistente a esses valores; e a moda indica o valor ou categoria mais frequente. Por isso, é importante escolher a medida mais adequada para cada situação.
+
+Por fim, o capítulo apresenta aplicações utilizando o LEEM e o R. O LEEM auxilia no cálculo das medidas de posição, como média, mediana e moda, tanto para dados agrupados quanto para dados não agrupados. O R também pode ser utilizado para representar essas medidas graficamente, facilitando a visualização e a interpretação dos resultados. Assim, o capítulo mostra como a média, a mediana, a moda, o LEEM e o R podem ser utilizados para resumir e compreender melhor um conjunto de dados.
+
+### Capítulo 4: Medidas de Disperção
+
+O quarto capítulo apresenta as medidas de dispersão, que são utilizadas para mostrar o quanto os dados de um conjunto estão afastados ou concentrados em relação a um valor central, geralmente a média. O capítulo mostra que conhecer apenas a média não é suficiente para caracterizar um conjunto de dados, pois diferentes grupos podem apresentar a mesma média e possuir níveis de variabilidade muito diferentes.
+
+A primeira medida apresentada é a amplitude, que corresponde à diferença entre o maior e o menor valor observado. É uma medida simples e fácil de calcular, podendo ser utilizada para comparar a dispersão de diferentes grupos. Porém, possui uma limitação importante: considera somente os valores extremos e, por isso, pode ser bastante influenciada por valores discrepantes.
+
+$$A_t = X_{(n)} - X_{(1)}$$
+
+Em seguida, o capítulo apresenta a variância, uma medida que considera todas as observações do conjunto em relação à média. Para isso, são analisadas as diferenças entre cada valor e a média, elevando essas diferenças ao quadrado. Quanto maior a variância, maior é a dispersão dos dados em torno da média. A variância pode ser calculada tanto para uma população quanto para uma amostra.
+
+$$\sigma^2 = \frac{\sum_{i=1}^{N}(X_i-\mu)^2}{N} \quad \text{(populacional)} \qquad S^2 = \frac{\sum_{i=1}^{n}(X_i-\bar{X})^2}{n-1} \quad \text{(amostral)}$$
+
+O capítulo também explica que a variância possui uma limitação relacionada à sua unidade de medida, pois o resultado fica na unidade da variável elevada ao quadrado. Por isso, é apresentada outra medida de dispersão: o desvio padrão. Ele é obtido pela raiz quadrada da variância e possui a mesma unidade da variável estudada, tornando sua interpretação mais simples. Quanto menor o desvio padrão, mais próximos da média estão os dados; quanto maior, maior é a variabilidade.
+
+$$\sigma = \sqrt{\sigma^2} \quad \text{(populacional)} \qquad S = \sqrt{S^2} \quad \text{(amostral)}$$
+
+O desvio padrão é útil para comparar a variabilidade de grupos, mas essa comparação exige alguns cuidados. Os grupos devem estar na mesma unidade de medida e possuir médias iguais ou semelhantes. Quando as médias são muito diferentes, apenas o desvio padrão pode não ser suficiente para determinar qual grupo apresenta maior variabilidade.
+
+Para solucionar esse problema, o capítulo apresenta o Coeficiente de Variação (CV), que é uma medida de dispersão relativa. Ele relaciona o desvio padrão com a média e apresenta o resultado em porcentagem. O CV permite comparar a variabilidade de conjuntos de dados que possuem médias e unidades diferentes. Quanto maior o coeficiente de variação, maior é a dispersão dos dados em relação à média.
+
+$$CV_p = \frac{\sigma}{\mu} \times 100 \quad \text{(populacional)} \qquad CV = \frac{S}{\bar{X}} \times 100 \quad \text{(amostral)}$$
+
+O capítulo destaca que o Coeficiente de Variação deve ser utilizado com variáveis que possuam um zero absoluto ou uma origem significativa. Por isso, seu uso não é adequado para algumas variáveis, como a temperatura em graus Celsius, pois 0 °C não representa ausência de temperatura. Já variáveis como peso podem ser analisadas por meio do CV, pois 0 kg representa ausência de peso.
+
+Por fim, o capítulo apresenta o erro padrão da média, que está relacionado à precisão da média amostral como estimativa da média populacional. Ele mostra o quanto a média de uma amostra pode variar em relação à média da população. Quanto maior o tamanho da amostra, menor tende a ser o erro padrão e, consequentemente, mais precisa tende a ser a estimativa da média populacional.
+
+$$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \quad \text{(populacional)} \qquad S_{\bar{X}} = \frac{S}{\sqrt{n}} \quad \text{(amostral)}$$
+
+O capítulo também apresenta o uso do LEEM e do R para realizar cálculos estatísticos. Essas ferramentas facilitam o trabalho com as medidas estudadas, permitindo realizar cálculos de forma mais prática e auxiliar na análise de dados agrupados e não agrupados.
+
+#### Assimetria e curtose
+
+Como complemento à análise dos dados, a análise estatística também pode considerar medidas relacionadas ao formato da distribuição dos dados, como a a assimetria e curtose. A assimetria permite observar o formato da distribuição e verificar se os valores estão distribuídos de maneira equilibrada em torno do centro. Quando há valores muito altos ou muito baixos, eles podem deslocar a média, fazendo com que ela deixe de representar tão bem o conjunto. Nesses casos, é importante considerar também a mediana e a moda.
+
+A curtose, por sua vez, está relacionada à concentração dos dados na região central e ao comportamento das extremidades da distribuição. Uma curtose mais elevada pode indicar maior presença de valores extremos e caudas mais pesadas, enquanto uma curtose menor está associada a uma distribuição mais achatada e com menor intensidade nas caudas.
+
+Assim, assimetria e curtose são características que ajudam a compreender melhor o formato de uma distribuição. Enquanto a assimetria está relacionada ao equilíbrio dos dados em torno do centro, a curtose ajuda a analisar a concentração central e a presença de valores extremos.
+
+
+---
+
+## ⚙️ Metodologia
+
+::: {.callout-note}
+Descreva como o experimento foi realizado.
+:::
+
+- Materiais utilizados  
+- Procedimento  
+- Número de repetições  
+
+A metodologia adotada neste relatório baseou-se em uma abordagem quantitativa e descritiva, combinando o estudo teórico dos conteúdos de Estatística e Probabilidade com a aplicação prática no ambiente R. Inicialmente, foram analisados os quatro primeiros capítulos do livro digital Estatística & Probabilidade Aplicada às Engenharias e Ciências (EPAEC), juntamente com os conteúdos do Curso R Básico 2024 e materiais complementares relacionados ao RStudio, ao pacote `leem` e ao R Markdown. A partir desse estudo, foram selecionados e sistematizados os principais conceitos estatísticos utilizados na prática.
+
+Como estudo de caso, foi elaborado um banco de dados contendo 25 valores simulados de resistência à compressão do concreto, expressos em MPa. Para manter condições experimentais semelhantes, foram consideradas constantes a relação água/cimento de 0,50, a idade de 28 dias e as dimensões dos corpos de prova cilíndricos, com 100 mm de diâmetro e 200 mm de altura. Por se tratar de dados simulados, não foram realizados ensaios laboratoriais, sendo os valores definidos de maneira plausível para representar a variabilidade esperada em condições semelhantes de produção e ensaio.
+
+A análise dos dados foi realizada no ambiente R, com apoio do pacote `leem`, seguindo etapas de organização e classificação da variável, construção da distribuição de frequências, definição de cinco classes pelo critério (k \approx \sqrt{m}), cálculo das frequências absoluta, relativa, percentual e acumulada, além da representação gráfica por meio de histograma. Posteriormente, foram determinadas medidas de tendência central e dispersão, bem como os coeficientes de assimetria e curtose.
+
+Por fim, os resultados obtidos foram interpretados de forma integrada, buscando relacionar os conceitos estatísticos estudados com a variabilidade observada nos valores de resistência à compressão do concreto. Dessa maneira, o uso do R não se limitou à realização dos cálculos, mas também contribuiu para a compreensão dos procedimentos estatísticos, da representação dos dados e da interpretação dos resultados aplicados à Engenharia Civil.
+
+---
+
+## 🔍 Resultados e Discussão
+
+### Dados do Experimento
+
+Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, tomando como referência a ABNT NBR 5739. A norma estabelece o método para determinação da resistência à compressão de corpos de prova cilíndricos de concreto e define, entre outros aspectos, as condições de realização do ensaio e o cálculo da resistência à compressão a partir da força máxima aplicada.
+
+Para manter a análise estatística concentrada na variabilidade dos resultados de resistência, foram mantidas constantes as condições do experimento. Considerou-se uma relação água/cimento (A/C) igual a 0,50, idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional no conjunto de dados.
+
+A partir dessas condições, foram gerados 25 resultados simulados de resistência à compressão, correspondentes a 25 ensaios. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739.
+
+
+```{r}
+#| echo: false
+resistencia25 <- read.csv2(
+  "C:/Relatórios/EAIT/eait/relatorio/rel01/resistencia25.csv",
+  dec = ","
+)
+```
+::: {.tabela-dados}
+```{r}
+#| label: tbl-dados
+#| tbl-cap: "Resultados simulados de resistência à compressão do concreto aos 28 dias"
+#| echo: false
+
+library(knitr)
+
+kable(
+  resistencia25,
+  col.names = c("Corpo de Prova", "Resistência à compressão (MPa)"),
+  align = c("c", "c"),
+  digits = 1
+)
+```
+:::
+
+A partir desse conjunto de 25 observações, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote leem, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.
+
+
+
+### 📊  Análise de Dados
+#### Representação Tabular
+
+A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados experimentais sejam registrados com determinada precisão, essa limitação decorre da resolução dos instrumentos e do procedimento de medição, e não da natureza da variável. Dessa forma, conforme apresentado no Capítulo 2 do Estatística & Probabilidade Aplicada às Engenharias e Ciências (EPAEC), é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.
+
+No presente estudo, foram considerados **25 resultados simulados de resistência à compressão**, correspondentes aos corpos de prova submetidos à mesma condição experimental. Para a definição do número de classes, adotou-se o critério apresentado no EPAEC, segundo o qual, para conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, para $m = 25$, obtém-se $k \approx \sqrt{25} = 5$, resultando na utilização de **cinco classes de frequência**.
+
+A partir desse procedimento, os resultados foram agrupados em intervalos de resistência à compressão. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a participação de cada classe em relação ao total de observações. As frequências acumuladas permitem identificar a quantidade de observações situada abaixo ou acima de determinada classe. Essas formas de representação são apresentadas no EPAEC como instrumentos para facilitar a interpretação de conjuntos de dados.
+```{r}
+# Tabulação
+library(leem)
+library(knitr)
+library(kableExtra)
+```
+```{r}
+#| label: tbl-frequencia-resistencia
+#| tbl-cap: "Distribuição de frequência da resistência à compressão"
+
+tab_resistencia <- resistencia25$Resistencia_MPa |>
+  new_leem(variable = "continuous") |>
+  tabfreq(k = 5)
+
+tabela <- tab_resistencia$table[, c(
+  "Classes", "Fi", "PM", "Fr", "Fac1", "Fac2", "Fp"
+)]
+
+# Substituindo |--- por |—
+tabela$Classes <- gsub(
+  "\\|---",
+  "|—",
+  tabela$Classes
+)
+
+# Substituindo ponto decimal por vírgula
+tabela$Classes <- gsub(
+  "\\.",
+  ",",
+  tabela$Classes
+)
+
+knitr::kable(
+  tabela,
+  format = "html",
+  digits = 2,
+  align = c("l", "r", "r", "r", "r", "r", "r"),
+  col.names = c(
+    "Classe (MPa)",
+    "Fi",
+    "PM (MPa)",
+    "Fr",
+    "Fac↓",
+    "Fac↑",
+    "Fp (%)"
+  ),
+  escape = FALSE
+) |>
+  kableExtra::kable_styling(
+    bootstrap_options = "condensed",
+    full_width = FALSE,
+    position = "center"
+  )
 ```
 
-**Boa prática:** evitar acentos e caracteres especiais (ç, ã, á etc.) em comentários e nomes de variáveis, pois diferentes sistemas operacionais podem interpretar essa codificação de forma diferente e corromper a exibição do texto.
+A distribuição apresentada na Tabela 1 permite observar que os resultados de resistência à compressão se concentram principalmente nas classes intermediárias. A maior frequência absoluta foi observada no intervalo de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% da amostra. A segunda maior frequência ocorreu entre 39,16 e 40,08 MPa, com 7 observações, equivalentes a 28%.
 
-##### Nomes de Objetos
+Considerando conjuntamente essas duas classes, verifica-se que 15 dos 25 resultados (60%) encontram-se entre 39,16 e 41,00 MPa. Esse comportamento demonstra uma concentração significativa das resistências em torno da região central da distribuição. Por outro lado, apenas 2 resultados (8%) encontram-se na primeira classe, entre 38,24 e 39,16 MPa, enquanto 3 resultados (12%) pertencem à classe superior, entre 41,92 e 42,84 MPa. Portanto, a maior parte dos corpos de prova apresentou resistência relativamente próxima à região central dos dados.
 
-Para criar um objeto, é preciso dar a ele um nome válido. As regras básicas são:
+Do ponto de vista da Engenharia Civil, essa concentração é relevante porque os corpos de prova considerados foram produzidos sob uma mesma relação água/cimento (A/C = 0,50) e submetidos à mesma idade de referência, de 28 dias. Dessa forma, a diferença observada entre os resultados não decorre de uma alteração intencional da relação água/cimento ou da idade do concreto, variáveis que exercem influência importante sobre a resistência à compressão.
 
-* **Nomes válidos**: começam com letra (ou ponto, desde que não seguido de número) e podem conter letras, números, pontos (`.`) e underlines (`_`).
-* **Nomes inválidos**: começam com número, contêm espaços ou operadores matemáticos.
-* **Palavras reservadas**: termos que já têm função própria na linguagem e não podem ser usados como nome de objeto, como `if`, `else`, `for`, `while`, `function`, `TRUE`, `FALSE`, `NULL`, `NA`, entre outros.
+Como os dados são simulados, a distribuição observada deve ser interpretada como uma representação da variabilidade esperada entre resultados de ensaios realizados sob condições semelhantes, e não como evidência experimental de um concreto efetivamente produzido e ensaiado em laboratório. Em uma situação experimental real, diferenças entre os resultados poderiam estar relacionadas a diversos fatores, como homogeneidade da mistura, proporção e características dos agregados, propriedades do cimento, precisão na dosagem da água, procedimento de mistura, adensamento, condições de cura, dimensões e preparação dos corpos de prova e condições de execução do ensaio de compressão.
 
-O R também é sensível a maiúsculas e minúsculas (*case-sensitive*): `idade` e `Idade` são dois objetos completamente diferentes.
+Essa observação é importante porque, mantendo-se a relação A/C constante, a análise da distribuição dos resultados passa a ser útil para avaliar a variabilidade da resistência dentro de uma mesma condição de produção. Em termos de controle tecnológico do concreto, quanto maior a dispersão dos resultados, maior a necessidade de investigar possíveis fontes de variabilidade no processo de produção, moldagem, cura ou ensaio. Entretanto, a avaliação dessa dispersão não deve ser realizada apenas pela tabela de frequência; será complementada posteriormente pelas medidas de dispersão, como amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão da média.
 
-##### Expressões versus Atribuições
+Conforme apresentado na Tabela @tbl-frequencia-resistencia, observa-se que a maior frequência de resistência ocorre na classe de 40,08 a 41,00 MPa, que concentra 8 dos 25 ensaios realizados, correspondendo a 32% das observações.
 
-Existem dois tipos básicos de comando no R:
+```{r}
+# Histograma de frequência
+resistencia25$Resistencia_MPa |>
+  new_leem(variable = "continuous") |>
+  tabfreq() |>
+  hist(
+    main = "Distribuição da resistência à compressão",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  )
 
-* **Expressão**: o R calcula e mostra o resultado na tela, mas não guarda esse valor para uso posterior.
-* **Atribuição**: o R calcula o resultado e o guarda de forma permanente em um nome escolhido, mas não mostra nada na tela. Para ver o valor guardado, basta digitar o nome do objeto.
-
-```r
-10 + 15        # expressão: mostra 25 na tela, mas não guarda
-soma <- 10 + 15  # atribuição: guarda o resultado no objeto "soma"
-soma             # agora sim, mostra o valor guardado
 ```
 
-##### O Operador de Atribuição: `<-` versus `=`
+## 🧠 Considerações finais
 
-Embora o R aceite o sinal de igual (`=`) para atribuir valores, a prática recomendada é sempre usar a seta `<-`:
+A prática possibilitou aplicar conceitos de estatística descritiva no contexto da Engenharia Civil, utilizando o ambiente R e o pacote leem para organização, tabulação, representação e análise de um conjunto de dados relacionados à resistência à compressão do concreto.
 
-```r
-nome_do_objeto <- valor_ou_expressao
-```
+A partir dos 25 resultados analisados, verificou-se uma concentração das observações nas classes intermediárias, com destaque para o intervalo entre 40,08 e 41,00 MPa. A distribuição de frequência e o histograma permitiram visualizar esse comportamento e compreender de maneira mais clara a distribuição dos resultados.
 
-O motivo é evitar confusão: o `=` já tem uma função própria e exclusiva no R, que é atribuir valores aos argumentos dentro de uma função (por exemplo, `plot(x = dados)`). Usar `=` também para criar objetos no ambiente de trabalho pode gerar erros difíceis de identificar em códigos mais longos.
+Os procedimentos realizados também demonstraram a importância das medidas de posição e dispersão para complementar a análise dos dados. Enquanto as medidas de tendência central permitem identificar a região representativa do conjunto, as medidas de variabilidade possibilitam avaliar o grau de homogeneidade dos resultados.
 
-##### Múltiplos Comandos na Mesma Linha
+Outro aspecto importante foi a compreensão de que o uso de ferramentas computacionais não substitui o conhecimento dos fundamentos estatísticos. O R e o pacote leem facilitam os cálculos e a representação dos dados, mas a interpretação dos resultados depende da compreensão dos conceitos e do contexto em que os dados foram obtidos.
 
-É possível executar mais de um comando em uma única linha, separando-os por ponto e vírgula (`;`). O R processa cada um, da esquerda para a direita:
+Por fim, destaca-se que os resultados utilizados são simulados e, portanto, possuem finalidade didática. Em uma aplicação experimental real, seria necessário realizar os ensaios sob condições controladas, registrar adequadamente os procedimentos de moldagem, cura e rompimento dos corpos de prova e utilizar os resultados obtidos para uma avaliação efetiva da variabilidade da resistência do concreto.
 
-```r
-x <- 5; y <- 10; x + y
-```
-
-### Como o R Guarda o que é Criado
-
-Todo objeto criado com `<-` fica armazenado no Ambiente Global (`.GlobalEnv`), que funciona como a área de trabalho ativa da sessão. É possível consultar tudo o que já foi criado com o comando:
-
-```r
-ls()
-```
-
-E é possível saber em qual pasta do computador o R está trabalhando (o diretório de trabalho) com:
-
-```r
-getwd()
-```
-
-Ou alterar essa pasta com:
-
-```r
-setwd("C:/meu_projeto_R")
-```
-
-**Atenção:** o R não aceita barra invertida (`\`) em caminhos de pastas — é preciso usar sempre a barra normal (`/`).
-
-#### Objetos, Tipos e Pacotes (Visão Geral)
-
-Todo objeto no R possui um tipo básico, que define que tipo de dado ele guarda: `logical` (verdadeiro/falso), `integer` (números inteiros), `double` (números decimais) e `character` (texto). Estruturas mais elaboradas, como tabelas (*data frames*), não são tipos novos — são, na verdade, listas que receberam atributos extras para se comportar como tabela na tela.
-
-Além dos recursos nativos, o R pode ser expandido por pacotes: conjuntos de funções extras criados pela comunidade. Um pacote precisa primeiro ser instalado (baixado uma única vez) e depois carregado em cada sessão de trabalho para poder ser usado:
-
-```r
-install.packages("nome_do_pacote")
-library(nome_do_pacote)
-```
-
-Quando se quer usar apenas uma função de um pacote, sem carregá-lo por completo, usa-se o operador de dois-pontos duplo:
-
-```r
-nome_do_pacote::nome_da_funcao(argumentos)
-```
-
-O R é, ao mesmo tempo, uma linguagem e um ambiente: sua sintaxe é organizada em torno de poucos elementos centrais — o prompt de comando, os comentários, as regras de nomeação, a atribuição com `<-` e a chamada de funções — e sua semântica segue três princípios simples (tudo é objeto, tudo é função, e o R se comunica com outros sistemas). Compreender essa base é o primeiro passo para escrever código limpo, reprodutível e livre de erros comuns de digitação e de interpretação.
+Dessa forma, considera-se que os objetivos da prática foram alcançados, uma vez que foi possível integrar conhecimentos básicos de programação em R e estatística descritiva à análise de um problema relacionado à Engenharia Civil.
 
 
-Apresente os conceitos principais:
+## 📖 Referências
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+### 💬 Exemplo de como citar uma referência bibliográfica
 
-### Conceitos Fundamentais
+Depois de inserido as informações no arquivo **referencias.bib**, use:
 
-#### População ($N$) e Amostra ($n$)
+- Segundo @Rbasico2022
+- Tudo é um objeto em R [@Rbasico2022]
 
-- **População:** conjunto finito ou infinito de todos os elementos que compartilham pelo menos uma característica de interesse; tamanho denotado por $N$. É *finita* se pode ser totalmente enumerada, *infinita* caso contrário.
-- **Amostra:** subconjunto representativo extraído da população, tamanho $n$. É sempre finita, pois todos os seus elementos precisam ser efetivamente examinados. Quando se tem acesso a todos os elementos da população, faz-se um **Censo**, o que elimina a necessidade de inferência estatística.
 
-Esses dois símbolos ($N$ para população, $n$ para amostra) percorrem quase toda fórmula do restante do documento — inclusive determinando qual versão de uma fórmula usar (populacional ou amostral).
+
+
+
+
+
+
+
+
 
 #### Classificação de Variáveis
 
@@ -445,182 +619,5 @@ Enquanto o desvio padrão mede o espalhamento das observações individuais em t
 | Variância / Desvio Padrão | Baixa | Alta | Distribuições simétricas, rigor aditivo dos desvios |
 | Coeficiente de Variação | Baixa | Adimensional | Comparar dispersão entre escalas diferentes |
 | Erro Padrão da Média | Baixa | Alta | Estimar margem de erro de médias |
-
----
-
-## ⚙️ Metodologia
-
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
-
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
-
-A metodologia adotada neste relatório baseou-se em uma abordagem quantitativa e descritiva, combinando o estudo teórico dos conteúdos de Estatística e Probabilidade com a aplicação prática no ambiente R. Inicialmente, foram analisados os quatro primeiros capítulos do livro digital Estatística & Probabilidade Aplicada às Engenharias e Ciências, juntamente com os conteúdos do Curso R Básico 2024 e materiais complementares relacionados ao RStudio, ao pacote `leem` e ao R Markdown. A partir desse estudo, foram selecionados e sistematizados os principais conceitos estatísticos utilizados na prática.
-
-Como estudo de caso, foi elaborado um banco de dados contendo 25 valores simulados de resistência à compressão do concreto, expressos em MPa. Para manter condições experimentais semelhantes, foram consideradas constantes a relação água/cimento de 0,50, a idade de 28 dias e as dimensões dos corpos de prova cilíndricos, com 100 mm de diâmetro e 200 mm de altura. Por se tratar de dados simulados, não foram realizados ensaios laboratoriais, sendo os valores definidos de maneira plausível para representar a variabilidade esperada em condições semelhantes de produção e ensaio.
-
-A análise dos dados foi realizada no ambiente R, com apoio do pacote `leem`, seguindo etapas de organização e classificação da variável, construção da distribuição de frequências, definição de cinco classes pelo critério (k \approx \sqrt{m}), cálculo das frequências absoluta, relativa, percentual e acumulada, além da representação gráfica por meio de histograma. Posteriormente, foram determinadas medidas de tendência central e dispersão, bem como os coeficientes de assimetria e curtose.
-
-Por fim, os resultados obtidos foram interpretados de forma integrada, buscando relacionar os conceitos estatísticos estudados com a variabilidade observada nos valores de resistência à compressão do concreto. Dessa maneira, o uso do R não se limitou à realização dos cálculos, mas também contribuiu para a compreensão dos procedimentos estatísticos, da representação dos dados e da interpretação dos resultados aplicados à Engenharia Civil.
-
----
-
-## 🔍 Resultados e Discussão
-
-### Dados do Experimento
-
-Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, tomando como referência a ABNT NBR 5739. A norma estabelece o método para determinação da resistência à compressão de corpos de prova cilíndricos de concreto e define, entre outros aspectos, as condições de realização do ensaio e o cálculo da resistência à compressão a partir da força máxima aplicada.
-
-Para manter a análise estatística concentrada na variabilidade dos resultados de resistência, foram mantidas constantes as condições do experimento. Considerou-se uma relação água/cimento (A/C) igual a 0,50, idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional no conjunto de dados.
-
-A partir dessas condições, foram gerados 25 resultados simulados de resistência à compressão, correspondentes a 25 ensaios. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739.
-
-
-```{r}
-#| echo: false
-resistencia25 <- read.csv2(
-  "C:/Relatórios/EAIT/eait/relatorio/rel01/resistencia25.csv",
-  dec = ","
-)
-```
-::: {.tabela-dados}
-```{r}
-#| label: tbl-dados
-#| tbl-cap: "Resultados simulados de resistência à compressão do concreto aos 28 dias"
-#| echo: false
-
-library(knitr)
-
-kable(
-  resistencia25,
-  col.names = c("Corpo de Prova", "Resistência à compressão (MPa)"),
-  align = c("c", "c"),
-  digits = 1
-)
-```
-:::
-
-A partir desse conjunto de 25 observações, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote leem, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.
-
-
-
-### 📊  Análise de Dados
-#### Representação Tabular
-
-A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados experimentais sejam registrados com determinada precisão, essa limitação decorre da resolução dos instrumentos e do procedimento de medição, e não da natureza da variável. Dessa forma, conforme apresentado no Capítulo 2 do Estatística & Probabilidade Aplicada às Engenharias e Ciências (EPAEC), é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.
-
-No presente estudo, foram considerados **25 resultados simulados de resistência à compressão**, correspondentes aos corpos de prova submetidos à mesma condição experimental. Para a definição do número de classes, adotou-se o critério apresentado no EPAEC, segundo o qual, para conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, para $m = 25$, obtém-se $k \approx \sqrt{25} = 5$, resultando na utilização de **cinco classes de frequência**.
-
-A partir desse procedimento, os resultados foram agrupados em intervalos de resistência à compressão. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a participação de cada classe em relação ao total de observações. As frequências acumuladas permitem identificar a quantidade de observações situada abaixo ou acima de determinada classe. Essas formas de representação são apresentadas no EPAEC como instrumentos para facilitar a interpretação de conjuntos de dados.
-```{r}
-# Tabulação
-library(leem)
-library(knitr)
-library(kableExtra)
-```
-```{r}
-#| label: tbl-frequencia-resistencia
-#| tbl-cap: "Distribuição de frequência da resistência à compressão"
-
-tab_resistencia <- resistencia25$Resistencia_MPa |>
-  new_leem(variable = "continuous") |>
-  tabfreq(k = 5)
-
-tabela <- tab_resistencia$table[, c(
-  "Classes", "Fi", "PM", "Fr", "Fac1", "Fac2", "Fp"
-)]
-
-# Substituindo |--- por |—
-tabela$Classes <- gsub(
-  "\\|---",
-  "|—",
-  tabela$Classes
-)
-
-# Substituindo ponto decimal por vírgula
-tabela$Classes <- gsub(
-  "\\.",
-  ",",
-  tabela$Classes
-)
-
-knitr::kable(
-  tabela,
-  format = "html",
-  digits = 2,
-  align = c("l", "r", "r", "r", "r", "r", "r"),
-  col.names = c(
-    "Classe (MPa)",
-    "Fi",
-    "PM (MPa)",
-    "Fr",
-    "Fac↓",
-    "Fac↑",
-    "Fp (%)"
-  ),
-  escape = FALSE
-) |>
-  kableExtra::kable_styling(
-    bootstrap_options = "condensed",
-    full_width = FALSE,
-    position = "center"
-  )
-```
-
-A distribuição apresentada na Tabela 1 permite observar que os resultados de resistência à compressão se concentram principalmente nas classes intermediárias. A maior frequência absoluta foi observada no intervalo de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% da amostra. A segunda maior frequência ocorreu entre 39,16 e 40,08 MPa, com 7 observações, equivalentes a 28%.
-
-Considerando conjuntamente essas duas classes, verifica-se que 15 dos 25 resultados (60%) encontram-se entre 39,16 e 41,00 MPa. Esse comportamento demonstra uma concentração significativa das resistências em torno da região central da distribuição. Por outro lado, apenas 2 resultados (8%) encontram-se na primeira classe, entre 38,24 e 39,16 MPa, enquanto 3 resultados (12%) pertencem à classe superior, entre 41,92 e 42,84 MPa. Portanto, a maior parte dos corpos de prova apresentou resistência relativamente próxima à região central dos dados.
-
-Do ponto de vista da Engenharia Civil, essa concentração é relevante porque os corpos de prova considerados foram produzidos sob uma mesma relação água/cimento (A/C = 0,50) e submetidos à mesma idade de referência, de 28 dias. Dessa forma, a diferença observada entre os resultados não decorre de uma alteração intencional da relação água/cimento ou da idade do concreto, variáveis que exercem influência importante sobre a resistência à compressão.
-
-Como os dados são simulados, a distribuição observada deve ser interpretada como uma representação da variabilidade esperada entre resultados de ensaios realizados sob condições semelhantes, e não como evidência experimental de um concreto efetivamente produzido e ensaiado em laboratório. Em uma situação experimental real, diferenças entre os resultados poderiam estar relacionadas a diversos fatores, como homogeneidade da mistura, proporção e características dos agregados, propriedades do cimento, precisão na dosagem da água, procedimento de mistura, adensamento, condições de cura, dimensões e preparação dos corpos de prova e condições de execução do ensaio de compressão.
-
-Essa observação é importante porque, mantendo-se a relação A/C constante, a análise da distribuição dos resultados passa a ser útil para avaliar a variabilidade da resistência dentro de uma mesma condição de produção. Em termos de controle tecnológico do concreto, quanto maior a dispersão dos resultados, maior a necessidade de investigar possíveis fontes de variabilidade no processo de produção, moldagem, cura ou ensaio. Entretanto, a avaliação dessa dispersão não deve ser realizada apenas pela tabela de frequência; será complementada posteriormente pelas medidas de dispersão, como amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão da média.
-
-Conforme apresentado na Tabela @tbl-frequencia-resistencia, observa-se que a maior frequência de resistência ocorre na classe de 40,08 a 41,00 MPa, que concentra 8 dos 25 ensaios realizados, correspondendo a 32% das observações.
-
-```{r}
-# Histograma de frequência
-resistencia25$Resistencia_MPa |>
-  new_leem(variable = "continuous") |>
-  tabfreq() |>
-  hist(
-    main = "Distribuição da resistência à compressão",
-    xlab = "Resistência à compressão (MPa)",
-    ylab = "Frequência"
-  )
-
-```
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-## 🧠 Considerações finais
-
-A prática possibilitou aplicar conceitos de estatística descritiva no contexto da Engenharia Civil, utilizando o ambiente R e o pacote leem para organização, tabulação, representação e análise de um conjunto de dados relacionados à resistência à compressão do concreto.
-
-A partir dos 25 resultados analisados, verificou-se uma concentração das observações nas classes intermediárias, com destaque para o intervalo entre 40,08 e 41,00 MPa. A distribuição de frequência e o histograma permitiram visualizar esse comportamento e compreender de maneira mais clara a distribuição dos resultados.
-
-Os procedimentos realizados também demonstraram a importância das medidas de posição e dispersão para complementar a análise dos dados. Enquanto as medidas de tendência central permitem identificar a região representativa do conjunto, as medidas de variabilidade possibilitam avaliar o grau de homogeneidade dos resultados.
-
-Outro aspecto importante foi a compreensão de que o uso de ferramentas computacionais não substitui o conhecimento dos fundamentos estatísticos. O R e o pacote leem facilitam os cálculos e a representação dos dados, mas a interpretação dos resultados depende da compreensão dos conceitos e do contexto em que os dados foram obtidos.
-
-Por fim, destaca-se que os resultados utilizados são simulados e, portanto, possuem finalidade didática. Em uma aplicação experimental real, seria necessário realizar os ensaios sob condições controladas, registrar adequadamente os procedimentos de moldagem, cura e rompimento dos corpos de prova e utilizar os resultados obtidos para uma avaliação efetiva da variabilidade da resistência do concreto.
-
-Dessa forma, considera-se que os objetivos da prática foram alcançados, uma vez que foi possível integrar conhecimentos básicos de programação em R e estatística descritiva à análise de um problema relacionado à Engenharia Civil.
-
-
-## Aprenda Quarto
-
-Acesse [Quarto](https://quarto.org/).
-
-## 📖 Referências
-
 
 
