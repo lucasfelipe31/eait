@@ -28,10 +28,6 @@ execute:
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
-
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
-
 A análise estatística constitui uma importante ferramenta para a compreensão, organização e interpretação de dados no campo da Engenharia Civil, especialmente em situações que envolvem ensaios experimentais, levantamentos técnicos, controle de qualidade e avaliação do comportamento de materiais e sistemas construtivos. Nesse contexto, o uso de recursos computacionais permite tornar os procedimentos estatísticos mais eficientes, precisos e reprodutíveis, favorecendo uma análise fundamentada dos resultados obtidos.
 
 Entre as ferramentas disponíveis, o ambiente R destaca-se por oferecer recursos para manipulação, tratamento, representação gráfica e análise de dados, possibilitando a aplicação prática de diferentes conceitos estatísticos. Aliado ao pacote leem, o R permite explorar conjuntos de dados de maneira sistemática, desde sua organização e tabulação até o cálculo e a interpretação de medidas estatísticas. Entretanto, a utilização dessas ferramentas não deve se limitar à obtenção automática de resultados, sendo fundamental compreender os conceitos e procedimentos que fundamentam cada análise realizada.
@@ -45,30 +41,29 @@ Assim, esta prática propõe a integração entre os fundamentos da linguagem R,
 
 ### Objetivo geral
 
-O objetivo geral desta prática é desenvolver a capacidade de utilizar o ambiente R e o pacote `leem` como ferramentas de apoio à análise estatística de dados aplicados à Engenharia Civil, integrando conhecimentos de sintaxe e semântica da linguagem R, fundamentos de estatística descritiva e interpretação de resultados. Busca-se, a partir de um banco de dados de natureza experimental ou técnico-engenheirística, organizar, tabular, representar graficamente e analisar os dados por meio de medidas de posição, dispersão, assimetria e curtose, compreendendo os procedimentos estatísticos empregados e estabelecendo uma interpretação crítica dos resultados obtidos.
+Utilizar o ambiente R e o pacote leem como ferramentas de apoio à análise estatística de dados aplicados à Engenharia Civil, desenvolvendo a capacidade de organizar, representar, analisar e interpretar resultados por meio de técnicas de estatística descritiva.
 
 ### Objetivos específicos
 
-- **Introduzir os fundamentos do ambiente R e de sua linguagem**, com base nas 26 aulas do curso *R Básico 2024*, abordando aspectos relacionados à sintaxe, à semântica, à criação e manipulação de objetos e à execução de operações necessárias ao tratamento e à análise de dados;
+- Compreender os principais fundamentos do ambiente R e da linguagem utilizada para manipulação e análise de dados;
 
-- **Revisar os fundamentos da estatística descritiva**, contemplando os conteúdos dos quatro primeiros capítulos do livro *Estatística para Análise de Experimentos e Controle* (EPAEC), com ênfase na organização, tabulação e representação dos dados, bem como nas principais medidas estatísticas;
+- Revisar conceitos fundamentais de estatística descritiva;
 
-- **Aprofundar o estudo das medidas de assimetria e curtose**, compreendendo seus conceitos, formas de cálculo e interpretação como instrumentos complementares à caracterização da distribuição dos dados;
+- Aprofundar o estudo das medidas de assimetria e curtose;
 
-- **Utilizar um banco de dados relacionado à Engenharia Civil**, contendo informações quantitativas adequadas à aplicação dos procedimentos de estatística descritiva e à discussão de fenômenos de interesse da área;
+- Organizar e tabular um conjunto de dados quantitativos;
 
-- **Aplicar o pacote `leem` para a descrição estatística dos dados**, empregando recursos computacionais para organização, tabulação, apresentação gráfica e cálculo das principais medidas estatísticas;
+- Aplicar o pacote leem na análise estatística;
 
-- **Construir e interpretar representações gráficas e tabelas**, de modo a evidenciar padrões, tendências, variabilidade e possíveis valores discrepantes presentes no conjunto de dados;
+- Construir e interpretar tabelas e representações gráficas;
 
-- **Calcular e interpretar medidas de posição e dispersão**, incluindo medidas de tendência central e indicadores de variabilidade, relacionando os resultados às características do banco de dados analisado;
+- Determinar medidas de posição e dispersão;
 
-- **Determinar e interpretar os coeficientes de assimetria e curtose**, avaliando a forma da distribuição dos dados e suas implicações para a compreensão do comportamento das variáveis estudadas;
+- Analisar a variabilidade e a distribuição dos dados;
 
-- **Compreender os procedimentos estatísticos realizados pelo pacote `leem`**, não se limitando à obtenção automática dos resultados, mas reconhecendo os fundamentos matemáticos e estatísticos envolvidos na tabulação, no cálculo das medidas e na construção das representações gráficas;
+- Relacionar os resultados estatísticos ao contexto da Engenharia Civil;
 
-- **Discutir tecnicamente os resultados obtidos**, relacionando as características estatísticas observadas às propriedades e aos fenômenos associados ao contexto da Engenharia Civil e avaliando criticamente a informação fornecida pelo conjunto de dados.
-
+- Desenvolver uma interpretação crítica dos resultados obtidos.
 
 ---
 
@@ -463,6 +458,32 @@ Descreva como o experimento foi realizado.
 - Procedimento  
 - Número de repetições  
 
+A prática foi desenvolvida por meio de uma abordagem quantitativa e descritiva, utilizando o ambiente R e o pacote leem para a organização, representação e análise dos dados.
+
+Inicialmente, foi elaborado um banco de dados contendo 25 resultados simulados de resistência à compressão do concreto, expressos em MPa. Os dados foram definidos considerando condições experimentais constantes: relação água/cimento igual a 0,50, idade de 28 dias e corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura.
+
+Como os dados utilizados são simulados, não foram realizados efetivamente ensaios laboratoriais. Os valores foram construídos de forma plausível para representar a variabilidade que poderia ser observada em corpos de prova submetidos a condições semelhantes.
+
+O procedimento de análise foi dividido nas seguintes etapas:
+
+1.	Organização dos dados: inserção dos 25 resultados no ambiente R;
+
+2.	Classificação da variável: identificação da resistência à compressão como variável quantitativa contínua;
+
+3.	Tabulação: agrupamento dos resultados em classes de frequência;
+
+4.	Definição das classes: considerando (m = 25), foi adotado o critério (k \approx \sqrt{m}), resultando em cinco classes;
+
+5.	Cálculo das frequências: determinação das frequências absoluta, relativa, percentual e acumuladas;
+
+6.	Representação gráfica: elaboração de histograma para visualização da distribuição dos resultados;
+
+7.	Análise estatística: aplicação das medidas de tendência central e dispersão, além dos coeficientes de assimetria e curtose;
+
+8.	Interpretação: comparação dos resultados estatísticos e discussão de sua relação com a variabilidade da resistência à compressão do concreto.
+Para a execução dos procedimentos computacionais, foi utilizado o pacote leem, juntamente com recursos de apresentação tabular e gráfica disponíveis no R. O objetivo foi utilizar o software não apenas para obter os valores calculados, mas também para compreender e interpretar os procedimentos estatísticos empregados.
+
+
 ---
 
 ## 🔍 Resultados e Discussão
@@ -479,7 +500,7 @@ A partir dessas condições, foram gerados 25 resultados simulados de resistênc
 ```{r}
 #| echo: false
 resistencia25 <- read.csv2(
-  "C:/Relatorios/eait/relatorio/rel01/resistencia25.csv",
+  "C:/Relatórios/EAIT/eait/relatorio/rel01/resistencia25.csv",
   dec = ","
 )
 ```
@@ -600,14 +621,18 @@ Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
+A prática possibilitou aplicar conceitos de estatística descritiva no contexto da Engenharia Civil, utilizando o ambiente R e o pacote leem para organização, tabulação, representação e análise de um conjunto de dados relacionados à resistência à compressão do concreto.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+A partir dos 25 resultados analisados, verificou-se uma concentração das observações nas classes intermediárias, com destaque para o intervalo entre 40,08 e 41,00 MPa. A distribuição de frequência e o histograma permitiram visualizar esse comportamento e compreender de maneira mais clara a distribuição dos resultados.
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+Os procedimentos realizados também demonstraram a importância das medidas de posição e dispersão para complementar a análise dos dados. Enquanto as medidas de tendência central permitem identificar a região representativa do conjunto, as medidas de variabilidade possibilitam avaliar o grau de homogeneidade dos resultados.
+
+Outro aspecto importante foi a compreensão de que o uso de ferramentas computacionais não substitui o conhecimento dos fundamentos estatísticos. O R e o pacote leem facilitam os cálculos e a representação dos dados, mas a interpretação dos resultados depende da compreensão dos conceitos e do contexto em que os dados foram obtidos.
+
+Por fim, destaca-se que os resultados utilizados são simulados e, portanto, possuem finalidade didática. Em uma aplicação experimental real, seria necessário realizar os ensaios sob condições controladas, registrar adequadamente os procedimentos de moldagem, cura e rompimento dos corpos de prova e utilizar os resultados obtidos para uma avaliação efetiva da variabilidade da resistência do concreto.
+
+Dessa forma, considera-se que os objetivos da prática foram alcançados, uma vez que foi possível integrar conhecimentos básicos de programação em R e estatística descritiva à análise de um problema relacionado à Engenharia Civil.
+
 
 ## Aprenda Quarto
 
