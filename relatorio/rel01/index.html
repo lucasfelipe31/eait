@@ -206,7 +206,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">23/08/2026, 00:27</p>
+      <p class="date">23/08/2026, 00:47</p>
     </div>
   </div>
   
@@ -223,7 +223,7 @@ window.Quarto = {
 <p>A análise estatística constitui uma importante ferramenta para a compreensão, organização e interpretação de dados no campo da Engenharia Civil, especialmente em situações que envolvem ensaios experimentais, levantamentos técnicos, controle de qualidade e avaliação do comportamento de materiais e sistemas construtivos. Nesse contexto, o uso de recursos computacionais permite tornar os procedimentos estatísticos mais eficientes, precisos e reprodutíveis, favorecendo uma análise fundamentada dos resultados obtidos.</p>
 <p>Entre as ferramentas disponíveis, o ambiente R destaca-se por oferecer recursos para manipulação, tratamento, representação gráfica e análise de dados, possibilitando a aplicação prática de diferentes conceitos estatísticos. Aliado ao pacote leem, o R permite explorar conjuntos de dados de maneira sistemática, desde sua organização e tabulação até o cálculo e a interpretação de medidas estatísticas. Entretanto, a utilização dessas ferramentas não deve se limitar à obtenção automática de resultados, sendo fundamental compreender os conceitos e procedimentos que fundamentam cada análise realizada.</p>
 <p>Nesse sentido, a estatística descritiva apresenta-se como uma etapa essencial para a caracterização de um conjunto de dados. Medidas de posição e dispersão permitem sintetizar as principais características das observações, enquanto os coeficientes de assimetria e curtose fornecem informações adicionais sobre a forma e o comportamento da distribuição. A utilização de tabelas e representações gráficas complementa essa análise, permitindo identificar tendências, padrões, variabilidade e possíveis valores discrepantes.</p>
-<p>Assim, esta prática propõe a integração entre os fundamentos da linguagem R, os conhecimentos de estatística descritiva e sua aplicação a dados relacionados à Engenharia Civil. A partir de um banco de dados de natureza experimental ou técnico-engenheirística, serão empregados os recursos do ambiente R e do pacote leem para organizar, representar e analisar as informações, buscando não apenas executar os procedimentos estatísticos, mas também compreender seus fundamentos e interpretar criticamente os resultados no contexto da Engenharia Civil.q</p>
+<p>Assim, esta prática propõe a integração entre os fundamentos da linguagem R, os conhecimentos de estatística descritiva e sua aplicação a dados relacionados à Engenharia Civil. A partir de um banco de dados de natureza experimental ou técnico-engenheirística, serão empregados os recursos do ambiente R e do pacote leem para organizar, representar e analisar as informações, buscando não apenas executar os procedimentos estatísticos, mas também compreender seus fundamentos e interpretar criticamente os resultados no contexto da Engenharia Civil.</p>
 </section>
 <section id="objetivos" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">2</span> 🎯 Objetivos</h2>
@@ -625,20 +625,10 @@ Nota
 </li>
 <li>Número de repetições</li>
 </ul>
-<p>A prática foi desenvolvida por meio de uma abordagem quantitativa e descritiva, utilizando o ambiente R e o pacote leem para a organização, representação e análise dos dados.</p>
-<p>Inicialmente, foi elaborado um banco de dados contendo 25 resultados simulados de resistência à compressão do concreto, expressos em MPa. Os dados foram definidos considerando condições experimentais constantes: relação água/cimento igual a 0,50, idade de 28 dias e corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura.</p>
-<p>Como os dados utilizados são simulados, não foram realizados efetivamente ensaios laboratoriais. Os valores foram construídos de forma plausível para representar a variabilidade que poderia ser observada em corpos de prova submetidos a condições semelhantes.</p>
-<p>O procedimento de análise foi dividido nas seguintes etapas:</p>
-<ol type="1">
-<li><p>Organização dos dados: inserção dos 25 resultados no ambiente R;</p></li>
-<li><p>Classificação da variável: identificação da resistência à compressão como variável quantitativa contínua;</p></li>
-<li><p>Tabulação: agrupamento dos resultados em classes de frequência;</p></li>
-<li><p>Definição das classes: considerando (m = 25), foi adotado o critério (k ), resultando em cinco classes;</p></li>
-<li><p>Cálculo das frequências: determinação das frequências absoluta, relativa, percentual e acumuladas;</p></li>
-<li><p>Representação gráfica: elaboração de histograma para visualização da distribuição dos resultados;</p></li>
-<li><p>Análise estatística: aplicação das medidas de tendência central e dispersão, além dos coeficientes de assimetria e curtose;</p></li>
-<li><p>Interpretação: comparação dos resultados estatísticos e discussão de sua relação com a variabilidade da resistência à compressão do concreto. Para a execução dos procedimentos computacionais, foi utilizado o pacote leem, juntamente com recursos de apresentação tabular e gráfica disponíveis no R. O objetivo foi utilizar o software não apenas para obter os valores calculados, mas também para compreender e interpretar os procedimentos estatísticos empregados.</p></li>
-</ol>
+<p>A metodologia adotada neste relatório baseou-se em uma abordagem quantitativa e descritiva, combinando o estudo teórico dos conteúdos de Estatística e Probabilidade com a aplicação prática no ambiente R. Inicialmente, foram analisados os quatro primeiros capítulos do livro digital Estatística &amp; Probabilidade Aplicada às Engenharias e Ciências, juntamente com os conteúdos do Curso R Básico 2024 e materiais complementares relacionados ao RStudio, ao pacote <code>leem</code> e ao R Markdown. A partir desse estudo, foram selecionados e sistematizados os principais conceitos estatísticos utilizados na prática.</p>
+<p>Como estudo de caso, foi elaborado um banco de dados contendo 25 valores simulados de resistência à compressão do concreto, expressos em MPa. Para manter condições experimentais semelhantes, foram consideradas constantes a relação água/cimento de 0,50, a idade de 28 dias e as dimensões dos corpos de prova cilíndricos, com 100 mm de diâmetro e 200 mm de altura. Por se tratar de dados simulados, não foram realizados ensaios laboratoriais, sendo os valores definidos de maneira plausível para representar a variabilidade esperada em condições semelhantes de produção e ensaio.</p>
+<p>A análise dos dados foi realizada no ambiente R, com apoio do pacote <code>leem</code>, seguindo etapas de organização e classificação da variável, construção da distribuição de frequências, definição de cinco classes pelo critério (k ), cálculo das frequências absoluta, relativa, percentual e acumulada, além da representação gráfica por meio de histograma. Posteriormente, foram determinadas medidas de tendência central e dispersão, bem como os coeficientes de assimetria e curtose.</p>
+<p>Por fim, os resultados obtidos foram interpretados de forma integrada, buscando relacionar os conceitos estatísticos estudados com a variabilidade observada nos valores de resistência à compressão do concreto. Dessa maneira, o uso do R não se limitou à realização dos cálculos, mas também contribuiu para a compreensão dos procedimentos estatísticos, da representação dos dados e da interpretação dos resultados aplicados à Engenharia Civil.</p>
 <hr>
 </section>
 <section id="resultados-e-discussão" class="level2" data-number="5">
@@ -1461,7 +1451,7 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
 <span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>Nesse sentido, a estatística descritiva apresenta-se como uma etapa essencial para a caracterização de um conjunto de dados. Medidas de posição e dispersão permitem sintetizar as principais características das observações, enquanto os coeficientes de assimetria e curtose fornecem informações adicionais sobre a forma e o comportamento da distribuição. A utilização de tabelas e representações gráficas complementa essa análise, permitindo identificar tendências, padrões, variabilidade e possíveis valores discrepantes.</span>
 <span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>Assim, esta prática propõe a integração entre os fundamentos da linguagem R, os conhecimentos de estatística descritiva e sua aplicação a dados relacionados à Engenharia Civil. A partir de um banco de dados de natureza experimental ou técnico-engenheirística, serão empregados os recursos do ambiente R e do pacote leem para organizar, representar e analisar as informações, buscando não apenas executar os procedimentos estatísticos, mas também compreender seus fundamentos e interpretar criticamente os resultados no contexto da Engenharia Civil.q</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>Assim, esta prática propõe a integração entre os fundamentos da linguagem R, os conhecimentos de estatística descritiva e sua aplicação a dados relacionados à Engenharia Civil. A partir de um banco de dados de natureza experimental ou técnico-engenheirística, serão empregados os recursos do ambiente R e do pacote leem para organizar, representar e analisar as informações, buscando não apenas executar os procedimentos estatísticos, mas também compreender seus fundamentos e interpretar criticamente os resultados no contexto da Engenharia Civil.</span>
 <span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
@@ -1885,189 +1875,171 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
 <span id="cb13-458"><a href="#cb13-458" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
 <span id="cb13-459"><a href="#cb13-459" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
 <span id="cb13-460"><a href="#cb13-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-461"><a href="#cb13-461" aria-hidden="true" tabindex="-1"></a>A prática foi desenvolvida por meio de uma abordagem quantitativa e descritiva, utilizando o ambiente R e o pacote leem para a organização, representação e análise dos dados.</span>
+<span id="cb13-461"><a href="#cb13-461" aria-hidden="true" tabindex="-1"></a>A metodologia adotada neste relatório baseou-se em uma abordagem quantitativa e descritiva, combinando o estudo teórico dos conteúdos de Estatística e Probabilidade com a aplicação prática no ambiente R. Inicialmente, foram analisados os quatro primeiros capítulos do livro digital Estatística &amp; Probabilidade Aplicada às Engenharias e Ciências, juntamente com os conteúdos do Curso R Básico 2024 e materiais complementares relacionados ao RStudio, ao pacote <span class="in">`leem`</span> e ao R Markdown. A partir desse estudo, foram selecionados e sistematizados os principais conceitos estatísticos utilizados na prática.</span>
 <span id="cb13-462"><a href="#cb13-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-463"><a href="#cb13-463" aria-hidden="true" tabindex="-1"></a>Inicialmente, foi elaborado um banco de dados contendo 25 resultados simulados de resistência à compressão do concreto, expressos em MPa. Os dados foram definidos considerando condições experimentais constantes: relação água/cimento igual a 0,50, idade de 28 dias e corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura.</span>
+<span id="cb13-463"><a href="#cb13-463" aria-hidden="true" tabindex="-1"></a>Como estudo de caso, foi elaborado um banco de dados contendo 25 valores simulados de resistência à compressão do concreto, expressos em MPa. Para manter condições experimentais semelhantes, foram consideradas constantes a relação água/cimento de 0,50, a idade de 28 dias e as dimensões dos corpos de prova cilíndricos, com 100 mm de diâmetro e 200 mm de altura. Por se tratar de dados simulados, não foram realizados ensaios laboratoriais, sendo os valores definidos de maneira plausível para representar a variabilidade esperada em condições semelhantes de produção e ensaio.</span>
 <span id="cb13-464"><a href="#cb13-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-465"><a href="#cb13-465" aria-hidden="true" tabindex="-1"></a>Como os dados utilizados são simulados, não foram realizados efetivamente ensaios laboratoriais. Os valores foram construídos de forma plausível para representar a variabilidade que poderia ser observada em corpos de prova submetidos a condições semelhantes.</span>
+<span id="cb13-465"><a href="#cb13-465" aria-hidden="true" tabindex="-1"></a>A análise dos dados foi realizada no ambiente R, com apoio do pacote <span class="in">`leem`</span>, seguindo etapas de organização e classificação da variável, construção da distribuição de frequências, definição de cinco classes pelo critério (k \approx \sqrt{m}), cálculo das frequências absoluta, relativa, percentual e acumulada, além da representação gráfica por meio de histograma. Posteriormente, foram determinadas medidas de tendência central e dispersão, bem como os coeficientes de assimetria e curtose.</span>
 <span id="cb13-466"><a href="#cb13-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-467"><a href="#cb13-467" aria-hidden="true" tabindex="-1"></a>O procedimento de análise foi dividido nas seguintes etapas:</span>
+<span id="cb13-467"><a href="#cb13-467" aria-hidden="true" tabindex="-1"></a>Por fim, os resultados obtidos foram interpretados de forma integrada, buscando relacionar os conceitos estatísticos estudados com a variabilidade observada nos valores de resistência à compressão do concreto. Dessa maneira, o uso do R não se limitou à realização dos cálculos, mas também contribuiu para a compreensão dos procedimentos estatísticos, da representação dos dados e da interpretação dos resultados aplicados à Engenharia Civil.</span>
 <span id="cb13-468"><a href="#cb13-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-469"><a href="#cb13-469" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Organização dos dados: inserção dos 25 resultados no ambiente R;</span>
+<span id="cb13-469"><a href="#cb13-469" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb13-470"><a href="#cb13-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-471"><a href="#cb13-471" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Classificação da variável: identificação da resistência à compressão como variável quantitativa contínua;</span>
+<span id="cb13-471"><a href="#cb13-471" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
 <span id="cb13-472"><a href="#cb13-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-473"><a href="#cb13-473" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Tabulação: agrupamento dos resultados em classes de frequência;</span>
+<span id="cb13-473"><a href="#cb13-473" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dados do Experimento</span></span>
 <span id="cb13-474"><a href="#cb13-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-475"><a href="#cb13-475" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Definição das classes: considerando (m = 25), foi adotado o critério (k \approx \sqrt{m}), resultando em cinco classes;</span>
+<span id="cb13-475"><a href="#cb13-475" aria-hidden="true" tabindex="-1"></a>Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, tomando como referência a ABNT NBR 5739. A norma estabelece o método para determinação da resistência à compressão de corpos de prova cilíndricos de concreto e define, entre outros aspectos, as condições de realização do ensaio e o cálculo da resistência à compressão a partir da força máxima aplicada.</span>
 <span id="cb13-476"><a href="#cb13-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-477"><a href="#cb13-477" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Cálculo das frequências: determinação das frequências absoluta, relativa, percentual e acumuladas;</span>
+<span id="cb13-477"><a href="#cb13-477" aria-hidden="true" tabindex="-1"></a>Para manter a análise estatística concentrada na variabilidade dos resultados de resistência, foram mantidas constantes as condições do experimento. Considerou-se uma relação água/cimento (A/C) igual a 0,50, idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional no conjunto de dados.</span>
 <span id="cb13-478"><a href="#cb13-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-479"><a href="#cb13-479" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Representação gráfica: elaboração de histograma para visualização da distribuição dos resultados;</span>
+<span id="cb13-479"><a href="#cb13-479" aria-hidden="true" tabindex="-1"></a>A partir dessas condições, foram gerados 25 resultados simulados de resistência à compressão, correspondentes a 25 ensaios. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739.</span>
 <span id="cb13-480"><a href="#cb13-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-481"><a href="#cb13-481" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>Análise estatística: aplicação das medidas de tendência central e dispersão, além dos coeficientes de assimetria e curtose;</span>
-<span id="cb13-482"><a href="#cb13-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-483"><a href="#cb13-483" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>Interpretação: comparação dos resultados estatísticos e discussão de sua relação com a variabilidade da resistência à compressão do concreto.</span>
-<span id="cb13-484"><a href="#cb13-484" aria-hidden="true" tabindex="-1"></a>Para a execução dos procedimentos computacionais, foi utilizado o pacote leem, juntamente com recursos de apresentação tabular e gráfica disponíveis no R. O objetivo foi utilizar o software não apenas para obter os valores calculados, mas também para compreender e interpretar os procedimentos estatísticos empregados.</span>
-<span id="cb13-485"><a href="#cb13-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-486"><a href="#cb13-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-487"><a href="#cb13-487" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb13-488"><a href="#cb13-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-489"><a href="#cb13-489" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
-<span id="cb13-490"><a href="#cb13-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-491"><a href="#cb13-491" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dados do Experimento</span></span>
-<span id="cb13-492"><a href="#cb13-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-493"><a href="#cb13-493" aria-hidden="true" tabindex="-1"></a>Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, tomando como referência a ABNT NBR 5739. A norma estabelece o método para determinação da resistência à compressão de corpos de prova cilíndricos de concreto e define, entre outros aspectos, as condições de realização do ensaio e o cálculo da resistência à compressão a partir da força máxima aplicada.</span>
-<span id="cb13-494"><a href="#cb13-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-495"><a href="#cb13-495" aria-hidden="true" tabindex="-1"></a>Para manter a análise estatística concentrada na variabilidade dos resultados de resistência, foram mantidas constantes as condições do experimento. Considerou-se uma relação água/cimento (A/C) igual a 0,50, idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional no conjunto de dados.</span>
-<span id="cb13-496"><a href="#cb13-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-497"><a href="#cb13-497" aria-hidden="true" tabindex="-1"></a>A partir dessas condições, foram gerados 25 resultados simulados de resistência à compressão, correspondentes a 25 ensaios. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739.</span>
+<span id="cb13-481"><a href="#cb13-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-484"><a href="#cb13-484" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-485"><a href="#cb13-485" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb13-486"><a href="#cb13-486" aria-hidden="true" tabindex="-1"></a>resistencia25 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(</span>
+<span id="cb13-487"><a href="#cb13-487" aria-hidden="true" tabindex="-1"></a>  <span class="st">"C:/Relatórios/EAIT/eait/relatorio/rel01/resistencia25.csv"</span>,</span>
+<span id="cb13-488"><a href="#cb13-488" aria-hidden="true" tabindex="-1"></a>  <span class="at">dec =</span> <span class="st">","</span></span>
+<span id="cb13-489"><a href="#cb13-489" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-490"><a href="#cb13-490" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-491"><a href="#cb13-491" aria-hidden="true" tabindex="-1"></a>::: {.tabela-dados}</span>
+<span id="cb13-494"><a href="#cb13-494" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-495"><a href="#cb13-495" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-dados</span></span>
+<span id="cb13-496"><a href="#cb13-496" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Resultados simulados de resistência à compressão do concreto aos 28 dias"</span></span>
+<span id="cb13-497"><a href="#cb13-497" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
 <span id="cb13-498"><a href="#cb13-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-499"><a href="#cb13-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-502"><a href="#cb13-502" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-503"><a href="#cb13-503" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb13-504"><a href="#cb13-504" aria-hidden="true" tabindex="-1"></a>resistencia25 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(</span>
-<span id="cb13-505"><a href="#cb13-505" aria-hidden="true" tabindex="-1"></a>  <span class="st">"C:/Relatórios/EAIT/eait/relatorio/rel01/resistencia25.csv"</span>,</span>
-<span id="cb13-506"><a href="#cb13-506" aria-hidden="true" tabindex="-1"></a>  <span class="at">dec =</span> <span class="st">","</span></span>
-<span id="cb13-507"><a href="#cb13-507" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-508"><a href="#cb13-508" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-509"><a href="#cb13-509" aria-hidden="true" tabindex="-1"></a>::: {.tabela-dados}</span>
-<span id="cb13-512"><a href="#cb13-512" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-513"><a href="#cb13-513" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-dados</span></span>
-<span id="cb13-514"><a href="#cb13-514" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Resultados simulados de resistência à compressão do concreto aos 28 dias"</span></span>
-<span id="cb13-515"><a href="#cb13-515" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb13-499"><a href="#cb13-499" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb13-500"><a href="#cb13-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-501"><a href="#cb13-501" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb13-502"><a href="#cb13-502" aria-hidden="true" tabindex="-1"></a>  resistencia25,</span>
+<span id="cb13-503"><a href="#cb13-503" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Corpo de Prova"</span>, <span class="st">"Resistência à compressão (MPa)"</span>),</span>
+<span id="cb13-504"><a href="#cb13-504" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"c"</span>),</span>
+<span id="cb13-505"><a href="#cb13-505" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">1</span></span>
+<span id="cb13-506"><a href="#cb13-506" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-507"><a href="#cb13-507" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-508"><a href="#cb13-508" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-509"><a href="#cb13-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-510"><a href="#cb13-510" aria-hidden="true" tabindex="-1"></a>A partir desse conjunto de 25 observações, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote leem, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.</span>
+<span id="cb13-511"><a href="#cb13-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-512"><a href="#cb13-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-513"><a href="#cb13-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-514"><a href="#cb13-514" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
+<span id="cb13-515"><a href="#cb13-515" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Representação Tabular</span></span>
 <span id="cb13-516"><a href="#cb13-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-517"><a href="#cb13-517" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb13-517"><a href="#cb13-517" aria-hidden="true" tabindex="-1"></a>A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados experimentais sejam registrados com determinada precisão, essa limitação decorre da resolução dos instrumentos e do procedimento de medição, e não da natureza da variável. Dessa forma, conforme apresentado no Capítulo 2 do Estatística &amp; Probabilidade Aplicada às Engenharias e Ciências (EPAEC), é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.</span>
 <span id="cb13-518"><a href="#cb13-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-519"><a href="#cb13-519" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
-<span id="cb13-520"><a href="#cb13-520" aria-hidden="true" tabindex="-1"></a>  resistencia25,</span>
-<span id="cb13-521"><a href="#cb13-521" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Corpo de Prova"</span>, <span class="st">"Resistência à compressão (MPa)"</span>),</span>
-<span id="cb13-522"><a href="#cb13-522" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"c"</span>),</span>
-<span id="cb13-523"><a href="#cb13-523" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">1</span></span>
-<span id="cb13-524"><a href="#cb13-524" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-525"><a href="#cb13-525" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-526"><a href="#cb13-526" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb13-527"><a href="#cb13-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-528"><a href="#cb13-528" aria-hidden="true" tabindex="-1"></a>A partir desse conjunto de 25 observações, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote leem, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.</span>
-<span id="cb13-529"><a href="#cb13-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-530"><a href="#cb13-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-531"><a href="#cb13-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-532"><a href="#cb13-532" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
-<span id="cb13-533"><a href="#cb13-533" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Representação Tabular</span></span>
-<span id="cb13-534"><a href="#cb13-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-535"><a href="#cb13-535" aria-hidden="true" tabindex="-1"></a>A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados experimentais sejam registrados com determinada precisão, essa limitação decorre da resolução dos instrumentos e do procedimento de medição, e não da natureza da variável. Dessa forma, conforme apresentado no Capítulo 2 do Estatística &amp; Probabilidade Aplicada às Engenharias e Ciências (EPAEC), é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.</span>
-<span id="cb13-536"><a href="#cb13-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-537"><a href="#cb13-537" aria-hidden="true" tabindex="-1"></a>No presente estudo, foram considerados **25 resultados simulados de resistência à compressão**, correspondentes aos corpos de prova submetidos à mesma condição experimental. Para a definição do número de classes, adotou-se o critério apresentado no EPAEC, segundo o qual, para conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, para $m = 25$, obtém-se $k \approx \sqrt{25} = 5$, resultando na utilização de **cinco classes de frequência**.</span>
-<span id="cb13-538"><a href="#cb13-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-539"><a href="#cb13-539" aria-hidden="true" tabindex="-1"></a>A partir desse procedimento, os resultados foram agrupados em intervalos de resistência à compressão. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a participação de cada classe em relação ao total de observações. As frequências acumuladas permitem identificar a quantidade de observações situada abaixo ou acima de determinada classe. Essas formas de representação são apresentadas no EPAEC como instrumentos para facilitar a interpretação de conjuntos de dados.</span>
-<span id="cb13-542"><a href="#cb13-542" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-543"><a href="#cb13-543" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulação</span></span>
-<span id="cb13-544"><a href="#cb13-544" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leem)</span>
-<span id="cb13-545"><a href="#cb13-545" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb13-546"><a href="#cb13-546" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb13-547"><a href="#cb13-547" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-550"><a href="#cb13-550" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-551"><a href="#cb13-551" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-frequencia-resistencia</span></span>
-<span id="cb13-552"><a href="#cb13-552" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribuição de frequência da resistência à compressão"</span></span>
-<span id="cb13-553"><a href="#cb13-553" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-554"><a href="#cb13-554" aria-hidden="true" tabindex="-1"></a>tab_resistencia <span class="ot">&lt;-</span> resistencia25<span class="sc">$</span>Resistencia_MPa <span class="sc">|&gt;</span></span>
-<span id="cb13-555"><a href="#cb13-555" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_leem</span>(<span class="at">variable =</span> <span class="st">"continuous"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-556"><a href="#cb13-556" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabfreq</span>(<span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb13-519"><a href="#cb13-519" aria-hidden="true" tabindex="-1"></a>No presente estudo, foram considerados **25 resultados simulados de resistência à compressão**, correspondentes aos corpos de prova submetidos à mesma condição experimental. Para a definição do número de classes, adotou-se o critério apresentado no EPAEC, segundo o qual, para conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, para $m = 25$, obtém-se $k \approx \sqrt{25} = 5$, resultando na utilização de **cinco classes de frequência**.</span>
+<span id="cb13-520"><a href="#cb13-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-521"><a href="#cb13-521" aria-hidden="true" tabindex="-1"></a>A partir desse procedimento, os resultados foram agrupados em intervalos de resistência à compressão. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a participação de cada classe em relação ao total de observações. As frequências acumuladas permitem identificar a quantidade de observações situada abaixo ou acima de determinada classe. Essas formas de representação são apresentadas no EPAEC como instrumentos para facilitar a interpretação de conjuntos de dados.</span>
+<span id="cb13-524"><a href="#cb13-524" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-525"><a href="#cb13-525" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulação</span></span>
+<span id="cb13-526"><a href="#cb13-526" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leem)</span>
+<span id="cb13-527"><a href="#cb13-527" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb13-528"><a href="#cb13-528" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb13-529"><a href="#cb13-529" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-532"><a href="#cb13-532" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-533"><a href="#cb13-533" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-frequencia-resistencia</span></span>
+<span id="cb13-534"><a href="#cb13-534" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribuição de frequência da resistência à compressão"</span></span>
+<span id="cb13-535"><a href="#cb13-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-536"><a href="#cb13-536" aria-hidden="true" tabindex="-1"></a>tab_resistencia <span class="ot">&lt;-</span> resistencia25<span class="sc">$</span>Resistencia_MPa <span class="sc">|&gt;</span></span>
+<span id="cb13-537"><a href="#cb13-537" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_leem</span>(<span class="at">variable =</span> <span class="st">"continuous"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-538"><a href="#cb13-538" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabfreq</span>(<span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb13-539"><a href="#cb13-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-540"><a href="#cb13-540" aria-hidden="true" tabindex="-1"></a>tabela <span class="ot">&lt;-</span> tab_resistencia<span class="sc">$</span>table[, <span class="fu">c</span>(</span>
+<span id="cb13-541"><a href="#cb13-541" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Classes"</span>, <span class="st">"Fi"</span>, <span class="st">"PM"</span>, <span class="st">"Fr"</span>, <span class="st">"Fac1"</span>, <span class="st">"Fac2"</span>, <span class="st">"Fp"</span></span>
+<span id="cb13-542"><a href="#cb13-542" aria-hidden="true" tabindex="-1"></a>)]</span>
+<span id="cb13-543"><a href="#cb13-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-544"><a href="#cb13-544" aria-hidden="true" tabindex="-1"></a><span class="co"># Substituindo |--- por |—</span></span>
+<span id="cb13-545"><a href="#cb13-545" aria-hidden="true" tabindex="-1"></a>tabela<span class="sc">$</span>Classes <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
+<span id="cb13-546"><a href="#cb13-546" aria-hidden="true" tabindex="-1"></a>  <span class="st">"</span><span class="sc">\\</span><span class="st">|---"</span>,</span>
+<span id="cb13-547"><a href="#cb13-547" aria-hidden="true" tabindex="-1"></a>  <span class="st">"|—"</span>,</span>
+<span id="cb13-548"><a href="#cb13-548" aria-hidden="true" tabindex="-1"></a>  tabela<span class="sc">$</span>Classes</span>
+<span id="cb13-549"><a href="#cb13-549" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-550"><a href="#cb13-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-551"><a href="#cb13-551" aria-hidden="true" tabindex="-1"></a><span class="co"># Substituindo ponto decimal por vírgula</span></span>
+<span id="cb13-552"><a href="#cb13-552" aria-hidden="true" tabindex="-1"></a>tabela<span class="sc">$</span>Classes <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
+<span id="cb13-553"><a href="#cb13-553" aria-hidden="true" tabindex="-1"></a>  <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>,</span>
+<span id="cb13-554"><a href="#cb13-554" aria-hidden="true" tabindex="-1"></a>  <span class="st">","</span>,</span>
+<span id="cb13-555"><a href="#cb13-555" aria-hidden="true" tabindex="-1"></a>  tabela<span class="sc">$</span>Classes</span>
+<span id="cb13-556"><a href="#cb13-556" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-557"><a href="#cb13-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-558"><a href="#cb13-558" aria-hidden="true" tabindex="-1"></a>tabela <span class="ot">&lt;-</span> tab_resistencia<span class="sc">$</span>table[, <span class="fu">c</span>(</span>
-<span id="cb13-559"><a href="#cb13-559" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Classes"</span>, <span class="st">"Fi"</span>, <span class="st">"PM"</span>, <span class="st">"Fr"</span>, <span class="st">"Fac1"</span>, <span class="st">"Fac2"</span>, <span class="st">"Fp"</span></span>
-<span id="cb13-560"><a href="#cb13-560" aria-hidden="true" tabindex="-1"></a>)]</span>
-<span id="cb13-561"><a href="#cb13-561" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-562"><a href="#cb13-562" aria-hidden="true" tabindex="-1"></a><span class="co"># Substituindo |--- por |—</span></span>
-<span id="cb13-563"><a href="#cb13-563" aria-hidden="true" tabindex="-1"></a>tabela<span class="sc">$</span>Classes <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
-<span id="cb13-564"><a href="#cb13-564" aria-hidden="true" tabindex="-1"></a>  <span class="st">"</span><span class="sc">\\</span><span class="st">|---"</span>,</span>
-<span id="cb13-565"><a href="#cb13-565" aria-hidden="true" tabindex="-1"></a>  <span class="st">"|—"</span>,</span>
-<span id="cb13-566"><a href="#cb13-566" aria-hidden="true" tabindex="-1"></a>  tabela<span class="sc">$</span>Classes</span>
-<span id="cb13-567"><a href="#cb13-567" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-568"><a href="#cb13-568" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-569"><a href="#cb13-569" aria-hidden="true" tabindex="-1"></a><span class="co"># Substituindo ponto decimal por vírgula</span></span>
-<span id="cb13-570"><a href="#cb13-570" aria-hidden="true" tabindex="-1"></a>tabela<span class="sc">$</span>Classes <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
-<span id="cb13-571"><a href="#cb13-571" aria-hidden="true" tabindex="-1"></a>  <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>,</span>
-<span id="cb13-572"><a href="#cb13-572" aria-hidden="true" tabindex="-1"></a>  <span class="st">","</span>,</span>
-<span id="cb13-573"><a href="#cb13-573" aria-hidden="true" tabindex="-1"></a>  tabela<span class="sc">$</span>Classes</span>
-<span id="cb13-574"><a href="#cb13-574" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-575"><a href="#cb13-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-576"><a href="#cb13-576" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb13-577"><a href="#cb13-577" aria-hidden="true" tabindex="-1"></a>  tabela,</span>
-<span id="cb13-578"><a href="#cb13-578" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"html"</span>,</span>
-<span id="cb13-579"><a href="#cb13-579" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb13-580"><a href="#cb13-580" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>),</span>
-<span id="cb13-581"><a href="#cb13-581" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(</span>
-<span id="cb13-582"><a href="#cb13-582" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Classe (MPa)"</span>,</span>
-<span id="cb13-583"><a href="#cb13-583" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fi"</span>,</span>
-<span id="cb13-584"><a href="#cb13-584" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PM (MPa)"</span>,</span>
-<span id="cb13-585"><a href="#cb13-585" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fr"</span>,</span>
-<span id="cb13-586"><a href="#cb13-586" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fac↓"</span>,</span>
-<span id="cb13-587"><a href="#cb13-587" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fac↑"</span>,</span>
-<span id="cb13-588"><a href="#cb13-588" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fp (%)"</span></span>
-<span id="cb13-589"><a href="#cb13-589" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb13-590"><a href="#cb13-590" aria-hidden="true" tabindex="-1"></a>  <span class="at">escape =</span> <span class="cn">FALSE</span></span>
-<span id="cb13-591"><a href="#cb13-591" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb13-592"><a href="#cb13-592" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
-<span id="cb13-593"><a href="#cb13-593" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="st">"condensed"</span>,</span>
-<span id="cb13-594"><a href="#cb13-594" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb13-595"><a href="#cb13-595" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"center"</span></span>
-<span id="cb13-596"><a href="#cb13-596" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-597"><a href="#cb13-597" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-598"><a href="#cb13-598" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-599"><a href="#cb13-599" aria-hidden="true" tabindex="-1"></a>A distribuição apresentada na Tabela 1 permite observar que os resultados de resistência à compressão se concentram principalmente nas classes intermediárias. A maior frequência absoluta foi observada no intervalo de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% da amostra. A segunda maior frequência ocorreu entre 39,16 e 40,08 MPa, com 7 observações, equivalentes a 28%.</span>
-<span id="cb13-600"><a href="#cb13-600" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-601"><a href="#cb13-601" aria-hidden="true" tabindex="-1"></a>Considerando conjuntamente essas duas classes, verifica-se que 15 dos 25 resultados (60%) encontram-se entre 39,16 e 41,00 MPa. Esse comportamento demonstra uma concentração significativa das resistências em torno da região central da distribuição. Por outro lado, apenas 2 resultados (8%) encontram-se na primeira classe, entre 38,24 e 39,16 MPa, enquanto 3 resultados (12%) pertencem à classe superior, entre 41,92 e 42,84 MPa. Portanto, a maior parte dos corpos de prova apresentou resistência relativamente próxima à região central dos dados.</span>
-<span id="cb13-602"><a href="#cb13-602" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-603"><a href="#cb13-603" aria-hidden="true" tabindex="-1"></a>Do ponto de vista da Engenharia Civil, essa concentração é relevante porque os corpos de prova considerados foram produzidos sob uma mesma relação água/cimento (A/C = 0,50) e submetidos à mesma idade de referência, de 28 dias. Dessa forma, a diferença observada entre os resultados não decorre de uma alteração intencional da relação água/cimento ou da idade do concreto, variáveis que exercem influência importante sobre a resistência à compressão.</span>
-<span id="cb13-604"><a href="#cb13-604" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-605"><a href="#cb13-605" aria-hidden="true" tabindex="-1"></a>Como os dados são simulados, a distribuição observada deve ser interpretada como uma representação da variabilidade esperada entre resultados de ensaios realizados sob condições semelhantes, e não como evidência experimental de um concreto efetivamente produzido e ensaiado em laboratório. Em uma situação experimental real, diferenças entre os resultados poderiam estar relacionadas a diversos fatores, como homogeneidade da mistura, proporção e características dos agregados, propriedades do cimento, precisão na dosagem da água, procedimento de mistura, adensamento, condições de cura, dimensões e preparação dos corpos de prova e condições de execução do ensaio de compressão.</span>
-<span id="cb13-606"><a href="#cb13-606" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-607"><a href="#cb13-607" aria-hidden="true" tabindex="-1"></a>Essa observação é importante porque, mantendo-se a relação A/C constante, a análise da distribuição dos resultados passa a ser útil para avaliar a variabilidade da resistência dentro de uma mesma condição de produção. Em termos de controle tecnológico do concreto, quanto maior a dispersão dos resultados, maior a necessidade de investigar possíveis fontes de variabilidade no processo de produção, moldagem, cura ou ensaio. Entretanto, a avaliação dessa dispersão não deve ser realizada apenas pela tabela de frequência; será complementada posteriormente pelas medidas de dispersão, como amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão da média.</span>
+<span id="cb13-558"><a href="#cb13-558" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb13-559"><a href="#cb13-559" aria-hidden="true" tabindex="-1"></a>  tabela,</span>
+<span id="cb13-560"><a href="#cb13-560" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb13-561"><a href="#cb13-561" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb13-562"><a href="#cb13-562" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>),</span>
+<span id="cb13-563"><a href="#cb13-563" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(</span>
+<span id="cb13-564"><a href="#cb13-564" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Classe (MPa)"</span>,</span>
+<span id="cb13-565"><a href="#cb13-565" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fi"</span>,</span>
+<span id="cb13-566"><a href="#cb13-566" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PM (MPa)"</span>,</span>
+<span id="cb13-567"><a href="#cb13-567" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fr"</span>,</span>
+<span id="cb13-568"><a href="#cb13-568" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fac↓"</span>,</span>
+<span id="cb13-569"><a href="#cb13-569" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fac↑"</span>,</span>
+<span id="cb13-570"><a href="#cb13-570" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fp (%)"</span></span>
+<span id="cb13-571"><a href="#cb13-571" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb13-572"><a href="#cb13-572" aria-hidden="true" tabindex="-1"></a>  <span class="at">escape =</span> <span class="cn">FALSE</span></span>
+<span id="cb13-573"><a href="#cb13-573" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb13-574"><a href="#cb13-574" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
+<span id="cb13-575"><a href="#cb13-575" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="st">"condensed"</span>,</span>
+<span id="cb13-576"><a href="#cb13-576" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb13-577"><a href="#cb13-577" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"center"</span></span>
+<span id="cb13-578"><a href="#cb13-578" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-579"><a href="#cb13-579" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-580"><a href="#cb13-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-581"><a href="#cb13-581" aria-hidden="true" tabindex="-1"></a>A distribuição apresentada na Tabela 1 permite observar que os resultados de resistência à compressão se concentram principalmente nas classes intermediárias. A maior frequência absoluta foi observada no intervalo de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% da amostra. A segunda maior frequência ocorreu entre 39,16 e 40,08 MPa, com 7 observações, equivalentes a 28%.</span>
+<span id="cb13-582"><a href="#cb13-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-583"><a href="#cb13-583" aria-hidden="true" tabindex="-1"></a>Considerando conjuntamente essas duas classes, verifica-se que 15 dos 25 resultados (60%) encontram-se entre 39,16 e 41,00 MPa. Esse comportamento demonstra uma concentração significativa das resistências em torno da região central da distribuição. Por outro lado, apenas 2 resultados (8%) encontram-se na primeira classe, entre 38,24 e 39,16 MPa, enquanto 3 resultados (12%) pertencem à classe superior, entre 41,92 e 42,84 MPa. Portanto, a maior parte dos corpos de prova apresentou resistência relativamente próxima à região central dos dados.</span>
+<span id="cb13-584"><a href="#cb13-584" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-585"><a href="#cb13-585" aria-hidden="true" tabindex="-1"></a>Do ponto de vista da Engenharia Civil, essa concentração é relevante porque os corpos de prova considerados foram produzidos sob uma mesma relação água/cimento (A/C = 0,50) e submetidos à mesma idade de referência, de 28 dias. Dessa forma, a diferença observada entre os resultados não decorre de uma alteração intencional da relação água/cimento ou da idade do concreto, variáveis que exercem influência importante sobre a resistência à compressão.</span>
+<span id="cb13-586"><a href="#cb13-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-587"><a href="#cb13-587" aria-hidden="true" tabindex="-1"></a>Como os dados são simulados, a distribuição observada deve ser interpretada como uma representação da variabilidade esperada entre resultados de ensaios realizados sob condições semelhantes, e não como evidência experimental de um concreto efetivamente produzido e ensaiado em laboratório. Em uma situação experimental real, diferenças entre os resultados poderiam estar relacionadas a diversos fatores, como homogeneidade da mistura, proporção e características dos agregados, propriedades do cimento, precisão na dosagem da água, procedimento de mistura, adensamento, condições de cura, dimensões e preparação dos corpos de prova e condições de execução do ensaio de compressão.</span>
+<span id="cb13-588"><a href="#cb13-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-589"><a href="#cb13-589" aria-hidden="true" tabindex="-1"></a>Essa observação é importante porque, mantendo-se a relação A/C constante, a análise da distribuição dos resultados passa a ser útil para avaliar a variabilidade da resistência dentro de uma mesma condição de produção. Em termos de controle tecnológico do concreto, quanto maior a dispersão dos resultados, maior a necessidade de investigar possíveis fontes de variabilidade no processo de produção, moldagem, cura ou ensaio. Entretanto, a avaliação dessa dispersão não deve ser realizada apenas pela tabela de frequência; será complementada posteriormente pelas medidas de dispersão, como amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão da média.</span>
+<span id="cb13-590"><a href="#cb13-590" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-591"><a href="#cb13-591" aria-hidden="true" tabindex="-1"></a>Conforme apresentado na Tabela @tbl-frequencia-resistencia, observa-se que a maior frequência de resistência ocorre na classe de 40,08 a 41,00 MPa, que concentra 8 dos 25 ensaios realizados, correspondendo a 32% das observações.</span>
+<span id="cb13-592"><a href="#cb13-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-595"><a href="#cb13-595" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-596"><a href="#cb13-596" aria-hidden="true" tabindex="-1"></a><span class="co"># Histograma de frequência</span></span>
+<span id="cb13-597"><a href="#cb13-597" aria-hidden="true" tabindex="-1"></a>resistencia25<span class="sc">$</span>Resistencia_MPa <span class="sc">|&gt;</span></span>
+<span id="cb13-598"><a href="#cb13-598" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_leem</span>(<span class="at">variable =</span> <span class="st">"continuous"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-599"><a href="#cb13-599" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabfreq</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-600"><a href="#cb13-600" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(</span>
+<span id="cb13-601"><a href="#cb13-601" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"Distribuição da resistência à compressão"</span>,</span>
+<span id="cb13-602"><a href="#cb13-602" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">"Resistência à compressão (MPa)"</span>,</span>
+<span id="cb13-603"><a href="#cb13-603" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">"Frequência"</span></span>
+<span id="cb13-604"><a href="#cb13-604" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-605"><a href="#cb13-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-606"><a href="#cb13-606" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-607"><a href="#cb13-607" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
 <span id="cb13-608"><a href="#cb13-608" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-609"><a href="#cb13-609" aria-hidden="true" tabindex="-1"></a>Conforme apresentado na Tabela @tbl-frequencia-resistencia, observa-se que a maior frequência de resistência ocorre na classe de 40,08 a 41,00 MPa, que concentra 8 dos 25 ensaios realizados, correspondendo a 32% das observações.</span>
+<span id="cb13-609"><a href="#cb13-609" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
 <span id="cb13-610"><a href="#cb13-610" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-613"><a href="#cb13-613" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-614"><a href="#cb13-614" aria-hidden="true" tabindex="-1"></a><span class="co"># Histograma de frequência</span></span>
-<span id="cb13-615"><a href="#cb13-615" aria-hidden="true" tabindex="-1"></a>resistencia25<span class="sc">$</span>Resistencia_MPa <span class="sc">|&gt;</span></span>
-<span id="cb13-616"><a href="#cb13-616" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_leem</span>(<span class="at">variable =</span> <span class="st">"continuous"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-617"><a href="#cb13-617" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabfreq</span>() <span class="sc">|&gt;</span></span>
-<span id="cb13-618"><a href="#cb13-618" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(</span>
-<span id="cb13-619"><a href="#cb13-619" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"Distribuição da resistência à compressão"</span>,</span>
-<span id="cb13-620"><a href="#cb13-620" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">"Resistência à compressão (MPa)"</span>,</span>
-<span id="cb13-621"><a href="#cb13-621" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">"Frequência"</span></span>
-<span id="cb13-622"><a href="#cb13-622" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-611"><a href="#cb13-611" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
+<span id="cb13-612"><a href="#cb13-612" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
+<span id="cb13-613"><a href="#cb13-613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-614"><a href="#cb13-614" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb13-615"><a href="#cb13-615" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-616"><a href="#cb13-616" aria-hidden="true" tabindex="-1"></a>A prática possibilitou aplicar conceitos de estatística descritiva no contexto da Engenharia Civil, utilizando o ambiente R e o pacote leem para organização, tabulação, representação e análise de um conjunto de dados relacionados à resistência à compressão do concreto.</span>
+<span id="cb13-617"><a href="#cb13-617" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-618"><a href="#cb13-618" aria-hidden="true" tabindex="-1"></a>A partir dos 25 resultados analisados, verificou-se uma concentração das observações nas classes intermediárias, com destaque para o intervalo entre 40,08 e 41,00 MPa. A distribuição de frequência e o histograma permitiram visualizar esse comportamento e compreender de maneira mais clara a distribuição dos resultados.</span>
+<span id="cb13-619"><a href="#cb13-619" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-620"><a href="#cb13-620" aria-hidden="true" tabindex="-1"></a>Os procedimentos realizados também demonstraram a importância das medidas de posição e dispersão para complementar a análise dos dados. Enquanto as medidas de tendência central permitem identificar a região representativa do conjunto, as medidas de variabilidade possibilitam avaliar o grau de homogeneidade dos resultados.</span>
+<span id="cb13-621"><a href="#cb13-621" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-622"><a href="#cb13-622" aria-hidden="true" tabindex="-1"></a>Outro aspecto importante foi a compreensão de que o uso de ferramentas computacionais não substitui o conhecimento dos fundamentos estatísticos. O R e o pacote leem facilitam os cálculos e a representação dos dados, mas a interpretação dos resultados depende da compreensão dos conceitos e do contexto em que os dados foram obtidos.</span>
 <span id="cb13-623"><a href="#cb13-623" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-624"><a href="#cb13-624" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-625"><a href="#cb13-625" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
-<span id="cb13-626"><a href="#cb13-626" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-627"><a href="#cb13-627" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
+<span id="cb13-624"><a href="#cb13-624" aria-hidden="true" tabindex="-1"></a>Por fim, destaca-se que os resultados utilizados são simulados e, portanto, possuem finalidade didática. Em uma aplicação experimental real, seria necessário realizar os ensaios sob condições controladas, registrar adequadamente os procedimentos de moldagem, cura e rompimento dos corpos de prova e utilizar os resultados obtidos para uma avaliação efetiva da variabilidade da resistência do concreto.</span>
+<span id="cb13-625"><a href="#cb13-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-626"><a href="#cb13-626" aria-hidden="true" tabindex="-1"></a>Dessa forma, considera-se que os objetivos da prática foram alcançados, uma vez que foi possível integrar conhecimentos básicos de programação em R e estatística descritiva à análise de um problema relacionado à Engenharia Civil.</span>
+<span id="cb13-627"><a href="#cb13-627" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-628"><a href="#cb13-628" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-629"><a href="#cb13-629" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
-<span id="cb13-630"><a href="#cb13-630" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
-<span id="cb13-631"><a href="#cb13-631" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-632"><a href="#cb13-632" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb13-633"><a href="#cb13-633" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-634"><a href="#cb13-634" aria-hidden="true" tabindex="-1"></a>A prática possibilitou aplicar conceitos de estatística descritiva no contexto da Engenharia Civil, utilizando o ambiente R e o pacote leem para organização, tabulação, representação e análise de um conjunto de dados relacionados à resistência à compressão do concreto.</span>
+<span id="cb13-629"><a href="#cb13-629" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb13-630"><a href="#cb13-630" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-631"><a href="#cb13-631" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb13-632"><a href="#cb13-632" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-633"><a href="#cb13-633" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<span id="cb13-634"><a href="#cb13-634" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-635"><a href="#cb13-635" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-636"><a href="#cb13-636" aria-hidden="true" tabindex="-1"></a>A partir dos 25 resultados analisados, verificou-se uma concentração das observações nas classes intermediárias, com destaque para o intervalo entre 40,08 e 41,00 MPa. A distribuição de frequência e o histograma permitiram visualizar esse comportamento e compreender de maneira mais clara a distribuição dos resultados.</span>
-<span id="cb13-637"><a href="#cb13-637" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-638"><a href="#cb13-638" aria-hidden="true" tabindex="-1"></a>Os procedimentos realizados também demonstraram a importância das medidas de posição e dispersão para complementar a análise dos dados. Enquanto as medidas de tendência central permitem identificar a região representativa do conjunto, as medidas de variabilidade possibilitam avaliar o grau de homogeneidade dos resultados.</span>
-<span id="cb13-639"><a href="#cb13-639" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-640"><a href="#cb13-640" aria-hidden="true" tabindex="-1"></a>Outro aspecto importante foi a compreensão de que o uso de ferramentas computacionais não substitui o conhecimento dos fundamentos estatísticos. O R e o pacote leem facilitam os cálculos e a representação dos dados, mas a interpretação dos resultados depende da compreensão dos conceitos e do contexto em que os dados foram obtidos.</span>
-<span id="cb13-641"><a href="#cb13-641" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-642"><a href="#cb13-642" aria-hidden="true" tabindex="-1"></a>Por fim, destaca-se que os resultados utilizados são simulados e, portanto, possuem finalidade didática. Em uma aplicação experimental real, seria necessário realizar os ensaios sob condições controladas, registrar adequadamente os procedimentos de moldagem, cura e rompimento dos corpos de prova e utilizar os resultados obtidos para uma avaliação efetiva da variabilidade da resistência do concreto.</span>
-<span id="cb13-643"><a href="#cb13-643" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-644"><a href="#cb13-644" aria-hidden="true" tabindex="-1"></a>Dessa forma, considera-se que os objetivos da prática foram alcançados, uma vez que foi possível integrar conhecimentos básicos de programação em R e estatística descritiva à análise de um problema relacionado à Engenharia Civil.</span>
-<span id="cb13-645"><a href="#cb13-645" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-646"><a href="#cb13-646" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-647"><a href="#cb13-647" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
-<span id="cb13-648"><a href="#cb13-648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-649"><a href="#cb13-649" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
-<span id="cb13-650"><a href="#cb13-650" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-651"><a href="#cb13-651" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
-<span id="cb13-652"><a href="#cb13-652" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-653"><a href="#cb13-653" aria-hidden="true" tabindex="-1"></a></span>
 </code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

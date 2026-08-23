@@ -34,7 +34,7 @@ Entre as ferramentas disponíveis, o ambiente R destaca-se por oferecer recursos
 
 Nesse sentido, a estatística descritiva apresenta-se como uma etapa essencial para a caracterização de um conjunto de dados. Medidas de posição e dispersão permitem sintetizar as principais características das observações, enquanto os coeficientes de assimetria e curtose fornecem informações adicionais sobre a forma e o comportamento da distribuição. A utilização de tabelas e representações gráficas complementa essa análise, permitindo identificar tendências, padrões, variabilidade e possíveis valores discrepantes.
 
-Assim, esta prática propõe a integração entre os fundamentos da linguagem R, os conhecimentos de estatística descritiva e sua aplicação a dados relacionados à Engenharia Civil. A partir de um banco de dados de natureza experimental ou técnico-engenheirística, serão empregados os recursos do ambiente R e do pacote leem para organizar, representar e analisar as informações, buscando não apenas executar os procedimentos estatísticos, mas também compreender seus fundamentos e interpretar criticamente os resultados no contexto da Engenharia Civil.q
+Assim, esta prática propõe a integração entre os fundamentos da linguagem R, os conhecimentos de estatística descritiva e sua aplicação a dados relacionados à Engenharia Civil. A partir de um banco de dados de natureza experimental ou técnico-engenheirística, serão empregados os recursos do ambiente R e do pacote leem para organizar, representar e analisar as informações, buscando não apenas executar os procedimentos estatísticos, mas também compreender seus fundamentos e interpretar criticamente os resultados no contexto da Engenharia Civil.
 
 
 ## 🎯 Objetivos
@@ -458,31 +458,13 @@ Descreva como o experimento foi realizado.
 - Procedimento  
 - Número de repetições  
 
-A prática foi desenvolvida por meio de uma abordagem quantitativa e descritiva, utilizando o ambiente R e o pacote leem para a organização, representação e análise dos dados.
+A metodologia adotada neste relatório baseou-se em uma abordagem quantitativa e descritiva, combinando o estudo teórico dos conteúdos de Estatística e Probabilidade com a aplicação prática no ambiente R. Inicialmente, foram analisados os quatro primeiros capítulos do livro digital Estatística & Probabilidade Aplicada às Engenharias e Ciências, juntamente com os conteúdos do Curso R Básico 2024 e materiais complementares relacionados ao RStudio, ao pacote `leem` e ao R Markdown. A partir desse estudo, foram selecionados e sistematizados os principais conceitos estatísticos utilizados na prática.
 
-Inicialmente, foi elaborado um banco de dados contendo 25 resultados simulados de resistência à compressão do concreto, expressos em MPa. Os dados foram definidos considerando condições experimentais constantes: relação água/cimento igual a 0,50, idade de 28 dias e corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura.
+Como estudo de caso, foi elaborado um banco de dados contendo 25 valores simulados de resistência à compressão do concreto, expressos em MPa. Para manter condições experimentais semelhantes, foram consideradas constantes a relação água/cimento de 0,50, a idade de 28 dias e as dimensões dos corpos de prova cilíndricos, com 100 mm de diâmetro e 200 mm de altura. Por se tratar de dados simulados, não foram realizados ensaios laboratoriais, sendo os valores definidos de maneira plausível para representar a variabilidade esperada em condições semelhantes de produção e ensaio.
 
-Como os dados utilizados são simulados, não foram realizados efetivamente ensaios laboratoriais. Os valores foram construídos de forma plausível para representar a variabilidade que poderia ser observada em corpos de prova submetidos a condições semelhantes.
+A análise dos dados foi realizada no ambiente R, com apoio do pacote `leem`, seguindo etapas de organização e classificação da variável, construção da distribuição de frequências, definição de cinco classes pelo critério (k \approx \sqrt{m}), cálculo das frequências absoluta, relativa, percentual e acumulada, além da representação gráfica por meio de histograma. Posteriormente, foram determinadas medidas de tendência central e dispersão, bem como os coeficientes de assimetria e curtose.
 
-O procedimento de análise foi dividido nas seguintes etapas:
-
-1.	Organização dos dados: inserção dos 25 resultados no ambiente R;
-
-2.	Classificação da variável: identificação da resistência à compressão como variável quantitativa contínua;
-
-3.	Tabulação: agrupamento dos resultados em classes de frequência;
-
-4.	Definição das classes: considerando (m = 25), foi adotado o critério (k \approx \sqrt{m}), resultando em cinco classes;
-
-5.	Cálculo das frequências: determinação das frequências absoluta, relativa, percentual e acumuladas;
-
-6.	Representação gráfica: elaboração de histograma para visualização da distribuição dos resultados;
-
-7.	Análise estatística: aplicação das medidas de tendência central e dispersão, além dos coeficientes de assimetria e curtose;
-
-8.	Interpretação: comparação dos resultados estatísticos e discussão de sua relação com a variabilidade da resistência à compressão do concreto.
-Para a execução dos procedimentos computacionais, foi utilizado o pacote leem, juntamente com recursos de apresentação tabular e gráfica disponíveis no R. O objetivo foi utilizar o software não apenas para obter os valores calculados, mas também para compreender e interpretar os procedimentos estatísticos empregados.
-
+Por fim, os resultados obtidos foram interpretados de forma integrada, buscando relacionar os conceitos estatísticos estudados com a variabilidade observada nos valores de resistência à compressão do concreto. Dessa maneira, o uso do R não se limitou à realização dos cálculos, mas também contribuiu para a compreensão dos procedimentos estatísticos, da representação dos dados e da interpretação dos resultados aplicados à Engenharia Civil.
 
 ---
 
