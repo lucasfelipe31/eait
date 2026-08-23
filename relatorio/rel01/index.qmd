@@ -222,16 +222,16 @@ Por fim, os resultados obtidos foram interpretados de forma integrada, buscando 
 
 ### Dados do Experimento
 
-Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, tomando como referência a ABNT NBR 5739. A norma estabelece o método para determinação da resistência à compressão de corpos de prova cilíndricos de concreto e define, entre outros aspectos, as condições de realização do ensaio e o cálculo da resistência à compressão a partir da força máxima aplicada.
+Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, segundo @nbr5739. A norma estabelece o método para determinação da resistência à compressão de corpos de prova cilíndricos de concreto e define, entre outros aspectos, as condições de realização do ensaio e o cálculo da resistência à compressão a partir da força máxima aplicada.
 
-Para manter a análise estatística concentrada na variabilidade dos resultados de resistência, foram mantidas constantes as condições do experimento. Considerou-se uma relação água/cimento (A/C) igual a 0,50, idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional no conjunto de dados.
+Para a elaboração do banco de dados, foram estabelecidas condições experimentais controladas, mantendo-se constantes os principais parâmetros do ensaio e variando-se a relação água/cimento (A/C) como condição de diferenciação entre os conjuntos de observações. Considerou-se a idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional na interpretação dos resultados.
 
-A partir dessas condições, foram gerados 25 resultados simulados de resistência à compressão, correspondentes a 25 ensaios. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739.
+A partir dessas condições, foram gerados 75 resultados simulados de resistência à compressão, correspondentes a 75 ensaios, distribuídos igualmente entre as condições de relação água/cimento consideradas. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739.
 
 
 ```{r}
 #| echo: false
-resistencia25 <- read.csv2(
+resistencia <- read.csv2(
   "C:/Relatórios/EAIT/eait/relatorio/rel01/resistencia25.csv",
   dec = ","
 )
@@ -239,78 +239,257 @@ resistencia25 <- read.csv2(
 ::: {.tabela-dados}
 ```{r}
 #| label: tbl-dados
-#| tbl-cap: "Resultados simulados de resistência à compressão do concreto aos 28 dias"
+#| tbl-cap: "Resultados simulados de resistência à compressão aos 28 dias para diferentes relações água/cimento"
 #| echo: false
 
 library(knitr)
+library(leem)
+library(kableExtra)
 
 kable(
-  resistencia25,
-  col.names = c("Corpo de Prova", "Resistência à compressão (MPa)"),
-  align = c("c", "c"),
+  resistencia,
+  col.names = c(
+    "Corpo de Prova",
+    "A/C = 0,50 (MPa)",
+    "A/C = 0,60 (MPa)",
+    "A/C = 0,70 (MPa)"
+  ),
+  align = c("c", "c", "c", "c"),
   digits = 1
 )
 ```
 :::
 
-A partir desse conjunto de 25 observações, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote leem, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.
+```{r}
+# Criando os vetores 
+G1 <- resistencia$AC_050
+G2 <- resistencia$AC_060
+G3 <- resistencia$AC_070
+```
+
+A partir desse conjunto de 75 observações, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote leem, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.
 
 
 
 ### 📊  Análise de Dados
 #### Representação Tabular
 
-A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados experimentais sejam registrados com determinada precisão, essa limitação decorre da resolução dos instrumentos e do procedimento de medição, e não da natureza da variável. Dessa forma, conforme apresentado no Capítulo 2 do Estatística & Probabilidade Aplicada às Engenharias e Ciências (EPAEC), é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.
+A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados dos ensaios sejam registrados com determinada precisão, essa limitação está relacionada à resolução dos instrumentos e ao procedimento de medição, e não à natureza da variável. Dessa forma, conforme apresentado no Capítulo 2 do Estatística & Probabilidade Aplicada às Engenharias e Ciências (EPAEC), é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.
 
-No presente estudo, foram considerados **25 resultados simulados de resistência à compressão**, correspondentes aos corpos de prova submetidos à mesma condição experimental. Para a definição do número de classes, adotou-se o critério apresentado no EPAEC, segundo o qual, para conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, para $m = 25$, obtém-se $k \approx \sqrt{25} = 5$, resultando na utilização de **cinco classes de frequência**.
+No presente estudo, foram considerados 75 resultados simulados de resistência à compressão, correspondentes aos corpos de prova submetidos às condições experimentais estabelecidas. Para a definição do número de classes, adotou-se o critério apresentado no EPAEC, segundo o qual, para conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, considerando o conjunto de 25 observações correspondente a cada condição experimental, tem-se:  
+$$
+k \approx \sqrt{m}
+$$
+Para \(m = 25\):
 
-A partir desse procedimento, os resultados foram agrupados em intervalos de resistência à compressão. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a participação de cada classe em relação ao total de observações. As frequências acumuladas permitem identificar a quantidade de observações situada abaixo ou acima de determinada classe. Essas formas de representação são apresentadas no EPAEC como instrumentos para facilitar a interpretação de conjuntos de dados.
+$$
+k \approx \sqrt{25} = 5
+$$
+Dessa forma, foram utilizadas cinco classes de frequência para cada conjunto de dados, permitindo representar individualmente a distribuição dos resultados de resistência à compressão nas diferentes condições consideradas.
+
+A partir desse procedimento, os valores de resistência à compressão foram agrupados em intervalos de classe. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a proporção de observações de cada classe em relação ao total do respectivo conjunto de dados. As frequências acumuladas permitem identificar a quantidade de observações acumulada até determinada classe ou a partir dela. Essas formas de representação possibilitam organizar e sintetizar os resultados, facilitando a visualização da distribuição das resistências à compressão e fornecendo uma base para as etapas posteriores da análise estatística.
+
 ```{r}
-# Tabulação
-library(leem)
-library(knitr)
-library(kableExtra)
-```
-```{r}
-#| label: tbl-frequencia-resistencia
-#| tbl-cap: "Distribuição de frequência da resistência à compressão"
-
-tab_resistencia <- resistencia25$Resistencia_MPa |>
+# Tabulação Criando os objetos leem
+tab_G1 <- G1 |>
   new_leem(variable = "continuous") |>
   tabfreq(k = 5)
 
-tabela <- tab_resistencia$table[, c(
-  "Classes", "Fi", "PM", "Fr", "Fac1", "Fac2", "Fp"
-)]
+tab_G2 <- G2 |>
+  new_leem(variable = "continuous") |>
+  tabfreq(k = 5)
 
-# Substituindo |--- por |—
-tabela$Classes <- gsub(
-  "\\|---",
-  "|—",
-  tabela$Classes
+tab_G3 <- G3 |>
+  new_leem(variable = "continuous") |>
+  tabfreq(k = 5)
+
+# Função para formatar as Tabelas 
+
+formatar_tabela_freq <- function(tab) {
+
+  tabela <- tab$table[, c(
+    "Classes", "Fi", "PM", "Fr", "Fac1", "Fac2", "Fp"
+  )]
+
+  tabela$Classes <- gsub(
+    "\\|---",
+    "|—",
+    tabela$Classes
+  )
+
+  tabela$Classes <- gsub(
+    "\\.",
+    ",",
+    tabela$Classes
+  )
+
+  knitr::kable(
+    tabela,
+    format = "html",
+    digits = 2,
+    align = c("l", "r", "r", "r", "r", "r", "r"),
+    col.names = c(
+      "Classe (MPa)",
+      "Fi",
+      "PM (MPa)",
+      "Fr",
+      "Fac↓",
+      "Fac↑",
+      "Fp (%)"
+    ),
+    escape = FALSE
+  ) |>
+    kableExtra::kable_styling(
+      bootstrap_options = "condensed",
+      full_width = FALSE,
+      position = "center"
+    )
+}
+```
+**Grupo 1:** corresponde aos resultados de resistência à compressão obtidos para a condição experimental com relação água/cimento (A/C) igual a 0,50. Esse conjunto é composto por 25 observações, referentes aos ensaios realizados aos 28 dias. Para essa condição, os resultados foram organizados e agrupados em classes de frequência, permitindo visualizar a distribuição dos valores de resistência e posteriormente calcular suas medidas estatísticas.
+
+A relação A/C = 0,50 é mantida constante dentro desse conjunto, de modo que a variabilidade observada entre os 25 resultados representa diferenças entre as observações sob uma mesma condição experimental.
+
+
+```{r}
+#| label: tbl-frequencia-g1
+#| tbl-cap: "Distribuição de frequência da resistência à compressão — A/C = 0,50"
+#| echo: false
+
+formatar_tabela_freq(tab_G1)
+```
+
+**Grupo 2:** composto por 25 corpos de prova, produzidos sob as mesmas condições consideradas para o Grupo 1, com exceção da relação água/cimento, estabelecida em 0,60. Assim como no primeiro conjunto, foram consideradas pequenas variações inerentes ao preparo, homogeneização, moldagem e adensamento, permitindo representar a variabilidade dos resultados de resistência à compressão mesmo sob uma mesma condição de A/C.
+
+```{r}
+#| label: tbl-frequencia-g2
+#| tbl-cap: "Distribuição de frequência da resistência à compressão — A/C = 0,60"
+#| echo: false
+
+formatar_tabela_freq(tab_G2)
+
+```
+
+**Grupo 3:** Composto por 25 corpos de prova, produzidos sob as mesmas condições dos grupos anteriores, com exceção da relação água/cimento, estabelecida em 0,70. 
+
+
+```{r}
+#| label: tbl-frequencia-g3
+#| tbl-cap: "Distribuição de frequência da resistência à compressão — A/C = 0,70"
+#| echo: false
+
+formatar_tabela_freq(tab_G3)
+```
+
+
+As distribuições de frequência apresentadas nas Tabelas 2, 3 e 4 permitem observar o comportamento dos resultados de resistência à compressão para as três condições de relação água/cimento consideradas. Em todos os conjuntos, verifica-se maior concentração das observações nas classes intermediárias, enquanto as classes situadas nos extremos apresentam frequências menores.
+
+No Grupo 1 (A/C = 0,50), a maior frequência absoluta foi observada na classe de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% das observações. As duas classes intermediárias, entre 39,16 e 41,00 MPa, concentram conjuntamente 15 resultados, equivalentes a 60% do conjunto.
+
+No Grupo 2 (A/C = 0,60), observa-se uma concentração ainda mais evidente na região central da distribuição. A classe de 34,79 a 35,72 MPa apresenta a maior frequência, com 9 dos 25 resultados, correspondendo a 36% das observações. As classes adjacentes, de 33,86 a 34,79 MPa e de 35,72 a 36,65 MPa, apresentam 6 observações cada. Assim, as três classes centrais concentram 21 dos 25 resultados (84%).
+
+Comportamento semelhante é observado no Grupo 3 (A/C = 0,70). A maior frequência também ocorre na classe central, entre 29,79 e 30,72 MPa, com 9 observações, correspondentes a 36% do conjunto. Considerando as três classes intermediárias, entre 28,86 e 31,65 MPa, encontram-se 21 dos 25 resultados (84%).
+
+A comparação entre as três distribuições evidencia ainda um deslocamento progressivo dos valores de resistência para faixas menores à medida que a relação água/cimento aumenta. Enquanto os resultados do Grupo 1 estão concentrados aproximadamente entre 39 e 41 MPa, os Grupos 2 e 3 apresentam suas maiores frequências, respectivamente, nas regiões de 34,79–35,72 MPa e 29,79–30,72 MPa. Esse comportamento é coerente com a finalidade da simulação, na qual a relação A/C foi utilizada como condição de diferenciação entre os conjuntos de dados.
+
+Do ponto de vista da Engenharia Civil, essa comparação é relevante porque demonstra que a relação água/cimento constitui uma condição capaz de modificar a distribuição dos resultados de resistência à compressão. Entretanto, a análise da frequência por si só não permite avaliar completamente a variabilidade de cada conjunto. Mesmo submetidos à mesma relação A/C dentro de cada grupo, os 25 corpos de prova apresentam valores diferentes, o que pode ser associado, no contexto da simulação, às pequenas variações inerentes ao preparo manual do concreto, à homogeneização da mistura, ao adensamento, à moldagem e às condições de cura e ensaio.
+
+Dessa forma, a representação tabular permite identificar onde os resultados estão concentrados e como a distribuição se desloca entre as diferentes condições, mas não quantifica suficientemente o grau de dispersão de cada conjunto. Por essa razão, a análise será complementada pelas medidas de dispersão, incluindo amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão, permitindo avaliar quantitativamente a variabilidade dos resultados e comparar sua uniformidade entre as diferentes relações água/cimento.
+
+```{r}
+#| label: fig-histograma-g1
+#| fig-cap: "Histograma da resistência à compressão — A/C = 0,50"
+#| echo: false
+
+G1 |>
+  new_leem(variable = "continuous") |>
+  tabfreq(k = 5) |>
+  hist(
+    main = "Distribuição da resistência à compressão — A/C = 0,50",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  )
+```
+
+```{r}
+#| label: fig-histograma-g2
+#| fig-cap: "Histograma da resistência à compressão — A/C = 0,60"
+#| echo: false
+
+G2 |>
+  new_leem(variable = "continuous") |>
+  tabfreq(k = 5) |>
+  hist(
+    main = "Distribuição da resistência à compressão — A/C = 0,60",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  )
+```
+
+```{r}
+#| label: fig-histograma-g3
+#| fig-cap: "Histograma da resistência à compressão — A/C = 0,70"
+#| echo: false
+
+G3 |>
+  new_leem(variable = "continuous") |>
+  tabfreq(k = 5) |>
+  hist(
+    main = "Distribuição da resistência à compressão — A/C = 0,70",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  )
+```
+
+
+
+**Medidas de Posição**
+```{r}
+#| echo: false
+
+pos_G1 <- G1 |>
+  new_leem(variable = "continuous") |>
+  mpos(grouped = TRUE)
+
+pos_G2 <- G2 |>
+  new_leem(variable = "continuous") |>
+  mpos(grouped = TRUE)
+
+pos_G3 <- G3 |>
+  new_leem(variable = "continuous") |>
+  mpos(grouped = TRUE)
+
+
+pos_G1
+
+pos_G2
+
+pos_G3
+
+```
+
+```{r}
+#| label: tbl-medidas-posicao
+#| tbl-cap: "Medidas de posição dos dados agrupados da resistência à compressão para diferentes relações água/cimento"
+#| echo: false
+
+tabela_posicao <- rbind(
+  `GRUPO 1 (A/C = 0,50)` = as.numeric(pos_G1),
+  `GRUPO 2 (A/C = 0,60)` = as.numeric(pos_G2),
+  `GRUPO 3 (A/C = 0,70)` = as.numeric(pos_G3)
 )
 
-# Substituindo ponto decimal por vírgula
-tabela$Classes <- gsub(
-  "\\.",
-  ",",
-  tabela$Classes
+colnames(tabela_posicao) <- c(
+  "Média (MPa)",
+  "Mediana (MPa)",
+  "Moda (MPa)"
 )
 
 knitr::kable(
-  tabela,
+  tabela_posicao,
   format = "html",
   digits = 2,
-  align = c("l", "r", "r", "r", "r", "r", "r"),
-  col.names = c(
-    "Classe (MPa)",
-    "Fi",
-    "PM (MPa)",
-    "Fr",
-    "Fac↓",
-    "Fac↑",
-    "Fp (%)"
-  ),
+  align = c("c", "c", "c"),
   escape = FALSE
 ) |>
   kableExtra::kable_styling(
@@ -320,31 +499,52 @@ knitr::kable(
   )
 ```
 
-A distribuição apresentada na Tabela 1 permite observar que os resultados de resistência à compressão se concentram principalmente nas classes intermediárias. A maior frequência absoluta foi observada no intervalo de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% da amostra. A segunda maior frequência ocorreu entre 39,16 e 40,08 MPa, com 7 observações, equivalentes a 28%.
-
-Considerando conjuntamente essas duas classes, verifica-se que 15 dos 25 resultados (60%) encontram-se entre 39,16 e 41,00 MPa. Esse comportamento demonstra uma concentração significativa das resistências em torno da região central da distribuição. Por outro lado, apenas 2 resultados (8%) encontram-se na primeira classe, entre 38,24 e 39,16 MPa, enquanto 3 resultados (12%) pertencem à classe superior, entre 41,92 e 42,84 MPa. Portanto, a maior parte dos corpos de prova apresentou resistência relativamente próxima à região central dos dados.
-
-Do ponto de vista da Engenharia Civil, essa concentração é relevante porque os corpos de prova considerados foram produzidos sob uma mesma relação água/cimento (A/C = 0,50) e submetidos à mesma idade de referência, de 28 dias. Dessa forma, a diferença observada entre os resultados não decorre de uma alteração intencional da relação água/cimento ou da idade do concreto, variáveis que exercem influência importante sobre a resistência à compressão.
-
-Como os dados são simulados, a distribuição observada deve ser interpretada como uma representação da variabilidade esperada entre resultados de ensaios realizados sob condições semelhantes, e não como evidência experimental de um concreto efetivamente produzido e ensaiado em laboratório. Em uma situação experimental real, diferenças entre os resultados poderiam estar relacionadas a diversos fatores, como homogeneidade da mistura, proporção e características dos agregados, propriedades do cimento, precisão na dosagem da água, procedimento de mistura, adensamento, condições de cura, dimensões e preparação dos corpos de prova e condições de execução do ensaio de compressão.
-
-Essa observação é importante porque, mantendo-se a relação A/C constante, a análise da distribuição dos resultados passa a ser útil para avaliar a variabilidade da resistência dentro de uma mesma condição de produção. Em termos de controle tecnológico do concreto, quanto maior a dispersão dos resultados, maior a necessidade de investigar possíveis fontes de variabilidade no processo de produção, moldagem, cura ou ensaio. Entretanto, a avaliação dessa dispersão não deve ser realizada apenas pela tabela de frequência; será complementada posteriormente pelas medidas de dispersão, como amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão da média.
-
-Conforme apresentado na Tabela @tbl-frequencia-resistencia, observa-se que a maior frequência de resistência ocorre na classe de 40,08 a 41,00 MPa, que concentra 8 dos 25 ensaios realizados, correspondendo a 32% das observações.
-
 ```{r}
-# Histograma de frequência
-resistencia25$Resistencia_MPa |>
+# Medidas de posição dos dados não agrupados
+pos_G1_bruto <- G1 |>
   new_leem(variable = "continuous") |>
-  tabfreq() |>
-  hist(
-    main = "Distribuição da resistência à compressão",
-    xlab = "Resistência à compressão (MPa)",
-    ylab = "Frequência"
-  )
+  mpos(grouped = FALSE)
 
+pos_G2_bruto <- G2 |>
+  new_leem(variable = "continuous") |>
+  mpos(grouped = FALSE)
+
+pos_G3_bruto <- G3 |>
+  new_leem(variable = "continuous") |>
+  mpos(grouped = FALSE)
 ```
 
+```{r}
+#| label: tbl-medidas-posicao-brutas
+#| tbl-cap: "Medidas de posição dos dados não agrupados"
+#| echo: false
+
+tabela_posicao_bruta <- rbind(
+  `A/C = 0,50` = as.numeric(pos_G1_bruto),
+  `A/C = 0,60` = as.numeric(pos_G2_bruto),
+  `A/C = 0,70` = as.numeric(pos_G3_bruto)
+)
+
+colnames(tabela_posicao_bruta) <- c(
+  "Média (MPa)",
+  "Mediana (MPa)",
+  "Moda (MPa)"
+)
+
+knitr::kable(
+  tabela_posicao_bruta,
+  format = "html",
+  digits = 2,
+  align = c("c", "c", "c"),
+  escape = FALSE
+) |>
+  kableExtra::kable_styling(
+    bootstrap_options = "condensed",
+    full_width = FALSE,
+    position = "center"
+  )
+```
+  
 ## 🧠 Considerações finais
 
 A prática possibilitou aplicar conceitos de estatística descritiva no contexto da Engenharia Civil, utilizando o ambiente R e o pacote leem para organização, tabulação, representação e análise de um conjunto de dados relacionados à resistência à compressão do concreto.
