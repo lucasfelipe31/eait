@@ -45,7 +45,7 @@ Utilizar o ambiente R e o pacote leem como ferramentas de apoio à análise esta
 
 ### Objetivos específicos
 
-- Compreender os principais fundamentos do ambiente R e da linguagem utilizada para manipulação e análise de dados,  baseado no livro de Batista e Oliveira @Rbasico2022 e nas 26 vídeo-aulas do curso R Básico 2024;
+- Compreender os principais fundamentos do ambiente R e da linguagem utilizada para manipulação e análise de dados,  baseado no livro @Rbasico2022 e nas 26 vídeo-aulas do curso R Básico 2024;
 
 - Revisar conceitos fundamentais de estatística descritiva;
 
