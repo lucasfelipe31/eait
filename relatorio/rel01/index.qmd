@@ -45,7 +45,7 @@ Utilizar o ambiente R e o pacote leem como ferramentas de apoio à análise esta
 
 ### Objetivos específicos
 
-- Compreender os principais fundamentos do ambiente R e da linguagem utilizada para manipulação e análise de dados,  baseado no livro @Rbasico2022 e nas 26 vídeo-aulas do curso R Básico 2024;
+- Compreender os principais fundamentos do ambiente R e da linguagem utilizada para manipulação e análise de dados,  com base em @Rbasico2022 e @batista2024rbasicocurso;
 
 - Revisar conceitos fundamentais de estatística descritiva;
 
@@ -75,17 +75,15 @@ Utilizar o ambiente R e o pacote leem como ferramentas de apoio à análise esta
 
 O R é um ambiente de software livre e de código aberto voltado para manipulação de dados, cálculo estatístico e geração de gráficos. Por isso, é comum ouvir duas formas de tratamento: "o R", quando se fala do programa/sistema como um todo, e "a linguagem R", quando se fala especificamente da sintaxe usada para escrever os comandos. Diferente de programas estatísticos comerciais fechados, o R permite que o próprio usuário crie novas funções e as compartilhe livremente com a comunidade por meio de pacotes.
 
-O projeto nasceu em 1991, em uma Universidade da Nova Zelândia, e foi criado por Ross Ihaka e Robert Gentleman. O primeiro lançamento oficial ocorreu em 1995, e em 1997 foi criado o CRAN, uma rede de servidores que distribui o programa, sua documentação e milhares de pacotes até hoje.
-
-Já o RStudio é a interface (IDE — Integrated Development Environment) mais usada para trabalhar com o R. Ele não substitui o R, apenas facilita seu uso por meio de janelas, botões e atalhos: sem o R instalado, o RStudio não funciona. A tela do RStudio é dividida em quatro áreas principais: o editor de scripts (onde o código é escrito), o console (onde o código é executado), o painel de ambiente/histórico (onde aparecem os objetos criados) e o painel de arquivos/gráficos/pacotes/ajuda.
+Já o RStudio é a interface (IDE - Integrated Development Environment) mais usada para trabalhar com o R. Ele não substitui o R, apenas facilita seu uso por meio de janelas, botões e atalhos: sem o R instalado, o RStudio não funciona. A tela do RStudio é dividida em quatro áreas principais: o editor de scripts (onde o código é escrito), o console (onde o código é executado), o painel de ambiente/histórico (onde aparecem os objetos criados) e o painel de arquivos/gráficos/pacotes/ajuda.
 
 #### Princípios do R
 
 Toda a lógica interna do R pode ser resumida em três ideias simples, propostas por John Chambers, criador da linguagem S (base histórica do R):
 
-- Tudo que existe no R é um objeto — números, textos, tabelas, gráficos e até as próprias funções são objetos guardados na memória do computador.
-- Tudo que acontece no R é uma chamada de função — até uma simples soma como `10 + 15` é, por trás dos panos, uma função sendo executada.
-- Interfaces com outros programas fazem parte do R— o R se comunica nativamente com linguagens como C, C++, Python e com tecnologias web (HTML, JavaScript), estendendo seu uso muito além da estatística básica.
+- Tudo que existe no R é um objeto: números, textos, tabelas, gráficos e até as próprias funções são objetos guardados na memória do computador.
+- Tudo que acontece no R é uma chamada de função: até uma simples soma como `10 + 15` é, por trás dos panos, uma função sendo executada.
+- Interfaces com outros programas fazem parte do R: o R se comunica nativamente com linguagens como C, C++, Python e com tecnologias web (HTML, JavaScript), estendendo seu uso muito além da estatística básica.
 
 #### Interface
 
@@ -102,103 +100,119 @@ A linguagem R, assim como outras linguagens de programação, apresenta regras d
 
 - Sintaxe é o conjunto de regras que definem como o código deve ser escrito; 
 
-- Semântica é o significado por trás de cada comando — ou seja, o que ele realmente faz quando executado. Entender essa diferença evita a maioria dos erros cometidos por quem está começando.
+- Semântica é o significado por trás de cada comando, ou seja, o que ele realmente faz quando executado. Entender essa diferença evita a maioria dos erros cometidos por quem está começando.
 
 Assim, compreender os conceitos de sintaxe e semântica é fundamental para utilizar o R de maneira adequada. Enquanto a sintaxe está relacionada à forma correta de escrever e estruturar os comandos, a semântica está associada à interpretação e ao significado das operações realizadas. O domínio desses conceitos contribui para a correta aplicação dos procedimentos estatísticos abordados no estudo, incluindo a organização e análise dos dados, as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose.
 
 
-### O livro EPAEC
+### Estatística Descritiva
 
-#### Capítulo 1: Definições gerais da Estatística e técnicas de somatórios
+#### Definições gerais
 
-O primeiro capítulo do livro Estatística & Probabilidade aplicada às Engenharias e Ciências 
-(EPAEC) [@batista2024estatistica], apresenta a Estatística como uma área importante para a coleta, organização, análise e interpretação de dados. Seu objetivo é transformar informações em resultados que possam auxiliar na compreensão de situações e na tomada de decisões.
+@batista2024estatistica destaca a Estatística como uma área fundamental para a coleta, organização, análise e interpretação de dados. Seu objetivo é transformar informações em resultados que contribuam para a compreensão de diferentes situações e para a tomada de decisões. Nesse contexto, a Estatística Descritiva desempenha um papel essencial ao organizar, sintetizar e apresentar os dados por meio de tabelas, gráficos e medidas estatísticas, facilitando sua interpretação e análise. 
 
-O conteúdo apresenta três áreas principais da Estatística: Estatística Descritiva, Probabilidade e Estatística Inferencial. A Estatística Descritiva organiza e apresenta os dados por meio de tabelas, gráficos e medidas. A Probabilidade trabalha com situações que envolvem incerteza, enquanto a Estatística Inferencial utiliza dados de uma amostra para obter conclusões sobre uma população. Além disso, o capítulo trás a importância da Estatística na pesquisa científica. Uma pesquisa envolve diferentes etapas, como definição do problema, elaboração de hipóteses, escolha da amostra, coleta e organização dos dados, análise dos resultados e elaboração das conclusões.
+**População ($N$) e Amostra ($n$)**
 
-São apresentados ainda conceitos como população, amostra, variável e dado. As variáveis podem ser qualitativas, quando representam características ou categorias, ou quantitativas, quando são expressas por números. As variáveis quantitativas podem ser discretas ou contínuas.
+- População: conjunto finito ou infinito de todos os elementos que compartilham pelo menos uma característica de interesse; tamanho denotado por $N$. É finita se pode ser totalmente enumerada, infinita caso contrário.
+- Amostra: subconjunto representativo extraído da população, tamanho $n$. É sempre finita, pois todos os seus elementos precisam ser efetivamente examinados. Quando se tem acesso a todos os elementos da população, faz-se um censo, o que elimina a necessidade de inferência estatística.
 
-Por fim, o capítulo apresenta os somatórios, representados pelo símbolo Σ, utilizados para facilitar a escrita e a realização de cálculos que envolvem vários valores. Também são apresentadas algumas propriedades e formas de utilização dos somatórios em operações matemáticas.
+**Variáveis**
 
-#### Capítulo 2: Coleta, organização e apresentação dos dados
+As variáveis podem ser qualitativas, quando representam características ou categorias, ou quantitativas, quando são expressas por números. As variáveis quantitativas podem ser discretas ou contínuas.
 
-O segundo capítulo apresenta as etapas de organização e apresentação dos dados, mostrando como transformar dados brutos em informações mais fáceis de analisar. Os dados coletados podem ser organizados em ordem crescente ou decrescente, formando um rol, o que facilita a identificação dos valores e a análise do conjunto.
+*Discreta*: resulta de contagem, sem valores intermediários possíveis (ex.: número de erros);
 
-O capítulo destaca as tabelas de distribuição de frequência, utilizadas para organizar a quantidade de vezes que cada valor aparece. São apresentadas a frequência absoluta, a frequência relativa, a frequência percentual e as frequências acumuladas. Para variáveis quantitativas contínuas, os dados podem ser agrupados em classes ou intervalos, utilizando elementos como amplitude, limites de classe e ponto médio.
+*Contínua*: resulta de mensuração, pode assumir qualquer valor real num intervalo (ex.: resistência à tração).
 
-Também são apresentados diferentes gráficos, como gráficos de barras, pizza, histograma, polígono de frequências e ogivas. Cada um possui uma finalidade específica e deve ser escolhido de acordo com o tipo de variável e a informação que se deseja apresentar. Além disso, trata da utilização do LEEM e do R como ferramentas para facilitar a organização, os cálculos e a representação dos dados. Com esses recursos, é possível construir tabelas de frequência e gráficos de maneira mais prática.
 
-Por fim, o capítulo mostra que a organização adequada dos dados é fundamental para facilitar sua visualização, interpretação e análise. As tabelas, frequências e gráficos permitem resumir grandes quantidades de informações e identificar características importantes de um conjunto de dados.
+**Somatórios:** representados pelo símbolo $Σ$, utilizados para facilitar a escrita e a realização de cálculos que envolvem vários valores. 
 
-#### Capítulo 3: Medidas de Posição
+$$\sum_{i=1}^{m} X_i = X_1 + X_2 + \dots + X_m$$
 
-Já o terceiro capítulo apresenta as medidas de posição, que são utilizadas para resumir um conjunto de dados por meio de valores que representam sua posição central. Essas medidas facilitam a interpretação dos dados quando existe uma grande quantidade de informações. As principais medidas estudadas são a média aritmética, a mediana e a moda.
+$i$ é o índice de posição (começa em 1), 
+
+$m$ é o limite superior (pode ser $n$ ou $N$), 
+
+$X_i$ é o valor da observação $i$. 
+
+
+#### Coleta, organização e apresentação dos dados
+
+Dados coletados sem ordenação são dados brutos. A partir deles, é possível realizar uma ordenação, obtendo os dados em rol, e posteriormente construir tabelas de distribuição de frequências e representações gráficas. A tabulação e a representação gráfica permitem sintetizar grandes conjuntos de observações, facilitando a identificação de padrões, concentrações, diferenças, valores extremos e características da distribuição dos dados. Os dados coletados podem ser organizados em ordem crescente ou decrescente, formando um rol, o que facilita a identificação dos valores e a análise do conjunto [@batista2024estatistica].
+
+As tabelas de distribuição de frequência são utilizadas para organizar a quantidade de vezes que cada valor aparece. Para variáveis quantitativas contínuas, os dados podem ser agrupados em classes ou intervalos, utilizando elementos como amplitude, limites de classe e ponto médio.
+
+Na representação gráfica dos dados existem diferentes gráficos, como gráficos de barras, pizza, histograma, polígono de frequências e ogivas. Cada um possui uma finalidade específica e deve ser escolhido de acordo com o tipo de variável e a informação que se deseja apresentar. Além disso, a utilização do pacote `LEEM` e do `R`, como ferramentas, facilita a organização, os cálculos e a representação dos dados. Com esses recursos, é possível construir tabelas de frequência e gráficos de maneira mais prática.
+
+Destaca-se, ainda, que a organização adequada dos dados é fundamental para facilitar sua visualização, interpretação e análise. As tabelas, frequências e gráficos permitem resumir grandes quantidades de informações e identificar características importantes de um conjunto de dados.
+
+#### Medidas de Posição
+
+Segundo @batista2024estatistica, as medidas de posição são utilizadas para resumir um conjunto de dados por meio de valores que representam sua posição central. Essas medidas facilitam a interpretação dos dados quando existe uma grande quantidade de informações. As principais medidas são a média aritmética, a mediana e a moda, conforme definições a seguir:
 
 A média aritmética é uma das medidas mais conhecidas e representa um valor central dos dados. Ela é calculada considerando todas as observações do conjunto. Quando os dados estão agrupados em tabelas de frequência, o cálculo utiliza também as frequências e, no caso de intervalos de classe, os pontos médios das classes. A média pode ser influenciada por valores extremos ou discrepantes.
 
 $$\mu = \frac{\sum_{i=1}^{N} X_i}{N} \quad \text{(populacional)} \qquad \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} \quad \text{(amostral)}$$
 
-O capítulo também apresenta a média aparada, que pode ser utilizada quando existem valores extremos que podem distorcer a média. Nesse caso, alguns dos menores e maiores valores são retirados antes de realizar o cálculo. Dessa forma, a medida fica menos influenciada por observações muito diferentes das demais.
+A média aparada pode ser utilizada quando existem valores extremos que podem distorcer a média. Nesse caso, alguns dos menores e maiores valores são retirados antes de realizar o cálculo. Dessa forma, a medida fica menos influenciada por observações muito diferentes das demais.
 
 $$\bar{X}_{ap} = \frac{\sum_{i=2}^{n-1} X_{(i)}}{n-2}$$
 
-A segunda medida estudada é a mediana, que representa o valor central dos dados quando eles estão organizados em ordem crescente. Quando o número de observações é ímpar, a mediana corresponde ao valor que ocupa a posição central. Quando é par, calcula-se a média dos dois valores centrais. Uma característica importante da mediana é que ela não é muito influenciada por valores extremos.
+A mediana representa o valor central dos dados quando eles estão organizados em ordem crescente. Quando o número de observações é ímpar, a mediana corresponde ao valor que ocupa a posição central. Quando é par, calcula-se a média dos dois valores centrais. Uma característica importante da mediana é que ela não é muito influenciada por valores extremos.
 
 $$M_d(X) = \begin{cases} \dfrac{X_{(n/2)} + X_{(n/2+1)}}{2}, & n \text{ par} \\[6pt] X_{((n+1)/2)}, & n \text{ ímpar} \end{cases}$$
 
-Para dados agrupados em intervalos de classe, o capítulo mostra como encontrar a classe mediana utilizando a frequência acumulada e, a partir dela, estimar o valor da mediana. A mediana também pode ser utilizada em variáveis qualitativas ordinais, situações em que a média não pode ser calculada.
+Para dados agrupados em intervalos de classe, é possível encontrar a classe mediana utilizando a frequência acumulada e, a partir dela, estimar o valor da mediana. A mediana também pode ser utilizada em variáveis qualitativas ordinais, situações em que a média não pode ser calculada.
 
-A terceira medida apresentada é a moda, que corresponde ao valor que aparece com maior frequência em um conjunto de dados. Uma distribuição pode ser unimodal, bimodal, trimodal ou multimodal, dependendo da quantidade de valores que apresentam a maior frequência. Também pode ser amodal, quando não existe um valor que se destaque pela frequência. A moda possui a vantagem de poder ser utilizada inclusive com variáveis qualitativas.
+Outra medida de posição, a moda, corresponde ao valor que aparece com maior frequência em um conjunto de dados. Uma distribuição pode ser unimodal, bimodal, trimodal ou multimodal, dependendo da quantidade de valores que apresentam a maior frequência. Também pode ser amodal, quando não existe um valor que se destaque pela frequência. A moda possui a vantagem de poder ser utilizada inclusive com variáveis qualitativas.
 
-Para variáveis quantitativas contínuas agrupadas em intervalos, o capítulo apresenta a moda de Czuber, obtida a partir da classe que possui a maior frequência. Também é apresentada uma relação entre média, mediana e moda que permite estimar a moda quando algumas dessas medidas são conhecidas.
+Para variáveis quantitativas contínuas agrupadas em intervalos, destaca-se a moda de Czuber, obtida a partir da classe que possui a maior frequência. Também é apresentada uma relação entre média, mediana e moda que permite estimar a moda quando algumas dessas medidas são conhecidas.
 
-O capítulo mostra ainda que a escolha da medida de posição depende das características dos dados. A média utiliza todos os valores, mas é sensível a valores extremos; a mediana é mais resistente a esses valores; e a moda indica o valor ou categoria mais frequente. Por isso, é importante escolher a medida mais adequada para cada situação.
+A escolha da medida de posição depende das características dos dados: a média utiliza todos os valores, mas é sensível a valores extremos; a mediana é mais resistente a esses valores; e a moda indica o valor ou categoria mais frequente. Por isso, é importante escolher a medida mais adequada para cada situação.
 
-Por fim, o capítulo apresenta aplicações utilizando o LEEM e o R. O LEEM auxilia no cálculo das medidas de posição, como média, mediana e moda, tanto para dados agrupados quanto para dados não agrupados. O R também pode ser utilizado para representar essas medidas graficamente, facilitando a visualização e a interpretação dos resultados. Assim, o capítulo mostra como a média, a mediana, a moda, o LEEM e o R podem ser utilizados para resumir e compreender melhor um conjunto de dados.
+O pacote `LEEM` auxilia no cálculo das medidas de posição, como média, mediana e moda, tanto para dados agrupados quanto para dados não agrupados. O R também pode ser utilizado para representar essas medidas graficamente, facilitando a visualização e a interpretação dos resultados.
 
-#### Capítulo 4: Medidas de Dispersão
+#### Medidas de Dispersão
 
-O quarto capítulo apresenta as medidas de dispersão, que são utilizadas para mostrar o quanto os dados de um conjunto estão afastados ou concentrados em relação a um valor central, geralmente a média. O capítulo mostra que conhecer apenas a média não é suficiente para caracterizar um conjunto de dados, pois diferentes grupos podem apresentar a mesma média e possuir níveis de variabilidade muito diferentes.
+As medidas de dispersão são utilizadas para mostrar o quanto os dados de um conjunto estão afastados ou concentrados em relação a um valor central, geralmente a média. Assim, conhecer apenas a média não é suficiente para caracterizar um conjunto de dados, pois diferentes grupos podem apresentar a mesma média e possuir níveis de variabilidade muito diferentes [@batista2024estatistica].
 
-A primeira medida apresentada é a amplitude, que corresponde à diferença entre o maior e o menor valor observado. É uma medida simples e fácil de calcular, podendo ser utilizada para comparar a dispersão de diferentes grupos. Porém, possui uma limitação importante: considera somente os valores extremos e, por isso, pode ser bastante influenciada por valores discrepantes.
+A amplitude corresponde à diferença entre o maior e o menor valor observado. É uma medida simples e fácil de calcular, podendo ser utilizada para comparar a dispersão de diferentes grupos. Porém, possui uma limitação importante: considera somente os valores extremos e, por isso, pode ser bastante influenciada por valores discrepantes.
 
 $$A_t = X_{(n)} - X_{(1)}$$
 
-Em seguida, o capítulo apresenta a variância, uma medida que considera todas as observações do conjunto em relação à média. Para isso, são analisadas as diferenças entre cada valor e a média, elevando essas diferenças ao quadrado. Quanto maior a variância, maior é a dispersão dos dados em torno da média. A variância pode ser calculada tanto para uma população quanto para uma amostra.
+A variância é uma medida que considera todas as observações do conjunto em relação à média. Para isso, são analisadas as diferenças entre cada valor e a média, elevando essas diferenças ao quadrado. Quanto maior a variância, maior é a dispersão dos dados em torno da média. A variância pode ser calculada tanto para uma população quanto para uma amostra.
 
 $$\sigma^2 = \frac{\sum_{i=1}^{N}(X_i-\mu)^2}{N} \quad \text{(populacional)} \qquad S^2 = \frac{\sum_{i=1}^{n}(X_i-\bar{X})^2}{n-1} \quad \text{(amostral)}$$
 
-O capítulo também explica que a variância possui uma limitação relacionada à sua unidade de medida, pois o resultado fica na unidade da variável elevada ao quadrado. Por isso, é apresentada outra medida de dispersão: o desvio padrão. Ele é obtido pela raiz quadrada da variância e possui a mesma unidade da variável estudada, tornando sua interpretação mais simples. Quanto menor o desvio padrão, mais próximos da média estão os dados; quanto maior, maior é a variabilidade.
+Segundo @batista2024estatistica, a variância possui uma limitação relacionada à sua unidade de medida, pois o resultado fica na unidade da variável elevada ao quadrado. Por isso, é apresentada outra medida de dispersão: o desvio padrão. Ele é obtido pela raiz quadrada da variância e possui a mesma unidade da variável estudada, tornando sua interpretação mais simples. Quanto menor o desvio padrão, mais próximos da média estão os dados; quanto maior, maior é a variabilidade.
 
 $$\sigma = \sqrt{\sigma^2} \quad \text{(populacional)} \qquad S = \sqrt{S^2} \quad \text{(amostral)}$$
 
 O desvio padrão é útil para comparar a variabilidade de grupos, mas essa comparação exige alguns cuidados. Os grupos devem estar na mesma unidade de medida e possuir médias iguais ou semelhantes. Quando as médias são muito diferentes, apenas o desvio padrão pode não ser suficiente para determinar qual grupo apresenta maior variabilidade.
 
-Para solucionar esse problema, o capítulo apresenta o Coeficiente de Variação (CV), que é uma medida de dispersão relativa. Ele relaciona o desvio padrão com a média e apresenta o resultado em porcentagem. O CV permite comparar a variabilidade de conjuntos de dados que possuem médias e unidades diferentes. Quanto maior o coeficiente de variação, maior é a dispersão dos dados em relação à média.
+Para solucionar esse problema, tem-se o Coeficiente de Variação (CV), que é uma medida de dispersão relativa. Ele relaciona o desvio padrão com a média e apresenta o resultado em porcentagem. O CV permite comparar a variabilidade de conjuntos de dados que possuem médias e unidades diferentes. Quanto maior o coeficiente de variação, maior é a dispersão dos dados em relação à média.
 
 $$CV_p = \frac{\sigma}{\mu} \times 100 \quad \text{(populacional)} \qquad CV = \frac{S}{\bar{X}} \times 100 \quad \text{(amostral)}$$
-
-O capítulo destaca que o Coeficiente de Variação deve ser utilizado com variáveis que possuam um zero absoluto ou uma origem significativa. Por isso, seu uso não é adequado para algumas variáveis, como a temperatura em graus Celsius, pois 0 °C não representa ausência de temperatura. Já variáveis como peso podem ser analisadas por meio do CV, pois 0 kg representa ausência de peso.
-
-Por fim, o capítulo apresenta o erro padrão da média, que está relacionado à precisão da média amostral como estimativa da média populacional. Ele mostra o quanto a média de uma amostra pode variar em relação à média da população. Quanto maior o tamanho da amostra, menor tende a ser o erro padrão e, consequentemente, mais precisa tende a ser a estimativa da média populacional.
+Erro padrão da média: medida de dispersão relacionada à precisão da média amostral como estimativa da média populacional. Ele mostra o quanto a média de uma amostra pode variar em relação à média da população. Quanto maior o tamanho da amostra, menor tende a ser o erro padrão e, consequentemente, mais precisa tende a ser a estimativa da média populacional.
 
 $$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \quad \text{(populacional)} \qquad S_{\bar{X}} = \frac{S}{\sqrt{n}} \quad \text{(amostral)}$$
 
-O capítulo também apresenta o uso do LEEM e do R para realizar cálculos estatísticos. Essas ferramentas facilitam o trabalho com as medidas estudadas, permitindo realizar cálculos de forma mais prática e auxiliar na análise de dados agrupados e não agrupados.
-
-#### Assimetria e Curtose
+#### Assimetria e Curtose {#sec-assimetria}
 
 Como complemento à análise dos dados, a análise estatística também pode considerar medidas relacionadas ao formato da distribuição dos dados, como a a assimetria e curtose. 
 
-A assimetria permite observar o formato da distribuição e verificar se os valores estão distribuídos de maneira equilibrada em torno do centro. Quando há valores muito altos ou muito baixos, eles podem deslocar a média, fazendo com que ela deixe de representar tão bem o conjunto. Nesses casos, é importante considerar também a mediana e a moda.
+A assimetria permite observar o formato da distribuição e verificar se os valores estão distribuídos de maneira equilibrada em torno do centro. Quando há valores muito altos ou muito baixos, eles podem deslocar a média ($\bar{x}$), fazendo com que ela deixe de representar tão bem o conjunto. Nesses casos, é importante considerar também a mediana $(Med)$ e a moda $(Mo)$ [@moreira2021estatistica].
 
 1º Coeficiente de assimetria de Pearson:
 
-$$AS = (x̄ - Mo) / S$$
+$$AS = \frac {(x̄ - Mo)}S$$
+
+Sendo $S$: desvio padrão.
 
 2º Coeficiente de assimetria de Pearson:
 
-$$As = (3 * (x̄ - Med)) / S$$
+$$As = \frac{(3 \times (x̄ - Med))} S$$
+
 Se:
 
 AS = 0, diz-se que a distribuição é simétrica;
@@ -209,7 +223,7 @@ AS < 0, diz-se que a distribuição é assimétrica negativa.
 
 A curtose, por sua vez, está relacionada à concentração dos dados na região central e ao comportamento das extremidades da distribuição. Uma curtose mais elevada pode indicar maior presença de valores extremos e caudas mais pesadas, enquanto uma curtose menor está associada a uma distribuição mais achatada e com menor intensidade nas caudas. 
 
-A curtose de uma distribuição normal é 3. Se uma dada distribuição tem uma curtose menor que 3, ela tende a produzir menos outliers e menos extremos do que a distribuição normal. Se uma dada distribuição tem uma curtose maior que 3, ela tende a produzir mais outliers do que a distribuição normal. Para fazer esses testes vamos utilizar o pacote moments. [@moral2025]
+A curtose de uma distribuição normal é 3. Se uma dada distribuição tem uma curtose menor que 3, ela tende a produzir menos outliers e menos extremos do que a distribuição normal. Se uma dada distribuição tem uma curtose maior que 3, ela tende a produzir mais outliers do que a distribuição normal. Para fazer esses testes vamos utilizar o pacote moments [@moral2025].
 
 Assim, assimetria e curtose são características que ajudam a compreender melhor o formato de uma distribuição. Enquanto a assimetria está relacionada ao equilíbrio dos dados em torno do centro, a curtose ajuda a analisar a concentração central e a presença de valores extremos.
 
@@ -217,15 +231,15 @@ Assim, assimetria e curtose são características que ajudam a compreender melho
 
 ## ⚙️ Metodologia
 
-A presente prática foi desenvolvida por meio da aplicação de procedimentos de estatística descritiva a um conjunto de dados relacionados à resistência à compressão do concreto. Foram analisados três grupos de dados, correspondentes às relações água/cimento (A/C) de 0,50, 0,60 e 0,70, contendo 25 observações em cada grupo. Os dados utilizados possuem caráter simulado e foram empregados com finalidade didática.
+A presente prática foi desenvolvida por meio da aplicação de procedimentos de estatística descritiva a um conjunto de dados relacionados à resistência à compressão do concreto. Foram analisados três grupos de dados, correspondentes às relações água/cimento (A/C) de 0,50, 0,60 e 0,70, contendo 25 observações em cada grupo, gerados por inteligência artificial. Os dados utilizados possuem caráter simulado e foram empregados com finalidade didática.
 
 Inicialmente, os dados foram organizados no ambiente R, utilizando o pacote leem como ferramenta de apoio aos procedimentos estatísticos. A análise iniciou-se pela organização e agrupamento das observações em classes de frequência, permitindo a construção de tabelas com frequências absolutas e a representação gráfica da distribuição dos resultados por meio de histogramas. Para cada grupo foram utilizadas cinco classes de frequência, possibilitando comparar visualmente a concentração e a distribuição das resistências à compressão.
 
 Em seguida, foram determinadas as medidas de posição, considerando média aritmética, mediana e moda. Essas medidas foram calculadas tanto para os dados originais quanto para os dados agrupados em classes, permitindo verificar as diferenças entre os resultados obtidos diretamente das observações e aqueles estimados a partir dos pontos médios das classes.
 
-Para avaliar a variabilidade dos resultados, foram calculadas a amplitude, a variância, o desvio-padrão, o coeficiente de variação e o erro-padrão da média. Para essa etapa, foram priorizados os dados não agrupados, preservando as características das 25 observações originais de cada grupo. A comparação dessas medidas possibilitou avaliar a dispersão absoluta e relativa dos resultados e a homogeneidade das resistências dentro de cada condição de relação água/cimento.
+Para avaliar a variabilidade dos resultados, foram calculadas a amplitude, a variância, o desvio padrão, o coeficiente de variação e o erro-padrão da média. Para essa etapa, foram priorizados os dados não agrupados, preservando as características das 25 observações originais de cada grupo. A comparação dessas medidas possibilitou avaliar a dispersão absoluta e relativa dos resultados e a homogeneidade das resistências dentro de cada condição de relação água/cimento.
 
-Por fim, foram determinados os coeficientes de assimetria e curtose para complementar a caracterização da distribuição dos dados. A assimetria foi obtida com recursos do pacote leem, enquanto a curtose foi calculada com auxílio do pacote moments. Os resultados foram posteriormente comparados entre os três grupos, buscando identificar diferenças no comportamento das distribuições.
+Por fim, foram determinados os coeficientes de assimetria e curtose para complementar a caracterização da distribuição dos dados. A assimetria foi obtida com recursos do pacote `leem`, enquanto a curtose foi calculada com auxílio do pacote `moments`. Os resultados foram posteriormente comparados entre os três grupos, buscando identificar diferenças no comportamento das distribuições.
 
 A interpretação dos resultados foi realizada considerando conjuntamente as tabelas, os gráficos e as medidas estatísticas, relacionando os valores encontrados ao comportamento da resistência à compressão do concreto em função da relação água/cimento. Dessa forma, a metodologia permitiu integrar os conceitos de estatística descritiva à utilização do R como ferramenta computacional aplicada à Engenharia Civil.
 
@@ -235,11 +249,9 @@ A interpretação dos resultados foi realizada considerando conjuntamente as tab
 
 ### Dados do Experimento
 
-Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, segundo @nbr5739. A norma estabelece o método para determinação da resistência à compressão de corpos de prova cilíndricos de concreto e define, entre outros aspectos, as condições de realização do ensaio e o cálculo da resistência à compressão a partir da força máxima aplicada.
+Para a realização da análise estatística, foi elaborado um banco de dados simulado a partir das condições estabelecidas para o ensaio de resistência à compressão de corpos de prova cilíndricos de concreto, segundo @nbr5739. Para a elaboração do banco de dados, foram mantidos constantes os principais parâmetros do ensaio, variando-se apenas a relação água/cimento (A/C), utilizando como condição de diferenciação entre os conjuntos de observações. Considerou-se corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional na interpretação dos resultados.
 
-Para a elaboração do banco de dados, foram estabelecidas condições experimentais controladas, mantendo-se constantes os principais parâmetros do ensaio e variando-se a relação água/cimento (A/C) como condição de diferenciação entre os conjuntos de observações. Considerou-se a idade dos corpos de prova de 28 dias, corpos de prova cilíndricos com 100 mm de diâmetro e 200 mm de altura, resultando em uma relação altura/diâmetro (h/d) igual a 2,00. A idade de 28 dias foi adotada como condição única de análise, evitando que diferentes idades introduzissem uma variável adicional na interpretação dos resultados.
-
-A partir dessas condições, foram gerados 75 resultados simulados de resistência à compressão, distribuídos igualmente entre as condições de relação água/cimento consideradas. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão e variabilidade entre as observações, tendo como referência as condições do ensaio estabelecidas pela ABNT NBR 5739 [@nbr5739].
+A partir dessas condições, foram gerados 75 resultados simulados de resistência à compressão, distribuídos igualmente entre as condições de relação água/cimento consideradas. Os dados não representam resultados obtidos experimentalmente em laboratório; foram criados especificamente para este trabalho, com valores plausíveis de resistência à compressão.
 
 
 ```{r}
@@ -274,13 +286,14 @@ kable(
 :::
 
 ```{r}
+#| echo: false
 # Criando os vetores 
 G1 <- resistencia$AC_050
 G2 <- resistencia$AC_060
 G3 <- resistencia$AC_070
 ```
 
-A partir desse conjunto de 75 observações, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote leem, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.
+A partir desses dados, será realizada a análise de Estatística Descritiva, envolvendo inicialmente a organização e a tabulação dos dados e sua representação gráfica. Na sequência, serão determinadas as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose. Os procedimentos serão realizados com auxílio do pacote `leem`, buscando-se não apenas apresentar os resultados obtidos computacionalmente, mas também compreender os princípios estatísticos envolvidos no cálculo e na interpretação de cada medida.
 
 
 
@@ -289,7 +302,7 @@ A partir desse conjunto de 75 observações, será realizada a análise de Estat
 
 A resistência à compressão do concreto constitui uma variável quantitativa contínua, uma vez que, em princípio, pode assumir qualquer valor dentro de determinado intervalo. Embora os resultados dos ensaios sejam registrados com determinada precisão, essa limitação está relacionada à resolução dos instrumentos e ao procedimento de medição, e não à natureza da variável. Dessa forma, conforme apresentado por @batista2024estatistica, é conveniente agrupar os valores de uma variável quantitativa contínua em classes ou intervalos, possibilitando uma representação mais organizada da distribuição dos dados.
 
-No presente estudo, foram considerados 75 resultados simulados de resistência à compressão, submetidos a três condições experimentais diferentes (relação água/cimento). Segundo @batista2024estatistica, para a definição do número de classes e considerando conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, considerando o conjunto de 25 observações correspondente a cada condição experimental, tem-se:  
+Segundo @batista2024estatistica, para a definição do número de classes e considerando conjuntos com até 100 observações, o número aproximado de classes pode ser obtido pela raiz quadrada do número de elementos. Assim, considerando o conjunto de 25 observações correspondente a cada condição experimental, tem-se:  
 $$
 k \approx \sqrt{m}
 $$
@@ -298,11 +311,11 @@ Para \(m = 25\):
 $$
 k \approx \sqrt{25} = 5
 $$
-Dessa forma, foram utilizadas cinco classes de frequência para cada conjunto de dados, permitindo representar individualmente a distribuição dos resultados de resistência à compressão nas diferentes condições consideradas.
 
-A partir desse procedimento, os valores de resistência à compressão foram agrupados em intervalos de classe. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a proporção de observações de cada classe em relação ao total do respectivo conjunto de dados. As frequências acumuladas permitem identificar a quantidade de observações acumulada até determinada classe ou a partir dela. Essas formas de representação possibilitam organizar e sintetizar os resultados, facilitando a visualização da distribuição das resistências à compressão e fornecendo uma base para as etapas posteriores da análise estatística.
+Dessa forma, foram utilizadas cinco classes de frequência para cada conjunto de dados, permitindo representar individualmente a distribuição dos resultados de resistência à compressão nas diferentes condições consideradas. A partir desse procedimento, os valores de resistência à compressão foram agrupados em intervalos de classe. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a proporção de observações de cada classe em relação ao total do respectivo conjunto de dados. As frequências acumuladas permitem identificar a quantidade de observações acumulada até determinada classe ou a partir dela. Essas formas de representação possibilitam organizar e sintetizar os resultados, facilitando a visualização da distribuição das resistências à compressão e fornecendo uma base para as etapas posteriores da análise estatística.
 
 ```{r}
+#| echo: false
 # Tabulação Criando os objetos leem
 tab_G1 <- G1 |>
   new_leem(variable = "continuous") |>
@@ -366,7 +379,7 @@ A relação A/C = 0,50 é mantida constante dentro desse conjunto, de modo que a
 
 ```{r}
 #| label: tbl-frequencia-g1
-#| tbl-cap: "Distribuição de frequência da resistência à compressão — A/C = 0,50"
+#| tbl-cap: "Distribuição de frequência da resistência à compressão: A/C = 0,50"
 #| echo: false
 
 formatar_tabela_freq(tab_G1)
@@ -376,7 +389,7 @@ formatar_tabela_freq(tab_G1)
 
 ```{r}
 #| label: tbl-frequencia-g2
-#| tbl-cap: "Distribuição de frequência da resistência à compressão — A/C = 0,60"
+#| tbl-cap: "Distribuição de frequência da resistência à compressão: A/C = 0,60"
 #| echo: false
 
 formatar_tabela_freq(tab_G2)
@@ -388,44 +401,38 @@ formatar_tabela_freq(tab_G2)
 
 ```{r}
 #| label: tbl-frequencia-g3
-#| tbl-cap: "Distribuição de frequência da resistência à compressão — A/C = 0,70"
+#| tbl-cap: "Distribuição de frequência da resistência à compressão: A/C = 0,70"
 #| echo: false
 
 formatar_tabela_freq(tab_G3)
 ```
 
 
-As distribuições de frequência apresentadas nas Tabelas 2, 3 e 4 permitem observar o comportamento dos resultados de resistência à compressão para as três condições de relação água/cimento consideradas. Em todos os conjuntos, verifica-se maior concentração das observações nas classes intermediárias, enquanto as classes situadas nos extremos apresentam frequências menores.
+As distribuições de frequência apresentadas nas @tbl-frequencia-g1, @tbl-frequencia-g2, @tbl-frequencia-g3 permitem observar o comportamento dos resultados de resistência à compressão para as três condições de relação água/cimento consideradas. Em todos os conjuntos, verifica-se maior concentração das observações nas classes intermediárias, enquanto as classes situadas nos extremos apresentam frequências menores.
 
-No Grupo 1 (A/C = 0,50), a maior frequência absoluta foi observada na classe de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% das observações. As duas classes intermediárias, entre 39,16 e 41,00 MPa, concentram conjuntamente 15 resultados, equivalentes a 60% do conjunto.
+No Grupo 1 (A/C = 0,50), a maior frequência absoluta foi observada na classe de 40,08 a 41,00 MPa, com 8 dos 25 resultados, correspondendo a 32% das observações. No Grupo 2 (A/C = 0,60), observa-se uma concentração ainda mais evidente na região central da distribuição. A classe de 34,79 a 35,72 MPa apresenta a maior frequência, com 9 dos 25 resultados, correspondendo a 36% das observações. Comportamento semelhante é observado no Grupo 3 (A/C = 0,70). A maior frequência também ocorre na classe central, entre 29,79 e 30,72 MPa, com 9 observações, correspondentes a 36% do conjunto. 
 
-No Grupo 2 (A/C = 0,60), observa-se uma concentração ainda mais evidente na região central da distribuição. A classe de 34,79 a 35,72 MPa apresenta a maior frequência, com 9 dos 25 resultados, correspondendo a 36% das observações. As classes adjacentes, de 33,86 a 34,79 MPa e de 35,72 a 36,65 MPa, apresentam 6 observações cada. Assim, as três classes centrais concentram 21 dos 25 resultados (84%).
-
-Comportamento semelhante é observado no Grupo 3 (A/C = 0,70). A maior frequência também ocorre na classe central, entre 29,79 e 30,72 MPa, com 9 observações, correspondentes a 36% do conjunto. Considerando as três classes intermediárias, entre 28,86 e 31,65 MPa, encontram-se 21 dos 25 resultados (84%).
-
-A comparação entre as três distribuições evidencia ainda um deslocamento progressivo dos valores de resistência para faixas menores à medida que a relação água/cimento aumenta. Enquanto os resultados do Grupo 1 estão concentrados aproximadamente entre 39 e 41 MPa, os Grupos 2 e 3 apresentam suas maiores frequências, respectivamente, nas regiões de 34,79–35,72 MPa e 29,79–30,72 MPa. Esse comportamento é coerente com a finalidade da simulação, na qual a relação A/C foi utilizada como condição de diferenciação entre os conjuntos de dados.
+A comparação entre as três distribuições evidencia ainda um deslocamento progressivo dos valores de resistência para faixas menores à medida que a relação água/cimento aumenta. Enquanto os resultados do Grupo 1 estão concentrados aproximadamente entre 39 e 41 MPa, os Grupos 2 e 3 apresentam suas maiores frequências, respectivamente, nas regiões de 34,79 - 35,72 MPa e 29,79 - 30,72 MPa. Esse comportamento é coerente com a finalidade da simulação, na qual a relação A/C foi utilizada como condição de diferenciação entre os conjuntos de dados.
 
 Do ponto de vista da Engenharia Civil, essa comparação é relevante porque demonstra que a relação água/cimento constitui uma condição capaz de modificar a distribuição dos resultados de resistência à compressão. Entretanto, a análise da frequência por si só não permite avaliar completamente a variabilidade de cada conjunto. Mesmo submetidos à mesma relação A/C dentro de cada grupo, os 25 corpos de prova apresentam valores diferentes, o que pode ser associado, no contexto da simulação, às pequenas variações inerentes ao preparo manual do concreto, à homogeneização da mistura, ao adensamento, à moldagem e às condições de cura e ensaio.
 
-Dessa forma, a representação tabular permite identificar onde os resultados estão concentrados e como a distribuição se desloca entre as diferentes condições, mas não quantifica suficientemente o grau de dispersão de cada conjunto. Por essa razão, a análise será complementada pelas medidas de dispersão, incluindo amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão, permitindo avaliar quantitativamente a variabilidade dos resultados e comparar sua uniformidade entre as diferentes relações água/cimento.
+Dessa forma, a representação tabular permitiu identificar onde os resultados estão concentrados e como a distribuição se desloca entre as diferentes condições, mas não quantifica suficientemente o grau de dispersão de cada conjunto. Por essa razão, a análise será complementada pelas medidas de dispersão, incluindo amplitude, variância, desvio padrão, coeficiente de variação e erro-padrão, permitindo avaliar quantitativamente a variabilidade dos resultados e comparar sua uniformidade entre as diferentes relações água/cimento.
 
 #### Representação Gráfica
 
-Conforme apresentado por @batista2024estatistica, o histograma é uma representação adequada para variáveis quantitativas contínuas, nas quais os valores são organizados em intervalos de classe. Nesse tipo de gráfico, as classes são representadas por barras adjacentes, cuja altura está relacionada à frequência das observações em cada intervalo.
+Conforme apresentado por @batista2024estatistica, o histograma é uma representação adequada para variáveis quantitativas contínuas, nas quais os valores são organizados em intervalos de classe. Nesse tipo de gráfico, as classes são representadas por barras adjacentes, cuja altura está relacionada à frequência das observações em cada intervalo. Neste estudo, foram utilizados histogramas para representar a distribuição da resistência à compressão dos três conjuntos de dados. Como os valores de cada condição experimental foram previamente agrupados em cinco classes de frequência, os histogramas permitem visualizar a concentração das observações e identificar as classes de maior frequência.
 
-Neste estudo, foram utilizados histogramas para representar a distribuição da resistência à compressão dos três conjuntos de dados. Como os valores de cada condição experimental foram previamente agrupados em cinco classes de frequência, os histogramas permitem visualizar a concentração das observações, identificar as classes de maior frequência e comparar o comportamento das distribuições entre as diferentes relações água/cimento.
-
-Além de facilitar a visualização da distribuição, a representação gráfica fornece uma primeira indicação sobre a concentração e a forma dos dados, aspectos que serão aprofundados posteriormente por meio das medidas de posição, dispersão, assimetria e curtose. Dessa forma, os histogramas complementam as informações apresentadas nas tabelas de frequência e contribuem para uma interpretação mais integrada dos resultados.
+Além de facilitar a visualização da distribuição, a representação gráfica fornece uma primeira indicação sobre a concentração e a forma dos dados, complementando as informações apresentadas nas tabelas de frequência e contribuindo para uma interpretação mais integrada dos resultados.
 ```{r}
 #| label: fig-histograma-g1
-#| fig-cap: "Histograma da resistência à compressão — A/C = 0,50"
+#| fig-cap: "Histograma de frequências da resistência à compressão: A/C = 0,50"
 #| echo: false
 
 G1 |>
   new_leem(variable = "continuous") |>
   tabfreq(k = 5) |>
   hist(
-    main = "Distribuição da resistência à compressão — A/C = 0,50",
+    main = "Distribuição da resistência à compressão (Grupo 1)",
     xlab = "Resistência à compressão (MPa)",
     ylab = "Frequência"
   )
@@ -434,14 +441,14 @@ G1 |>
 Da mesma forma, para os dados agrupados pertencentes às condições do Grupo 2:
 ```{r}
 #| label: fig-histograma-g2
-#| fig-cap: "Histograma da resistência à compressão — A/C = 0,60"
+#| fig-cap: "Histograma de frequências da resistência à compressão: A/C = 0,60"
 #| echo: false
 
 G2 |>
   new_leem(variable = "continuous") |>
   tabfreq(k = 5) |>
   hist(
-    main = "Distribuição da resistência à compressão — A/C = 0,60",
+    main = "Distribuição da resistência à compressão (Grupo 2)",
     xlab = "Resistência à compressão (MPa)",
     ylab = "Frequência"
   )
@@ -450,14 +457,14 @@ G2 |>
 E, para o Grupo 3, o histograma será:
 ```{r}
 #| label: fig-histograma-g3
-#| fig-cap: "Histograma da resistência à compressão — A/C = 0,70"
+#| fig-cap: "Histograma de frequências da resistência à compressão: A/C = 0,70"
 #| echo: false
 
 G3 |>
   new_leem(variable = "continuous") |>
   tabfreq(k = 5) |>
   hist(
-    main = "Distribuição da resistência à compressão — A/C = 0,70",
+    main = "Distribuição da resistência à compressão (Grupo 3)",
     xlab = "Resistência à compressão (MPa)",
     ylab = "Frequência"
   )
@@ -466,9 +473,7 @@ G3 |>
 
 #### Medidas de Posição
 
-Após a organização dos dados em tabelas e sua representação gráfica, as medidas de posição permitem sintetizar o conjunto de observações por meio de valores que representam sua região central.
-
-Neste estudo, essas medidas serão determinadas para os três grupos de resistência à compressão, permitindo comparar o comportamento central dos resultados para diferentes relações água/cimento. Além dos valores obtidos diretamente a partir das 25 observações, serão consideradas as estimativas provenientes dos dados agrupados em classes, possibilitando observar as diferenças decorrentes do processo de agrupamento. Para variáveis quantitativas contínuas agrupadas em intervalos, o ponto médio das classes é utilizado nos cálculos, podendo ocorrer perda de precisão em relação aos dados não agrupados [@batista2024estatistica].
+Após a organização dos dados em tabelas e sua representação gráfica, as medidas de posição permitem sintetizar o conjunto de observações por meio de valores que representam sua região central. Neste estudo, essas medidas serão determinadas para os três grupos de resistência à compressão, permitindo comparar o comportamento central dos resultados para diferentes relações água/cimento. Além dos valores obtidos diretamente a partir das 25 observações, serão consideradas as estimativas provenientes dos dados agrupados em classes, possibilitando observar as diferenças decorrentes do processo de agrupamento. Para variáveis quantitativas contínuas agrupadas em intervalos, o ponto médio das classes é utilizado nos cálculos, podendo ocorrer perda de precisão em relação aos dados não agrupados [@batista2024estatistica].
 ```{r}
 #| echo: false
 
@@ -517,7 +522,8 @@ knitr::kable(
 ```
 
 ```{r}
-# Medidas de posição dos dados não agrupados
+#| echo: false
+# Medidas de posição dos dados não agrupados (dados brutos)
 pos_G1_bruto <- G1 |>
   new_leem(variable = "continuous") |>
   mpos(grouped = FALSE)
@@ -531,15 +537,17 @@ pos_G3_bruto <- G3 |>
   mpos(grouped = FALSE)
 ```
 
+Para complementar a análise, a @tbl-medidas-posicao-brutas apresenta as medidas de posição calculadas a partir dos dados não agrupados, considerando individualmente os 25 resultados de cada grupo.
+
 ```{r}
 #| label: tbl-medidas-posicao-brutas
-#| tbl-cap: "Medidas de posição dos dados não agrupados"
+#| tbl-cap: "Medidas de posição dos dados não agrupados (dados brutos)"
 #| echo: false
 
 tabela_posicao_bruta <- rbind(
-  `A/C = 0,50` = as.numeric(pos_G1_bruto),
-  `A/C = 0,60` = as.numeric(pos_G2_bruto),
-  `A/C = 0,70` = as.numeric(pos_G3_bruto)
+  `Grupo 1 (A/C = 0,50)` = as.numeric(pos_G1_bruto),
+  `Grupo 2 (A/C = 0,60)` = as.numeric(pos_G2_bruto),
+  `Grupo 3 (A/C = 0,70)` = as.numeric(pos_G3_bruto)
 )
 
 colnames(tabela_posicao_bruta) <- c(
@@ -562,49 +570,78 @@ knitr::kable(
   )
 ```
   
-
-Nos dados não agrupados, não foi identificada uma moda para os três conjuntos de observações, uma vez que os valores individuais de resistência à compressão não apresentam repetições. Entretanto, após o agrupamento dos dados em classes de frequência, torna-se possível identificar uma classe modal, correspondente à classe que apresenta a maior frequência absoluta. Dessa forma, a moda obtida para os dados agrupados não representa necessariamente um valor originalmente observado, mas uma estimativa da tendência central da classe modal.
+A análise das medidas de posição dos dados agrupados (@tbl-medidas-posicao) e dos dados brutos (@tbl-medidas-posicao-brutas) apresenta algumas diferenças decorrentes da forma como as observações são tratadas. Nos dados brutos, cada um dos 25 resultados é considerado individualmente, preservando integralmente os valores originalmente observados. Já nos dados agrupados, as observações são reunidas em classes de frequência e, para determinadas medidas, são utilizados valores representativos dessas classes, como os pontos médios. Por esse motivo, os resultados das medidas de posição podem apresentar pequenas diferenças, como observado na média e na mediana dos três grupos. A diferença é ainda mais evidente na moda: nos dados brutos não houve moda, pois nenhum valor individual se repetiu, enquanto nos dados agrupados foi possível identificar uma classe modal, permitindo obter uma estimativa da moda. Dessa forma, os dados brutos são mais adequados quando se deseja preservar a precisão e analisar diretamente a variabilidade das observações, enquanto os dados agrupados são especialmente úteis para organizar, resumir e visualizar a distribuição, por meio de tabelas e gráficos de frequência.
 
 **Medidas de Posição representadas no Histograma**
 
-Além da representação da distribuição de frequência, é possível utilizar o histograma para visualizar a localização das principais medidas de posição dos dados. Nesse caso, foram consideradas a média, a mediana e a moda calculadas a partir dos dados agrupados em classes, mantendo a correspondência entre a representação gráfica e o procedimento de tabulação adotado anteriormente. A inserção dessas medidas no histograma permite observar visualmente a posição central da distribuição e facilita a análise da relação entre as medidas de posição e a concentração dos resultados de resistência à compressão.
+Além da representação da distribuição de frequência, é possível utilizar o histograma para visualizar a localização das principais medidas de posição dos dados. Nesse caso, foram consideradas a média, a mediana e a moda calculadas a partir dos dados agrupados em classes (@tbl-medidas-posicao), mantendo a correspondência entre a representação gráfica e o procedimento de tabulação adotado anteriormente. A inserção dessas medidas no histograma permite observar visualmente a posição central da distribuição e facilita a análise da relação entre as medidas de posição e a concentração dos resultados de resistência à compressão, conforme pode ser observado nas três figuras abaixo:
 
-Como os dados foram agrupados em cinco classes de frequência, as medidas utilizadas na representação gráfica são aquelas obtidas por meio de mpos(grouped = TRUE). Dessa forma, a interpretação mantém coerência com a distribuição de frequência apresentada anteriormente.
-  
-  
 ```{r}
-hist(
-  G1,
-  main = "Distribuição da resistência à compressão - A/C = 0,50",
-  xlab = "Resistência à compressão (MPa)",
-  ylab = "Frequência"
-)
+#| label: fig-hist-g1
+#| fig-cap: "Histograma de frequências e medidas de posição: Grupo 1 (A/C = 0,50)"
+#| echo: false
+G1 |>
+  new_leem(variable = "continuous") |>
+  hist(
+    main = "Distribuição da resistência à compressão (A/C = 0,50)",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  ) |>
+  insert(
+    type = "all",
+    lcol = c("black", "blue", "brown"),
+    ptext = 0.08,
+    larrow = 0.4
+  )
+  
 ```
 
-```{r}
-hist(
-  G2,
-  main = "Distribuição da resistência à compressão - A/C = 0,50",
-  xlab = "Resistência à compressão (MPa)",
-  ylab = "Frequência"
-)
-```
+
 
 ```{r}
-hist(
-  G3,
-  main = "Distribuição da resistência à compressão - A/C = 0,50",
-  xlab = "Resistência à compressão (MPa)",
-  ylab = "Frequência"
-)
+#| label: fig-hist-g2
+#| fig-cap: "Histograma de frequências e medidas de posição: Grupo 2 (A/C = 0,60)"
+#| echo: false
+G2 |>
+  new_leem(variable = "continuous") |>
+  hist(
+    main = "Distribuição da resistência à compressão (A/C = 0,60)",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  ) |>
+  insert(
+    type = "all",
+    lcol = c("black", "blue", "brown"),
+    ptext = 0.08,
+    larrow = 0.4
+  )
+```
+
+
+
+```{r}
+#| label: fig-hist-g3
+#| fig-cap: "Histograma de frequências e medidas de posição: Grupo 3 (A/C = 0,70)"
+#| echo: false
+G3 |>
+  new_leem(variable = "continuous") |>
+  hist(
+    main = "Distribuição da resistência à compressão (A/C = 0,70)",
+    xlab = "Resistência à compressão (MPa)",
+    ylab = "Frequência"
+  ) |>
+  insert(
+    type = "all",
+    lcol = c("black", "blue", "brown"),
+    ptext = 0.08,
+    larrow = 0.4
+  )
 ```
 
 
 #### Medidas de Dispersão
 
-As medidas de posição permitem identificar a região central de um conjunto de dados, porém, isoladamente, não são suficientes para caracterizar sua variabilidade, conforme visto anteriormente. Segundo @batista2024estatistica, diferentes conjuntos podem apresentar valores centrais semelhantes e, ainda assim, possuir diferentes níveis de dispersão. As medidas de dispersão são utilizadas justamente para quantificar o quanto as observações variam em torno de um valor central, geralmente a média aritmética.
-
-Neste estudo, serão analisadas a amplitude, variância, desvio-padrão, coeficiente de variação e erro-padrão da média dos três grupos de resistência à compressão. A utilização conjunta dessas medidas permitirá avaliar não apenas a extensão entre os valores mínimo e máximo, mas também a variabilidade das observações e a precisão da estimativa da média. Essa análise é particularmente relevante para comparar a consistência dos resultados obtidos sob diferentes relações água/cimento.
+As medidas de posição permitem identificar a região central de um conjunto de dados, porém, isoladamente, não são suficientes para caracterizar sua variabilidade. Segundo @batista2024estatistica, diferentes conjuntos podem apresentar valores centrais semelhantes e, ainda assim, possuir diferentes níveis de dispersão. As medidas de dispersão são utilizadas justamente para quantificar o quanto as observações variam em torno de um valor central, geralmente a média aritmética. Neste estudo, serão analisadas a amplitude, variância, desvio padrão, coeficiente de variação e erro-padrão da média dos três grupos de resistência à compressão. A utilização conjunta dessas medidas permitirá avaliar não apenas a extensão entre os valores mínimo e máximo, mas também a variabilidade das observações e a precisão da estimativa da média. Essa análise é particularmente relevante para comparar a consistência dos resultados obtidos sob diferentes relações água/cimento.
 ```{r}
 #| echo: false
 # AMPLITUDE
@@ -697,7 +734,7 @@ tabela_dispersao <- data.frame(
   `Medida de Dispersão` = c(
     "Amplitude (MPa)",
     "Variância (MPa²)",
-    "Desvio-padrão (MPa)",
+    "Desvio padrão (MPa)",
     "Coeficiente de variação (%)",
     "Erro-padrão da média (MPa)"
   ),
@@ -743,25 +780,25 @@ knitr::kable(
 ```
 
 
-A Tabela 7 apresenta as medidas de dispersão calculadas para os três grupos de resistência à compressão. Os resultados foram obtidos a partir das 25 observações individuais de cada grupo, ou seja, utilizando os dados não agrupados. Essa abordagem é mais adequada para a análise da variabilidade neste estudo, pois preserva os valores originalmente simulados e evita a aproximação decorrente do agrupamento das observações em classes. A representação agrupada permanece importante para a construção das tabelas de frequência e dos histogramas, mas, para quantificar a dispersão dos resultados, a utilização dos dados individuais fornece uma medida mais diretamente relacionada à variabilidade efetivamente presente no conjunto de observações.
+A @tbl-medidas-dispersao apresenta as medidas de dispersão calculadas para os três grupos de resistência à compressão. Os resultados foram obtidos a partir das 25 observações individuais de cada grupo, ou seja, utilizando os dados não agrupados. Essa abordagem é mais adequada para a análise da variabilidade neste estudo, pois preserva os valores originalmente simulados e evita a aproximação decorrente do agrupamento das observações em classes. A representação agrupada permanece importante para a construção das tabelas de frequência e dos histogramas, mas, para quantificar a dispersão dos resultados, a utilização dos dados individuais fornece uma medida mais diretamente relacionada à variabilidade efetivamente presente no conjunto de observações.
 
-A amplitude, obtida pela diferença entre o maior e o menor valor observado, foi de 3,68 MPa para o Grupo 1, enquanto os Grupos 2 e 3 apresentaram amplitude de 3,72 MPa. Dessa forma, os Grupos 2 e 3 apresentaram a maior variação entre os valores extremos, embora a diferença em relação ao Grupo 1 seja pequena. Considerando as médias dos grupos, essas amplitudes correspondem a aproximadamente 9,1%, 10,5% e 12,3% das respectivas médias para os Grupos 1, 2 e 3. Portanto, os resultados encontram-se relativamente próximos dentro de cada grupo. Entretanto, a amplitude considera somente os dois valores extremos e, por isso, não é suficiente, isoladamente, para caracterizar a dispersão de todas as observações.
+A amplitude, obtida pela diferença entre o maior e o menor valor observado, foi de 3,68 MPa para o Grupo 1, enquanto os Grupos 2 e 3 apresentaram amplitude de 3,72 MPa. Dessa forma, os Grupos 2 e 3 apresentaram a maior variação entre os valores extremos, embora a diferença em relação ao Grupo 1 seja pequena. Portanto, os resultados encontram-se relativamente próximos dentro de cada grupo. Entretanto, a amplitude considera somente os dois valores extremos e, por isso, não é suficiente, isoladamente, para caracterizar a dispersão de todas as observações.
 
-A variância apresentou valores de 1,13 MPa² para o Grupo 1 e 1,01 MPa² para os Grupos 2 e 3. Como a variância é expressa em unidade elevada ao quadrado, sua interpretação direta é menos intuitiva. Por essa razão, o desvio-padrão fornece uma medida mais facilmente interpretável da dispersão em relação à média. O Grupo 1 apresentou desvio-padrão de 1,06 MPa, enquanto os Grupos 2 e 3 apresentaram 1,00 MPa. Assim, os valores indicam que as observações dos três grupos estão relativamente concentradas em torno de suas respectivas médias, sendo a dispersão absoluta ligeiramente maior no Grupo 1. De modo geral, quanto menor o desvio-padrão, menor é a dispersão dos resultados em torno da média.
+A variância apresentou valores de 1,13 MPa² para o Grupo 1 e 1,01 MPa² para os Grupos 2 e 3. Como a variância é expressa em unidade elevada ao quadrado, sua interpretação direta é menos intuitiva. Por essa razão, o desvio padrão fornece uma medida mais facilmente interpretável da dispersão em relação à média. O Grupo 1 apresentou desvio padrão de 1,06 MPa, enquanto os Grupos 2 e 3 apresentaram 1,00 MPa. Assim, os valores indicam que as observações dos três grupos estão relativamente concentradas em torno de suas respectivas médias. De modo geral, quanto menor o desvio padrão, menor é a dispersão dos resultados em torno da média.
 
-Para comparar a variabilidade entre os grupos de forma relativa, destaca-se o coeficiente de variação (CV). Essa medida relaciona o desvio-padrão à média do conjunto e é particularmente útil neste estudo porque os grupos apresentam diferentes níveis médios de resistência. O CV foi de 2,61% para o Grupo 1, 2,84% para o Grupo 2 e 3,31% para o Grupo 3. Portanto, embora os desvios-padrão sejam bastante semelhantes, a variabilidade relativa aumenta à medida que a relação água/cimento passa de 0,50 para 0,70.
+Para comparar a variabilidade entre os grupos de forma relativa, destaca-se o coeficiente de variação (CV). Essa medida relaciona o desvio padrão à média do conjunto e é particularmente útil neste estudo porque os grupos apresentam diferentes níveis médios de resistência. O CV foi de 2,61% para o Grupo 1, 2,84% para o Grupo 2 e 3,31% para o Grupo 3. Portanto, embora os desvios-padrão sejam bastante semelhantes, a variabilidade relativa aumenta à medida que a relação água/cimento passa de 0,50 para 0,70.
 
-Do ponto de vista da Engenharia Civil, esse comportamento é relevante. A relação água/cimento constitui uma variável importante na resistência do concreto e, neste conjunto simulado, o aumento da A/C foi acompanhado por uma redução da resistência média. Ao mesmo tempo, o CV indica que os resultados do Grupo 1 apresentam a menor variabilidade relativa, enquanto o Grupo 3 apresenta a maior. Isso significa que, embora os três conjuntos apresentem dispersões relativamente baixas, a resistência do Grupo 3 é proporcionalmente menos homogênea em relação à sua média.
-
-A pequena magnitude dos coeficientes de variação (inferiores a 4%) indica baixa variabilidade relativa dentro dos grupos simulados. Em termos de controle tecnológico, resultados mais concentrados são desejáveis porque indicam maior uniformidade entre os corpos de prova produzidos sob uma mesma condição. Entretanto, essa interpretação deve considerar que os dados são simulados e que, em uma situação real, diferenças entre os corpos de prova poderiam decorrer de fatores como dosagem dos materiais, homogeneização da mistura, umidade e características dos agregados, adensamento, moldagem, condições de cura e execução do ensaio.
+Do ponto de vista da Engenharia Civil, esse comportamento é relevante. A relação água/cimento constitui uma variável importante na resistência do concreto e, neste conjunto simulado, o aumento da A/C foi acompanhado por uma redução da resistência média. Ao mesmo tempo, o CV indica que os resultados do Grupo 1 apresentam a menor variabilidade relativa, enquanto o Grupo 3 apresenta a maior. Isso significa que, embora os três conjuntos apresentem dispersões relativamente baixas, a resistência do Grupo 3 é proporcionalmente menos homogênea em relação à sua média. A pequena magnitude dos coeficientes de variação (inferiores a 4%) indica baixa variabilidade relativa dentro dos grupos simulados. Em termos de controle tecnológico, resultados mais concentrados são desejáveis porque indicam maior uniformidade entre os corpos de prova produzidos sob uma mesma condição. Entretanto, essa interpretação deve considerar que os dados são simulados e que, em uma situação real, diferenças entre os corpos de prova poderiam decorrer de fatores como dosagem dos materiais, homogeneização da mistura, umidade e características dos agregados, adensamento, moldagem, condições de cura e execução do ensaio.
 
 Por fim, o erro-padrão da média apresentou valores próximos entre os grupos, variando de 0,20 a 0,21 MPa. Essa medida está relacionada à precisão da estimativa da média: valores menores indicam menor variabilidade esperada da média amostral. A proximidade dos valores entre os três grupos é coerente com os desvios-padrão semelhantes e com o mesmo número de observações, 25 corpos de prova por grupo.
 
 
 #### Medidas de Assimetria e Curtose
 
+A análise das medidas de assimetria e curtose permite complementar a avaliação da distribuição dos resultados de resistência à compressão, possibilitando verificar não apenas sua tendência central e dispersão, mas também o formato das distribuições. Conforme apresentado na @sec-assimetria, a assimetria está relacionada ao equilíbrio dos dados em torno da região central, enquanto a curtose está associada ao grau de concentração dos valores e ao comportamento das caudas da distribuição.
 
 ```{r}
+#| echo: false
 # Assimetria
 assim_G1 <- G1 |>
   new_leem(variable = "continuous") |>
@@ -774,17 +811,19 @@ assim_G3 <- G3 |>
 assim_G2 <- G2 |>
   new_leem(variable = "continuous") |>
   skewness(grouped = TRUE)
+```
 
-assim_G1
-assim_G2
-assim_G3
+
+```{r}
+#| label: fig-assimetria
+#| fig-cap: "Representação didática das Medidas de Assimetria"
+#| echo: false
 
 showskew(mpos = TRUE)
-
-showkur()
 ```
 
 ```{r}
+#| echo: false
 # Pacote moments
 library(moments)
 
@@ -797,11 +836,109 @@ curtose_G2 <- kurtosis(G2)
 # Curtose - Grupo 3
 curtose_G3 <- kurtosis(G3)
 
-curtose_G1
-curtose_G2
-curtose_G3
-
 ```
+
+```{r}
+#| label: tbl-assimetria-curtose
+#| tbl-cap: "Coeficientes de assimetria e curtose da resistência à compressão"
+#| echo: false
+
+# Classificação da assimetria
+classificar_assimetria <- function(x) {
+  if (x > 0) {
+    "Assimetria positiva"
+  } else if (x < 0) {
+    "Assimetria negativa"
+  } else {
+    "Simétrica"
+  }
+}
+
+# Classificação da curtose
+classificar_curtose <- function(x) {
+  if (x > 3) {
+    "Leptocúrtica"
+  } else if (x < 3) {
+    "Platicúrtica"
+  } else {
+    "Mesocúrtica"
+  }
+}
+
+tabela_forma <- data.frame(
+  `Medida` = c(
+    "Assimetria",
+    "Curtose"
+  ),
+  
+  `Grupo 1<br>(A/C = 0,50)` = c(
+    round(assim_G1, 2),
+    round(curtose_G1, 2)
+  ),
+  
+  `Interpretação` = c(
+    classificar_assimetria(assim_G1),
+    classificar_curtose(curtose_G1)
+  ),
+  
+  `Grupo 2<br>(A/C = 0,60)` = c(
+    round(assim_G2, 2),
+    round(curtose_G2, 2)
+  ),
+  
+  `Interpretação` = c(
+    classificar_assimetria(assim_G2),
+    classificar_curtose(curtose_G2)
+  ),
+  
+  `Grupo 3<br>(A/C = 0,70)` = c(
+    round(assim_G3, 2),
+    round(curtose_G3, 2)
+  ),
+  
+  `Interpretação` = c(
+    classificar_assimetria(assim_G3),
+    classificar_curtose(curtose_G3)
+  ),
+  
+  check.names = FALSE
+)
+
+knitr::kable(
+  tabela_forma,
+  format = "html",
+  align = c("l", "c", "l", "c", "l", "c", "l"),
+  escape = FALSE
+) |>
+  kableExtra::kable_styling(
+    bootstrap_options = "condensed",
+    full_width = FALSE,
+    position = "center"
+  )
+```
+
+Para a análise da assimetria, foram considerados os dados agrupados em classes de frequência, utilizando a função `skewness()` do pacote `leem`. Os valores obtidos foram `AS = 0,22`para o Grupo 1 (A/C = 0,50) e `AS = 0`para os Grupos 2 e 3 (A/C = 0,60 e 0,70, respectivamente). O valor positivo observado no Grupo 1 indica uma assimetria positiva, isto é, uma pequena tendência de deslocamento da distribuição para valores mais elevados de resistência. Entretanto, a magnitude do coeficiente é reduzida, indicando que essa assimetria é pouco acentuada. Essa característica é compatível com a representação gráfica da distribuição, na qual os resultados permanecem relativamente concentrados em torno da região central (@fig-hist-g1).
+
+Nos Grupos 2 e 3, o coeficiente de assimetria foi igual a zero, indicando distribuições simétricas segundo a medida utilizada. Além disso, conforme observado nas @fig-hist-g2 e @fig-hist-g3, os valores da média, mediana e moda para os dados agrupados são praticamente iguais. Assim, nesses grupos, não foi identificada predominância de uma cauda em relação à outra. Dessa forma, os valores de resistência apresentam comportamento equilibrado em torno de sua região central. A comparação entre os três grupos indica, portanto, que a alteração da relação água/cimento não produziu, nos dados simulados, uma mudança expressiva na assimetria das distribuições.
+
+Em relação à curtose, os valores calculados por meio da função `kurtosis()` do pacote `moments` foram 2,199 para o Grupo 1, 2,109 para o Grupo 2 e 2,109 para o Grupo 3 (@tbl-assimetria-curtose). Como a medida utilizada corresponde à curtose de Pearson, a distribuição normal possui valor de referência igual a 3. Dessa forma, os três grupos apresentaram valores inferiores a 3, caracterizando distribuições platicúrticas [@souz2023analises].
+
+```{r}
+#| label: fig-curtose
+#| fig-cap: "Representação didática das Medidas de Curtose"
+#| echo: false
+showkur()
+```
+
+A classificação platicúrtica indica, em comparação com uma distribuição normal, uma distribuição relativamente mais achatada, com menor concentração central, tendendo a produzir menos outliers e menos extremos [@souz2023analises]. Os resultados mostram ainda que o Grupo 1 apresentou o maior coeficiente de curtose entre os três grupos, embora ainda inferior a 3. Os Grupos 2 e 3 apresentaram valores praticamente idênticos, indicando comportamento semelhante quanto à curtose.
+
+A representação gráfica da curtose (@fig-curtose) auxilia na compreensão desses resultados, uma vez que permite comparar visualmente as formas leptocúrtica, mesocúrtica e platicúrtica. Entretanto, essas curvas possuem caráter interpretativo e didático, enquanto a classificação dos grupos foi realizada quantitativamente a partir dos coeficientes calculados. Assim, a classificação dos três conjuntos como platicúrticos não decorre da inspeção visual, mas da comparação dos valores obtidos com o valor de referência K=3.
+
+Do ponto de vista da Engenharia Civil, os resultados indicam que os três conjuntos apresentam comportamento relativamente regular quanto à forma das distribuições. A pequena assimetria positiva observada no Grupo 1 e a simetria dos Grupos 2 e 3 sugerem que não houve concentração acentuada de resultados em apenas uma das extremidades das distribuições. 
+
+É importante destacar, entretanto, que essas conclusões estão relacionadas aos dados simulados utilizados neste estudo. Em um processo real de produção de concreto, alterações no formato da distribuição poderiam estar associadas à variabilidade da dosagem, homogeneização da mistura, características dos agregados, quantidade efetiva de água, procedimentos de moldagem e adensamento, condições de cura e execução do ensaio. Portanto, a assimetria e a curtose constituem medidas complementares para identificar características da distribuição, mas sua interpretação, em aplicações de controle tecnológico, deve ser realizada conjuntamente com as medidas de posição e dispersão.
+
+
 
 ## 🧠 Considerações finais
 
