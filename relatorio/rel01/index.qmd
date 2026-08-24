@@ -45,7 +45,7 @@ Utilizar o ambiente R e o pacote leem como ferramentas de apoio à análise esta
 
 ### Objetivos específicos
 
-- Compreender os principais fundamentos do ambiente R e da linguagem utilizada para manipulação e análise de dados;
+- Compreender os principais fundamentos do ambiente R e da linguagem utilizada para manipulação e análise de dados,  baseado no livro de Batista e Oliveira (@Rbasico2022), nas 26 vídeo-aulas do curso R Básico 2024;
 
 - Revisar conceitos fundamentais de estatística descritiva;
 
@@ -112,7 +112,7 @@ Assim, compreender os conceitos de sintaxe e semântica é fundamental para util
 #### Capítulo 1: Definições gerais da Estatística e técnicas de somatórios
 
 O primeiro capítulo do livro Estatística & Probabilidade aplicada às Engenharias e Ciências 
-(EPAEC) @batista2024estatistica, apresenta a Estatística como uma área importante para a coleta, organização, análise e interpretação de dados. Seu objetivo é transformar informações em resultados que possam auxiliar na compreensão de situações e na tomada de decisões.
+(EPAEC) [@batista2024estatistica], apresenta a Estatística como uma área importante para a coleta, organização, análise e interpretação de dados. Seu objetivo é transformar informações em resultados que possam auxiliar na compreensão de situações e na tomada de decisões.
 
 O conteúdo apresenta três áreas principais da Estatística: Estatística Descritiva, Probabilidade e Estatística Inferencial. A Estatística Descritiva organiza e apresenta os dados por meio de tabelas, gráficos e medidas. A Probabilidade trabalha com situações que envolvem incerteza, enquanto a Estatística Inferencial utiliza dados de uma amostra para obter conclusões sobre uma população. Além disso, o capítulo trás a importância da Estatística na pesquisa científica. Uma pesquisa envolve diferentes etapas, como definição do problema, elaboração de hipóteses, escolha da amostra, coleta e organização dos dados, análise dos resultados e elaboração das conclusões.
 
@@ -195,6 +195,7 @@ A assimetria permite observar o formato da distribuição e verificar se os valo
 1º Coeficiente de assimetria de Pearson:
 
 $$AS = (x̄ - Mo) / S$$
+
 2º Coeficiente de assimetria de Pearson:
 
 $$As = (3 * (x̄ - Med)) / S$$
@@ -208,7 +209,7 @@ AS < 0, diz-se que a distribuição é assimétrica negativa.
 
 A curtose, por sua vez, está relacionada à concentração dos dados na região central e ao comportamento das extremidades da distribuição. Uma curtose mais elevada pode indicar maior presença de valores extremos e caudas mais pesadas, enquanto uma curtose menor está associada a uma distribuição mais achatada e com menor intensidade nas caudas. 
 
-A curtose de uma distribuição normal é 3. Se uma dada distribuição tem uma curtose menor que 3, ela tende a produzir menos outliers e menos extremos do que a distribuição normal. Se uma dada distribuição tem uma curtose maior que 3, ela tende a produzir mais outliers do que a distribuição normal. Para fazer esses testes vamos utilizar o pacote moments. [@moral2025areaskewness]
+A curtose de uma distribuição normal é 3. Se uma dada distribuição tem uma curtose menor que 3, ela tende a produzir menos outliers e menos extremos do que a distribuição normal. Se uma dada distribuição tem uma curtose maior que 3, ela tende a produzir mais outliers do que a distribuição normal. Para fazer esses testes vamos utilizar o pacote moments. [@moral2025]
 
 Assim, assimetria e curtose são características que ajudam a compreender melhor o formato de uma distribuição. Enquanto a assimetria está relacionada ao equilíbrio dos dados em torno do centro, a curtose ajuda a analisar a concentração central e a presença de valores extremos.
 
@@ -808,19 +809,11 @@ A realização da prática possibilitou aplicar os principais conceitos de estat
 
 Os resultados demonstraram uma redução da resistência média à compressão com o aumento da relação água/cimento. As médias obtidas foram aproximadamente 40,48 MPa para A/C = 0,50, 35,25 MPa para A/C = 0,60 e 30,25 MPa para A/C = 0,70, evidenciando uma tendência de redução da resistência à medida que a quantidade relativa de água aumenta.
 
-As medidas de dispersão indicaram baixa variabilidade dentro dos três grupos. Os coeficientes de variação foram de 2,61%, 2,84% e 3,31%, respectivamente, indicando que, apesar da proximidade dos desvios-padrão, a variabilidade relativa foi maior no grupo com A/C = 0,70.
-
-A análise de assimetria e curtose também contribuiu para a compreensão da forma das distribuições. Observou-se assimetria de 0,22 para o Grupo 1 e valores iguais a zero para os Grupos 2 e 3, enquanto os valores de curtose foram aproximadamente 2,20, 2,11 e 2,11, respectivamente. Esses resultados complementam a interpretação das distribuições e demonstram a importância de utilizar diferentes medidas estatísticas para uma caracterização mais completa dos dados.
+As medidas de dispersão indicaram baixa variabilidade dentro dos três grupos. Os coeficientes de variação foram de 2,61%, 2,84% e 3,31%, respectivamente, indicando que, apesar da proximidade dos desvios-padrão, a variabilidade relativa foi maior no grupo com A/C = 0,70. A análise de assimetria e curtose também contribuiu para a compreensão da forma das distribuições. Observou-se assimetria de 0,22 para o Grupo 1 e valores iguais a zero para os Grupos 2 e 3, enquanto os valores de curtose foram aproximadamente 2,20, 2,11 e 2,11, respectivamente. Esses resultados complementam a interpretação das distribuições e demonstram a importância de utilizar diferentes medidas estatísticas para uma caracterização mais completa dos dados.
 
 Além dos resultados numéricos, a prática evidenciou a importância do domínio dos fundamentos estatísticos para a utilização adequada de ferramentas computacionais. O R e o pacote `leem` tornam os cálculos, as representações gráficas e a organização dos resultados mais eficientes, porém a interpretação adequada depende da compreensão dos conceitos estatísticos e de sua relação com o fenômeno analisado.
 
-Por fim, ressalta-se que os dados utilizados possuem caráter simulado e finalidade didática. Portanto, os resultados não devem ser interpretados como uma avaliação experimental real do comportamento do concreto. Ainda assim, a prática permitiu atingir os objetivos propostos, integrando conhecimentos de programação em R, estatística descritiva e análise de dados aplicados à Engenharia Civil.
-
 ## 📖 Referências
 
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informações no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
+::: {#refs}
+:::
