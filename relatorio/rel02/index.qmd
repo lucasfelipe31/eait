@@ -1,6 +1,6 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
+author: "Bruno Henrique e Lucas Felipe"
 title: "Relatório de Aula Prática 02"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
@@ -24,8 +24,14 @@ execute:
   warning: false
   message: false
 ---
-
-
+```{r}
+dados <- read.csv2(
+  "base_processamento_dados_engenharia_civil.csv",
+  stringsAsFactors = FALSE,
+  check.names = FALSE,
+  na.strings = ""
+)
+```
 ## 📌 Introdução
 
 Descreva o contexto da prática e sua importância.
@@ -78,21 +84,47 @@ Descreva como o experimento foi realizado.
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
+### Etapa 1 - Conhecendo a base
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
+```{r}
+dados <- read.csv2(
+  "base_processamento_dados_engenharia_civil.csv",
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+str(dados)
+summary(dados)
 
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
+c(
+observacoes = nrow(dados),
+variaveis = ncol(dados) # Número de observações e número de variáveis
+)
+str(dados) # Descrição da estrutura da base
+```
 
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
+A base possui 100 observações e 10 variáveis, relacionadas a corpos de prova de concreto. O resumo permite identificar que existem variáveis de identificação e classificação, como id_corpo_prova, obra e tipo_concreto, além de variáveis relacionadas às características do concreto, como idade, resistência, consumo de cimento, relação água/cimento, abatimento, densidade e absorção do agregado.
 
-Procure não apenas descrever, mas **interpretar os dados**.
+Um aspecto que chama bastante atenção é a presença de valores ausentes (NA) em algumas variáveis. Isso indica que nem todas as informações foram registradas para os 100 corpos de prova. Também chama atenção a existência de valores extremos, especialmente nas variáveis relacionadas ao abatimento e à absorção do agregado, que merecem uma investigação mais detalhada antes de serem utilizados em análises estatísticas.
+
+Outro ponto importante é que algumas variáveis que representam grandezas numéricas podem aparecer como character quando a base é importada, dependendo da forma como os dados foram registrados. Por isso, a análise da estrutura com str(dados) é complementar ao summary(dados) e ajuda a verificar se cada variável foi interpretada corretamente.
+
+Em síntese: o resumo indica uma base relativamente pequena, com 100 corpos de prova, mas que apresenta dados ausentes e possíveis valores atípicos, aspectos que devem ser verificados antes da realização das análises estatísticas subsequentes.
+
+```{r}
+dados$relacao_a_c
+```
+A estrutura apresentada pelo str(dados) mostra que a base possui 100 observações e 10 variáveis. Apenas idade_dias foi reconhecida pelo R como numérica (int), enquanto as demais aparecem como character (chr). Embora algumas sejam realmente qualitativas, como obra e tipo_concreto, outras são quantitativas, como resistencia_mpa e cimento_kg_m3, mas foram armazenadas como texto devido a problemas de formatação, como vírgulas decimais, valores vazios ou caracteres inadequados.
+
+```{r}
+# Verificar valores ausentes
+is.na(dados)
+
+# Contar o total de valores ausentes
+sum(is.na(dados))
+
+# Verificar os valores ausentes por variável
+sapply(dados, function(x) sum(is.na(x)))
+```
 
 ### 💬 Exemplo de como citar uma referência bibliográfica
 
