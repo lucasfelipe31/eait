@@ -74,7 +74,28 @@ A idade e as condições de moldagem e cura devem ser consideradas conjuntamente
 
 ## ⚙️ Metodologia
 
+O desenvolvimento do trabalho foi realizado por meio do processamento e da análise de uma base de dados referente ao controle tecnológico do concreto, composta por 100 observações e 10 variáveis. As atividades foram executadas utilizando a linguagem R, priorizando recursos de Base R abordados na disciplina.
 
+
+### Etapas Metodológicas
+
+- Inicialmente, foi realizada a inspeção da base de dados, contemplando sua importação, identificação do número de observações e variáveis, análise da estrutura, tipos das variáveis e obtenção de um resumo geral das informações. Também foram verificadas a existência e a localização de valores ausentes, permitindo uma avaliação preliminar da qualidade dos dados.
+
+- Na segunda etapa, foi realizada a investigação de inconsistências, buscando identificar valores incompatíveis com o contexto do controle tecnológico do concreto, possíveis erros de digitação, problemas de ordem de grandeza e diferenças na forma de registro das categorias. Foram analisadas variáveis relacionadas à idade dos corpos de prova, resistência à compressão, abatimento, densidade, relação água/cimento e absorção, além da padronização das variáveis qualitativas obra e tipo_concreto.
+
+- Posteriormente, foi criada uma cópia da base original, denominada dados_limpos, utilizada para o processo de tratamento e organização dos dados, preservando-se a base inicial para fins de comparação. Nessa etapa foram corrigidas inconsistências identificadas, padronizadas categorias, ajustados os tipos das variáveis e avaliadas as estratégias mais adequadas para o tratamento dos valores ausentes. Ao final da limpeza, a estrutura e o resumo da nova base foram novamente analisados para verificar as alterações realizadas.
+
+- Com os dados tratados, iniciou-se a análise exploratória, sendo calculadas resistências médias gerais e agrupadas por bloco da obra, tipo de concreto e idade dos corpos de prova. Também foram realizadas comparações entre os diferentes blocos e classes de concreto, além da aplicação da função aggregate() para obtenção de estatísticas das principais propriedades do concreto.
+
+- Em seguida, foram criadas variáveis derivadas, como a resistência relativa, a classificação dos corpos de prova e a indicação de desempenho acima ou abaixo da média de sua respectiva classe. Essas variáveis permitiram ampliar a interpretação dos resultados e estabelecer critérios de comparação entre os registros.
+
+- Também foram empregadas as funções split(), lapply(), sapply() e apply() para explorar diferentes formas de agrupamento, processamento e sumarização dos dados. Foram comparados os resultados obtidos por essas abordagens, considerando aspectos como simplicidade, legibilidade e eficiência do código.
+
+- Na etapa seguinte, foram utilizadas estruturas de programação for e if para percorrer individualmente as observações e identificar corpos de prova com resistência superior à média de sua classe. Posteriormente, o mesmo procedimento foi realizado por meio de uma abordagem vetorizada, possibilitando a comparação entre as duas estratégias de programação.
+
+- Depois, foi realizada uma análise aplicada à prática profissional, investigando afirmações relacionadas ao desempenho dos blocos, à influência do consumo de cimento e à relação água/cimento sobre a resistência do concreto, além da evolução da resistência em função da idade dos corpos de prova. A partir dessas análises, foram selecionadas informações estatísticas consideradas relevantes para subsidiar a elaboração de um relatório destinado ao engenheiro responsável.
+
+- Como etapa final, foi elaborado um script organizado em R, reunindo os procedimentos de inspeção, diagnóstico, limpeza, criação de variáveis e análise estatística. A organização do código buscou garantir clareza, rastreabilidade e facilidade de interpretação, de modo que os procedimentos pudessem ser reproduzidos e compreendidos por outro profissional da área. Dessa forma, a metodologia adotada permitiu transformar uma base de dados inicialmente sujeita a inconsistências em um conjunto de informações estruturadas e adequado à análise descritiva e ao apoio à tomada de decisões na Engenharia Civil.
 
 ## 🔍 Resultados e Discussão
 
