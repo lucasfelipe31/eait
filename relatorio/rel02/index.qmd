@@ -34,53 +34,47 @@ dados <- read.csv2(
 ```
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+O controle tecnológico do concreto é essencial para avaliar a qualidade dos materiais e acompanhar o desempenho dos elementos executados em uma obra. Para que essas avaliações sejam confiáveis, é necessário que os dados obtidos em ensaios e registros de campo estejam organizados, completos e coerentes com as características analisadas.
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Na prática da Engenharia Civil, informações provenientes de diferentes profissionais e fontes podem apresentar falhas de preenchimento, divergências de padronização, valores ausentes e erros de registro. Por isso, o tratamento inicial da base de dados constitui uma etapa indispensável antes da realização de análises estatísticas.
 
-
+Neste trabalho, será utilizada a linguagem R, com ênfase nos recursos de Base R, para avaliar uma base de dados relacionada ao controle tecnológico do concreto. Serão realizadas etapas de verificação, correção, padronização e análise exploratória, buscando identificar inconsistências e obter informações que contribuam para uma interpretação adequada dos dados e para o suporte à tomada de decisões na Engenharia Civil.
 
 ## 🎯 Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Executar o tratamento, a validação, a limpeza e a análise exploratória de uma base de dados proveniente do controle tecnológico do concreto, visando à identificação de inconsistências, erros de registro, dados discrepantes e possíveis não conformidades. Além disso, realizar a padronização das variáveis e categorias da base, bem como o processamento de medidas estatísticas descritivas, de modo a subsidiar a avaliação do desempenho e da qualidade do concreto e fornecer informações quantitativas para apoiar a análise técnica e a tomada de decisão pelo profissional responsável.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Caracterizar a estrutura da base de dados;
+- Verificar a integridade e consistência dos dados;
+- Identificar valores discrepantes e possíveis erros de digitação;
+- Padronizar as variáveis categóricas e qualitativas;
+- Avaliar a distribuição dos dados quantitativos;
+- Elaborar tabelas de frequência e representações gráficas;
+- Analisar estatisticamente os resultados do controle tecnológico;
+- Detectar possíveis registros ou resultados que demandem investigação técnica;
+- Organizar uma base de dados tratada e padronizada;
+- Produzir informações estatísticas que subsidiem a avaliação da qualidade do concreto.
 
 ---
 
 ## 📚  Fundamentação Teórica
 
-Apresente os conceitos principais:
+### Conceitos tecnológicos do concreto
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+A caracterização tecnológica do concreto envolve variáveis relacionadas à sua composição, ao estado fresco e ao desenvolvimento de suas propriedades mecânicas. Na base de dados analisada, são consideradas a classe do concreto, a idade do corpo de prova, a resistência à compressão, o consumo de cimento, a relação água/cimento, o abatimento, a densidade e a absorção de água do agregado. Entre essas variáveis, a resistência à compressão, a idade de ensaio e o abatimento apresentam fundamentação normativa direta nos documentos analisados.
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+A resistência à compressão constitui uma propriedade fundamental para a avaliação do desempenho mecânico do concreto. Conforme a ABNT NBR 5739:2018, sua determinação é realizada por meio do ensaio de corpos de prova cilíndricos, sendo a resistência calculada a partir da força máxima aplicada e da área da seção transversal do corpo de prova, com resultado expresso em MPa (ABNT, 2018). A idade também constitui uma variável essencial, pois o ensaio deve ser realizado em idade especificada, sendo a idade dos corpos de prova moldados conforme a NBR 5738 contada a partir da moldagem (ABNT, 2018). A norma apresenta, entre outras, as idades de 7 e 28 dias, além de 63 e 91 dias, e estabelece critérios de tolerância para a realização dos ensaios. 
 
----
+No estado fresco, o abatimento é utilizado como indicador da consistência do concreto. A ABNT NBR 16889:2020 estabelece o procedimento para sua determinação por meio do abatimento do tronco de cone e determina que o resultado seja expresso em milímetros, com arredondamento para os 5 mm mais próximos (ABNT, 2020). A NBR 5738 também utiliza o abatimento como parâmetro para definir o procedimento de adensamento dos corpos de prova, evidenciando sua importância para a moldagem e para a obtenção de resultados representativos. 
+A idade e as condições de moldagem e cura devem ser consideradas conjuntamente com a resistência obtida. A ABNT NBR 5738 estabelece procedimentos específicos para moldagem e cura dos corpos de prova, incluindo condições controladas de armazenamento durante a cura, enquanto a NBR 5739 determina que os corpos de prova permaneçam em condições adequadas de cura até a idade do ensaio (ABNT, 2015; ABNT, 2018). 
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
-
----
 
 ## 🔍 Resultados e Discussão
 
@@ -126,19 +120,202 @@ sum(is.na(dados))
 sapply(dados, function(x) sum(is.na(x)))
 ```
 
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
+### Etapa 2 - Investigando problemas nos dados
 
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+
+# --- Questão 7: Localizando observações problemáticas usando for ---
+
+# Vetor com o nome de todas as colunas que deveriam ser puramente numéricas
+colunas_quantitativas <- c(
+  "resistencia_mpa", "cimento_kg_m3", "relacao_a_c", 
+  "abatimento_mm", "densidade_kg_m3", "absorção_agregado_pct"
+)
+
+cat("Verificando problemas de coerção nas variáveis quantitativas:\n")
+
+# Inicia o loop para percorrer cada uma das colunas listadas acima
+for (coluna in colunas_quantitativas) {
+  
+  # Tenta forçar a conversão para numérico. 
+  # O suppressWarnings esconde o aviso "NAs introduzidos por coerção" da tela
+  vetor_numerico <- suppressWarnings(as.numeric(dados[[coluna]]))
+  
+  # Identifica os erros: virou NA na conversão matemática, mas 
+  # NÃO era um NA original de fábrica e NÃO era uma célula em branco ""
+  erros <- is.na(vetor_numerico) & !is.na(dados[[coluna]]) & dados[[coluna]] != ""
+  
+  # Se o R encontrou algum erro (any = verdadeiro), ele imprime a variável e o erro
+  if (any(erros)) {
+    cat("\n-> Problema(s) detectado(s) na variável '", coluna, "':\n", sep="")
+    print(dados[[coluna]][erros])
+  }
+}
+
+if ("id_corpo_prova" %in% names(dados)) {
+  erros_digitacao <- subset(
+    dados,
+    trimws(id_corpo_prova) %in% c("CP-008", "CP-019", "CP-045", "CP-064")
+  )
+  print(erros_digitacao)}
 ```
+```{r}
+# --- Questão 9:
+  
+  # Exibe todas as categorias cadastradas e quantas vezes aparecem
+table(dados$obra)
+
+# Localiza a observação exata que possui o espaço em branco indesejado
+inconsistencia_obra <- subset(dados, obra == "Bloco B ")
+inconsistencia_obra
+```
+```{r}
+# --- Questão 10:
+  
+# Exibe todas as categorias cadastradas
+table(dados$tipo_concreto)
+
+# Localiza a observação exata que foi digitada com 'c' minúsculo
+inconsistencia_concreto <- subset(dados, tipo_concreto == "c30")
+inconsistencia_concreto
+```
+
+### Etapa 3 - Limpeza da Base
+
+```{r}
+# --- Questão 12:
+dados_limpos <- dados
+```
+```{r}
+# --- Questão 13:
+dados_limpos$obra <- trimws(toupper(dados_limpos$obra))
+dados_limpos$tipo_concreto <- trimws(toupper(dados_limpos$tipo_concreto))
+```
+```{r}
+# --- Questão 14:
+
+colunas_corrigir <- c("resistencia_mpa", "cimento_kg_m3", "relacao_a_c")
+
+for (col in colunas_corrigir) {
+  # Substitui a letra 'O' por '0'
+  dados_limpos[[col]] <- gsub("O", "0", dados_limpos[[col]])
+  # Substitui ',' por '.'
+  dados_limpos[[col]] <- gsub(",", ".", dados_limpos[[col]])
+  # Converte para numérico
+  dados_limpos[[col]] <- as.numeric(dados_limpos[[col]])
+}
+```
+```{r}
+# --- Questão 15:
+
+dados_limpos$idade_dias <- ifelse(dados_limpos$idade_dias == 280, 28, dados_limpos$idade_dias)
+dados_limpos$abatimento_mm <- ifelse( dados_limpos$abatimento_mm == 1250,125,dados_limpos$abatimento_mm)
+dados_limpos$densidade_kg_m3 <- ifelse(dados_limpos$densidade_kg_m3 == 238,2380, dados_limpos$densidade_kg_m3)
+dados_limpos$absorção_agregado_pct <- as.numeric(gsub(",", ".", dados_limpos$absorção_agregado_pct))
+dados_limpos$absorção_agregado_pct <- ifelse(dados_limpos$absorção_agregado_pct > 18,dados_limpos$absorção_agregado_pct / 10,
+dados_limpos$absorção_agregado_pct)
+```
+```{r}
+
+# --- Questão 16:
+# Depois da limpeza, verifique novamente:
+str(dados_limpos)
+summary(dados_limpos)
+# O que mudou em relação à base original?
+```
+### Etapa 4 - Explorando os dados
+
+```{R}
+
+# --- Questão 17:
+
+# Resistência média geral
+mean(dados_limpos$resistencia_mpa)
+
+# Resistência média por bloco da obra
+tapply(dados_limpos$resistencia_mpa,
+       dados_limpos$obra,
+       mean)
+
+# Resistência média por tipo de concreto
+tapply(dados_limpos$resistencia_mpa,
+       dados_limpos$tipo_concreto,
+       mean)
+
+# Resistência média por idade
+tapply(dados_limpos$resistencia_mpa,
+       dados_limpos$idade_dias,
+       mean)
+```
+```{R}
+
+# --- Questão 18:
+
+medias_obra <- tapply(dados_limpos$resistencia_mpa,
+                      dados_limpos$obra,
+                      mean)
+
+medias_obra
+
+# Maior resistência média
+names(which.max(medias_obra))
+
+# Menor resistência média
+names(which.min(medias_obra))
+```
+```{R}
+
+# --- Questão 19:
+medias_concreto <- tapply(dados_limpos$resistencia_mpa,
+                          dados_limpos$tipo_concreto,
+                          mean)
+
+medias_concreto
+
+# Maior resistência média
+names(which.max(medias_concreto))
+```
+```{R}
+# --- Questão 20:
+aggregate(
+  cbind(
+    resistencia_mpa,
+    cimento_kg_m3,
+    relacao_a_c,
+    abatimento_mm,
+    densidade_kg_m3
+  ) ~ tipo_concreto,
+  data = dados_limpos,
+  FUN = mean,
+  na.rm = TRUE
+)
+```
+### Etapa 5 - Criando novas variáveis
+
+```{R}
+# --- Questão 21:
+dados_limpos$resistencia_ref <- as.numeric(gsub("C", "", dados_limpos$tipo_concreto))
+dados_limpos$resistencia_relativa <- dados_limpos$resistencia_mpa / dados_limpos$resistencia_ref
+```
+```{R}
+# --- Questão 22:
+dados_limpos$classificacao <- ifelse(dados_limpos$resistencia_mpa >= dados_limpos$resistencia_ref, "Aprovado", "Reprovado")
+```
+```{R}
+# --- Questão 23:
+dados_limpos$acima_media <- with(
+  dados_limpos,
+  resistencia_mpa > ave(resistencia_mpa, tipo_concreto, FUN = function(x) mean(x, na.rm = TRUE))
+)
+```
+
+### Etapa 6 - Utilizando split(), lapply() e sapply()
+
+### Etapa 7 - Utilizando apply()
+
+### Etapa 8 - Estruturas for e if
+
+### Etapa 9 - Questões próximas da prática profissional
 
 ## 🧠 Considerações finais
 
