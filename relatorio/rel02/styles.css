@@ -1,0 +1,37 @@
+
+/* ================================
+   FORMATAÇÃO DO TEXTO
+   ================================ */
+
+#quarto-document-content p {
+  text-align: justify !important;
+  text-indent: 1.25cm;
+  line-height: 1.5;
+  margin-bottom: 0.8em;
+}
+
+/* Parágrafos dentro de listas */
+#quarto-document-content li p {
+  text-align: justify !important;
+  text-indent: 0;
+}
+
+/* Itens de listas */
+#quarto-document-content li {
+  text-align: justify !important;
+}
+
+.tabela-dados {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Figuras centralizadas */
+.figure {
+  text-align: center;
+}
+
+.figure-caption {
+  text-align: center;
+}
