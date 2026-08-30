@@ -60,13 +60,13 @@ Executar o tratamento, a validação, a limpeza e a análise exploratória de um
 
 A caracterização tecnológica do concreto envolve variáveis relacionadas à sua composição, ao estado fresco e ao desenvolvimento de suas propriedades mecânicas. Na base de dados analisada, são consideradas a classe do concreto, a idade do corpo de prova, a resistência à compressão, o consumo de cimento, a relação água/cimento, o abatimento, a densidade e a absorção de água do agregado. Entre essas variáveis, a classe do concreto, a resistência à compressão, a idade de ensaio, o abatimento e as propriedades físicas de massa específica e absorção apresentam fundamentação normativa direta nos documentos analisados.
 
-A classificação estrutural e a resistência à compressão constituem propriedades fundamentais para a avaliação do desempenho do concreto. Conforme @nbr8953, o concreto é classificado em função de sua massa específica, resistência e consistência, devendo apresentar resistência característica à compressão ($f_{ck}$) determinada em corpos de prova moldados e rompidos segundo normas específicas. A determinação desta resistência é regulamentada pela ABNT NBR 5739, sendo realizada por meio do ensaio de compressão em corpos de prova cilíndricos [@nbr5739]. A resistência é calculada dividindo-se a força máxima alcançada pela área da seção transversal do corpo de prova, com o resultado expresso em megapascals (MPa). A idade também constitui uma variável essencial, devendo o ensaio respeitar tolerâncias estritas; para o rompimento aos 28 dias, a norma estabelece uma tolerância máxima de 24 horas [@nbr5739].
+A classificação estrutural e a resistência à compressão constituem propriedades fundamentais para a avaliação do desempenho do concreto. Conforme @nbr8953, o concreto é classificado em função de sua massa específica, resistência e consistência, devendo apresentar resistência característica à compressão ($f_{ck}$) determinada em corpos de prova moldados e rompidos segundo normas específicas. A determinação desta resistência é regulamentada pela ABNT NBR 5739, sendo realizada por meio do ensaio de compressão em corpos de prova cilíndricos [@nbr5739]. A resistência é calculada dividindo-se a força máxima alcançada pela área da seção transversal do corpo de prova, com o resultado expresso em megapascals (MPa). A idade também constitui uma variável essencial, devendo o ensaio respeitar tolerâncias estritas; para o rompimento aos 28 dias, a norma estabelece uma tolerância máxima de 24 horas.
 
-No estado fresco, o abatimento é utilizado como indicador da consistência do concreto. Segundo @nbr16889 o método de ensaio por meio do molde tronco-cônico é aplicável a concretos plásticos e coesos. O resultado do abatimento deve ser medido pela diferença entre a altura do molde e a altura do eixo do corpo de prova desmoldado, sendo expresso em milímetros e arredondado aos 5 mm mais próximos [@nbr16889]. O abatimento também dita o método de adensamento na moldagem: a ABNT NBR 5738 determina que concretos com abatimento entre 10 mm e 50 mm requerem adensamento mecânico, enquanto abatimentos acima de 160 mm exigem adensamento manual [@nbr5738].
+No estado fresco, o abatimento é utilizado como indicador da consistência do concreto. Segundo @nbr16889 o método de ensaio por meio do molde tronco-cônico é aplicável a concretos plásticos e coesos. O resultado do abatimento deve ser medido pela diferença entre a altura do molde e a altura do eixo do corpo de prova desmoldado, sendo expresso em milímetros e arredondado aos 5 mm mais próximos. O abatimento também dita o método de adensamento na moldagem: a ABNT NBR 5738 determina que concretos com abatimento entre 10 mm e 50 mm requerem adensamento mecânico, enquanto abatimentos acima de 160 mm exigem adensamento manual [@nbr5738].
 
-A idade, bem como as condições de moldagem e cura, devem ser consideradas conjuntamente com a resistência obtida. Os corpos de prova devem ser armazenados sob cura inicial protegidos de intempéries e perda de água nas primeiras 24 horas [@nbr5738]. Posteriormente, para fins de comprovação da qualidade, devem ser mantidos em câmara úmida ou imersos em água saturada de hidróxido de cálcio à temperatura de 23 ± 2 °C até o momento do ensaio [@nbr5738].
+A idade, bem como as condições de moldagem e cura, devem ser consideradas conjuntamente com a resistência obtida. Os corpos de prova devem ser armazenados sob cura inicial protegidos de intempéries e perda de água nas primeiras 24 horas. Posteriormente, para fins de comprovação da qualidade, devem ser mantidos em câmara úmida ou imersos em água saturada de hidróxido de cálcio à temperatura de 23 ± 2 °C até o momento do ensaio [@nbr5738].
 
-Por fim, as propriedades físicas do material no estado endurecido são avaliadas segundo @nbr9778. Esta norma prescreve a determinação da massa específica (densidade) e da absorção de água por imersão. A absorção é quantificada pela relação percentual do incremento de massa do corpo sólido, devido à penetração de água em seus poros permeáveis (após saturação e fervura por 5 horas), em relação à sua massa seca em estufa a 105 ± 5 °C [@nbr9778].
+Por fim, as propriedades físicas do material no estado endurecido são avaliadas segundo @nbr9778. Esta norma prescreve a determinação da massa específica (densidade) e da absorção de água por imersão. A absorção é quantificada pela relação percentual do incremento de massa do corpo sólido, devido à penetração de água em seus poros permeáveis (após saturação e fervura por 5 horas), em relação à sua massa seca em estufa a 105 ± 5 °C.
 
 
 ### Estatística descritiva aplicada à Engenharia
@@ -212,21 +212,24 @@ dados <- read.csv2(
   check.names = FALSE,
   na.strings = ""
 )
+```
 
+```{r}
+#| echo: false
 # Contar o total de valores ausentes na base
 sum(is.na(dados))
 
 # Verificar os valores ausentes por variável
 sapply(dados, function(x) sum(is.na(x)))
 
-```
-```{r}
 # Isola todas as linhas que possuem pelo menos um valor ausente
 linhas_ausentes <- dados[!complete.cases(dados), ]
 
 # Imprime as observações completas na tela
 linhas_ausentes
 ```
+
+
 Foram identificados `r sum(is.na(dados))` valores ausentes em toda a base de dados. Esses dados faltantes estão distribuídos pontualmente nas variáveis `r paste(names(which(sapply(dados, function(x) sum(is.na(x))) > 0)), collapse = ", ")`. As observações que apresentam esses furos correspondem aos corpos de prova `r paste(dados$id_corpo_prova[!complete.cases(dados)], collapse = ", ")`.
 
 
@@ -236,8 +239,9 @@ Quantidade total: Existem exatamente 5 valores ausentes em toda a base de dados.
 
 Variáveis afetadas: Eles aparecem pulverizados, sendo 1 valor ausente em cada uma das seguintes variáveis físicas: resistencia_mpa, relacao_a_c, abatimento_mm, densidade_kg_m3 e absorção_agregado_pct.
 
-Para identificar em quais observações os valores ausentes aparecem, utilizou-se a função complete.cases(), que avalia a integridade de cada linha da matriz de dados. Negando essa função com o operador lógico !, isolamos o subconjunto de linhas que continham ao menos uma célula vazia (agora oficialmente reconhecida como NA). O código revelou que as 5 ocorrências de dados faltantes estão distribuídas individualmente nos corpos de prova CP-015, CP-038, CP-077, CP-092 e CP-097.
+As observações em que os valores ausentes aparecem estão distribuídas individualmente nos corpos de prova CP-015, CP-038, CP-077, CP-092 e CP-097:
 ```{r}
+#| echo: false
 # Localiza as linhas que possuem pelo menos um valor ausente (linhas incompletas)
 linhas_ausentes <- dados[!complete.cases(dados), ]
 
@@ -255,7 +259,7 @@ linhas_ausentes$id_corpo_prova
 Para investigar possíveis problemas de qualidade dos dados, foram analisadas as variáveis quantitativas relacionadas às características do concreto, buscando identificar valores que apresentassem comportamento incompatível com o contexto da Engenharia Civil. A análise também buscou identificar valores com características que pudessem indicar erros de digitação ou inconsistências no preenchimento da base. O código desenvolvido permitiu localizar as observações potencialmente problemáticas e apresentar seus registros completos.
 
 ```{r}
-
+#| echo: false
 # Localizando observações problemáticas (uso de vírgula, erros de digitação) usando for
 # Criando Vetor com o nome de todas as colunas que deveriam ser puramente numéricas
 colunas_quantitativas <- c(
@@ -302,7 +306,7 @@ Assim, a análise não significa que todos os valores destacados sejam necessari
 
 Nesta etapa, foram investigadas possíveis inconsistências de ordem de grandeza nas variáveis relacionadas ao controle tecnológico do concreto. Para isso, foram estabelecidos limites de verificação coerentes com as características das variáveis, permitindo localizar automaticamente observações que apresentam valores potencialmente incompatíveis com a realidade da Engenharia Civil. Os registros identificados foram posteriormente analisados individualmente, distinguindo-se possíveis erros de digitação de valores que, embora extremos, possam representar situações reais.
 ```{r}
-
+#| echo: false
 # Valores incompatíveis com a Engenharia Civil
 
 # Para usar os operadores (> e <): criar vetores temporários convertendo as vírgulas para pontos.
@@ -336,14 +340,14 @@ Absorção (18,4%): Agregados convencionais possuem absorção na casa de 1% a 3
 
 Nesta etapa, será realizada a verificação da padronização das variáveis categóricas da base de dados, considerando obra e tipo_concreto. Essa análise é importante porque categorias que representam a mesma informação, mas estão registradas com grafias diferentes, podem ser interpretadas pelo R como categorias distintas, comprometendo a contagem, a organização e as análises posteriores. Assim, serão identificadas possíveis diferenças de grafia, abreviações ou outras inconsistências e verificado se elas representam, de fato, categorias diferentes ou apenas formas distintas de registrar a mesma informação.
 ```{r}
+#| echo: false
 # Exibe todas as categorias cadastradas e quantas vezes aparecem
 table(dados$obra)
 
 # Localiza a observação exata que possui o espaço em branco indesejado
 inconsistencia_obra <- subset(dados, obra == "Bloco B ")
 inconsistencia_obra
-```
-```{r}
+
 # Exibe todas as categorias cadastradas
 table(dados$tipo_concreto)
 
@@ -357,6 +361,7 @@ Para a variável tipo_concreto, foram encontradas as categorias C25, C30, C30, C
 
 
 ```{r}
+#| echo: false
 str(dados)
 ```
 
@@ -548,7 +553,10 @@ medias_bloco <- tapply(
   mean, 
   na.rm = TRUE
 )
+```
 
+```{r}
+#| echo: false
 # Imprime todas as médias calculadas para conferência
 print("Médias de Resistência por Bloco:")
 print(medias_bloco)
@@ -805,8 +813,57 @@ O código vetorizado é indiscutivelmente mais rápido e otimizado no R. No laç
 
 Nesta etapa, os dados serão analisados sob uma perspectiva próxima da prática profissional da Engenharia Civil, buscando transformar os resultados estatísticos em informações úteis para a tomada de decisão. 
 
+- Análise da afirmativa: “Os concretos utilizados no Bloco C apresentam desempenho superior aos utilizados nos demais blocos.”
+
+A afirmação acima está incorreta e é diretamente refutada pelas estatísticas descritivas da base. Ao realizar o agrupamento das médias, constata-se que o Bloco C apresentou a menor resistência à compressão de todo o empreendimento (aproximadamente 32,62 MPa). O melhor desempenho médio foi registrado no Bloco B (cerca de 35,68 MPa). 
+- Análise da afirmativa: “Quanto maior o consumo de cimento, maior tende a ser a resistência do concreto.”
+
+A premissa de que o aumento de cimento eleva a resistência possui fundamento teórico, mas é uma simplificação que pode ocasionar error se avaliada de forma isolada. Um consumo elevado de cimento não garantirá resistência superior se o volume de água na mistura também for excessivo. Para avaliar essa dinâmica corretamente, a variável cimento_kg_m3 deve ser obrigatoriamente analisada em conjunto com a variável relacao_a_c (fator água/cimento) e a idade_dias (momento do ensaio). O uso da correlação linear e do gráfico de dispersão abaixo expõe a dependência entre essas métricas operacionais:
+
+```{r}
+#| echo: false
+# Gráfico de dispersão para visualização da tendência
+plot(dados_limpos$cimento_kg_m3, dados_limpos$resistencia_mpa, 
+     main = "Consumo de Cimento vs Resistência",
+     xlab = "Cimento (kg/m³)", ylab = "Resistência (MPa)", pch = 19, col = "blue")
+```
+
+O gráfico de dispersão apresenta a relação entre o consumo de cimento (kg/m³), no eixo horizontal, e a resistência à compressão (MPa), no eixo vertical. Observa-se uma tendência positiva: de modo geral, os corpos de prova com maiores consumos de cimento apresentam também maiores resistências. Entretanto, existe uma dispersão considerável dos pontos, indicando que o consumo de cimento, isoladamente, não explica completamente a variação da resistência. Essa relação deve ser interpretada com cautela, pois a resistência do concreto depende da interação entre diferentes fatores.
+
+- Análise da Relação Água/Cimento e Resistência à Compressão
+
+A Lei de Abrams estabelece uma proporcionalidade inversa entre essas duas grandezas: volumes maiores de água geram maior índice de vazios e, consequentemente, menor resistência mecânica. Descritivamente, o gráfico e a correlação (código abaixo) devem apresentar uma forte tendência linear negativa. Caso a base de dados exiba uma correlação nula ou positiva, isso indicará uma falha severa nos registros, sugerindo erros sistemáticos na pesagem dos materiais na central de concreto, problemas no controle do teor de umidade da areia ou falhas no procedimento de adensamento e cura dos corpos de prova em laboratório.
+
+```{r}
+#| echo: false
+# Gráfico de dispersão entre Relação A/C e Resistência
+plot(
+  x = dados_limpos$relacao_a_c, 
+  y = dados_limpos$resistencia_mpa,
+  main = "Relação Água/Cimento vs Resistência à Compressão",
+  xlab = "Relação Água/Cimento (A/C)",
+  ylab = "Resistência (MPa)",
+  pch = 16,        # Círculos preenchidos
+  col = "darkblue" # Cor dos pontos
+)
+```
+
+O gráfico de dispersão evidencia uma clara tendência linear decrescente, confirmando na prática o princípio físico consagrado pela Lei de Abrams na tecnologia do concreto.
+Fica evidente que, à medida que a relação água/cimento aumenta no eixo horizontal, a resistência à compressão diminui no eixo vertical. O excesso de água na mistura gera um maior volume de poros capilares após a hidratação e secagem, o que reduz a densidade da matriz cimentícia e compromete diretamente a sua capacidade de suportar cargas.
+
+Em uma análise real de controle tecnológico, qualquer ponto (corpo de prova) que se afaste drasticamente dessa faixa diagonal de tendência negativa constitui uma anomalia grave. Pontos dispersos fora do padrão indicariam a necessidade de investigar imediatamente possíveis erros de pesagem de água na betoneira, falhas no capeamento e rompimento da prensa, ou erros de transcrição de dados no laboratório.
 
 
+- Evolução da Resistência com a Idade
+
+A resistência à compressão do concreto apresenta um crescimento assintótico com o tempo. A hidratação do cimento Portland ocorre rapidamente nos primeiros dias, gerando um ganho expressivo de resistência até os 7 dias, e segue em ritmo decrescente até estabilizar-se aos 28 dias (idade padrão de controle). Ao extrair as médias, espera-se que a resistência média do grupo de 28 dias seja significativamente superior à dos grupos de 7 ou 14 dias.
+
+```{r}
+#| echo: false
+aggregate(resistencia_mpa ~ idade_dias, data = dados_limpos, FUN = mean, na.rm = TRUE)
+```
+
+Observa-se que a resistência média aumenta de 28,78 MPa aos 7 dias para 34,74 MPa aos 14 dias. Entretanto, ocorre uma pequena redução nas médias aos 28 e 56 dias, atingindo 34,65 MPa e 33,12 MPa, respectivamente. Embora seja esperado, em condições controladas, um aumento da resistência com o avanço da idade, os resultados apresentados não permitem afirmar que essa tendência deva ocorrer necessariamente nas médias da base analisada. Como os grupos de diferentes idades podem apresentar diferentes características de composição e condições de ensaio, a redução observada aos 56 dias deve ser investigada considerando conjuntamente o tipo de concreto, a relação água/cimento, o consumo de cimento e a variabilidade dos resultados.
 
 
 
