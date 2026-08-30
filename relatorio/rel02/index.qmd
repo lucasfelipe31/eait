@@ -202,8 +202,6 @@ Já as variáveis `id_corpo_prova`, `obra` e `tipo_concreto` devem permanecer co
 
 Para garantir que o R identifique corretamente as células vazias da planilha original como valores ausentes (NA), a importação foi ajustada utilizando-se o argumento `na.strings = ""`. Sem esse parâmetro, devido aos erros de digitação prévios, o software interpretaria os campos sem preenchimento estritamente como textos em branco (""), mascarando a real quantidade de dados faltantes durante o diagnóstico.
 
-Abaixo, o código estruturado contabiliza os NAs:
-
 ```{r}
 #| echo: true
 dados <- read.csv2(
@@ -214,14 +212,25 @@ dados <- read.csv2(
 )
 ```
 
+
+Assim, ao contabilizar os valores ausentes (NA), tem-se como resultados:
+- total de valores ausentes:
 ```{r}
 #| echo: false
 # Contar o total de valores ausentes na base
 sum(is.na(dados))
+```
 
+- variáveis com valores ausentes:
+```{r}
+#| echo: false
 # Verificar os valores ausentes por variável
 sapply(dados, function(x) sum(is.na(x)))
+```
 
+- observações com valores ausentes:
+```{r}
+#| echo: false
 # Isola todas as linhas que possuem pelo menos um valor ausente
 linhas_ausentes <- dados[!complete.cases(dados), ]
 
@@ -230,28 +239,7 @@ linhas_ausentes
 ```
 
 
-Foram identificados `r sum(is.na(dados))` valores ausentes em toda a base de dados. Esses dados faltantes estão distribuídos pontualmente nas variáveis `r paste(names(which(sapply(dados, function(x) sum(is.na(x))) > 0)), collapse = ", ")`. As observações que apresentam esses furos correspondem aos corpos de prova `r paste(dados$id_corpo_prova[!complete.cases(dados)], collapse = ", ")`.
-
-
-**Diagnóstico de Valores Ausentes**
-
-Quantidade total: Existem exatamente 5 valores ausentes em toda a base de dados.
-
-Variáveis afetadas: Eles aparecem pulverizados, sendo 1 valor ausente em cada uma das seguintes variáveis físicas: resistencia_mpa, relacao_a_c, abatimento_mm, densidade_kg_m3 e absorção_agregado_pct.
-
-As observações em que os valores ausentes aparecem estão distribuídas individualmente nos corpos de prova CP-015, CP-038, CP-077, CP-092 e CP-097:
-```{r}
-#| echo: false
-# Localiza as linhas que possuem pelo menos um valor ausente (linhas incompletas)
-linhas_ausentes <- dados[!complete.cases(dados), ]
-
-# Mostra a tabela apenas com as linhas afetadas
-linhas_ausentes
-
-# Mostrar APENAS os nomes dos corpos de prova:
-cat("Os corpos de prova com dados faltantes são:\n")
-linhas_ausentes$id_corpo_prova
-```
+Foram identificados, portanto, `r sum(is.na(dados))` valores ausentes em toda a base de dados. Esses dados faltantes estão distribuídos pontualmente nas variáveis `r paste(names(which(sapply(dados, function(x) sum(is.na(x))) > 0)), collapse = ", ")`. As observações que apresentam esses furos correspondem aos corpos de prova `r paste(dados$id_corpo_prova[!complete.cases(dados)], collapse = ", ")`.
 
 
 ### Diagnóstico e identificação de inconsistências nos dados
@@ -268,7 +256,6 @@ colunas_quantitativas <- c(
 )
 
 cat("Verificando problemas de coerção nas variáveis quantitativas:\n")
-
 # Inicia o loop para percorrer cada uma das colunas listadas acima
 for (coluna in colunas_quantitativas) {
   
@@ -291,6 +278,8 @@ if ("id_corpo_prova" %in% names(dados)) {
     dados,
     trimws(id_corpo_prova) %in% c("CP-008", "CP-019", "CP-045", "CP-064")
   )
+  cat("Os registros identificados como possíveis erros de digitação são apresentados a seguir:\n\n")
+
   print(erros_digitacao)}
 ```
 
@@ -339,6 +328,8 @@ Absorção (18,4%): Agregados convencionais possuem absorção na casa de 1% a 3
 **Padronização das variáveis: Obra e Tipo de concreto**
 
 Nesta etapa, será realizada a verificação da padronização das variáveis categóricas da base de dados, considerando obra e tipo_concreto. Essa análise é importante porque categorias que representam a mesma informação, mas estão registradas com grafias diferentes, podem ser interpretadas pelo R como categorias distintas, comprometendo a contagem, a organização e as análises posteriores. Assim, serão identificadas possíveis diferenças de grafia, abreviações ou outras inconsistências e verificado se elas representam, de fato, categorias diferentes ou apenas formas distintas de registrar a mesma informação.
+
+Assim, para as variáveis em análise, foram encontrados os seguintes resultados/categorias cadastradas e respectivas localizações em que aparecem:
 ```{r}
 #| echo: false
 # Exibe todas as categorias cadastradas e quantas vezes aparecem
@@ -355,20 +346,14 @@ table(dados$tipo_concreto)
 inconsistencia_concreto <- subset(dados, tipo_concreto == "c30")
 inconsistencia_concreto
 ```
-Os resultados da verificação mostram uma inconsistência na padronização da variável obra. Foram identificadas as categorias “Bloco A”, “Bloco B”, “Bloco B” e “Bloco C”, além de “Bloco D”. Observa-se que “Bloco B” aparece registrada de duas formas diferentes, sendo uma delas provavelmente resultado de uma inconsistência de digitação ou de espaço, embora represente a mesma obra. Dessa forma, essas categorias devem ser padronizadas para uma única forma de escrita antes das análises posteriores.
+Os resultados da verificação mostram uma inconsistência na padronização da variável obra. Foram identificadas as categorias “Bloco A”, “Bloco B”, “Bloco B ”, “Bloco C” e “Bloco D”. Observa-se que “Bloco B” aparece registrada de duas formas diferentes, sendo uma delas de digitação de um espaço extra, embora represente a mesma obra. Dessa forma, essas categorias devem ser padronizadas para uma única forma de escrita antes das análises posteriores.
 
 Para a variável tipo_concreto, foram encontradas as categorias C25, C30, C30, C35 e C40. Assim como em obra, observa-se uma duplicidade na categoria C30, indicando que ela foi registrada de maneiras distintas, apesar de representar o mesmo tipo de concreto. Portanto, é necessário corrigir essa inconsistência para que o R reconheça todas as observações de C30 como pertencentes a uma única categoria.
 
 
-```{r}
-#| echo: false
-str(dados)
-```
-
-
 ### Tratamento e preparação da base de dados
 
-Nesta etapa, serão realizados os procedimentos necessários para corrigir, padronizar e preparar os dados para as análises estatísticas. Será preservada uma cópia da base original, permitindo que as alterações sejam feitas de forma segura. Em seguida, serão corrigidas as inconsistências nas variáveis qualitativas, convertidas as variáveis quantitativas para os tipos adequados e tratados os valores ausentes. Ao final, a estrutura e o resumo da base serão novamente verificados para avaliar as mudanças realizadas.
+Nesta etapa, serão realizados os procedimentos necessários para corrigir, padronizar e preparar os dados para as análises estatísticas. Será preservada uma cópia da base original, permitindo que as alterações sejam feitas de forma segura. Em seguida, serão corrigidas as inconsistências nas variáveis qualitativas, convertidas as variáveis quantitativas para os tipos adequados e tratados os valores ausentes. 
 
 ```{r}
 # Criando uma cópia da base de dados original
@@ -376,9 +361,7 @@ dados_limpos <- dados
 ```
 
 
-É recomendável preservar a base original porque ela representa os dados como foram inicialmente obtidos, funcionando como uma referência para comparação e conferência. Dessa forma, os procedimentos de limpeza e correção podem ser realizados em dados_limpos sem alterar permanentemente os dados originais.
-
-Isso também permite recuperar informações caso alguma correção seja feita de maneira inadequada, além de garantir maior rastreabilidade e segurança durante o tratamento dos dados.
+É recomendável preservar a base original porque ela representa os dados como foram inicialmente obtidos, funcionando como uma referência para comparação e conferência. Dessa forma, os procedimentos de limpeza e correção podem ser realizados em dados_limpos sem alterar permanentemente os dados originais. Isso também permite recuperar informações caso alguma correção seja feita de maneira inadequada, além de garantir maior rastreabilidade e segurança durante o tratamento dos dados.
 
 Conforme apresentado no item 5.2, torna-se necessário corrigir e padronizar as inconsistências identificadas nas variáveis qualitativas `obra` e `tipo_concreto`, bem como realizar a conversão das variáveis que, por sua natureza, deveriam ser classificadas como quantitativas. Essas adequações são fundamentais para garantir a consistência e a correta utilização da base nas análises estatísticas subsequentes.
 
@@ -461,7 +444,7 @@ dados_limpos$densidade_kg_m3 <- ifelse(dados_limpos$densidade_kg_m3 == 238, 2380
 dados_limpos$absorção_agregado_pct <- ifelse(dados_limpos$absorção_agregado_pct > 10, dados_limpos$absorção_agregado_pct / 10, dados_limpos$absorção_agregado_pct)
 ```
 
-**Tratamento de Valores Ausentes:** Com a aplicação da função `mostrar_linhas_na()`, foram identificados exatamente 5 valores ausentes, distribuídos pontualmente nas seguintes observações:
+**Tratamento de Valores Ausentes:** foram identificados exatamente 5 valores ausentes, distribuídos pontualmente nas seguintes observações:
 
 * **CP-015:** Ausência de `abatimento_mm`
 * **CP-038:** Ausência de `relacao_a_c`
@@ -469,15 +452,7 @@ dados_limpos$absorção_agregado_pct <- ifelse(dados_limpos$absorção_agregado_
 * **CP-092:** Ausência de `resistencia_mpa`
 * **CP-097:** Ausência de `absorção_agregado_pct`
 
-**Discussão e Justificativa dos Procedimentos:**
-
-* **Consultar a fonte original dos dados:** Este é, obrigatoriamente, o procedimento primário e mais adequado na prática profissional. Na maioria das vezes, células vazias como estas são apenas erros de transcrição humana dos boletins físicos de laboratório para a planilha digital. Recuperar o dado na fonte primária garante 100% de integridade à base.
-* **Manter o NA:** Na impossibilidade de acessar os registros físicos originais (ex: boletim de campo extraviado), esta é a decisão estatística e técnica mais correta. Manter o `NA` permite que o software ignore apenas o dado faltante em cálculos específicos (usando `na.rm = TRUE`), sem comprometer o resto da linha. Por exemplo, o corpo de prova **CP-092** não possui registro de resistência, mas possui dados válidos de cimento (370 kg/m³) e abatimento (111 mm), que são informações valiosas e caras de se obter.
-* **Substituir o valor (Imputação de dados):** Altamente desaconselhado no contexto de controle tecnológico de estruturas. Substituir a `resistencia_mpa` faltante do CP-092 pela "média" da classe C35 é uma prática perigosa, pois pode mascarar um concreto que, na realidade, poderia ter falhado na prensa, ocultando um risco à segurança do bloco B.
-* **Excluir a observação (Exclusão Listwise):** Procedimento desnecessário e estatisticamente prejudicial neste cenário. Excluir os 5 corpos de prova inteiros representaria uma perda arbitrária de 5% de toda a amostra coletada apenas por causa de furos isolados em variáveis secundárias. 
-
-**Decisão Adotada:**
-A decisão mais prudente é **manter os NAs**. Dessa forma, preservamos a veracidade e o tamanho original da amostra (100 observações), garantindo que os cálculos de médias e variâncias futuras sejam feitos estritamente sobre dados reais e comprovados, ignorando as células vazias nas funções do R.
+**Discussão e Justificativa dos Procedimentos:** A consulta à fonte original deve ser priorizada, pois permite recuperar os valores faltantes e garantir a integridade da base. Quando isso não for possível, recomenda-se manter os NA, preservando as demais informações válidas da observação e permitindo que o R desconsidere apenas os valores ausentes nos cálculos. A imputação de valores, como substituir um NA pela média, é desaconselhada no controle tecnológico, pois pode mascarar resultados reais. Da mesma forma, a exclusão de toda a observação é desnecessária quando apenas algumas variáveis apresentam dados faltantes. Assim, optou-se por manter os NA, preservando as 100 observações e garantindo que as análises posteriores utilizem apenas valores efetivamente registrados.
 
 
 **Verificação da Estrutura após o Tratamento**
@@ -492,9 +467,9 @@ summary(dados_limpos)
 ```
 A comparação entre a estrutura dos dados originais e a base limpa revela duas transformações principais:
 
-Conversão de Tipos de Dados: As variáveis que representam as propriedades físicas do concreto, inicialmente lidas pelo R como texto (chr), foram devidamente convertidas para o formato numérico (num). Com isso, a função summary() passou a calcular e exibir estatísticas descritivas (como médias, medianas, valores mínimos e máximos) em vez de simples contagens de caracteres.
+- Conversão de Tipos de Dados: As variáveis que representam as propriedades físicas do concreto, inicialmente lidas pelo R como texto (chr), foram devidamente convertidas para o formato numérico (num). Com isso, a função summary() passou a calcular e exibir estatísticas descritivas (como médias, medianas, valores mínimos e máximos) em vez de simples contagens de caracteres.
 
-Padronização de Categorias: As variáveis de texto obra e tipo_concreto foram padronizadas estruturalmente (com letras maiúsculas e remoção de espaços em branco). Essa limpeza refletiu na redução do número de categorias únicas (N.unique) de 5 para 4 em ambas as colunas, aglutinando os registros que antes estavam separados devido a inconsistências de digitação.
+- Padronização de Categorias: As variáveis de texto obra e tipo_concreto foram padronizadas estruturalmente (com letras maiúsculas e remoção de espaços em branco). Essa limpeza refletiu na redução do número de categorias únicas (N.unique) de 5 para 4 em ambas as colunas, aglutinando os registros que antes estavam separados devido a inconsistências de digitação.
 
 
 ### Análise dos Dados
@@ -523,9 +498,7 @@ media_idade$resistencia_mpa <- round(media_idade$resistencia_mpa, 2)
 
 ```
 
-A resistência média global calculada para o empreendimento foi de `r media_geral` MPa.
-
-Já a resistência média por bloco da obra foi observada da seguinte forma:
+A resistência média global calculada para o empreendimento foi de `r media_geral` MPa. Já a resistência média por bloco da obra foi observada da seguinte forma:
 
 `r knitr::kable(media_bloco, col.names = c("Bloco da Obra", "Resistência Média (MPa)"))`
 
@@ -588,8 +561,9 @@ medias_concreto
 maior_concreto <- names(which.max(medias_concreto))
 
 # Imprimir o resultado
-cat("\nA classe de concreto que apresentou a MAIOR resistência média foi:", maior_concreto, "\n")
+cat("A classe de concreto que apresentou a MAIOR resistência média foi:", maior_concreto, "\n")
 ```
+
 
 
 **Análise das características do concreto por classe**
@@ -755,7 +729,7 @@ A medida resumo calculada por linha, embora seja uma operação matemática perf
 
 
 
-### Etapa 8 - Estruturas for e if
+### Estruturas for e if
 
 
 ```{r}
@@ -815,7 +789,9 @@ Nesta etapa, os dados serão analisados sob uma perspectiva próxima da prática
 
 - Análise da afirmativa: “Os concretos utilizados no Bloco C apresentam desempenho superior aos utilizados nos demais blocos.”
 
-A afirmação acima está incorreta e é diretamente refutada pelas estatísticas descritivas da base. Ao realizar o agrupamento das médias, constata-se que o Bloco C apresentou a menor resistência à compressão de todo o empreendimento (aproximadamente 32,62 MPa). O melhor desempenho médio foi registrado no Bloco B (cerca de 35,68 MPa). 
+A afirmação acima está incorreta e é diretamente refutada pelas estatísticas descritivas da base. Ao realizar o agrupamento das médias, constata-se que o Bloco C apresentou a menor resistência à compressão de todo o empreendimento (aproximadamente 32,62 MPa). O melhor desempenho médio foi registrado no Bloco B (cerca de 35,68 MPa).
+
+
 - Análise da afirmativa: “Quanto maior o consumo de cimento, maior tende a ser a resistência do concreto.”
 
 A premissa de que o aumento de cimento eleva a resistência possui fundamento teórico, mas é uma simplificação que pode ocasionar error se avaliada de forma isolada. Um consumo elevado de cimento não garantirá resistência superior se o volume de água na mistura também for excessivo. Para avaliar essa dinâmica corretamente, a variável cimento_kg_m3 deve ser obrigatoriamente analisada em conjunto com a variável relacao_a_c (fator água/cimento) e a idade_dias (momento do ensaio). O uso da correlação linear e do gráfico de dispersão abaixo expõe a dependência entre essas métricas operacionais:
@@ -829,6 +805,7 @@ plot(dados_limpos$cimento_kg_m3, dados_limpos$resistencia_mpa,
 ```
 
 O gráfico de dispersão apresenta a relação entre o consumo de cimento (kg/m³), no eixo horizontal, e a resistência à compressão (MPa), no eixo vertical. Observa-se uma tendência positiva: de modo geral, os corpos de prova com maiores consumos de cimento apresentam também maiores resistências. Entretanto, existe uma dispersão considerável dos pontos, indicando que o consumo de cimento, isoladamente, não explica completamente a variação da resistência. Essa relação deve ser interpretada com cautela, pois a resistência do concreto depende da interação entre diferentes fatores.
+
 
 - Análise da Relação Água/Cimento e Resistência à Compressão
 
@@ -866,6 +843,15 @@ aggregate(resistencia_mpa ~ idade_dias, data = dados_limpos, FUN = mean, na.rm =
 Observa-se que a resistência média aumenta de 28,78 MPa aos 7 dias para 34,74 MPa aos 14 dias. Entretanto, ocorre uma pequena redução nas médias aos 28 e 56 dias, atingindo 34,65 MPa e 33,12 MPa, respectivamente. Embora seja esperado, em condições controladas, um aumento da resistência com o avanço da idade, os resultados apresentados não permitem afirmar que essa tendência deva ocorrer necessariamente nas médias da base analisada. Como os grupos de diferentes idades podem apresentar diferentes características de composição e condições de ensaio, a redução observada aos 56 dias deve ser investigada considerando conjuntamente o tipo de concreto, a relação água/cimento, o consumo de cimento e a variabilidade dos resultados.
 
 
+A análise das características do concreto pode ser direcionada para informações que permitam avaliar seu desempenho e identificar possíveis diferenças entre os grupos analisados. Nesse sentido, destacam-se cinco informações:
+
+- Resistência média à compressão: permite caracterizar o desempenho mecânico geral dos corpos de prova e estabelecer uma referência para as demais comparações.
+- Resistência média por bloco da obra: possibilita verificar diferenças de desempenho entre os blocos e identificar aqueles que apresentam resultados relativamente maiores ou menores.
+- Resistência média por tipo de concreto: permite comparar as diferentes classes (C25, C30, C35 e C40) e verificar como o desempenho varia conforme o tipo de concreto.
+- Resistência média em diferentes idades: possibilita observar a evolução da resistência ao longo do tempo e verificar o comportamento dos corpos de prova nas diferentes idades de ensaio.
+- Relação água/cimento e resistência à compressão: permite analisar conjuntamente uma característica da composição do concreto e seu desempenho mecânico, auxiliando na identificação de tendências e de resultados que mereçam investigação.
+
+Em conjunto, essas informações permitem caracterizar o desempenho do concreto, comparar diferentes condições e identificar padrões ou resultados atípicos que possam demandar uma análise mais detalhada.
 
 ## 🧠 Considerações finais
 
