@@ -855,14 +855,24 @@ Em conjunto, essas informações permitem caracterizar o desempenho do concreto,
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+A realização desta atividade permitiu compreender, de forma prática, a importância do processamento, da limpeza e da análise estatística de dados no contexto da Engenharia Civil. A base analisada era composta por 100 observações e 10 variáveis relacionadas ao controle tecnológico do concreto, incluindo resistência à compressão, consumo de cimento, relação água/cimento, abatimento, densidade, absorção, idade dos corpos de prova, obra e classe do concreto. Durante a análise inicial, foram identificados alguns problemas na estrutura da base de dados. Algumas variáveis que deveriam ser quantitativas estavam armazenadas como texto, além da presença de valores ausentes, diferenças de formatação e erros de digitação. Também foram encontrados valores que apresentavam características incompatíveis com as propriedades analisadas, sendo necessário avaliar cada situação antes de realizar os cálculos estatísticos.
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+Para solucionar esses problemas, foi realizada uma etapa de limpeza e organização dos dados, com a padronização das informações e a correção dos erros de digitação identificados. Em alguns casos, foi necessário utilizar o conhecimento técnico para determinar a melhor forma de corrigir os valores, evitando alterações que pudessem gerar resultados fisicamente impossíveis. Os dados ausentes foram mantidos sem preenchimento quando não havia informação suficiente para determinar o valor correto. O uso do R foi importante durante toda a atividade, pois permitiu organizar e verificar a base de dados, realizar as correções necessárias e executar os cálculos estatísticos de maneira mais rápida e organizada. Além disso, o programa possibilitou analisar diferentes grupos de dados e comparar os resultados obtidos, tornando o processo mais eficiente e reprodutível.
+
+Após o tratamento dos dados, foram realizados cálculos estatísticos descritivos, principalmente envolvendo médias de resistência à compressão. A resistência média geral encontrada foi de 33,55 MPa. Na comparação entre os blocos, o Bloco B apresentou a maior resistência média, com 35,70 MPa, enquanto o Bloco C apresentou a menor média, com 32,37 MPa. Também foi possível observar diferenças entre as classes de concreto, sendo as médias de resistência de 27,07 MPa para a classe C25, 32,08 MPa para C30, 37,10 MPa para C35 e 43,33 MPa para C40. As análises também permitiram observar a relação entre diferentes propriedades do concreto. Foi identificada uma tendência de aumento da resistência com o aumento do consumo de cimento, embora com certa dispersão nos resultados. Em relação à quantidade de água, observou-se uma tendência de redução da resistência à medida que aumenta a relação água/cimento, comportamento compatível com os princípios da tecnologia do concreto.
+
+Dessa forma, a atividade demonstrou que a análise estatística é uma ferramenta importante para a Engenharia Civil, mas seus resultados dependem diretamente da qualidade dos dados utilizados. O processamento e a limpeza da base são etapas indispensáveis para garantir resultados confiáveis. O uso do R facilitou a organização dos dados e a realização dos cálculos, enquanto o conhecimento técnico foi fundamental para interpretar e tratar corretamente as inconsistências encontradas. Assim, a combinação entre ferramentas computacionais, cálculos estatísticos e conhecimento de Engenharia Civil permite obter informações mais confiáveis para auxiliar na análise e na tomada de decisões.
+
+### Reflexão final
+
+O processamento e a limpeza dos dados são fundamentais porque os métodos estatísticos dependem diretamente da qualidade das informações utilizadas. Erros de digitação, valores ausentes, informações em formatos diferentes ou valores fisicamente impossíveis podem alterar os resultados dos cálculos e levar a conclusões incorretas. Na Engenharia Civil, é especialmente importante verificar também se os valores são coerentes com as características físicas dos materiais e dos processos analisados.
+
+O principal problema encontrado na base de dados foi a presença de inconsistências e erros no preenchimento das informações, principalmente nas variáveis que deveriam representar valores numéricos. Alguns dados estavam registrados como texto, havia diferentes formas de representar os números, erros de digitação e também valores ausentes. Além disso, foram identificados alguns valores que não eram coerentes com as características físicas esperadas para as propriedades do concreto analisadas.
+
+Para tratar esse problema, foi realizada uma etapa de limpeza, correção e padronização dos dados antes da aplicação dos cálculos estatísticos. Os valores que apresentavam erros de digitação foram analisados individualmente e corrigidos quando era possível identificar claramente a informação pretendida. Também foram padronizados os formatos dos dados para que pudessem ser utilizados corretamente nas análises realizadas no R.
+
+Um ponto importante foi que não foram feitas correções automáticas sem considerar o significado dos dados. Quando um valor não apresentava informação suficiente para determinar qual seria o valor correto, decidiu-se mantê-lo como dado ausente, evitando criar uma informação que não estava presente originalmente na base. Dessa forma, a decisão adotada buscou preservar a maior quantidade possível de informações confiáveis e, ao mesmo tempo, evitar que erros presentes na base influenciassem negativamente os cálculos estatísticos e as conclusões da atividade.
 
 ## Aprenda Quarto
 
