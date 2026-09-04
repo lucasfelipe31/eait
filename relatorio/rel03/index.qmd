@@ -1,6 +1,6 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
+author: "Bruno Henrique e Lucas Felipe"
 title: "Relatório de Aula Prática 03"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
@@ -77,6 +77,126 @@ Descreva como o experimento foi realizado.
 ---
 
 ## 🔍 Resultados e Discussão
+
+```{r}
+library(tidyverse) # Carregamento dos pacotes da família tidyverse
+
+# Importação da base de dados
+
+dados <- read_delim(
+  "base_processamento_dados_engenharia_civil.csv",
+  delim = ";",
+  locale = locale(decimal_mark = "."),
+  show_col_types = FALSE
+)
+
+
+head(dados) # Visualiza as primeiras linhas 
+
+tail(dados) # Visualiza as útlimas linhas
+
+cat("\nO número de observações e variáveis existentes na base de dados são: \n")
+dim (dados) # Número de observações e variáveis existentes na base
+
+glimpse(dados) # Estrutura da base
+
+dados |> summary() # resumo das variáveis
+
+# Visualização dos nomes das variáveis.
+names(dados)
+```
+```{r}
+
+# Quantidade de valores ausentes por variável:
+
+dados |>
+  summarise( 
+    across(
+      everything(),
+      ~ sum(is.na(.x))
+    )
+  )
+# summarise(): Reduz a base de dados a um resumo estatístico (neste caso, a soma de NAs).
+# across(): Permite aplicar a mesma função a múltiplas colunas simultaneamente.
+# everything(): Seleciona todas as colunas da base.
+# is.na(): Retorna TRUE se o valor for NA (ausente). A soma de TRUEs equivale à contagem de NAs.
+
+
+dados |>
+  filter(if_any(everything(), is.na))
+
+# filter(): Filtra as linhas da base de dados segundo uma condição lógica.
+# if_any(): Verifica se a condição (is.na) é verdadeira para 'qualquer' uma das colunas selecionadas (everything()).
+
+dados |>
+  count(obra)
+```
+
+
+
+```{r}
+# QUESTAO 8
+# filter(): Seleciona as observações (linhas) suspeitas.
+# if_any(): Varre múltiplas colunas verificando se 'qualquer' uma contém o erro.
+# -(1:3): Exclui as 3 primeiras colunas (id, obra, tipo) da varredura, pois 
+#         estas são categóricas e naturalmente contêm letras e hifens.
+# str_detect(): Função do pacote stringr que avalia a presença do padrão Regex.
+# "[^0-9.]": O acento circunflexo (^) nega a busca. Logo, procura tudo que NÃO é dígito/ponto.
+# !is.na(.x): Garante que a função ignore os NAs (que tratamos na Questão 6).
+# select(): Usamos everything() para atender ao requisito de apresentar o registro completo.
+dados |>
+  filter(
+    if_any(
+      -(1:3), 
+      ~ str_detect(as.character(.x), "[^0-9.]") & !is.na(.x)
+    )
+  ) |>
+  select(everything())
+
+
+dados |>
+  filter(
+    idade_dias > 100 | 
+    abatimento_mm > 300 | 
+    densidade_kg_m3 < 2000 | 
+    absorção_agregado_pct > 10 | 
+    # Conversão "on the fly": limpa a leitura apenas neste exato milissegundo 
+    # para sabermos se o valor real por trás da sujeira é absurdo.
+    parse_double(str_replace_all(resistencia_mpa, c("O" = "0", "," = "."))) > 100 | 
+    parse_double(str_replace_all(relacao_a_c, c("O" = "0", "," = "."))) > 1.5 
+  ) |>
+  # select(): Seleciona as colunas de interesse para facilitar a visualização no relatório.
+  select(
+    id_corpo_prova, 
+    idade_dias, 
+    resistencia_mpa, 
+    abatimento_mm, 
+    densidade_kg_m3, 
+    absorção_agregado_pct
+  )
+```
+```{r}
+# count(): Agrupa os dados pela variável 'obra' e conta o número de observações de cada categoria.
+# Facilita a identificação de categorias duplicadas por conta de espaços em branco ou letras minúsculas/maiúsculas.
+dados |>
+  count(obra)
+
+dados |>
+  distinct(obra)
+
+dados |>
+  filter(
+    obra != str_trim(obra)
+  )
+
+# distinct(): Retorna apenas os valores únicos (sem repetição) presentes na variável 'tipo_concreto'.
+# Permite inspecionar rapidamente as variações de categorias existentes na base de dados.
+dados |>
+  distinct(tipo_concreto)
+
+
+glimpse(dados)
+```
 
 Apresente e interprete os resultados obtidos a partir dos dados coletados.
 
