@@ -16,7 +16,7 @@ format:
     toc: true
     number-sections: true
     theme: bootstrap
-    #css: styles.css
+    css: styles.css
     code-fold: true
     code-tools: true
 execute:
@@ -78,7 +78,17 @@ Descreva como o experimento foi realizado.
 
 ## 🔍 Resultados e Discussão
 
+Os resultados obtidos a partir do processamento da base de dados são apresentados e discutidos a seguir, considerando as etapas necessárias. Inicialmente, realizou-se a inspeção e caracterização da base, buscando compreender sua estrutura, suas variáveis e a forma como os dados foram interpretados pelo software R. Em seguida, foram investigadas possíveis inconsistências, valores ausentes e registros potencialmente incompatíveis com o contexto analisado. Após essa etapa de diagnóstico, procedeu-se à limpeza e transformação dos dados, permitindo sua utilização nas análises estatísticas e na elaboração das representações gráficas. Dessa forma, a apresentação dos resultados acompanha a sequência metodológica adotada no código desenvolvido, destacando não apenas os valores obtidos, mas também a interpretação dos resultados e a justificativa das decisões tomadas durante o processamento.
+
+
+### Conhecendo a base de dados
+
+Inicialmente, foi realizada a importação da base de dados para o ambiente R utilizando recursos da família tidyverse, conforme proposto na atividade. A leitura foi realizada por meio da função `read_delim()`, considerando o ponto como separador decimal e o ponto e vírgula como delimitador das colunas. A utilização dessa configuração permitiu a leitura da base sem a necessidade de alterações no arquivo original.
+
+
 ```{r}
+#| echo: false
+
 library(tidyverse) # Carregamento dos pacotes da família tidyverse
 
 # Importação da base de dados
@@ -106,7 +116,7 @@ dados |> summary() # resumo das variáveis
 names(dados)
 ```
 ```{r}
-
+#| echo: false
 # Quantidade de valores ausentes por variável:
 
 dados |>
@@ -135,6 +145,7 @@ dados |>
 
 
 ```{r}
+#| echo: false
 # QUESTAO 8
 # filter(): Seleciona as observações (linhas) suspeitas.
 # if_any(): Varre múltiplas colunas verificando se 'qualquer' uma contém o erro.
@@ -176,6 +187,7 @@ dados |>
   )
 ```
 ```{r}
+#| echo: false
 # count(): Agrupa os dados pela variável 'obra' e conta o número de observações de cada categoria.
 # Facilita a identificação de categorias duplicadas por conta de espaços em branco ou letras minúsculas/maiúsculas.
 dados |>
