@@ -146,8 +146,13 @@ window.Quarto = {
   <li><a href="#resultados-e-discussão" id="toc-resultados-e-discussão" class="nav-link" data-scroll-target="#resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</a>
   <ul class="collapse">
   <li><a href="#conhecendo-a-base-de-dados" id="toc-conhecendo-a-base-de-dados" class="nav-link" data-scroll-target="#conhecendo-a-base-de-dados"><span class="header-section-number">5.1</span> Conhecendo a base de dados</a></li>
-  <li><a href="#exemplo-de-como-citar-uma-referência-bibliográfica" id="toc-exemplo-de-como-citar-uma-referência-bibliográfica" class="nav-link" data-scroll-target="#exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.2</span> 💬 Exemplo de como citar uma referência bibliográfica</a></li>
-  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">5.3</span> 📊 Análise de Dados</a></li>
+  <li><a href="#investigação-da-qualidade-e-consistência-dos-dados" id="toc-investigação-da-qualidade-e-consistência-dos-dados" class="nav-link" data-scroll-target="#investigação-da-qualidade-e-consistência-dos-dados"><span class="header-section-number">5.2</span> Investigação da qualidade e consistência dos dados</a></li>
+  <li><a href="#limpeza-e-transformação-da-base-de-dados" id="toc-limpeza-e-transformação-da-base-de-dados" class="nav-link" data-scroll-target="#limpeza-e-transformação-da-base-de-dados"><span class="header-section-number">5.3</span> Limpeza e transformação da base de dados</a></li>
+  <li><a href="#exploração-dos-dados" id="toc-exploração-dos-dados" class="nav-link" data-scroll-target="#exploração-dos-dados"><span class="header-section-number">5.4</span> Exploração dos dados</a></li>
+  <li><a href="#criação-de-novas-variáveis" id="toc-criação-de-novas-variáveis" class="nav-link" data-scroll-target="#criação-de-novas-variáveis"><span class="header-section-number">5.5</span> Criação de novas variáveis</a></li>
+  <li><a href="#dados-agrupados" id="toc-dados-agrupados" class="nav-link" data-scroll-target="#dados-agrupados"><span class="header-section-number">5.6</span> Dados agrupados</a></li>
+  <li><a href="#exemplo-de-como-citar-uma-referência-bibliográfica" id="toc-exemplo-de-como-citar-uma-referência-bibliográfica" class="nav-link" data-scroll-target="#exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.7</span> 💬 Exemplo de como citar uma referência bibliográfica</a></li>
+  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">5.8</span> 📊 Análise de Dados</a></li>
   </ul></li>
   <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</a></li>
   <li><a href="#aprenda-quarto" id="toc-aprenda-quarto" class="nav-link" data-scroll-target="#aprenda-quarto"><span class="header-section-number">7</span> Aprenda Quarto</a></li>
@@ -185,7 +190,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">06/09/2026, 12:49</p>
+      <p class="date">06/09/2026, 21:48</p>
     </div>
   </div>
   
@@ -265,9 +270,23 @@ Nota
 <section id="resultados-e-discussão" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</h2>
 <p>Os resultados obtidos a partir do processamento da base de dados são apresentados e discutidos a seguir, considerando as etapas necessárias. Inicialmente, realizou-se a inspeção e caracterização da base, buscando compreender sua estrutura, suas variáveis e a forma como os dados foram interpretados pelo software R. Em seguida, foram investigadas possíveis inconsistências, valores ausentes e registros potencialmente incompatíveis com o contexto analisado. Após essa etapa de diagnóstico, procedeu-se à limpeza e transformação dos dados, permitindo sua utilização nas análises estatísticas e na elaboração das representações gráficas. Dessa forma, a apresentação dos resultados acompanha a sequência metodológica adotada no código desenvolvido, destacando não apenas os valores obtidos, mas também a interpretação dos resultados e a justificativa das decisões tomadas durante o processamento.</p>
+<p>A base de dados reúne informações relacionadas ao controle tecnológico do concreto, permitindo analisar diferentes características dos corpos de prova e das condições em que os ensaios foram realizados, conforme definições a seguir:</p>
+<ul>
+<li><code>id_corpo_prova</code> (identificação do corpo de prova)</li>
+<li><code>obra</code> (Bloco da obra onde ocorreu a concretagem)</li>
+<li><code>tipo_concreto</code> (Classe do Concreto)</li>
+<li><code>idade_dias</code> (Idade do corpo de prova no momento do ensaio)</li>
+<li><code>resistencia_mpa</code>(Resistência à compressão em MPa)</li>
+<li><code>cimento_kg_m3</code>(Consumo de cimento em kg/m³)</li>
+<li><code>relacao_a_c</code> (relação água/cimento)</li>
+<li><code>abatimento_mm</code> (abatimento do concreto, em mm)</li>
+<li><code>densidade_kg_m3</code>(densidade aparente do concreto, em kg/m³)</li>
+<li><code>absorção_agregado_pct</code> (Absorção de água do agregado, em %).</li>
+</ul>
 <section id="conhecendo-a-base-de-dados" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="conhecendo-a-base-de-dados"><span class="header-section-number">5.1</span> Conhecendo a base de dados</h3>
-<p>Inicialmente, foi realizada a importação da base de dados para o ambiente R utilizando recursos da família tidyverse, conforme proposto na atividade. A leitura foi realizada por meio da função <code>read_delim()</code>, considerando o ponto como separador decimal e o ponto e vírgula como delimitador das colunas. A utilização dessa configuração permitiu a leitura da base sem a necessidade de alterações no arquivo original.</p>
+<p>Inicialmente, foi realizada a importação da base de dados para o ambiente R utilizando recursos da família <em>tidyverse</em>, conforme proposto na atividade. A leitura foi realizada por meio da função <code>read_delim()</code>, considerando o ponto como separador decimal e o ponto e vírgula como delimitador das colunas. A utilização dessa configuração permitiu a leitura da base sem a necessidade de alterações no arquivo original.</p>
+<p>A inspeção inicial, realizada por meio das funções <code>head()</code> e <code>tail()</code>, permitiu verificar, respectivamente, as primeiras e as últimas observações da base. Observou-se que os registros estão organizados de forma tabular, sendo cada linha correspondente a um corpo de prova e cada coluna associada a uma característica do concreto. Os identificadores dos corpos de prova seguem uma sequência de CP-001 a CP-100, indicando que não foram observadas falhas aparentes na sequência dos registros.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 10
@@ -302,6 +321,10 @@ O número de observações e variáveis existentes na base de dados são: </code
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 100  10</code></pre>
 </div>
+</div>
+<p>A aplicação da função <code>dim()</code> indicou que a base possui 100 observações e 10 variáveis. Portanto, a estrutura inicial contém informações referentes a 100 registros de controle tecnológico do concreto, distribuídos entre variáveis de identificação, classificação e propriedades físicas e mecânicas.</p>
+<p>A função <code>glimpse()</code> permitiu analisar de forma detalhada a estrutura da base de dados e verificar os tipos atribuídos pelo R às diferentes variáveis.</p>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 100
 Columns: 10
@@ -316,6 +339,13 @@ $ abatimento_mm         &lt;dbl&gt; 111, 114, 106, 142, 133, 98, 99, 116, 125, 1
 $ densidade_kg_m3       &lt;dbl&gt; 2332, 2389, 2427, 2345, 2448, 2324, 2385, 2387, …
 $ absorção_agregado_pct &lt;dbl&gt; 2.30, 1.85, 1.89, 1.97, 2.31, 0.80, 1.18, 1.33, …</code></pre>
 </div>
+</div>
+<p>Conforme observado, as variáveis <em>id_corpo_prova</em>, <em>obra</em> e <em>tipo_concreto</em> foram reconhecidas como caracteres (<code>&lt;chr&gt;</code>), por apresentarem informações de identificação e classificação. A variável <em>idade_dias</em> foi identificada como numérica (<dbl>), assim como <em>abatimento_mm</em>, <em>densidade_kg_m3</em> e <em>absorção_agregado_pct</em>. Por outro lado, as variáveis <em>resistencia_mpa</em>, <em>cimento_kg_m3</em> e <em>relacao_a_c</em>, embora representem informações quantitativas, foram inicialmente interpretadas pelo R como caracteres (<code>&lt;chr&gt;</code>). Esse resultado indica a existência de possíveis inconsistências na forma de registro desses dados, que deverão ser investigadas nas etapas posteriores, especialmente quanto à representação dos valores numéricos e à necessidade de conversão para o tipo adequado.</dbl></p>
+<p>A análise dos tipos das variáveis, realizada por meio da função glimpse(), mostrou que o R reconheceu quatro variáveis como quantitativas (<dbl>): idade_dias, abatimento_mm, densidade_kg_m3 e absorção_agregado_pct. As demais foram identificadas como variáveis de caracteres (<chr>), sendo elas id_corpo_prova, obra, tipo_concreto, resistencia_mpa, cimento_kg_m3 e relacao_a_c.&nbsp;Entretanto, a classificação obtida pelo R não corresponde integralmente à natureza das variáveis no contexto da Engenharia Civil. As variáveis resistencia_mpa, cimento_kg_m3 e relacao_a_c representam grandezas quantitativas, mas foram armazenadas como texto na base de dados.</chr></dbl></p>
+<ul>
+<li>Resumo das Variáveis (<code>summary()</code>)</li>
+</ul>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>   id_corpo_prova        obra       tipo_concreto   idade_dias 
  Length   :100    Length   :100   Length   :100   Min.   :  7  
@@ -349,7 +379,16 @@ $ absorção_agregado_pct &lt;dbl&gt; 2.30, 1.85, 1.89, 1.97, 2.31, 0.80, 1.18, 
 [10] "absorção_agregado_pct"</code></pre>
 </div>
 </div>
+<p>O resumo das variáveis, obtido por meio da função <code>summary()</code>, permitiu identificar as principais características descritivas da base e a presença de valores ausentes. A variável <em>idade_dias</em> apresentou valores entre 7 e 280 dias, com mediana e média de 28 dias, respectivamente. Para <em>resistencia_mpa</em>, foram identificados 83 valores distintos e 1 valor ausente, enquanto <em>cimento_kg_m3</em> apresentou 68 valores distintos e <em>relacao_a_c</em>, 24 valores distintos, ambas sem valores ausentes. Entre as variáveis numéricas, <em>abatimento_mm</em> apresentou valores entre 64 e 1250 mm, com média de 121,7 mm, e <em>densidade_kg_m3</em> variou de 238 a 2464 kg/m³, com média de 2351 kg/m³. A variável <em>absorção_agregado_pct</em> apresentou valores entre 0,8% e 18,4%, com média de 1,953%, também com um valor ausente. Esses resultados permitem observar, ainda na análise inicial, a existência de valores que apresentam grande dispersão ou magnitude discrepante em relação aos demais registros, os quais deverão ser investigados nas etapas seguintes. Além disso, conforme verificado anteriormente pela função <code>glimpse()</code>, as variáveis <em>resistencia_mpa</em>, <em>cimento_kg_m3</em> e <em>relacao_a_c</em> foram interpretadas pelo R como caracteres (<code>&lt;chr&gt;</code>), apesar de representarem informações quantitativas, indicando a necessidade de posterior verificação e tratamento dos registros.</p>
+<ul>
+<li>Valores Ausentes</li>
+</ul>
+<p>Antes de prosseguir, é importante verificar a existência de valores ausentes (NA) na base de dados, uma vez que sua presença pode comprometer a realização de análises posteriores e influenciar a interpretação dos resultados. Para isso, foram utilizados recursos do <code>tidyverse</code> para quantificar os valores ausentes em cada variável e, posteriormente, identificar quais observações apresentam registros incompletos. Essa análise permite avaliar a extensão dos dados faltantes e localizar os registros que deverão ser considerados nas etapas de tratamento e limpeza da base.</p>
 <div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+A quantidade de valores ausentes em cada variável existente na base de dados é: </code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 10
   id_corpo_prova  obra tipo_concreto idade_dias resistencia_mpa cimento_kg_m3
@@ -357,6 +396,10 @@ $ absorção_agregado_pct &lt;dbl&gt; 2.30, 1.85, 1.89, 1.97, 2.31, 0.80, 1.18, 
 1              0     0             0          0               1             0
 # ℹ 4 more variables: relacao_a_c &lt;int&gt;, abatimento_mm &lt;int&gt;,
 #   densidade_kg_m3 &lt;int&gt;, absorção_agregado_pct &lt;int&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+As observações onde contêm valores ausentes são: </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 10
@@ -370,17 +413,14 @@ $ absorção_agregado_pct &lt;dbl&gt; 2.30, 1.85, 1.89, 1.97, 2.31, 0.80, 1.18, 
 # ℹ 4 more variables: relacao_a_c &lt;chr&gt;, abatimento_mm &lt;dbl&gt;,
 #   densidade_kg_m3 &lt;dbl&gt;, absorção_agregado_pct &lt;dbl&gt;</code></pre>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 2
-  obra           n
-  &lt;chr&gt;      &lt;int&gt;
-1 "Bloco A"     28
-2 "Bloco B"     28
-3 "Bloco B "     1
-4 "Bloco C"     28
-5 "Bloco D"     15</code></pre>
 </div>
-</div>
+<p>De modo geral, a primeira inspeção demonstrou que a base possui uma estrutura organizada, porém não está completamente pronta para a aplicação de análises estatísticas. A identificação das diferenças entre os tipos de dados, dos valores ausentes e das inconsistências nas categorias é fundamental antes da realização dos cálculos e gráficos. Dessa forma, os resultados da Etapa 1 justificam a necessidade das etapas seguintes de investigação, limpeza e transformação dos dados, evitando que erros de registro sejam interpretados como características reais do concreto.</p>
+</section>
+<section id="investigação-da-qualidade-e-consistência-dos-dados" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="investigação-da-qualidade-e-consistência-dos-dados"><span class="header-section-number">5.2</span> Investigação da qualidade e consistência dos dados</h3>
+<p>Após a caracterização inicial da base de dados, iniciou-se a investigação de possíveis problemas de qualidade e consistência dos registros. Nessa fase, buscou-se verificar se os valores presentes na base são compatíveis com o contexto do controle tecnológico do concreto, identificando situações que possam representar erros de digitação, registros inadequados ou valores potencialmente discrepantes.</p>
+<p>Nesse processo, foram utilizados principalmente recursos do dplyr, como filter(), select(), count() e distinct(), permitindo localizar e examinar as observações que apresentaram características potencialmente incompatíveis ou inconsistentes. A análise também contemplou a verificação da padronização das categorias das variáveis qualitativas, especialmente obra e tipo_concreto, uma vez que diferentes formas de escrita podem fazer com que registros pertencentes ao mesmo grupo sejam interpretados como categorias distintas pelo R.</p>
+<p>Desta forma, inicialmente, analisou-se possíveis erros de digitação (presença de caracteres em dados quantitativos), retornando o seguinte resultado:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 10
@@ -393,6 +433,9 @@ $ absorção_agregado_pct &lt;dbl&gt; 2.30, 1.85, 1.89, 1.97, 2.31, 0.80, 1.18, 
 # ℹ 4 more variables: relacao_a_c &lt;chr&gt;, abatimento_mm &lt;dbl&gt;,
 #   densidade_kg_m3 &lt;dbl&gt;, absorção_agregado_pct &lt;dbl&gt;</code></pre>
 </div>
+</div>
+<p>Para verificar a existência de valores potencialmente incompatíveis com o contexto da Engenharia Civil, foram estabelecidos critérios de triagem para as principais variáveis analisadas. Foram selecionados registros com idade_dias superior a 100 dias, abatimento_mm superior a 300 mm, densidade_kg_m3 inferior a 2000 kg/m³ ou absorção_agregado_pct superior a 10%. Para as variáveis resistencia_mpa e relacao_a_c, foi realizada uma conversão temporária dos valores, com correção de possíveis registros contendo a letra “O” no lugar do algarismo “0” e substituição da vírgula pelo ponto decimal, permitindo verificar se os valores numéricos resultantes ultrapassavam os limites de 100 MPa e 1,5, respectivamente. Dessa forma, o procedimento permitiu identificar registros que apresentavam valores que merecem investigação mais detalhada, sem alterar, neste momento, os dados originais da base.</p>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 6
   id_corpo_prova idade_dias resistencia_mpa abatimento_mm densidade_kg_m3
@@ -404,6 +447,7 @@ $ absorção_agregado_pct &lt;dbl&gt; 2.30, 1.85, 1.89, 1.97, 2.31, 0.80, 1.18, 
 # ℹ 1 more variable: absorção_agregado_pct &lt;dbl&gt;</code></pre>
 </div>
 </div>
+<p>Após a análise dos possíveis valores incompatíveis, foi realizada a verificação das variáveis qualitativas, com o objetivo de identificar inconsistências na padronização das categorias. Essa etapa é importante porque diferenças na forma de escrita, como espaços adicionais ou variações entre letras maiúsculas e minúsculas, podem fazer com que o R interprete registros pertencentes a uma mesma categoria como grupos distintos. Inicialmente, a variável obra foi investigada por meio das funções count() e distinct(), complementadas pela identificação de registros com espaços adicionais. Em seguida, foi analisada a variável tipo_concreto, utilizando distinct() para verificar todas as categorias presentes e identificar possíveis formas diferentes de representação de uma mesma classe de concreto.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
@@ -458,37 +502,367 @@ $ densidade_kg_m3       &lt;dbl&gt; 2332, 2389, 2427, 2345, 2448, 2324, 2385, 23
 $ absorção_agregado_pct &lt;dbl&gt; 2.30, 1.85, 1.89, 1.97, 2.31, 0.80, 1.18, 1.33, …</code></pre>
 </div>
 </div>
-<p>Apresente e interprete os resultados obtidos a partir dos dados coletados.</p>
-<ul>
-<li>Descreva os principais resultados numéricos (média, variabilidade, etc.).</li>
-<li>Comente o comportamento dos dados observados nos gráficos.</li>
-<li>Indique se há presença de valores discrepantes (outliers).</li>
-<li>Avalie se os dados apresentam simetria ou tendência.</li>
-</ul>
-<p>Em seguida, discuta os resultados à luz dos conceitos teóricos:</p>
-<ul>
-<li>Os resultados estão de acordo com o esperado?</li>
-<li>Há grande variabilidade? O que isso significa no contexto do experimento?</li>
-<li>Quais fatores podem ter influenciado os resultados?</li>
-<li>Existem possíveis fontes de erro experimental?</li>
-</ul>
-<p>Procure não apenas descrever, mas <strong>interpretar os dados</strong>.</p>
+<p>A inspeção das categorias qualitativas também revelou algumas particularidades. Na variável obra, foram encontradas cinco categorias distintas, sendo quatro delas aparentemente padronizadas e uma apresentada como “Bloco B ”, contendo espaço adicional ao final do texto. Na variável tipo_concreto, também foram identificadas cinco categorias, embora a base tenha como classes esperadas C25, C30, C35 e C40. A ocorrência de “c30”, em letras minúsculas, indica uma inconsistência de padronização que deverá ser corrigida durante a etapa de limpeza. A necessidade desse tipo de verificação está de acordo com os problemas previstos na atividade, que incluem diferenças na escrita das categorias e espaços adicionais.</p>
 </section>
-<section id="exemplo-de-como-citar-uma-referência-bibliográfica" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.2</span> 💬 Exemplo de como citar uma referência bibliográfica</h3>
+<section id="limpeza-e-transformação-da-base-de-dados" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="limpeza-e-transformação-da-base-de-dados"><span class="header-section-number">5.3</span> Limpeza e transformação da base de dados</h3>
+<p>Após a identificação dos possíveis problemas e inconsistências presentes na base, iniciou-se a terceira etapa, destinada à limpeza e transformação dos dados. O objetivo dessa fase foi produzir uma versão da base adequada às análises posteriores, realizando as correções necessárias sem modificar diretamente os dados originais. Para isso, foi criada uma cópia denominada dados_limpos, sobre a qual foram aplicados os procedimentos de padronização das variáveis qualitativas, conversão das variáveis quantitativas para os tipos adequados e tratamento dos valores ausentes. Dessa maneira, buscou-se garantir maior consistência e confiabilidade aos dados antes da realização das análises estatísticas.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 100
+Columns: 10
+$ id_corpo_prova        &lt;chr&gt; "CP-001", "CP-002", "CP-003", "CP-004", "CP-005"…
+$ obra                  &lt;chr&gt; "Bloco A", "Bloco A", "Bloco C", "Bloco A", "Blo…
+$ tipo_concreto         &lt;chr&gt; "C35", "C30", "C30", "C40", "C25", "C40", "C25",…
+$ idade_dias            &lt;dbl&gt; 28, 7, 56, 28, 28, 28, 56, 28, 14, 7, 7, 28, 28,…
+$ resistencia_mpa       &lt;dbl&gt; 36.3, 28.4, 36.1, 47.2, 27.9, 41.5, 23.7, 38.7, …
+$ cimento_kg_m3         &lt;dbl&gt; 395, 340, 338, 407, 316, 398, 351, 347, 346, 315…
+$ relacao_a_c           &lt;dbl&gt; 0.50, 0.54, 0.56, 0.47, 0.61, 0.43, 0.65, 0.54, …
+$ abatimento_mm         &lt;dbl&gt; 111, 114, 106, 142, 133, 98, 99, 116, 125, 127, …
+$ densidade_kg_m3       &lt;dbl&gt; 2332, 2389, 2427, 2345, 2448, 2324, 2385, 2387, …
+$ absorção_agregado_pct &lt;dbl&gt; 2.30, 1.85, 1.89, 1.97, 2.31, 0.80, 1.18, 1.33, …</code></pre>
+</div>
+</div>
+<p>A criação de uma cópia da base original, denominada <em>dados_limpos</em>, tem por objetivo realizar os procedimentos de tratamento sem alterar os dados inicialmente importados. Essa decisão é importante porque preservar a base original permite manter os registros brutos como referência, possibilitando comparar os dados antes e depois do tratamento, revisar eventuais decisões de correção e evitar a perda das informações originalmente fornecidas. Assim, qualquer alteração realizada durante o processamento pode ser rastreada e, caso necessário, revisada.</p>
+<p>Na sequência, foram padronizadas as variáveis qualitativas. Na variável obra, foram removidos espaços adicionais por meio de <code>str_trim()</code>. Para tipo_concreto, além da remoção de espaços, foram convertidas as letras para maiúsculas com <code>str_to_upper()</code> e eliminados os hífens por meio de <code>str_replace_all()</code>, permitindo uniformizar categorias como c30 e C-30 para uma mesma representação, C30.</p>
+<p>Posteriormente, foi realizada a conversão das variáveis quantitativas que haviam sido inicialmente reconhecidas como caracteres. Com o uso de <code>across()</code> e funções de tratamento textual do stringr, foram corrigidas possíveis ocorrências da letra “O” no lugar do algarismo “0” e substituídas as vírgulas por pontos antes da conversão para valores numéricos. Após essa conversão, foram aplicadas correções específicas às variáveis que apresentavam casas decimais ou ordens de grandeza deslocadas. Os valores de abatimento_mm superiores a 300 foram divididos por 10; valores de densidade_kg_m3 inferiores a 1000 foram multiplicados por 10; valores de absorção_agregado_pct superiores a 10 foram divididos por 10; e valores de idade_dias superiores a 200 foram divididos por 10. Essas transformações tiveram como finalidade recuperar a grandeza considerada adequada para cada variável, com base nos problemas identificados na etapa anterior.</p>
+<p>Ao final do procedimento, o <code>glimpse(dados_limpos)</code> mostrou que as variáveis quantitativas passaram a ser reconhecidas pelo R como numéricas (<code>&lt;dbl&gt;</code>), enquanto <em>id_corpo_prova</em>, <em>obra</em> e <em>tipo_concreto</em> permaneceram como variáveis de caracteres (<code>&lt;chr&gt;</code>). Dessa forma, a base passou a apresentar uma estrutura mais adequada para as etapas seguintes de análise e exploração dos dados.</p>
+<ul>
+<li>Identificação e tratamento dos valores ausentes</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 10
+  id_corpo_prova obra    tipo_concreto idade_dias resistencia_mpa cimento_kg_m3
+  &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;           &lt;dbl&gt;         &lt;dbl&gt;
+1 CP-015         Bloco B C35                   14            36.3           363
+2 CP-038         Bloco C C25                   28            25.7           309
+3 CP-077         Bloco D C25                   14            19             307
+4 CP-092         Bloco B C35                   14            NA             370
+5 CP-097         Bloco A C25                   28            26.7           356
+# ℹ 4 more variables: relacao_a_c &lt;dbl&gt;, abatimento_mm &lt;dbl&gt;,
+#   densidade_kg_m3 &lt;dbl&gt;, absorção_agregado_pct &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Após uma nova verificação dos valores ausentes o resultado identificou cinco registros contendo valores ausentes, correspondentes aos corpos de prova CP-015, CP-038, CP-077, CP-092 e CP-097. Os valores ausentes ocorreram, respectivamente, em diferentes variáveis da base: abatimento_mm no CP-015, relacao_a_c no CP-038, densidade_kg_m3 no CP-077, resistencia_mpa no CP-092 e absorção_agregado_pct no CP-097.</p>
+<p>Diante desses registros, optou-se por manter os valores ausentes (NA) na base, não sendo realizada a exclusão das observações nem a substituição dos valores por estimativas, como a média. Essa decisão foi adotada porque o preenchimento de uma informação não registrada poderia introduzir um valor artificial e interferir na interpretação dos resultados. Além disso, a ausência de uma variável não implica necessariamente que todas as demais informações daquele corpo de prova sejam inválidas. Dessa forma, os registros serão preservados e os valores disponíveis poderão continuar sendo utilizados nas análises em que forem pertinentes, enquanto os NA deverão ser considerados pelos procedimentos estatísticos que envolvam especificamente as variáveis com dados ausentes.</p>
+<p>A opção por consultar a fonte original dos dados também seria uma alternativa adequada para situações em que fosse possível recuperar os registros faltantes. Entretanto, considerando o procedimento adotado nesta atividade, não foi realizada essa recuperação, mantendo-se os NA para preservar a informação efetivamente disponível na base.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>--- Estrutura (Glimpse) ---</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 100
+Columns: 10
+$ id_corpo_prova        &lt;chr&gt; "CP-001", "CP-002", "CP-003", "CP-004", "CP-005"…
+$ obra                  &lt;chr&gt; "Bloco A", "Bloco A", "Bloco C", "Bloco A", "Blo…
+$ tipo_concreto         &lt;chr&gt; "C35", "C30", "C30", "C40", "C25", "C40", "C25",…
+$ idade_dias            &lt;dbl&gt; 28, 7, 56, 28, 28, 28, 56, 28, 14, 7, 7, 28, 28,…
+$ resistencia_mpa       &lt;dbl&gt; 36.3, 28.4, 36.1, 47.2, 27.9, 41.5, 23.7, 38.7, …
+$ cimento_kg_m3         &lt;dbl&gt; 395, 340, 338, 407, 316, 398, 351, 347, 346, 315…
+$ relacao_a_c           &lt;dbl&gt; 0.50, 0.54, 0.56, 0.47, 0.61, 0.43, 0.65, 0.54, …
+$ abatimento_mm         &lt;dbl&gt; 111, 114, 106, 142, 133, 98, 99, 116, 125, 127, …
+$ densidade_kg_m3       &lt;dbl&gt; 2332, 2389, 2427, 2345, 2448, 2324, 2385, 2387, …
+$ absorção_agregado_pct &lt;dbl&gt; 2.30, 1.85, 1.89, 1.97, 2.31, 0.80, 1.18, 1.33, …</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+--- Resumo Estatístico ---</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   id_corpo_prova        obra       tipo_concreto   idade_dias   
+ Length   :100    Length   :100   Length   :100   Min.   : 7.00  
+ N.unique :100    N.unique :  4   N.unique :  4   1st Qu.:14.00  
+ N.blank  :  0    N.blank  :  0   N.blank  :  0   Median :28.00  
+ Min.nchar:  6    Min.nchar:  7   Min.nchar:  3   Mean   :25.48  
+ Max.nchar:  6    Max.nchar:  7   Max.nchar:  3   3rd Qu.:28.00  
+                                                  Max.   :56.00  
+                                                                 
+ resistencia_mpa cimento_kg_m3    relacao_a_c     abatimento_mm  
+ Min.   :19.00   Min.   :295.0   Min.   :0.4300   Min.   : 64.0  
+ 1st Qu.:28.75   1st Qu.:339.5   1st Qu.:0.5100   1st Qu.: 99.5  
+ Median :32.30   Median :354.0   Median :0.5600   Median :110.0  
+ Mean   :33.55   Mean   :357.6   Mean   :0.5537   Mean   :110.3  
+ 3rd Qu.:38.35   3rd Qu.:385.0   3rd Qu.:0.6000   3rd Qu.:122.5  
+ Max.   :47.50   Max.   :418.0   Max.   :0.6500   Max.   :175.0  
+ NAs    :1                       NAs    :1        NAs    :1      
+ densidade_kg_m3 absorção_agregado_pct
+ Min.   :2293    Min.   :0.800        
+ 1st Qu.:2348    1st Qu.:1.475        
+ Median :2374    Median :1.840        
+ Mean   :2373    Mean   :1.786        
+ 3rd Qu.:2388    3rd Qu.:2.100        
+ Max.   :2464    Max.   :2.920        
+ NAs    :1       NAs    :1            </code></pre>
+</div>
+</div>
+<p>Após a aplicação dos procedimentos de limpeza e transformação, a estrutura e o resumo estatístico da base foram novamente verificados por meio das funções <code>glimpse()</code> e <code>summary()</code>.</p>
+<p>As correções das grandezas produziram alterações importantes nos valores extremos. Na base original, foram identificados valores máximos de 280 dias para <em>idade_dias</em>, 1250 mm para <em>abatimento_mm</em>, 2464 kg/m³ para <em>densidade_kg_m3</em> e 18,4% para <em>absorção_agregado_pct</em>, sendo alguns desses valores indicativos de possíveis erros de registro. Após a limpeza, os valores máximos passaram para 56 dias, 175 mm, 2464 kg/m³ e 2,92%, respectivamente. Essas alterações estão diretamente relacionadas às correções aplicadas durante o processamento, corrigindo registros para valores compatíveis com a ordem de grandeza esperada.</p>
+<p>Após essas transformações, os valores mínimos e máximos apresentados pela base passaram a apresentar maior coerência com os demais registros de um conjunto de dados de controle tecnológico do concreto, indicando que os principais problemas de registro identificados nas etapas anteriores foram efetivamente tratados.</p>
+</section>
+<section id="exploração-dos-dados" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="exploração-dos-dados"><span class="header-section-number">5.4</span> Exploração dos dados</h3>
+<p>Com a base <code>dados_limpos</code> devidamente estruturada e tratada, iniciou-se a etapa voltada à exploração e análise descritiva dos dados.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Resistência média dos Corpos de Prova:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  resistencia_media_geral
+                    &lt;dbl&gt;
+1                    33.5</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Resistência média à compressão agrupada por bloco da obra:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  obra    resistencia_media
+  &lt;chr&gt;               &lt;dbl&gt;
+1 Bloco A              33.2
+2 Bloco B              35.7
+3 Bloco C              32.4
+4 Bloco D              32.4</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Resistência média agrupada por tipo de concreto:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  tipo_concreto resistencia_media
+  &lt;chr&gt;                     &lt;dbl&gt;
+1 C25                        27.1
+2 C30                        32.1
+3 C35                        37.1
+4 C40                        43.3</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Resistência média à compressão agrupada por idade dos corpos de prova:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  idade_dias resistencia_media
+       &lt;dbl&gt;             &lt;dbl&gt;
+1          7              28.8
+2         14              34.7
+3         28              34.7
+4         56              33.1</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Comparação do desempenho entre os blocos da obra</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Para descobrir qual bloco teve o melhor e o pior desempenho, agrupamos por</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>obra, calculamos a média e ordenamos do maior para o menor.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  obra    resistencia_media
+  &lt;chr&gt;               &lt;dbl&gt;
+1 Bloco B              35.7
+2 Bloco A              33.2
+3 Bloco D              32.4
+4 Bloco C              32.4</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Análise:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ao observar o tibble gerado, o primeiro bloco da lista apresenta a maior</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>resistência média, enquanto o último apresenta a menor.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Análise de desempenho por Classe de Concreto</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Verificação se os concretos com maior classe nominal (ex: C40) de fato</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>apresentaram a maior resistência média na prática.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  tipo_concreto resistencia_media
+  &lt;chr&gt;                     &lt;dbl&gt;
+1 C40                        43.3
+2 C35                        37.1
+3 C30                        32.1
+4 C25                        27.1</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Análise:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A classe C40 deve encabeçar a lista por ter a maior resistência especificada.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A ordenação descrescente comprova se a hierarquia técnica (C40 &gt; C35 &gt; C30 &gt; C25)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>foi mantida durante a execução da obra.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estatísticas médias das propriedades físicas por tipo de concreto</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>As principais variáveis tecnológicas foram agrupadas para interpretar como a dosagem</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>se comporta conforme a classe do concreto aumenta.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 6
+  tipo_concreto media_resistencia media_cimento media_relacao_ac
+  &lt;chr&gt;                     &lt;dbl&gt;         &lt;dbl&gt;            &lt;dbl&gt;
+1 C40                        43.3          404.            0.478
+2 C35                        37.1          378.            0.507
+3 C30                        32.1          351.            0.568
+4 C25                        27.1          323.            0.62 
+# ℹ 2 more variables: media_abatimento &lt;dbl&gt;, media_densidade &lt;dbl&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Interpretação Técnica dos Resultados:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>- O consumo de cimento aumenta nas classes mais altas (C40) e a relação</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  água/cimento diminui. Esse é o comportamento técnico correto e esperado,</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  pois menos água e mais cimento aumentam a resistência da matriz.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>- A densidade costuma se manter estável (em torno de 2350-2450 kg/m3),</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  indicando que os agregados e o adensamento foram padronizados.</code></pre>
+</div>
+</div>
+</section>
+<section id="criação-de-novas-variáveis" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="criação-de-novas-variáveis"><span class="header-section-number">5.5</span> Criação de novas variáveis</h3>
+<p>Após a exploração das características da base por meio de estatísticas descritivas e agrupamentos, iniciou-se a etapa destinada à criação de novas variáveis a partir dos dados já tratados. Nessa etapa, utilizou-se principalmente a função <code>mutate()</code>, em conjunto com <code>case_when()</code> e outras operações do <code>dplyr</code>, para gerar informações derivadas que possibilitem uma interpretação mais aprofundada dos resultados.</p>
+<p>As novas variáveis foram construídas com o propósito de relacionar a resistência observada dos corpos de prova com referências associadas às diferentes classes de concreto e, também, de classificar e comparar os registros segundo critérios definidos para a análise. Dessa forma, a utilização de variáveis derivadas permite ampliar as informações disponíveis na base sem modificar os dados originais, facilitando a identificação de padrões e a interpretação do desempenho dos corpos de prova</p>
+<ul>
+<li>Variável Resistência Relativa: representa a razão entre a resistência observada e uma resistência de referência associada à classe do concreto.</li>
+</ul>
+<p>A resistência de referência foi definida a partir da resistência característica (fck) correspondente à classe do concreto, utilizando diretamente o valor indicado na própria nomenclatura da classe. Assim, foram adotados 25 MPa para C25, 30 MPa para C30, 35 MPa para C35 e 40 MPa para C40. Essa referência foi utilizada posteriormente para calcular a resistência relativa de cada corpo de prova.</p>
+<ul>
+<li>Variável Classificação: classifica os corpos de prova segundo um critério relacionado à resistência.</li>
+</ul>
+<p>Os critérios de classificação foram definidos tomando como referência a resistência característica (fck) correspondente à classe de cada concreto. Os corpos de prova cuja resistência obtida foi maior ou igual à resistência de referência foram classificados como “Conforme”. Quando a resistência ficou até 10% abaixo da referência, adotou-se a classificação “Atenção”, indicando a necessidade de acompanhamento do resultado. Valores mais de 10% abaixo da referência foram classificados como “Não Conforme”, por representarem um afastamento mais significativo em relação ao valor de referência. Nos casos em que a resistência não estava disponível, adotou-se a categoria “Sem Dado”, evitando atribuir uma classificação sem informação suficiente.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Critérios técnicos definidos com base na resistência de referência:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>- 'Conforme': Resistência obtida é maior ou igual à de referência.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>- 'Atenção': Resistência caiu até 10% abaixo da referência.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>- 'Não Conforme': Resistência caiu mais de 10% abaixo da referência (risco estrutural).</code></pre>
+</div>
+</div>
+<ul>
+<li>Variável <code>acima_media</code>: indica se a resistência do corpo de prova está acima ou abaixo da resistência média de seu respectivo tipo de concreto. A variável assume os seguintes valores: TRUE ou FALSE</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Visualizando o resultado das novas variáveis criadas (primeiros registros):</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  id_corpo_prova tipo_concreto resistencia_mpa resistencia_relativa
+  &lt;chr&gt;          &lt;chr&gt;                   &lt;dbl&gt;                &lt;dbl&gt;
+1 CP-001         C35                      36.3                1.04 
+2 CP-002         C30                      28.4                0.947
+3 CP-003         C30                      36.1                1.20 
+4 CP-004         C40                      47.2                1.18 
+5 CP-005         C25                      27.9                1.12 
+6 CP-006         C40                      41.5                1.04 
+# ℹ 2 more variables: classificacao &lt;chr&gt;, acima_media &lt;lgl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="dados-agrupados" class="level3" data-number="5.6">
+<h3 data-number="5.6" class="anchored" data-anchor-id="dados-agrupados"><span class="header-section-number">5.6</span> Dados agrupados</h3>
+<ul>
+<li>Número de observações por Tipo de Concreto: quantidade de corpos de prova para cada classe de concreto</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  tipo_concreto quantidade_observacoes
+  &lt;chr&gt;                          &lt;int&gt;
+1 C25                               29
+2 C30                               32
+3 C35                               23
+4 C40                               16</code></pre>
+</div>
+</div>
+<ul>
+<li>Resistência média de cada tipo de concreto ordenada em ordem decrescente</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  tipo_concreto resistencia_media
+  &lt;chr&gt;                     &lt;dbl&gt;
+1 C40                        43.3
+2 C35                        37.1
+3 C30                        32.1
+4 C25                        27.1</code></pre>
+</div>
+</div>
+<ul>
+<li>Resumo Estatístico para os tipos de Concreto</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 7
+  tipo_concreto n_observacoes media mediana desvio_padrao minimo maximo
+  &lt;chr&gt;                 &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 C25                      29  27.1    27.8          3.07   19     31.6
+2 C30                      32  32.1    31.8          3.57   24.5   39.4
+3 C35                      22  37.1    36.8          3.68   29.9   44.6
+4 C40                      16  43.3    43.2          3.08   37.3   47.5</code></pre>
+</div>
+</div>
+<p>Uma tabela que apresenta várias estatísticas é mais informativa do que uma tabela contendo apenas a média porque permite avaliar não apenas o valor central dos resultados, mas também a variabilidade e a dispersão dos dados. Na Engenharia Civil, a média isolada pode ocultar diferenças importantes entre os corpos de prova. Por exemplo, uma classe de concreto pode apresentar média de resistência superior ao seu valor de referência, mas, ao mesmo tempo, possuir elevado desvio-padrão e valores mínimos significativamente inferiores. A análise conjunta da média, mediana, desvio-padrão, mínimo e máximo permite, portanto, avaliar melhor a uniformidade dos resultados e a ocorrência de valores extremos, proporcionando uma interpretação mais completa do comportamento da resistência do concreto e contribuindo para uma avaliação mais adequada do controle tecnológico.</p>
+</section>
+<section id="exemplo-de-como-citar-uma-referência-bibliográfica" class="level3" data-number="5.7">
+<h3 data-number="5.7" class="anchored" data-anchor-id="exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.7</span> 💬 Exemplo de como citar uma referência bibliográfica</h3>
 <p>Depois de inserido as informaçõe no arquivo <strong>referencias.bib</strong>, use:</p>
 <ul>
 <li>Segundo <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span></li>
 <li>Tudo é um objeto em R <span class="citation" data-cites="Rbasico2022">(<a href="#ref-Rbasico2022" role="doc-biblioref">Batista e Oliveira, 2022</a>)</span></li>
 </ul>
 </section>
-<section id="análise-de-dados" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">5.3</span> 📊 Análise de Dados</h3>
+<section id="análise-de-dados" class="level3" data-number="5.8">
+<h3 data-number="5.8" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">5.8</span> 📊 Análise de Dados</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10.2  9.8 10.5 10.1  9.9 10.3</code></pre>
@@ -975,264 +1349,653 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Bruno Henrique e Lucas Felipe"</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório de Aula Prática 03"</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="an">date-format:</span><span class="co"> "DD/MM/YYYY, HH:mm"</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">    css: styles.css</span></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>Descreva o contexto da prática e sua importância.</span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.</span></span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
-<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>Descrever o objetivo principal da prática.</span>
-<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
-<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Coletar dados experimentais  </span>
-<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar estatística descritiva  </span>
-<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Construir gráficos  </span>
-<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpretar resultados  </span>
-<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
-<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a>Apresente os conceitos principais:</span>
-<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Média</span>
-<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variância</span>
-<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Desvio padrão</span>
-<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Amostragem</span>
-<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a>\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i</span>
-<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
-<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
-<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
-<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
-<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
-<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
-<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a>Os resultados obtidos a partir do processamento da base de dados são apresentados e discutidos a seguir, considerando as etapas necessárias. Inicialmente, realizou-se a inspeção e caracterização da base, buscando compreender sua estrutura, suas variáveis e a forma como os dados foram interpretados pelo software R. Em seguida, foram investigadas possíveis inconsistências, valores ausentes e registros potencialmente incompatíveis com o contexto analisado. Após essa etapa de diagnóstico, procedeu-se à limpeza e transformação dos dados, permitindo sua utilização nas análises estatísticas e na elaboração das representações gráficas. Dessa forma, a apresentação dos resultados acompanha a sequência metodológica adotada no código desenvolvido, destacando não apenas os valores obtidos, mas também a interpretação dos resultados e a justificativa das decisões tomadas durante o processamento.</span>
-<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conhecendo a base de dados</span></span>
-<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a>Inicialmente, foi realizada a importação da base de dados para o ambiente R utilizando recursos da família tidyverse, conforme proposto na atividade. A leitura foi realizada por meio da função <span class="in">`read_delim()`</span>, considerando o ponto como separador decimal e o ponto e vírgula como delimitador das colunas. A utilização dessa configuração permitiu a leitura da base sem a necessidade de alterações no arquivo original.</span>
-<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Carregamento dos pacotes da família tidyverse</span></span>
-<span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Importação da base de dados</span></span>
-<span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
-<span id="cb20-99"><a href="#cb20-99" aria-hidden="true" tabindex="-1"></a>  <span class="st">"base_processamento_dados_engenharia_civil.csv"</span>,</span>
-<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">";"</span>,</span>
-<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a>  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">"."</span>),</span>
-<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
-<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dados) <span class="co"># Visualiza as primeiras linhas </span></span>
-<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(dados) <span class="co"># Visualiza as útlimas linhas</span></span>
-<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">O número de observações e variáveis existentes na base de dados são: </span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span> (dados) <span class="co"># Número de observações e variáveis existentes na base</span></span>
-<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados) <span class="co"># Estrutura da base</span></span>
-<span id="cb20-114"><a href="#cb20-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span> <span class="fu">summary</span>() <span class="co"># resumo das variáveis</span></span>
-<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualização dos nomes das variáveis.</span></span>
-<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dados)</span>
-<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantidade de valores ausentes por variável:</span></span>
-<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>( </span>
-<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
-<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a>      <span class="fu">everything</span>(),</span>
-<span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))</span>
-<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a><span class="co"># summarise(): Reduz a base de dados a um resumo estatístico (neste caso, a soma de NAs).</span></span>
-<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a><span class="co"># across(): Permite aplicar a mesma função a múltiplas colunas simultaneamente.</span></span>
-<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a><span class="co"># everything(): Seleciona todas as colunas da base.</span></span>
-<span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a><span class="co"># is.na(): Retorna TRUE se o valor for NA (ausente). A soma de TRUEs equivale à contagem de NAs.</span></span>
-<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-139"><a href="#cb20-139" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">everything</span>(), is.na))</span>
-<span id="cb20-141"><a href="#cb20-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a><span class="co"># filter(): Filtra as linhas da base de dados segundo uma condição lógica.</span></span>
-<span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a><span class="co"># if_any(): Verifica se a condição (is.na) é verdadeira para 'qualquer' uma das colunas selecionadas (everything()).</span></span>
-<span id="cb20-144"><a href="#cb20-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-145"><a href="#cb20-145" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb20-146"><a href="#cb20-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(obra)</span>
-<span id="cb20-147"><a href="#cb20-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-148"><a href="#cb20-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-150"><a href="#cb20-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-153"><a href="#cb20-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-154"><a href="#cb20-154" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-155"><a href="#cb20-155" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTAO 8</span></span>
-<span id="cb20-156"><a href="#cb20-156" aria-hidden="true" tabindex="-1"></a><span class="co"># filter(): Seleciona as observações (linhas) suspeitas.</span></span>
-<span id="cb20-157"><a href="#cb20-157" aria-hidden="true" tabindex="-1"></a><span class="co"># if_any(): Varre múltiplas colunas verificando se 'qualquer' uma contém o erro.</span></span>
-<span id="cb20-158"><a href="#cb20-158" aria-hidden="true" tabindex="-1"></a><span class="co"># -(1:3): Exclui as 3 primeiras colunas (id, obra, tipo) da varredura, pois </span></span>
-<span id="cb20-159"><a href="#cb20-159" aria-hidden="true" tabindex="-1"></a><span class="co">#         estas são categóricas e naturalmente contêm letras e hifens.</span></span>
-<span id="cb20-160"><a href="#cb20-160" aria-hidden="true" tabindex="-1"></a><span class="co"># str_detect(): Função do pacote stringr que avalia a presença do padrão Regex.</span></span>
-<span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a><span class="co"># "[^0-9.]": O acento circunflexo (^) nega a busca. Logo, procura tudo que NÃO é dígito/ponto.</span></span>
-<span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a><span class="co"># !is.na(.x): Garante que a função ignore os NAs (que tratamos na Questão 6).</span></span>
-<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a><span class="co"># select(): Usamos everything() para atender ao requisito de apresentar o registro completo.</span></span>
-<span id="cb20-164"><a href="#cb20-164" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a>    <span class="fu">if_any</span>(</span>
-<span id="cb20-167"><a href="#cb20-167" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), </span>
-<span id="cb20-168"><a href="#cb20-168" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">str_detect</span>(<span class="fu">as.character</span>(.x), <span class="st">"[^0-9.]"</span>) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(.x)</span>
-<span id="cb20-169"><a href="#cb20-169" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb20-170"><a href="#cb20-170" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb20-171"><a href="#cb20-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">everything</span>())</span>
-<span id="cb20-172"><a href="#cb20-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-173"><a href="#cb20-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-174"><a href="#cb20-174" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb20-175"><a href="#cb20-175" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb20-176"><a href="#cb20-176" aria-hidden="true" tabindex="-1"></a>    idade_dias <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">|</span> </span>
-<span id="cb20-177"><a href="#cb20-177" aria-hidden="true" tabindex="-1"></a>    abatimento_mm <span class="sc">&gt;</span> <span class="dv">300</span> <span class="sc">|</span> </span>
-<span id="cb20-178"><a href="#cb20-178" aria-hidden="true" tabindex="-1"></a>    densidade_kg_m3 <span class="sc">&lt;</span> <span class="dv">2000</span> <span class="sc">|</span> </span>
-<span id="cb20-179"><a href="#cb20-179" aria-hidden="true" tabindex="-1"></a>    absorção_agregado_pct <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">|</span> </span>
-<span id="cb20-180"><a href="#cb20-180" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Conversão "on the fly": limpa a leitura apenas neste exato milissegundo </span></span>
-<span id="cb20-181"><a href="#cb20-181" aria-hidden="true" tabindex="-1"></a>    <span class="co"># para sabermos se o valor real por trás da sujeira é absurdo.</span></span>
-<span id="cb20-182"><a href="#cb20-182" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parse_double</span>(<span class="fu">str_replace_all</span>(resistencia_mpa, <span class="fu">c</span>(<span class="st">"O"</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="st">","</span> <span class="ot">=</span> <span class="st">"."</span>))) <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">|</span> </span>
-<span id="cb20-183"><a href="#cb20-183" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parse_double</span>(<span class="fu">str_replace_all</span>(relacao_a_c, <span class="fu">c</span>(<span class="st">"O"</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="st">","</span> <span class="ot">=</span> <span class="st">"."</span>))) <span class="sc">&gt;</span> <span class="fl">1.5</span> </span>
-<span id="cb20-184"><a href="#cb20-184" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb20-185"><a href="#cb20-185" aria-hidden="true" tabindex="-1"></a>  <span class="co"># select(): Seleciona as colunas de interesse para facilitar a visualização no relatório.</span></span>
-<span id="cb20-186"><a href="#cb20-186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a>    id_corpo_prova, </span>
-<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a>    idade_dias, </span>
-<span id="cb20-189"><a href="#cb20-189" aria-hidden="true" tabindex="-1"></a>    resistencia_mpa, </span>
-<span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a>    abatimento_mm, </span>
-<span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a>    densidade_kg_m3, </span>
-<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a>    absorção_agregado_pct</span>
-<span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a><span class="co"># count(): Agrupa os dados pela variável 'obra' e conta o número de observações de cada categoria.</span></span>
-<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a><span class="co"># Facilita a identificação de categorias duplicadas por conta de espaços em branco ou letras minúsculas/maiúsculas.</span></span>
-<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(obra)</span>
-<span id="cb20-203"><a href="#cb20-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb20-205"><a href="#cb20-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(obra)</span>
-<span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-207"><a href="#cb20-207" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb20-208"><a href="#cb20-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a>    obra <span class="sc">!=</span> <span class="fu">str_trim</span>(obra)</span>
-<span id="cb20-210"><a href="#cb20-210" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb20-211"><a href="#cb20-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-212"><a href="#cb20-212" aria-hidden="true" tabindex="-1"></a><span class="co"># distinct(): Retorna apenas os valores únicos (sem repetição) presentes na variável 'tipo_concreto'.</span></span>
-<span id="cb20-213"><a href="#cb20-213" aria-hidden="true" tabindex="-1"></a><span class="co"># Permite inspecionar rapidamente as variações de categorias existentes na base de dados.</span></span>
-<span id="cb20-214"><a href="#cb20-214" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
-<span id="cb20-215"><a href="#cb20-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(tipo_concreto)</span>
-<span id="cb20-216"><a href="#cb20-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-217"><a href="#cb20-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-218"><a href="#cb20-218" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados)</span>
-<span id="cb20-219"><a href="#cb20-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-220"><a href="#cb20-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-221"><a href="#cb20-221" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
-<span id="cb20-222"><a href="#cb20-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-223"><a href="#cb20-223" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
-<span id="cb20-224"><a href="#cb20-224" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
-<span id="cb20-225"><a href="#cb20-225" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
-<span id="cb20-226"><a href="#cb20-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
-<span id="cb20-227"><a href="#cb20-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-228"><a href="#cb20-228" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
-<span id="cb20-229"><a href="#cb20-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-230"><a href="#cb20-230" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
-<span id="cb20-231"><a href="#cb20-231" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
-<span id="cb20-232"><a href="#cb20-232" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
-<span id="cb20-233"><a href="#cb20-233" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
-<span id="cb20-234"><a href="#cb20-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-235"><a href="#cb20-235" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
-<span id="cb20-236"><a href="#cb20-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-237"><a href="#cb20-237" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
-<span id="cb20-238"><a href="#cb20-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-239"><a href="#cb20-239" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
-<span id="cb20-240"><a href="#cb20-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-241"><a href="#cb20-241" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
-<span id="cb20-242"><a href="#cb20-242" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
-<span id="cb20-243"><a href="#cb20-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-244"><a href="#cb20-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
-<span id="cb20-245"><a href="#cb20-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-248"><a href="#cb20-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-249"><a href="#cb20-249" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb20-250"><a href="#cb20-250" aria-hidden="true" tabindex="-1"></a>distancia</span>
-<span id="cb20-251"><a href="#cb20-251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-252"><a href="#cb20-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-253"><a href="#cb20-253" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb20-254"><a href="#cb20-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-255"><a href="#cb20-255" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
-<span id="cb20-256"><a href="#cb20-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-257"><a href="#cb20-257" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
-<span id="cb20-258"><a href="#cb20-258" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
-<span id="cb20-259"><a href="#cb20-259" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
-<span id="cb20-260"><a href="#cb20-260" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
-<span id="cb20-261"><a href="#cb20-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-262"><a href="#cb20-262" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
-<span id="cb20-263"><a href="#cb20-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-264"><a href="#cb20-264" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
-<span id="cb20-265"><a href="#cb20-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-266"><a href="#cb20-266" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
-<span id="cb20-267"><a href="#cb20-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-268"><a href="#cb20-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Bruno Henrique e Lucas Felipe"</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório de Aula Prática 03"</span></span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
+<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
+<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
+<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a><span class="an">date-format:</span><span class="co"> "DD/MM/YYYY, HH:mm"</span></span>
+<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
+<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb69-17"><a href="#cb69-17" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb69-18"><a href="#cb69-18" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
+<span id="cb69-19"><a href="#cb69-19" aria-hidden="true" tabindex="-1"></a><span class="co">    css: styles.css</span></span>
+<span id="cb69-20"><a href="#cb69-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb69-21"><a href="#cb69-21" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb69-22"><a href="#cb69-22" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb69-23"><a href="#cb69-23" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb69-24"><a href="#cb69-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb69-25"><a href="#cb69-25" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb69-26"><a href="#cb69-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb69-27"><a href="#cb69-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-28"><a href="#cb69-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-29"><a href="#cb69-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
+<span id="cb69-30"><a href="#cb69-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-31"><a href="#cb69-31" aria-hidden="true" tabindex="-1"></a>Descreva o contexto da prática e sua importância.</span>
+<span id="cb69-32"><a href="#cb69-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-33"><a href="#cb69-33" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.</span></span>
+<span id="cb69-34"><a href="#cb69-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-35"><a href="#cb69-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-36"><a href="#cb69-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-37"><a href="#cb69-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
+<span id="cb69-38"><a href="#cb69-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-39"><a href="#cb69-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
+<span id="cb69-40"><a href="#cb69-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-41"><a href="#cb69-41" aria-hidden="true" tabindex="-1"></a>Descrever o objetivo principal da prática.</span>
+<span id="cb69-42"><a href="#cb69-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-43"><a href="#cb69-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
+<span id="cb69-44"><a href="#cb69-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-45"><a href="#cb69-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Coletar dados experimentais  </span>
+<span id="cb69-46"><a href="#cb69-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar estatística descritiva  </span>
+<span id="cb69-47"><a href="#cb69-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Construir gráficos  </span>
+<span id="cb69-48"><a href="#cb69-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpretar resultados  </span>
+<span id="cb69-49"><a href="#cb69-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-50"><a href="#cb69-50" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb69-51"><a href="#cb69-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-52"><a href="#cb69-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
+<span id="cb69-53"><a href="#cb69-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-54"><a href="#cb69-54" aria-hidden="true" tabindex="-1"></a>Apresente os conceitos principais:</span>
+<span id="cb69-55"><a href="#cb69-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-56"><a href="#cb69-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Média</span>
+<span id="cb69-57"><a href="#cb69-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variância</span>
+<span id="cb69-58"><a href="#cb69-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Desvio padrão</span>
+<span id="cb69-59"><a href="#cb69-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Amostragem</span>
+<span id="cb69-60"><a href="#cb69-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-61"><a href="#cb69-61" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb69-62"><a href="#cb69-62" aria-hidden="true" tabindex="-1"></a>\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i</span>
+<span id="cb69-63"><a href="#cb69-63" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb69-64"><a href="#cb69-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-65"><a href="#cb69-65" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb69-66"><a href="#cb69-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-67"><a href="#cb69-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
+<span id="cb69-68"><a href="#cb69-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-69"><a href="#cb69-69" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb69-70"><a href="#cb69-70" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
+<span id="cb69-71"><a href="#cb69-71" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb69-72"><a href="#cb69-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-73"><a href="#cb69-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
+<span id="cb69-74"><a href="#cb69-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
+<span id="cb69-75"><a href="#cb69-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
+<span id="cb69-76"><a href="#cb69-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-77"><a href="#cb69-77" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb69-78"><a href="#cb69-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-79"><a href="#cb69-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
+<span id="cb69-80"><a href="#cb69-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-81"><a href="#cb69-81" aria-hidden="true" tabindex="-1"></a>Os resultados obtidos a partir do processamento da base de dados são apresentados e discutidos a seguir, considerando as etapas necessárias. Inicialmente, realizou-se a inspeção e caracterização da base, buscando compreender sua estrutura, suas variáveis e a forma como os dados foram interpretados pelo software R. Em seguida, foram investigadas possíveis inconsistências, valores ausentes e registros potencialmente incompatíveis com o contexto analisado. Após essa etapa de diagnóstico, procedeu-se à limpeza e transformação dos dados, permitindo sua utilização nas análises estatísticas e na elaboração das representações gráficas. Dessa forma, a apresentação dos resultados acompanha a sequência metodológica adotada no código desenvolvido, destacando não apenas os valores obtidos, mas também a interpretação dos resultados e a justificativa das decisões tomadas durante o processamento.</span>
+<span id="cb69-82"><a href="#cb69-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-83"><a href="#cb69-83" aria-hidden="true" tabindex="-1"></a>A base de dados reúne informações relacionadas ao controle tecnológico do concreto, permitindo analisar diferentes características dos corpos de prova e das condições em que os ensaios foram realizados, conforme definições a seguir:</span>
+<span id="cb69-84"><a href="#cb69-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-85"><a href="#cb69-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`id_corpo_prova`</span> (identificação do corpo de prova)</span>
+<span id="cb69-86"><a href="#cb69-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`obra`</span> (Bloco da obra onde ocorreu a concretagem) </span>
+<span id="cb69-87"><a href="#cb69-87" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`tipo_concreto`</span> (Classe do Concreto)</span>
+<span id="cb69-88"><a href="#cb69-88" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`idade_dias`</span> (Idade do corpo de prova no momento do ensaio)</span>
+<span id="cb69-89"><a href="#cb69-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`resistencia_mpa`</span>(Resistência à compressão em MPa)</span>
+<span id="cb69-90"><a href="#cb69-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`cimento_kg_m3`</span>(Consumo de cimento em kg/m³)</span>
+<span id="cb69-91"><a href="#cb69-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`relacao_a_c`</span> (relação água/cimento)</span>
+<span id="cb69-92"><a href="#cb69-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`abatimento_mm`</span> (abatimento do concreto, em mm)</span>
+<span id="cb69-93"><a href="#cb69-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`densidade_kg_m3`</span>(densidade aparente do concreto, em kg/m³) </span>
+<span id="cb69-94"><a href="#cb69-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`absorção_agregado_pct`</span> (Absorção de água do agregado, em %).</span>
+<span id="cb69-95"><a href="#cb69-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-96"><a href="#cb69-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-97"><a href="#cb69-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conhecendo a base de dados</span></span>
+<span id="cb69-98"><a href="#cb69-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-99"><a href="#cb69-99" aria-hidden="true" tabindex="-1"></a>Inicialmente, foi realizada a importação da base de dados para o ambiente R utilizando recursos da família *tidyverse*, conforme proposto na atividade. A leitura foi realizada por meio da função <span class="in">`read_delim()`</span>, considerando o ponto como separador decimal e o ponto e vírgula como delimitador das colunas. A utilização dessa configuração permitiu a leitura da base sem a necessidade de alterações no arquivo original.</span>
+<span id="cb69-100"><a href="#cb69-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-101"><a href="#cb69-101" aria-hidden="true" tabindex="-1"></a>A inspeção inicial, realizada por meio das funções <span class="in">`head()`</span> e <span class="in">`tail()`</span>, permitiu verificar, respectivamente, as primeiras e as últimas observações da base. Observou-se que os registros estão organizados de forma tabular, sendo cada linha correspondente a um corpo de prova e cada coluna associada a uma característica do concreto. Os identificadores dos corpos de prova seguem uma sequência de CP-001 a CP-100, indicando que não foram observadas falhas aparentes na sequência dos registros.</span>
+<span id="cb69-104"><a href="#cb69-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-105"><a href="#cb69-105" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-106"><a href="#cb69-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-107"><a href="#cb69-107" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Carregamento dos pacotes da família tidyverse</span></span>
+<span id="cb69-108"><a href="#cb69-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-109"><a href="#cb69-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Importação da base de dados</span></span>
+<span id="cb69-110"><a href="#cb69-110" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
+<span id="cb69-111"><a href="#cb69-111" aria-hidden="true" tabindex="-1"></a>  <span class="st">"base_processamento_dados_engenharia_civil.csv"</span>,</span>
+<span id="cb69-112"><a href="#cb69-112" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">";"</span>,</span>
+<span id="cb69-113"><a href="#cb69-113" aria-hidden="true" tabindex="-1"></a>  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">"."</span>),</span>
+<span id="cb69-114"><a href="#cb69-114" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb69-115"><a href="#cb69-115" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb69-116"><a href="#cb69-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-117"><a href="#cb69-117" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dados) <span class="co"># Visualiza as primeiras linhas </span></span>
+<span id="cb69-118"><a href="#cb69-118" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(dados) <span class="co"># Visualiza as útlimas linhas</span></span>
+<span id="cb69-119"><a href="#cb69-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-120"><a href="#cb69-120" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">O número de observações e variáveis existentes na base de dados são: </span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-121"><a href="#cb69-121" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span> (dados) <span class="co"># Número de observações e variáveis existentes na base</span></span>
+<span id="cb69-122"><a href="#cb69-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-123"><a href="#cb69-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-124"><a href="#cb69-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-125"><a href="#cb69-125" aria-hidden="true" tabindex="-1"></a>A aplicação da função <span class="in">`dim()`</span> indicou que a base possui 100 observações e 10 variáveis. Portanto, a estrutura inicial contém informações referentes a 100 registros de controle tecnológico do concreto, distribuídos entre variáveis de identificação, classificação e propriedades físicas e mecânicas. </span>
+<span id="cb69-126"><a href="#cb69-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-127"><a href="#cb69-127" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`glimpse()`</span> permitiu analisar de forma detalhada a estrutura da base de dados e verificar os tipos atribuídos pelo R às diferentes variáveis. </span>
+<span id="cb69-128"><a href="#cb69-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-131"><a href="#cb69-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-132"><a href="#cb69-132" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-133"><a href="#cb69-133" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados) <span class="co"># Estrutura da base</span></span>
+<span id="cb69-134"><a href="#cb69-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-135"><a href="#cb69-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-136"><a href="#cb69-136" aria-hidden="true" tabindex="-1"></a>Conforme observado, as variáveis *id_corpo_prova*, *obra* e *tipo_concreto* foram reconhecidas como caracteres (`&lt;chr&gt;`), por apresentarem informações de identificação e classificação. A variável *idade_dias* foi identificada como numérica (&lt;dbl&gt;), assim como *abatimento_mm*, *densidade_kg_m3* e *absorção_agregado_pct*. Por outro lado, as variáveis *resistencia_mpa*, *cimento_kg_m3* e *relacao_a_c*, embora representem informações quantitativas, foram inicialmente interpretadas pelo R como caracteres (<span class="in">`&lt;chr&gt;`</span>). Esse resultado indica a existência de possíveis inconsistências na forma de registro desses dados, que deverão ser investigadas nas etapas posteriores, especialmente quanto à representação dos valores numéricos e à necessidade de conversão para o tipo adequado.</span>
+<span id="cb69-137"><a href="#cb69-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-138"><a href="#cb69-138" aria-hidden="true" tabindex="-1"></a>A análise dos tipos das variáveis, realizada por meio da função glimpse(), mostrou que o R reconheceu quatro variáveis como quantitativas (<span class="dt">&lt;</span><span class="kw">dbl</span><span class="dt">&gt;</span>): idade_dias, abatimento_mm, densidade_kg_m3 e absorção_agregado_pct. As demais foram identificadas como variáveis de caracteres (<span class="dt">&lt;</span><span class="kw">chr</span><span class="dt">&gt;</span>), sendo elas id_corpo_prova, obra, tipo_concreto, resistencia_mpa, cimento_kg_m3 e relacao_a_c. Entretanto, a classificação obtida pelo R não corresponde integralmente à natureza das variáveis no contexto da Engenharia Civil. As variáveis resistencia_mpa, cimento_kg_m3 e relacao_a_c representam grandezas quantitativas, mas foram armazenadas como texto na base de dados.</span>
+<span id="cb69-139"><a href="#cb69-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-140"><a href="#cb69-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-141"><a href="#cb69-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-142"><a href="#cb69-142" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Resumo das Variáveis (<span class="in">`summary()`</span>)</span>
+<span id="cb69-143"><a href="#cb69-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-144"><a href="#cb69-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-147"><a href="#cb69-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-148"><a href="#cb69-148" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-149"><a href="#cb69-149" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span> <span class="fu">summary</span>() <span class="co"># resumo das variáveis</span></span>
+<span id="cb69-150"><a href="#cb69-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-151"><a href="#cb69-151" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualização dos nomes das variáveis.</span></span>
+<span id="cb69-152"><a href="#cb69-152" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dados)</span>
+<span id="cb69-153"><a href="#cb69-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-154"><a href="#cb69-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-155"><a href="#cb69-155" aria-hidden="true" tabindex="-1"></a>O resumo das variáveis, obtido por meio da função <span class="in">`summary()`</span>, permitiu identificar as principais características descritivas da base e a presença de valores ausentes. A variável *idade_dias* apresentou valores entre 7 e 280 dias, com mediana e média de 28 dias, respectivamente. Para *resistencia_mpa*, foram identificados 83 valores distintos e 1 valor ausente, enquanto *cimento_kg_m3* apresentou 68 valores distintos e *relacao_a_c*, 24 valores distintos, ambas sem valores ausentes. Entre as variáveis numéricas, *abatimento_mm* apresentou valores entre 64 e 1250 mm, com média de 121,7 mm, e *densidade_kg_m3* variou de 238 a 2464 kg/m³, com média de 2351 kg/m³. A variável *absorção_agregado_pct* apresentou valores entre 0,8% e 18,4%, com média de 1,953%, também com um valor ausente. Esses resultados permitem observar, ainda na análise inicial, a existência de valores que apresentam grande dispersão ou magnitude discrepante em relação aos demais registros, os quais deverão ser investigados nas etapas seguintes. Além disso, conforme verificado anteriormente pela função `glimpse()`, as variáveis *resistencia_mpa*, *cimento_kg_m3* e *relacao_a_c* foram interpretadas pelo R como caracteres (<span class="in">`&lt;chr&gt;`</span>), apesar de representarem informações quantitativas, indicando a necessidade de posterior verificação e tratamento dos registros.</span>
+<span id="cb69-156"><a href="#cb69-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-157"><a href="#cb69-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-158"><a href="#cb69-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Valores Ausentes</span>
+<span id="cb69-159"><a href="#cb69-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-160"><a href="#cb69-160" aria-hidden="true" tabindex="-1"></a>Antes de prosseguir, é importante verificar a existência de valores ausentes (NA) na base de dados, uma vez que sua presença pode comprometer a realização de análises posteriores e influenciar a interpretação dos resultados. Para isso, foram utilizados recursos do <span class="in">`tidyverse`</span> para quantificar os valores ausentes em cada variável e, posteriormente, identificar quais observações apresentam registros incompletos. Essa análise permite avaliar a extensão dos dados faltantes e localizar os registros que deverão ser considerados nas etapas de tratamento e limpeza da base.</span>
+<span id="cb69-161"><a href="#cb69-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-164"><a href="#cb69-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-165"><a href="#cb69-165" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-166"><a href="#cb69-166" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">A quantidade de valores ausentes em cada variável existente na base de dados é: </span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-167"><a href="#cb69-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-168"><a href="#cb69-168" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantidade de valores ausentes por variável:</span></span>
+<span id="cb69-169"><a href="#cb69-169" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb69-170"><a href="#cb69-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>( </span>
+<span id="cb69-171"><a href="#cb69-171" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb69-172"><a href="#cb69-172" aria-hidden="true" tabindex="-1"></a>      <span class="fu">everything</span>(),</span>
+<span id="cb69-173"><a href="#cb69-173" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))</span>
+<span id="cb69-174"><a href="#cb69-174" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb69-175"><a href="#cb69-175" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb69-176"><a href="#cb69-176" aria-hidden="true" tabindex="-1"></a><span class="co"># summarise(): Reduz a base de dados a um resumo estatístico (neste caso, a soma de NAs).</span></span>
+<span id="cb69-177"><a href="#cb69-177" aria-hidden="true" tabindex="-1"></a><span class="co"># across(): Permite aplicar a mesma função a múltiplas colunas simultaneamente.</span></span>
+<span id="cb69-178"><a href="#cb69-178" aria-hidden="true" tabindex="-1"></a><span class="co"># everything(): Seleciona todas as colunas da base.</span></span>
+<span id="cb69-179"><a href="#cb69-179" aria-hidden="true" tabindex="-1"></a><span class="co"># is.na(): Retorna TRUE se o valor for NA (ausente). A soma de TRUEs equivale à contagem de NAs.</span></span>
+<span id="cb69-180"><a href="#cb69-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-181"><a href="#cb69-181" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">As observações onde contêm valores ausentes são: </span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-182"><a href="#cb69-182" aria-hidden="true" tabindex="-1"></a><span class="co"># Em quais observações aparecem NA</span></span>
+<span id="cb69-183"><a href="#cb69-183" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb69-184"><a href="#cb69-184" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">everything</span>(), is.na))</span>
+<span id="cb69-185"><a href="#cb69-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-186"><a href="#cb69-186" aria-hidden="true" tabindex="-1"></a><span class="co"># filter(): Filtra as linhas da base de dados segundo uma condição lógica.</span></span>
+<span id="cb69-187"><a href="#cb69-187" aria-hidden="true" tabindex="-1"></a><span class="co"># if_any(): Verifica se a condição (is.na) é verdadeira para 'qualquer' uma das colunas selecionadas (everything()).</span></span>
+<span id="cb69-188"><a href="#cb69-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-189"><a href="#cb69-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-190"><a href="#cb69-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-191"><a href="#cb69-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-192"><a href="#cb69-192" aria-hidden="true" tabindex="-1"></a>De modo geral, a primeira inspeção demonstrou que a base possui uma estrutura organizada, porém não está completamente pronta para a aplicação de análises estatísticas. A identificação das diferenças entre os tipos de dados, dos valores ausentes e das inconsistências nas categorias é fundamental antes da realização dos cálculos e gráficos. Dessa forma, os resultados da Etapa 1 justificam a necessidade das etapas seguintes de investigação, limpeza e transformação dos dados, evitando que erros de registro sejam interpretados como características reais do concreto.</span>
+<span id="cb69-193"><a href="#cb69-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-194"><a href="#cb69-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-195"><a href="#cb69-195" aria-hidden="true" tabindex="-1"></a><span class="fu">### Investigação da qualidade e consistência dos dados</span></span>
+<span id="cb69-196"><a href="#cb69-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-197"><a href="#cb69-197" aria-hidden="true" tabindex="-1"></a>Após a caracterização inicial da base de dados, iniciou-se a investigação de possíveis problemas de qualidade e consistência dos registros. Nessa fase, buscou-se verificar se os valores presentes na base são compatíveis com o contexto do controle tecnológico do concreto, identificando situações que possam representar erros de digitação, registros inadequados ou valores potencialmente discrepantes. </span>
+<span id="cb69-198"><a href="#cb69-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-199"><a href="#cb69-199" aria-hidden="true" tabindex="-1"></a>Nesse processo, foram utilizados principalmente recursos do dplyr, como filter(), select(), count() e distinct(), permitindo localizar e examinar as observações que apresentaram características potencialmente incompatíveis ou inconsistentes. A análise também contemplou a verificação da padronização das categorias das variáveis qualitativas, especialmente obra e tipo_concreto, uma vez que diferentes formas de escrita podem fazer com que registros pertencentes ao mesmo grupo sejam interpretados como categorias distintas pelo R.</span>
+<span id="cb69-200"><a href="#cb69-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-201"><a href="#cb69-201" aria-hidden="true" tabindex="-1"></a>Desta forma, inicialmente, analisou-se possíveis erros de digitação (presença de caracteres em dados quantitativos), retornando o seguinte resultado:</span>
+<span id="cb69-202"><a href="#cb69-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-205"><a href="#cb69-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-206"><a href="#cb69-206" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-207"><a href="#cb69-207" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTAO 8: Analisando erros de digitação</span></span>
+<span id="cb69-208"><a href="#cb69-208" aria-hidden="true" tabindex="-1"></a><span class="co"># filter(): Seleciona as observações (linhas) suspeitas.</span></span>
+<span id="cb69-209"><a href="#cb69-209" aria-hidden="true" tabindex="-1"></a><span class="co"># if_any(): Varre múltiplas colunas verificando se 'qualquer' uma contém o erro.</span></span>
+<span id="cb69-210"><a href="#cb69-210" aria-hidden="true" tabindex="-1"></a><span class="co"># -(1:3): Exclui as 3 primeiras colunas (id, obra, tipo) da varredura, pois </span></span>
+<span id="cb69-211"><a href="#cb69-211" aria-hidden="true" tabindex="-1"></a><span class="co">#         estas são categóricas e naturalmente contêm letras e hifens.</span></span>
+<span id="cb69-212"><a href="#cb69-212" aria-hidden="true" tabindex="-1"></a><span class="co"># str_detect(): Função do pacote stringr que avalia a presença do padrão Regex.</span></span>
+<span id="cb69-213"><a href="#cb69-213" aria-hidden="true" tabindex="-1"></a><span class="co"># "[^0-9.]": O acento circunflexo (^) nega a busca. Logo, procura tudo que NÃO é dígito/ponto.</span></span>
+<span id="cb69-214"><a href="#cb69-214" aria-hidden="true" tabindex="-1"></a><span class="co"># !is.na(.x): Garante que a função ignore os NAs.</span></span>
+<span id="cb69-215"><a href="#cb69-215" aria-hidden="true" tabindex="-1"></a><span class="co"># select(): Usamos everything() para atender ao requisito de apresentar o registro completo.</span></span>
+<span id="cb69-216"><a href="#cb69-216" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb69-217"><a href="#cb69-217" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb69-218"><a href="#cb69-218" aria-hidden="true" tabindex="-1"></a>    <span class="fu">if_any</span>(</span>
+<span id="cb69-219"><a href="#cb69-219" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), </span>
+<span id="cb69-220"><a href="#cb69-220" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">str_detect</span>(<span class="fu">as.character</span>(.x), <span class="st">"[^0-9.]"</span>) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(.x)</span>
+<span id="cb69-221"><a href="#cb69-221" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb69-222"><a href="#cb69-222" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb69-223"><a href="#cb69-223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">everything</span>())</span>
+<span id="cb69-224"><a href="#cb69-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-225"><a href="#cb69-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-226"><a href="#cb69-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-227"><a href="#cb69-227" aria-hidden="true" tabindex="-1"></a>Para verificar a existência de valores potencialmente incompatíveis com o contexto da Engenharia Civil, foram estabelecidos critérios de triagem para as principais variáveis analisadas. Foram selecionados registros com idade_dias superior a 100 dias, abatimento_mm superior a 300 mm, densidade_kg_m3 inferior a 2000 kg/m³ ou absorção_agregado_pct superior a 10%. Para as variáveis resistencia_mpa e relacao_a_c, foi realizada uma conversão temporária dos valores, com correção de possíveis registros contendo a letra “O” no lugar do algarismo “0” e substituição da vírgula pelo ponto decimal, permitindo verificar se os valores numéricos resultantes ultrapassavam os limites de 100 MPa e 1,5, respectivamente. Dessa forma, o procedimento permitiu identificar registros que apresentavam valores que merecem investigação mais detalhada, sem alterar, neste momento, os dados originais da base.</span>
+<span id="cb69-228"><a href="#cb69-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-231"><a href="#cb69-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-232"><a href="#cb69-232" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-233"><a href="#cb69-233" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb69-234"><a href="#cb69-234" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb69-235"><a href="#cb69-235" aria-hidden="true" tabindex="-1"></a>    idade_dias <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">|</span> </span>
+<span id="cb69-236"><a href="#cb69-236" aria-hidden="true" tabindex="-1"></a>    abatimento_mm <span class="sc">&gt;</span> <span class="dv">300</span> <span class="sc">|</span> </span>
+<span id="cb69-237"><a href="#cb69-237" aria-hidden="true" tabindex="-1"></a>    densidade_kg_m3 <span class="sc">&lt;</span> <span class="dv">2000</span> <span class="sc">|</span> </span>
+<span id="cb69-238"><a href="#cb69-238" aria-hidden="true" tabindex="-1"></a>    absorção_agregado_pct <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">|</span> </span>
+<span id="cb69-239"><a href="#cb69-239" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Conversão "on the fly": limpa a leitura apenas neste exato milissegundo </span></span>
+<span id="cb69-240"><a href="#cb69-240" aria-hidden="true" tabindex="-1"></a>    <span class="co"># para sabermos se o valor real por trás da sujeira é absurdo.</span></span>
+<span id="cb69-241"><a href="#cb69-241" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parse_double</span>(<span class="fu">str_replace_all</span>(resistencia_mpa, <span class="fu">c</span>(<span class="st">"O"</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="st">","</span> <span class="ot">=</span> <span class="st">"."</span>))) <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">|</span> </span>
+<span id="cb69-242"><a href="#cb69-242" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parse_double</span>(<span class="fu">str_replace_all</span>(relacao_a_c, <span class="fu">c</span>(<span class="st">"O"</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="st">","</span> <span class="ot">=</span> <span class="st">"."</span>))) <span class="sc">&gt;</span> <span class="fl">1.5</span> </span>
+<span id="cb69-243"><a href="#cb69-243" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb69-244"><a href="#cb69-244" aria-hidden="true" tabindex="-1"></a>  <span class="co"># select(): Seleciona as colunas de interesse para facilitar a visualização no relatório.</span></span>
+<span id="cb69-245"><a href="#cb69-245" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb69-246"><a href="#cb69-246" aria-hidden="true" tabindex="-1"></a>    id_corpo_prova, </span>
+<span id="cb69-247"><a href="#cb69-247" aria-hidden="true" tabindex="-1"></a>    idade_dias, </span>
+<span id="cb69-248"><a href="#cb69-248" aria-hidden="true" tabindex="-1"></a>    resistencia_mpa, </span>
+<span id="cb69-249"><a href="#cb69-249" aria-hidden="true" tabindex="-1"></a>    abatimento_mm, </span>
+<span id="cb69-250"><a href="#cb69-250" aria-hidden="true" tabindex="-1"></a>    densidade_kg_m3, </span>
+<span id="cb69-251"><a href="#cb69-251" aria-hidden="true" tabindex="-1"></a>    absorção_agregado_pct</span>
+<span id="cb69-252"><a href="#cb69-252" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb69-253"><a href="#cb69-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-254"><a href="#cb69-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-255"><a href="#cb69-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-256"><a href="#cb69-256" aria-hidden="true" tabindex="-1"></a>Após a análise dos possíveis valores incompatíveis, foi realizada a verificação das variáveis qualitativas, com o objetivo de identificar inconsistências na padronização das categorias. Essa etapa é importante porque diferenças na forma de escrita, como espaços adicionais ou variações entre letras maiúsculas e minúsculas, podem fazer com que o R interprete registros pertencentes a uma mesma categoria como grupos distintos. Inicialmente, a variável obra foi investigada por meio das funções count() e distinct(), complementadas pela identificação de registros com espaços adicionais. Em seguida, foi analisada a variável tipo_concreto, utilizando distinct() para verificar todas as categorias presentes e identificar possíveis formas diferentes de representação de uma mesma classe de concreto.</span>
+<span id="cb69-257"><a href="#cb69-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-260"><a href="#cb69-260" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-261"><a href="#cb69-261" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-262"><a href="#cb69-262" aria-hidden="true" tabindex="-1"></a><span class="co"># count(): Agrupa os dados pela variável 'obra' e conta o número de observações de cada categoria.</span></span>
+<span id="cb69-263"><a href="#cb69-263" aria-hidden="true" tabindex="-1"></a><span class="co"># Facilita a identificação de categorias duplicadas por conta de espaços em branco ou letras minúsculas/maiúsculas.</span></span>
+<span id="cb69-264"><a href="#cb69-264" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb69-265"><a href="#cb69-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(obra)</span>
+<span id="cb69-266"><a href="#cb69-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-267"><a href="#cb69-267" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb69-268"><a href="#cb69-268" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(obra)</span>
+<span id="cb69-269"><a href="#cb69-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-270"><a href="#cb69-270" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb69-271"><a href="#cb69-271" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb69-272"><a href="#cb69-272" aria-hidden="true" tabindex="-1"></a>    obra <span class="sc">!=</span> <span class="fu">str_trim</span>(obra)</span>
+<span id="cb69-273"><a href="#cb69-273" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb69-274"><a href="#cb69-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-275"><a href="#cb69-275" aria-hidden="true" tabindex="-1"></a><span class="co"># distinct(): Retorna apenas os valores únicos (sem repetição) presentes na variável 'tipo_concreto'.</span></span>
+<span id="cb69-276"><a href="#cb69-276" aria-hidden="true" tabindex="-1"></a><span class="co"># Permite inspecionar rapidamente as variações de categorias existentes na base de dados.</span></span>
+<span id="cb69-277"><a href="#cb69-277" aria-hidden="true" tabindex="-1"></a>dados <span class="sc">|&gt;</span></span>
+<span id="cb69-278"><a href="#cb69-278" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(tipo_concreto)</span>
+<span id="cb69-279"><a href="#cb69-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-280"><a href="#cb69-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-281"><a href="#cb69-281" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados)</span>
+<span id="cb69-282"><a href="#cb69-282" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-283"><a href="#cb69-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-284"><a href="#cb69-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-285"><a href="#cb69-285" aria-hidden="true" tabindex="-1"></a>A inspeção das categorias qualitativas também revelou algumas particularidades. Na variável obra, foram encontradas cinco categorias distintas, sendo quatro delas aparentemente padronizadas e uma apresentada como “Bloco B ”, contendo espaço adicional ao final do texto. Na variável tipo_concreto, também foram identificadas cinco categorias, embora a base tenha como classes esperadas C25, C30, C35 e C40. A ocorrência de “c30”, em letras minúsculas, indica uma inconsistência de padronização que deverá ser corrigida durante a etapa de limpeza. A necessidade desse tipo de verificação está de acordo com os problemas previstos na atividade, que incluem diferenças na escrita das categorias e espaços adicionais.</span>
+<span id="cb69-286"><a href="#cb69-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-287"><a href="#cb69-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-288"><a href="#cb69-288" aria-hidden="true" tabindex="-1"></a><span class="fu">### Limpeza e transformação da base de dados</span></span>
+<span id="cb69-289"><a href="#cb69-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-290"><a href="#cb69-290" aria-hidden="true" tabindex="-1"></a>Após a identificação dos possíveis problemas e inconsistências presentes na base, iniciou-se a terceira etapa, destinada à limpeza e transformação dos dados. O objetivo dessa fase foi produzir uma versão da base adequada às análises posteriores, realizando as correções necessárias sem modificar diretamente os dados originais. Para isso, foi criada uma cópia denominada dados_limpos, sobre a qual foram aplicados os procedimentos de padronização das variáveis qualitativas, conversão das variáveis quantitativas para os tipos adequados e tratamento dos valores ausentes. Dessa maneira, buscou-se garantir maior consistência e confiabilidade aos dados antes da realização das análises estatísticas.</span>
+<span id="cb69-291"><a href="#cb69-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-292"><a href="#cb69-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-293"><a href="#cb69-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-296"><a href="#cb69-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-297"><a href="#cb69-297" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-298"><a href="#cb69-298" aria-hidden="true" tabindex="-1"></a><span class="co"># Cópia da base original</span></span>
+<span id="cb69-299"><a href="#cb69-299" aria-hidden="true" tabindex="-1"></a><span class="co"># Operador de atribuição (&lt;-) cria uma cópia exata do objeto 'dados'</span></span>
+<span id="cb69-300"><a href="#cb69-300" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="ot">&lt;-</span> dados</span>
+<span id="cb69-301"><a href="#cb69-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-302"><a href="#cb69-302" aria-hidden="true" tabindex="-1"></a><span class="co"># Padronização das variáveis qualitativas</span></span>
+<span id="cb69-303"><a href="#cb69-303" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate(): Substitui as colunas existentes pelas suas versões tratadas.</span></span>
+<span id="cb69-304"><a href="#cb69-304" aria-hidden="true" tabindex="-1"></a><span class="co"># str_trim(): Remove os espaços acidentais no início e no final do texto.</span></span>
+<span id="cb69-305"><a href="#cb69-305" aria-hidden="true" tabindex="-1"></a><span class="co"># str_to_upper(): Converte todas as letras para maiúsculas (ex: 'c30' vira 'C30').</span></span>
+<span id="cb69-306"><a href="#cb69-306" aria-hidden="true" tabindex="-1"></a><span class="co"># str_replace_all(): Troca hifens por 'nada', padronizando 'C-30' para 'C30'.</span></span>
+<span id="cb69-307"><a href="#cb69-307" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="ot">&lt;-</span> dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-308"><a href="#cb69-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb69-309"><a href="#cb69-309" aria-hidden="true" tabindex="-1"></a>    <span class="at">obra =</span> <span class="fu">str_trim</span>(obra),</span>
+<span id="cb69-310"><a href="#cb69-310" aria-hidden="true" tabindex="-1"></a>    <span class="at">tipo_concreto =</span> <span class="fu">str_to_upper</span>(<span class="fu">str_trim</span>(<span class="fu">str_replace_all</span>(tipo_concreto, <span class="st">"-"</span>, <span class="st">""</span>)))</span>
+<span id="cb69-311"><a href="#cb69-311" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb69-312"><a href="#cb69-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-313"><a href="#cb69-313" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversão Numérica e Correção de Grandezas</span></span>
+<span id="cb69-314"><a href="#cb69-314" aria-hidden="true" tabindex="-1"></a><span class="co"># Coluna 4 à 10 os dados devem ser numéricos. Primeiro, limpamos erros de digitação (letras e vírgulas) e forçamos a conversão. Depois, aplicamos a lógica de engenharia para corrigir as grandezas que o read_csv2 multiplicou ou dividiu acidentalmente por interpretar o ponto como milhar</span></span>
+<span id="cb69-315"><a href="#cb69-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-316"><a href="#cb69-316" aria-hidden="true" tabindex="-1"></a><span class="co"># Passo 1: Limpeza de texto e conversão</span></span>
+<span id="cb69-317"><a href="#cb69-317" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="ot">&lt;-</span> dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-318"><a href="#cb69-318" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb69-319"><a href="#cb69-319" aria-hidden="true" tabindex="-1"></a>    <span class="co"># across(): Aplica a cadeia de funções em múltiplas colunas simultaneamente.</span></span>
+<span id="cb69-320"><a href="#cb69-320" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -(1:3): Seleciona todas as colunas da base, EXCETO as 3 primeiras (id, obra, tipo).</span></span>
+<span id="cb69-321"><a href="#cb69-321" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb69-322"><a href="#cb69-322" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb69-323"><a href="#cb69-323" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Função anônima (~): Converte para texto, arruma e converte de volta para número.</span></span>
+<span id="cb69-324"><a href="#cb69-324" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">as.character</span>(.x) <span class="sc">|&gt;</span> </span>
+<span id="cb69-325"><a href="#cb69-325" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_replace_all</span>(<span class="fu">c</span>(<span class="st">"O"</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="st">","</span> <span class="ot">=</span> <span class="st">"."</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb69-326"><a href="#cb69-326" aria-hidden="true" tabindex="-1"></a>        <span class="fu">parse_double</span>()</span>
+<span id="cb69-327"><a href="#cb69-327" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb69-328"><a href="#cb69-328" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb69-329"><a href="#cb69-329" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb69-330"><a href="#cb69-330" aria-hidden="true" tabindex="-1"></a><span class="co"># Passo 2: Correção Matemática das grandezas (casas decimais deslocadas)</span></span>
+<span id="cb69-331"><a href="#cb69-331" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb69-332"><a href="#cb69-332" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if_else(): Se a condição for TRUE, aplica o primeiro cálculo; se FALSE, mantém original.</span></span>
+<span id="cb69-333"><a href="#cb69-333" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb69-334"><a href="#cb69-334" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Abatimentos lidos como 1110 ou 1250 são divididos por 10 (retornando a 111 e 125)</span></span>
+<span id="cb69-335"><a href="#cb69-335" aria-hidden="true" tabindex="-1"></a>    <span class="at">abatimento_mm =</span> <span class="fu">if_else</span>(abatimento_mm <span class="sc">&gt;</span> <span class="dv">300</span>, abatimento_mm <span class="sc">/</span> <span class="dv">10</span>, abatimento_mm),</span>
+<span id="cb69-336"><a href="#cb69-336" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb69-337"><a href="#cb69-337" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Densidades lidas como 238 ou 245 recebem um 0 (multiplicado por 10) para 2380, etc.</span></span>
+<span id="cb69-338"><a href="#cb69-338" aria-hidden="true" tabindex="-1"></a>    <span class="at">densidade_kg_m3 =</span> <span class="fu">if_else</span>(densidade_kg_m3 <span class="sc">&lt;</span> <span class="dv">1000</span>, densidade_kg_m3 <span class="sc">*</span> <span class="dv">10</span>, densidade_kg_m3),</span>
+<span id="cb69-339"><a href="#cb69-339" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb69-340"><a href="#cb69-340" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Se o consumo for absurdamente alto (maior que 1000), divide por 10.</span></span>
+<span id="cb69-341"><a href="#cb69-341" aria-hidden="true" tabindex="-1"></a>    <span class="at">cimento_kg_m3 =</span> <span class="fu">if_else</span>(cimento_kg_m3 <span class="sc">&gt;</span> <span class="dv">1000</span>, cimento_kg_m3 <span class="sc">/</span> <span class="dv">10</span>, cimento_kg_m3),</span>
+<span id="cb69-342"><a href="#cb69-342" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb69-343"><a href="#cb69-343" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Absorções lidas como 18.4 ou 23.0 são divididas por 10 (voltando a 1.84 e 2.30)</span></span>
+<span id="cb69-344"><a href="#cb69-344" aria-hidden="true" tabindex="-1"></a>    absorção<span class="at">_agregado_pct =</span> <span class="fu">if_else</span>(absorção_agregado_pct <span class="sc">&gt;</span> <span class="dv">10</span>, absorção_agregado_pct <span class="sc">/</span> <span class="dv">10</span>, absorção_agregado_pct),</span>
+<span id="cb69-345"><a href="#cb69-345" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb69-346"><a href="#cb69-346" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Idade de 280 dias causada por digitação extra do zero volta a ser 28</span></span>
+<span id="cb69-347"><a href="#cb69-347" aria-hidden="true" tabindex="-1"></a>    <span class="at">idade_dias =</span> <span class="fu">if_else</span>(idade_dias <span class="sc">&gt;</span> <span class="dv">200</span>, idade_dias <span class="sc">/</span> <span class="dv">10</span>, idade_dias) </span>
+<span id="cb69-348"><a href="#cb69-348" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb69-349"><a href="#cb69-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-350"><a href="#cb69-350" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados_limpos)</span>
+<span id="cb69-351"><a href="#cb69-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-352"><a href="#cb69-352" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-353"><a href="#cb69-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-354"><a href="#cb69-354" aria-hidden="true" tabindex="-1"></a>A criação de uma cópia da base original, denominada *dados_limpos*, tem por objetivo realizar os procedimentos de tratamento sem alterar os dados inicialmente importados. Essa decisão é importante porque preservar a base original permite manter os registros brutos como referência, possibilitando comparar os dados antes e depois do tratamento, revisar eventuais decisões de correção e evitar a perda das informações originalmente fornecidas. Assim, qualquer alteração realizada durante o processamento pode ser rastreada e, caso necessário, revisada.</span>
+<span id="cb69-355"><a href="#cb69-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-356"><a href="#cb69-356" aria-hidden="true" tabindex="-1"></a>Na sequência, foram padronizadas as variáveis qualitativas. Na variável obra, foram removidos espaços adicionais por meio de <span class="in">`str_trim()`</span>. Para tipo_concreto, além da remoção de espaços, foram convertidas as letras para maiúsculas com <span class="in">`str_to_upper()`</span> e eliminados os hífens por meio de <span class="in">`str_replace_all()`</span>, permitindo uniformizar categorias como c30 e C-30 para uma mesma representação, C30.</span>
+<span id="cb69-357"><a href="#cb69-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-358"><a href="#cb69-358" aria-hidden="true" tabindex="-1"></a>Posteriormente, foi realizada a conversão das variáveis quantitativas que haviam sido inicialmente reconhecidas como caracteres. Com o uso de <span class="in">`across()`</span> e funções de tratamento textual do stringr, foram corrigidas possíveis ocorrências da letra “O” no lugar do algarismo “0” e substituídas as vírgulas por pontos antes da conversão para valores numéricos. Após essa conversão, foram aplicadas correções específicas às variáveis que apresentavam casas decimais ou ordens de grandeza deslocadas. Os valores de abatimento_mm superiores a 300 foram divididos por 10; valores de densidade_kg_m3 inferiores a 1000 foram multiplicados por 10; valores de absorção_agregado_pct superiores a 10 foram divididos por 10; e valores de idade_dias superiores a 200 foram divididos por 10. Essas transformações tiveram como finalidade recuperar a grandeza considerada adequada para cada variável, com base nos problemas identificados na etapa anterior.</span>
+<span id="cb69-359"><a href="#cb69-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-360"><a href="#cb69-360" aria-hidden="true" tabindex="-1"></a>Ao final do procedimento, o <span class="in">`glimpse(dados_limpos)`</span> mostrou que as variáveis quantitativas passaram a ser reconhecidas pelo R como numéricas (<span class="in">`&lt;dbl&gt;`</span>), enquanto *id_corpo_prova*, *obra* e *tipo_concreto* permaneceram como variáveis de caracteres (<span class="in">`&lt;chr&gt;`</span>). Dessa forma, a base passou a apresentar uma estrutura mais adequada para as etapas seguintes de análise e exploração dos dados.</span>
+<span id="cb69-361"><a href="#cb69-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-362"><a href="#cb69-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-363"><a href="#cb69-363" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificação e tratamento dos valores ausentes</span>
+<span id="cb69-364"><a href="#cb69-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-365"><a href="#cb69-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-366"><a href="#cb69-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-369"><a href="#cb69-369" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-370"><a href="#cb69-370" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-371"><a href="#cb69-371" aria-hidden="true" tabindex="-1"></a><span class="co"># Tratamento de Valores Ausentes (NA): Visualizamos os NAs para decidir como agir. Em Engenharia Civil, inferir a resistência de um concreto ausente (substituindo pela média, por exemplo) pode mascarar uma falha estrutural. O mais seguro é manter o NA ou excluir</span></span>
+<span id="cb69-372"><a href="#cb69-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-373"><a href="#cb69-373" aria-hidden="true" tabindex="-1"></a><span class="co"># filter() e is.na(): Visualiza as linhas que ainda possuem NA após a limpeza.</span></span>
+<span id="cb69-374"><a href="#cb69-374" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">everything</span>(), is.na))</span>
+<span id="cb69-375"><a href="#cb69-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-376"><a href="#cb69-376" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-377"><a href="#cb69-377" aria-hidden="true" tabindex="-1"></a>Após uma nova verificação dos valores ausentes o resultado identificou cinco registros contendo valores ausentes, correspondentes aos corpos de prova CP-015, CP-038, CP-077, CP-092 e CP-097. Os valores ausentes ocorreram, respectivamente, em diferentes variáveis da base: abatimento_mm no CP-015, relacao_a_c no CP-038, densidade_kg_m3 no CP-077, resistencia_mpa no CP-092 e absorção_agregado_pct no CP-097.</span>
+<span id="cb69-378"><a href="#cb69-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-379"><a href="#cb69-379" aria-hidden="true" tabindex="-1"></a>Diante desses registros, optou-se por manter os valores ausentes (NA) na base, não sendo realizada a exclusão das observações nem a substituição dos valores por estimativas, como a média. Essa decisão foi adotada porque o preenchimento de uma informação não registrada poderia introduzir um valor artificial e interferir na interpretação dos resultados. Além disso, a ausência de uma variável não implica necessariamente que todas as demais informações daquele corpo de prova sejam inválidas. Dessa forma, os registros serão preservados e os valores disponíveis poderão continuar sendo utilizados nas análises em que forem pertinentes, enquanto os NA deverão ser considerados pelos procedimentos estatísticos que envolvam especificamente as variáveis com dados ausentes.</span>
+<span id="cb69-380"><a href="#cb69-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-381"><a href="#cb69-381" aria-hidden="true" tabindex="-1"></a>A opção por consultar a fonte original dos dados também seria uma alternativa adequada para situações em que fosse possível recuperar os registros faltantes. Entretanto, considerando o procedimento adotado nesta atividade, não foi realizada essa recuperação, mantendo-se os NA para preservar a informação efetivamente disponível na base.</span>
+<span id="cb69-382"><a href="#cb69-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-385"><a href="#cb69-385" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-386"><a href="#cb69-386" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-387"><a href="#cb69-387" aria-hidden="true" tabindex="-1"></a><span class="co"># Questão 16: Verificação final da estrutura</span></span>
+<span id="cb69-388"><a href="#cb69-388" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse(): Confirma que agora as 3 primeiras colunas são &lt;chr&gt; e as demais são &lt;dbl&gt;.</span></span>
+<span id="cb69-389"><a href="#cb69-389" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"--- Estrutura (Glimpse) ---</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-390"><a href="#cb69-390" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados_limpos)</span>
+<span id="cb69-391"><a href="#cb69-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-392"><a href="#cb69-392" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(): Demonstra que os limites extremos (ex: máximo de 1250 no abatimento) </span></span>
+<span id="cb69-393"><a href="#cb69-393" aria-hidden="true" tabindex="-1"></a><span class="co"># desapareceram, retornando à escala física normal.</span></span>
+<span id="cb69-394"><a href="#cb69-394" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">--- Resumo Estatístico ---</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-395"><a href="#cb69-395" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dados_limpos)</span>
+<span id="cb69-396"><a href="#cb69-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-397"><a href="#cb69-397" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-398"><a href="#cb69-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-399"><a href="#cb69-399" aria-hidden="true" tabindex="-1"></a>Após a aplicação dos procedimentos de limpeza e transformação, a estrutura e o resumo estatístico da base foram novamente verificados por meio das funções <span class="in">`glimpse()`</span> e <span class="in">`summary()`</span>. </span>
+<span id="cb69-400"><a href="#cb69-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-401"><a href="#cb69-401" aria-hidden="true" tabindex="-1"></a>As correções das grandezas produziram alterações importantes nos valores extremos. Na base original, foram identificados valores máximos de 280 dias para *idade_dias*, 1250 mm para *abatimento_mm*, 2464 kg/m³ para *densidade_kg_m3* e 18,4% para *absorção_agregado_pct*, sendo alguns desses valores indicativos de possíveis erros de registro. Após a limpeza, os valores máximos passaram para 56 dias, 175 mm, 2464 kg/m³ e 2,92%, respectivamente. Essas alterações estão diretamente relacionadas às correções aplicadas durante o processamento, corrigindo registros para valores compatíveis com a ordem de grandeza esperada.</span>
+<span id="cb69-402"><a href="#cb69-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-403"><a href="#cb69-403" aria-hidden="true" tabindex="-1"></a>Após essas transformações, os valores mínimos e máximos apresentados pela base passaram a apresentar maior coerência com os demais registros de um conjunto de dados de controle tecnológico do concreto, indicando que os principais problemas de registro identificados nas etapas anteriores foram efetivamente tratados.</span>
+<span id="cb69-404"><a href="#cb69-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-405"><a href="#cb69-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-406"><a href="#cb69-406" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exploração dos dados</span></span>
+<span id="cb69-407"><a href="#cb69-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-408"><a href="#cb69-408" aria-hidden="true" tabindex="-1"></a>Com a base <span class="in">`dados_limpos`</span> devidamente estruturada e tratada, iniciou-se a etapa voltada à exploração e análise descritiva dos dados. </span>
+<span id="cb69-409"><a href="#cb69-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-412"><a href="#cb69-412" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-413"><a href="#cb69-413" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-414"><a href="#cb69-414" aria-hidden="true" tabindex="-1"></a><span class="co"># Questão 17: Resistência média</span></span>
+<span id="cb69-415"><a href="#cb69-415" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Resistência média dos Corpos de Prova:"</span>)</span>
+<span id="cb69-416"><a href="#cb69-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-417"><a href="#cb69-417" aria-hidden="true" tabindex="-1"></a><span class="co"># summarise(): Reduz os dados a um único resumo estatístico.</span></span>
+<span id="cb69-418"><a href="#cb69-418" aria-hidden="true" tabindex="-1"></a><span class="co"># na.rm = TRUE: Argumento essencial. Ignora os NAs para que o cálculo da média não resulte em erro.</span></span>
+<span id="cb69-419"><a href="#cb69-419" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-420"><a href="#cb69-420" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">resistencia_media_geral =</span> <span class="fu">mean</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb69-421"><a href="#cb69-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-422"><a href="#cb69-422" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Resistência média à compressão agrupada por bloco da obra:"</span>)</span>
+<span id="cb69-423"><a href="#cb69-423" aria-hidden="true" tabindex="-1"></a><span class="co"># Média por Bloco (Obra)</span></span>
+<span id="cb69-424"><a href="#cb69-424" aria-hidden="true" tabindex="-1"></a><span class="co"># group_by(): Divide a base de dados em "pacotes" (grupos) baseados na variável categórica.</span></span>
+<span id="cb69-425"><a href="#cb69-425" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-426"><a href="#cb69-426" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(obra) <span class="sc">|&gt;</span></span>
+<span id="cb69-427"><a href="#cb69-427" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">resistencia_media =</span> <span class="fu">mean</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb69-428"><a href="#cb69-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-429"><a href="#cb69-429" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Resistência média agrupada por tipo de concreto:"</span>)</span>
+<span id="cb69-430"><a href="#cb69-430" aria-hidden="true" tabindex="-1"></a><span class="co"># Média por Tipo de Concreto</span></span>
+<span id="cb69-431"><a href="#cb69-431" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-432"><a href="#cb69-432" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tipo_concreto) <span class="sc">|&gt;</span></span>
+<span id="cb69-433"><a href="#cb69-433" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">resistencia_media =</span> <span class="fu">mean</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb69-434"><a href="#cb69-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-435"><a href="#cb69-435" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Resistência média à compressão agrupada por idade dos corpos de prova:"</span>)</span>
+<span id="cb69-436"><a href="#cb69-436" aria-hidden="true" tabindex="-1"></a><span class="co"># Média por Idade</span></span>
+<span id="cb69-437"><a href="#cb69-437" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-438"><a href="#cb69-438" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(idade_dias) <span class="sc">|&gt;</span></span>
+<span id="cb69-439"><a href="#cb69-439" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">resistencia_media =</span> <span class="fu">mean</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb69-440"><a href="#cb69-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-441"><a href="#cb69-441" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparação entre obras</span></span>
+<span id="cb69-442"><a href="#cb69-442" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Comparação do desempenho entre os blocos da obra</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-443"><a href="#cb69-443" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Para descobrir qual bloco teve o melhor e o pior desempenho, agrupamos por"</span>)</span>
+<span id="cb69-444"><a href="#cb69-444" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"obra, calculamos a média e ordenamos do maior para o menor.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-445"><a href="#cb69-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-446"><a href="#cb69-446" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange(): Ordena as linhas de um data frame com base em uma coluna.</span></span>
+<span id="cb69-447"><a href="#cb69-447" aria-hidden="true" tabindex="-1"></a><span class="co"># desc(): Força a ordenação de forma decrescente (do maior para o menor valor).</span></span>
+<span id="cb69-448"><a href="#cb69-448" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-449"><a href="#cb69-449" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(obra) <span class="sc">|&gt;</span></span>
+<span id="cb69-450"><a href="#cb69-450" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">resistencia_media =</span> <span class="fu">mean</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb69-451"><a href="#cb69-451" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(resistencia_media))</span>
+<span id="cb69-452"><a href="#cb69-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-453"><a href="#cb69-453" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Análise:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-454"><a href="#cb69-454" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Ao observar o tibble gerado, o primeiro bloco da lista apresenta a maior"</span>)</span>
+<span id="cb69-455"><a href="#cb69-455" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"resistência média, enquanto o último apresenta a menor.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-456"><a href="#cb69-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-457"><a href="#cb69-457" aria-hidden="true" tabindex="-1"></a><span class="co"># Questão 19: Tipo de concreto</span></span>
+<span id="cb69-458"><a href="#cb69-458" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Análise de desempenho por Classe de Concreto</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-459"><a href="#cb69-459" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Verificação se os concretos com maior classe nominal (ex: C40) de fato"</span>)</span>
+<span id="cb69-460"><a href="#cb69-460" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"apresentaram a maior resistência média na prática.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-461"><a href="#cb69-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-462"><a href="#cb69-462" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-463"><a href="#cb69-463" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tipo_concreto) <span class="sc">|&gt;</span></span>
+<span id="cb69-464"><a href="#cb69-464" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">resistencia_media =</span> <span class="fu">mean</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb69-465"><a href="#cb69-465" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(resistencia_media))</span>
+<span id="cb69-466"><a href="#cb69-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-467"><a href="#cb69-467" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Análise:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-468"><a href="#cb69-468" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"A classe C40 deve encabeçar a lista por ter a maior resistência especificada.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-469"><a href="#cb69-469" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"A ordenação descrescente comprova se a hierarquia técnica (C40 &gt; C35 &gt; C30 &gt; C25)</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-470"><a href="#cb69-470" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"foi mantida durante a execução da obra.</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb69-471"><a href="#cb69-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-472"><a href="#cb69-472" aria-hidden="true" tabindex="-1"></a><span class="co"># Questão 20: Estatísticas por grupo (Múltiplas Variáveis)</span></span>
+<span id="cb69-473"><a href="#cb69-473" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Estatísticas médias das propriedades físicas por tipo de concreto</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-474"><a href="#cb69-474" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"As principais variáveis tecnológicas foram agrupadas para interpretar como a dosagem</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-475"><a href="#cb69-475" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"se comporta conforme a classe do concreto aumenta.</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb69-476"><a href="#cb69-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-477"><a href="#cb69-477" aria-hidden="true" tabindex="-1"></a><span class="co"># O summarise() permite realizar múltiplos cálculos simultaneamente dentro do mesmo comando.</span></span>
+<span id="cb69-478"><a href="#cb69-478" aria-hidden="true" tabindex="-1"></a><span class="co"># Substitui o uso do antigo aggregate() da Base R, sendo mais intuitivo e flexível.</span></span>
+<span id="cb69-479"><a href="#cb69-479" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-480"><a href="#cb69-480" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tipo_concreto) <span class="sc">|&gt;</span></span>
+<span id="cb69-481"><a href="#cb69-481" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb69-482"><a href="#cb69-482" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_resistencia =</span> <span class="fu">mean</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-483"><a href="#cb69-483" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_cimento =</span> <span class="fu">mean</span>(cimento_kg_m3, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-484"><a href="#cb69-484" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_relacao_ac =</span> <span class="fu">mean</span>(relacao_a_c, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-485"><a href="#cb69-485" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_abatimento =</span> <span class="fu">mean</span>(abatimento_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-486"><a href="#cb69-486" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_densidade =</span> <span class="fu">mean</span>(densidade_kg_m3, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb69-487"><a href="#cb69-487" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb69-488"><a href="#cb69-488" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(media_resistencia))</span>
+<span id="cb69-489"><a href="#cb69-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-490"><a href="#cb69-490" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Interpretação Técnica dos Resultados:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-491"><a href="#cb69-491" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- O consumo de cimento aumenta nas classes mais altas (C40) e a relação"</span>)</span>
+<span id="cb69-492"><a href="#cb69-492" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  água/cimento diminui. Esse é o comportamento técnico correto e esperado,"</span>)</span>
+<span id="cb69-493"><a href="#cb69-493" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  pois menos água e mais cimento aumentam a resistência da matriz."</span>)</span>
+<span id="cb69-494"><a href="#cb69-494" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- A densidade costuma se manter estável (em torno de 2350-2450 kg/m3),"</span>)</span>
+<span id="cb69-495"><a href="#cb69-495" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  indicando que os agregados e o adensamento foram padronizados."</span>)</span>
+<span id="cb69-496"><a href="#cb69-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-497"><a href="#cb69-497" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-498"><a href="#cb69-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-499"><a href="#cb69-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-500"><a href="#cb69-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-501"><a href="#cb69-501" aria-hidden="true" tabindex="-1"></a><span class="fu">### Criação de novas variáveis</span></span>
+<span id="cb69-502"><a href="#cb69-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-503"><a href="#cb69-503" aria-hidden="true" tabindex="-1"></a>Após a exploração das características da base por meio de estatísticas descritivas e agrupamentos, iniciou-se a etapa destinada à criação de novas variáveis a partir dos dados já tratados. Nessa etapa, utilizou-se principalmente a função <span class="in">`mutate()`</span>, em conjunto com <span class="in">`case_when()`</span> e outras operações do <span class="in">`dplyr`</span>, para gerar informações derivadas que possibilitem uma interpretação mais aprofundada dos resultados.</span>
+<span id="cb69-504"><a href="#cb69-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-505"><a href="#cb69-505" aria-hidden="true" tabindex="-1"></a>As novas variáveis foram construídas com o propósito de relacionar a resistência observada dos corpos de prova com referências associadas às diferentes classes de concreto e, também, de classificar e comparar os registros segundo critérios definidos para a análise. Dessa forma, a utilização de variáveis derivadas permite ampliar as informações disponíveis na base sem modificar os dados originais, facilitando a identificação de padrões e a interpretação do desempenho dos corpos de prova</span>
+<span id="cb69-506"><a href="#cb69-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-507"><a href="#cb69-507" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variável Resistência Relativa: representa a razão entre a resistência observada e uma resistência de referência associada à classe do concreto.</span>
+<span id="cb69-508"><a href="#cb69-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-511"><a href="#cb69-511" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-512"><a href="#cb69-512" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-513"><a href="#cb69-513" aria-hidden="true" tabindex="-1"></a><span class="co"># Questão 21: Resistência relativa - A resistência de referência é a resistência característica (fck) que dá nome à classe do concreto (ex: C25 exige referência de 25 MPa). Utilizamos a função case_when() para mapear cada classe ao seu respectivo valor e, em seguida, calculamos a razão entre o valor ensaiado e essa referência.</span></span>
+<span id="cb69-514"><a href="#cb69-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-515"><a href="#cb69-515" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate(): Adiciona novas colunas à base de dados.</span></span>
+<span id="cb69-516"><a href="#cb69-516" aria-hidden="true" tabindex="-1"></a><span class="co"># case_when(): Avalia uma sequência de condições (como um if_else encadeado). </span></span>
+<span id="cb69-517"><a href="#cb69-517" aria-hidden="true" tabindex="-1"></a><span class="co"># A estrutura é `condição ~ valor_se_verdadeiro`.</span></span>
+<span id="cb69-518"><a href="#cb69-518" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="ot">&lt;-</span> dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-519"><a href="#cb69-519" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb69-520"><a href="#cb69-520" aria-hidden="true" tabindex="-1"></a>    <span class="at">resistencia_referencia =</span> <span class="fu">case_when</span>(</span>
+<span id="cb69-521"><a href="#cb69-521" aria-hidden="true" tabindex="-1"></a>      tipo_concreto <span class="sc">==</span> <span class="st">"C25"</span> <span class="sc">~</span> <span class="dv">25</span>,</span>
+<span id="cb69-522"><a href="#cb69-522" aria-hidden="true" tabindex="-1"></a>      tipo_concreto <span class="sc">==</span> <span class="st">"C30"</span> <span class="sc">~</span> <span class="dv">30</span>,</span>
+<span id="cb69-523"><a href="#cb69-523" aria-hidden="true" tabindex="-1"></a>      tipo_concreto <span class="sc">==</span> <span class="st">"C35"</span> <span class="sc">~</span> <span class="dv">35</span>,</span>
+<span id="cb69-524"><a href="#cb69-524" aria-hidden="true" tabindex="-1"></a>      tipo_concreto <span class="sc">==</span> <span class="st">"C40"</span> <span class="sc">~</span> <span class="dv">40</span>,</span>
+<span id="cb69-525"><a href="#cb69-525" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_real_</span> <span class="co"># Valor padrão caso encontre uma classe não mapeada</span></span>
+<span id="cb69-526"><a href="#cb69-526" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb69-527"><a href="#cb69-527" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A razão mostra o quão acima (valores &gt; 1) ou abaixo (valores &lt; 1) da meta estamos</span></span>
+<span id="cb69-528"><a href="#cb69-528" aria-hidden="true" tabindex="-1"></a>    <span class="at">resistencia_relativa =</span> resistencia_mpa <span class="sc">/</span> resistencia_referencia</span>
+<span id="cb69-529"><a href="#cb69-529" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb69-530"><a href="#cb69-530" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-531"><a href="#cb69-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-532"><a href="#cb69-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-533"><a href="#cb69-533" aria-hidden="true" tabindex="-1"></a>A resistência de referência foi definida a partir da resistência característica (fck) correspondente à classe do concreto, utilizando diretamente o valor indicado na própria nomenclatura da classe. Assim, foram adotados 25 MPa para C25, 30 MPa para C30, 35 MPa para C35 e 40 MPa para C40. Essa referência foi utilizada posteriormente para calcular a resistência relativa de cada corpo de prova.</span>
+<span id="cb69-534"><a href="#cb69-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-535"><a href="#cb69-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-536"><a href="#cb69-536" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variável Classificação: classifica os corpos de prova segundo um critério relacionado à resistência.</span>
+<span id="cb69-537"><a href="#cb69-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-538"><a href="#cb69-538" aria-hidden="true" tabindex="-1"></a>Os critérios de classificação foram definidos tomando como referência a resistência característica (fck) correspondente à classe de cada concreto. Os corpos de prova cuja resistência obtida foi maior ou igual à resistência de referência foram classificados como “Conforme”. Quando a resistência ficou até 10% abaixo da referência, adotou-se a classificação “Atenção”, indicando a necessidade de acompanhamento do resultado. Valores mais de 10% abaixo da referência foram classificados como “Não Conforme”, por representarem um afastamento mais significativo em relação ao valor de referência. Nos casos em que a resistência não estava disponível, adotou-se a categoria “Sem Dado”, evitando atribuir uma classificação sem informação suficiente.</span>
+<span id="cb69-541"><a href="#cb69-541" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-542"><a href="#cb69-542" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-543"><a href="#cb69-543" aria-hidden="true" tabindex="-1"></a><span class="co"># Questão 22: Classificação de corpos de prova</span></span>
+<span id="cb69-544"><a href="#cb69-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-545"><a href="#cb69-545" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Critérios técnicos definidos com base na resistência de referência:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-546"><a href="#cb69-546" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- 'Conforme': Resistência obtida é maior ou igual à de referência.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-547"><a href="#cb69-547" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- 'Atenção': Resistência caiu até 10% abaixo da referência.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-548"><a href="#cb69-548" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- 'Não Conforme': Resistência caiu mais de 10% abaixo da referência (risco estrutural).</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb69-549"><a href="#cb69-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-550"><a href="#cb69-550" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="ot">&lt;-</span> dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-551"><a href="#cb69-551" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb69-552"><a href="#cb69-552" aria-hidden="true" tabindex="-1"></a>    <span class="at">classificacao =</span> <span class="fu">case_when</span>(</span>
+<span id="cb69-553"><a href="#cb69-553" aria-hidden="true" tabindex="-1"></a>      resistencia_mpa <span class="sc">&gt;=</span> resistencia_referencia <span class="sc">~</span> <span class="st">"Conforme"</span>,</span>
+<span id="cb69-554"><a href="#cb69-554" aria-hidden="true" tabindex="-1"></a>      resistencia_mpa <span class="sc">&gt;=</span> <span class="fl">0.90</span> <span class="sc">*</span> resistencia_referencia <span class="sc">~</span> <span class="st">"Atenção"</span>,</span>
+<span id="cb69-555"><a href="#cb69-555" aria-hidden="true" tabindex="-1"></a>      resistencia_mpa <span class="sc">&lt;</span> <span class="fl">0.90</span> <span class="sc">*</span> resistencia_referencia <span class="sc">~</span> <span class="st">"Não Conforme"</span>,</span>
+<span id="cb69-556"><a href="#cb69-556" aria-hidden="true" tabindex="-1"></a>      <span class="fu">is.na</span>(resistencia_mpa) <span class="sc">~</span> <span class="st">"Sem Dado"</span> </span>
+<span id="cb69-557"><a href="#cb69-557" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb69-558"><a href="#cb69-558" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb69-559"><a href="#cb69-559" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-560"><a href="#cb69-560" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-561"><a href="#cb69-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-562"><a href="#cb69-562" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variável <span class="in">`acima_media`</span>: indica se a resistência do corpo de prova está acima ou abaixo da resistência média de seu respectivo tipo de concreto. A variável assume os seguintes valores: TRUE ou FALSE</span>
+<span id="cb69-563"><a href="#cb69-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-566"><a href="#cb69-566" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-567"><a href="#cb69-567" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-568"><a href="#cb69-568" aria-hidden="true" tabindex="-1"></a><span class="co"># Questão 23: Variável acima_media - Para calcular se a amostra está acima da média de sua classe sem precisar calcular os valores manualmente, combinamos group_by() com mutate(). Isso força a função mean() a calcular a média internamente para cada bloco de concreto.</span></span>
+<span id="cb69-569"><a href="#cb69-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-570"><a href="#cb69-570" aria-hidden="true" tabindex="-1"></a><span class="co"># group_by(): Diz ao R para realizar as próximas operações separando a base por classe.</span></span>
+<span id="cb69-571"><a href="#cb69-571" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate(): Executa o teste lógico (&gt;). O resultado será TRUE ou FALSE.</span></span>
+<span id="cb69-572"><a href="#cb69-572" aria-hidden="true" tabindex="-1"></a><span class="co"># ungroup(): Função crítica após agrupar para criar colunas. Ela "desagrupa" a base,</span></span>
+<span id="cb69-573"><a href="#cb69-573" aria-hidden="true" tabindex="-1"></a><span class="co"># garantindo que as futuras análises (Etapa 6) não fiquem presas a esse agrupamento.</span></span>
+<span id="cb69-574"><a href="#cb69-574" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="ot">&lt;-</span> dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-575"><a href="#cb69-575" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tipo_concreto) <span class="sc">|&gt;</span></span>
+<span id="cb69-576"><a href="#cb69-576" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb69-577"><a href="#cb69-577" aria-hidden="true" tabindex="-1"></a>    <span class="at">acima_media =</span> resistencia_mpa <span class="sc">&gt;</span> <span class="fu">mean</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb69-578"><a href="#cb69-578" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb69-579"><a href="#cb69-579" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() </span>
+<span id="cb69-580"><a href="#cb69-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-581"><a href="#cb69-581" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Visualizando o resultado das novas variáveis criadas (primeiros registros):</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb69-582"><a href="#cb69-582" aria-hidden="true" tabindex="-1"></a><span class="co"># select(): Utilizado aqui apenas para focar nas colunas recém-criadas na impressão.</span></span>
+<span id="cb69-583"><a href="#cb69-583" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-584"><a href="#cb69-584" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb69-585"><a href="#cb69-585" aria-hidden="true" tabindex="-1"></a>    id_corpo_prova, </span>
+<span id="cb69-586"><a href="#cb69-586" aria-hidden="true" tabindex="-1"></a>    tipo_concreto, </span>
+<span id="cb69-587"><a href="#cb69-587" aria-hidden="true" tabindex="-1"></a>    resistencia_mpa, </span>
+<span id="cb69-588"><a href="#cb69-588" aria-hidden="true" tabindex="-1"></a>    resistencia_relativa, </span>
+<span id="cb69-589"><a href="#cb69-589" aria-hidden="true" tabindex="-1"></a>    classificacao, </span>
+<span id="cb69-590"><a href="#cb69-590" aria-hidden="true" tabindex="-1"></a>    acima_media</span>
+<span id="cb69-591"><a href="#cb69-591" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb69-592"><a href="#cb69-592" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb69-593"><a href="#cb69-593" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-594"><a href="#cb69-594" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-595"><a href="#cb69-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-596"><a href="#cb69-596" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dados agrupados</span></span>
+<span id="cb69-597"><a href="#cb69-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-598"><a href="#cb69-598" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de observações por Tipo de Concreto: quantidade de corpos de prova para cada classe de concreto</span>
+<span id="cb69-599"><a href="#cb69-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-602"><a href="#cb69-602" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-603"><a href="#cb69-603" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-604"><a href="#cb69-604" aria-hidden="true" tabindex="-1"></a><span class="co"># Questão 24: Contagem de observações por grupo</span></span>
+<span id="cb69-605"><a href="#cb69-605" aria-hidden="true" tabindex="-1"></a><span class="co"># group_by(): Cria os grupos virtuais baseados na classe do concreto.</span></span>
+<span id="cb69-606"><a href="#cb69-606" aria-hidden="true" tabindex="-1"></a><span class="co"># summarise(): Consolida a informação.</span></span>
+<span id="cb69-607"><a href="#cb69-607" aria-hidden="true" tabindex="-1"></a><span class="co"># n(): Função específica do dplyr que conta o número de linhas (observações) dentro de cada grupo.</span></span>
+<span id="cb69-608"><a href="#cb69-608" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-609"><a href="#cb69-609" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tipo_concreto) <span class="sc">|&gt;</span></span>
+<span id="cb69-610"><a href="#cb69-610" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">quantidade_observacoes =</span> <span class="fu">n</span>())</span>
+<span id="cb69-611"><a href="#cb69-611" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-612"><a href="#cb69-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-613"><a href="#cb69-613" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Resistência média de cada tipo de concreto ordenada em ordem decrescente</span>
+<span id="cb69-614"><a href="#cb69-614" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-617"><a href="#cb69-617" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-618"><a href="#cb69-618" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-619"><a href="#cb69-619" aria-hidden="true" tabindex="-1"></a><span class="co"># Questão 25: Resistência média ordenada</span></span>
+<span id="cb69-620"><a href="#cb69-620" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-621"><a href="#cb69-621" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-622"><a href="#cb69-622" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tipo_concreto) <span class="sc">|&gt;</span></span>
+<span id="cb69-623"><a href="#cb69-623" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">resistencia_media =</span> <span class="fu">mean</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb69-624"><a href="#cb69-624" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(resistencia_media))</span>
+<span id="cb69-625"><a href="#cb69-625" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-626"><a href="#cb69-626" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-627"><a href="#cb69-627" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Resumo Estatístico para os tipos de Concreto</span>
+<span id="cb69-628"><a href="#cb69-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-631"><a href="#cb69-631" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-632"><a href="#cb69-632" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb69-633"><a href="#cb69-633" aria-hidden="true" tabindex="-1"></a><span class="co"># Questão 26: Resumo estatístico descritivo simultâneo</span></span>
+<span id="cb69-634"><a href="#cb69-634" aria-hidden="true" tabindex="-1"></a><span class="co"># sum(!is.na(resistencia_mpa)): Forma inteligente de contar observações ignorando os NAs.</span></span>
+<span id="cb69-635"><a href="#cb69-635" aria-hidden="true" tabindex="-1"></a>dados_limpos <span class="sc">|&gt;</span></span>
+<span id="cb69-636"><a href="#cb69-636" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tipo_concreto) <span class="sc">|&gt;</span></span>
+<span id="cb69-637"><a href="#cb69-637" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb69-638"><a href="#cb69-638" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_observacoes =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(resistencia_mpa)),</span>
+<span id="cb69-639"><a href="#cb69-639" aria-hidden="true" tabindex="-1"></a>    <span class="at">media =</span> <span class="fu">mean</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-640"><a href="#cb69-640" aria-hidden="true" tabindex="-1"></a>    <span class="at">mediana =</span> <span class="fu">median</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-641"><a href="#cb69-641" aria-hidden="true" tabindex="-1"></a>    <span class="at">desvio_padrao =</span> <span class="fu">sd</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-642"><a href="#cb69-642" aria-hidden="true" tabindex="-1"></a>    <span class="at">minimo =</span> <span class="fu">min</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-643"><a href="#cb69-643" aria-hidden="true" tabindex="-1"></a>    <span class="at">maximo =</span> <span class="fu">max</span>(resistencia_mpa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-644"><a href="#cb69-644" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span> <span class="co"># Boa prática: remove o agrupamento residual no objeto resultante</span></span>
+<span id="cb69-645"><a href="#cb69-645" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb69-646"><a href="#cb69-646" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-647"><a href="#cb69-647" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-648"><a href="#cb69-648" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-649"><a href="#cb69-649" aria-hidden="true" tabindex="-1"></a>Uma tabela que apresenta várias estatísticas é mais informativa do que uma tabela contendo apenas a média porque permite avaliar não apenas o valor central dos resultados, mas também a variabilidade e a dispersão dos dados. Na Engenharia Civil, a média isolada pode ocultar diferenças importantes entre os corpos de prova. Por exemplo, uma classe de concreto pode apresentar média de resistência superior ao seu valor de referência, mas, ao mesmo tempo, possuir elevado desvio-padrão e valores mínimos significativamente inferiores. A análise conjunta da média, mediana, desvio-padrão, mínimo e máximo permite, portanto, avaliar melhor a uniformidade dos resultados e a ocorrência de valores extremos, proporcionando uma interpretação mais completa do comportamento da resistência do concreto e contribuindo para uma avaliação mais adequada do controle tecnológico.</span>
+<span id="cb69-650"><a href="#cb69-650" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-651"><a href="#cb69-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-652"><a href="#cb69-652" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
+<span id="cb69-653"><a href="#cb69-653" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-654"><a href="#cb69-654" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
+<span id="cb69-655"><a href="#cb69-655" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-656"><a href="#cb69-656" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
+<span id="cb69-657"><a href="#cb69-657" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
+<span id="cb69-658"><a href="#cb69-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-659"><a href="#cb69-659" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
+<span id="cb69-660"><a href="#cb69-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-663"><a href="#cb69-663" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb69-664"><a href="#cb69-664" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
+<span id="cb69-665"><a href="#cb69-665" aria-hidden="true" tabindex="-1"></a>distancia</span>
+<span id="cb69-666"><a href="#cb69-666" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb69-667"><a href="#cb69-667" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-668"><a href="#cb69-668" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb69-669"><a href="#cb69-669" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-670"><a href="#cb69-670" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
+<span id="cb69-671"><a href="#cb69-671" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-672"><a href="#cb69-672" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
+<span id="cb69-673"><a href="#cb69-673" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
+<span id="cb69-674"><a href="#cb69-674" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
+<span id="cb69-675"><a href="#cb69-675" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
+<span id="cb69-676"><a href="#cb69-676" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-677"><a href="#cb69-677" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
+<span id="cb69-678"><a href="#cb69-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-679"><a href="#cb69-679" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb69-680"><a href="#cb69-680" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-681"><a href="#cb69-681" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb69-682"><a href="#cb69-682" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-683"><a href="#cb69-683" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
 </code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

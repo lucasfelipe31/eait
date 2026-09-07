@@ -80,19 +80,31 @@ Descreva como o experimento foi realizado.
 
 Os resultados obtidos a partir do processamento da base de dados são apresentados e discutidos a seguir, considerando as etapas necessárias. Inicialmente, realizou-se a inspeção e caracterização da base, buscando compreender sua estrutura, suas variáveis e a forma como os dados foram interpretados pelo software R. Em seguida, foram investigadas possíveis inconsistências, valores ausentes e registros potencialmente incompatíveis com o contexto analisado. Após essa etapa de diagnóstico, procedeu-se à limpeza e transformação dos dados, permitindo sua utilização nas análises estatísticas e na elaboração das representações gráficas. Dessa forma, a apresentação dos resultados acompanha a sequência metodológica adotada no código desenvolvido, destacando não apenas os valores obtidos, mas também a interpretação dos resultados e a justificativa das decisões tomadas durante o processamento.
 
+A base de dados reúne informações relacionadas ao controle tecnológico do concreto, permitindo analisar diferentes características dos corpos de prova e das condições em que os ensaios foram realizados, conforme definições a seguir:
+
+- `id_corpo_prova` (identificação do corpo de prova)
+- `obra` (Bloco da obra onde ocorreu a concretagem) 
+- `tipo_concreto` (Classe do Concreto)
+- `idade_dias` (Idade do corpo de prova no momento do ensaio)
+- `resistencia_mpa`(Resistência à compressão em MPa)
+- `cimento_kg_m3`(Consumo de cimento em kg/m³)
+- `relacao_a_c` (relação água/cimento)
+- `abatimento_mm` (abatimento do concreto, em mm)
+- `densidade_kg_m3`(densidade aparente do concreto, em kg/m³) 
+- `absorção_agregado_pct` (Absorção de água do agregado, em %).
+
 
 ### Conhecendo a base de dados
 
-Inicialmente, foi realizada a importação da base de dados para o ambiente R utilizando recursos da família tidyverse, conforme proposto na atividade. A leitura foi realizada por meio da função `read_delim()`, considerando o ponto como separador decimal e o ponto e vírgula como delimitador das colunas. A utilização dessa configuração permitiu a leitura da base sem a necessidade de alterações no arquivo original.
+Inicialmente, foi realizada a importação da base de dados para o ambiente R utilizando recursos da família *tidyverse*, conforme proposto na atividade. A leitura foi realizada por meio da função `read_delim()`, considerando o ponto como separador decimal e o ponto e vírgula como delimitador das colunas. A utilização dessa configuração permitiu a leitura da base sem a necessidade de alterações no arquivo original.
 
-
+A inspeção inicial, realizada por meio das funções `head()` e `tail()`, permitiu verificar, respectivamente, as primeiras e as últimas observações da base. Observou-se que os registros estão organizados de forma tabular, sendo cada linha correspondente a um corpo de prova e cada coluna associada a uma característica do concreto. Os identificadores dos corpos de prova seguem uma sequência de CP-001 a CP-100, indicando que não foram observadas falhas aparentes na sequência dos registros.
 ```{r}
 #| echo: false
 
 library(tidyverse) # Carregamento dos pacotes da família tidyverse
 
 # Importação da base de dados
-
 dados <- read_delim(
   "base_processamento_dados_engenharia_civil.csv",
   delim = ";",
@@ -100,25 +112,52 @@ dados <- read_delim(
   show_col_types = FALSE
 )
 
-
 head(dados) # Visualiza as primeiras linhas 
-
 tail(dados) # Visualiza as útlimas linhas
 
 cat("\nO número de observações e variáveis existentes na base de dados são: \n")
 dim (dados) # Número de observações e variáveis existentes na base
+```
 
+
+A aplicação da função `dim()` indicou que a base possui 100 observações e 10 variáveis. Portanto, a estrutura inicial contém informações referentes a 100 registros de controle tecnológico do concreto, distribuídos entre variáveis de identificação, classificação e propriedades físicas e mecânicas. 
+
+A função `glimpse()` permitiu analisar de forma detalhada a estrutura da base de dados e verificar os tipos atribuídos pelo R às diferentes variáveis. 
+
+```{r}
+#| echo: false
 glimpse(dados) # Estrutura da base
+```
 
+Conforme observado, as variáveis *id_corpo_prova*, *obra* e *tipo_concreto* foram reconhecidas como caracteres (`<chr>`), por apresentarem informações de identificação e classificação. A variável *idade_dias* foi identificada como numérica (<dbl>), assim como *abatimento_mm*, *densidade_kg_m3* e *absorção_agregado_pct*. Por outro lado, as variáveis *resistencia_mpa*, *cimento_kg_m3* e *relacao_a_c*, embora representem informações quantitativas, foram inicialmente interpretadas pelo R como caracteres (`<chr>`). Esse resultado indica a existência de possíveis inconsistências na forma de registro desses dados, que deverão ser investigadas nas etapas posteriores, especialmente quanto à representação dos valores numéricos e à necessidade de conversão para o tipo adequado.
+
+A análise dos tipos das variáveis, realizada por meio da função glimpse(), mostrou que o R reconheceu quatro variáveis como quantitativas (<dbl>): idade_dias, abatimento_mm, densidade_kg_m3 e absorção_agregado_pct. As demais foram identificadas como variáveis de caracteres (<chr>), sendo elas id_corpo_prova, obra, tipo_concreto, resistencia_mpa, cimento_kg_m3 e relacao_a_c. Entretanto, a classificação obtida pelo R não corresponde integralmente à natureza das variáveis no contexto da Engenharia Civil. As variáveis resistencia_mpa, cimento_kg_m3 e relacao_a_c representam grandezas quantitativas, mas foram armazenadas como texto na base de dados.
+
+
+
+- Resumo das Variáveis (`summary()`)
+
+
+```{r}
+#| echo: false
 dados |> summary() # resumo das variáveis
 
 # Visualização dos nomes das variáveis.
 names(dados)
 ```
+
+O resumo das variáveis, obtido por meio da função `summary()`, permitiu identificar as principais características descritivas da base e a presença de valores ausentes. A variável *idade_dias* apresentou valores entre 7 e 280 dias, com mediana e média de 28 dias, respectivamente. Para *resistencia_mpa*, foram identificados 83 valores distintos e 1 valor ausente, enquanto *cimento_kg_m3* apresentou 68 valores distintos e *relacao_a_c*, 24 valores distintos, ambas sem valores ausentes. Entre as variáveis numéricas, *abatimento_mm* apresentou valores entre 64 e 1250 mm, com média de 121,7 mm, e *densidade_kg_m3* variou de 238 a 2464 kg/m³, com média de 2351 kg/m³. A variável *absorção_agregado_pct* apresentou valores entre 0,8% e 18,4%, com média de 1,953%, também com um valor ausente. Esses resultados permitem observar, ainda na análise inicial, a existência de valores que apresentam grande dispersão ou magnitude discrepante em relação aos demais registros, os quais deverão ser investigados nas etapas seguintes. Além disso, conforme verificado anteriormente pela função `glimpse()`, as variáveis *resistencia_mpa*, *cimento_kg_m3* e *relacao_a_c* foram interpretadas pelo R como caracteres (`<chr>`), apesar de representarem informações quantitativas, indicando a necessidade de posterior verificação e tratamento dos registros.
+
+
+- Valores Ausentes
+
+Antes de prosseguir, é importante verificar a existência de valores ausentes (NA) na base de dados, uma vez que sua presença pode comprometer a realização de análises posteriores e influenciar a interpretação dos resultados. Para isso, foram utilizados recursos do `tidyverse` para quantificar os valores ausentes em cada variável e, posteriormente, identificar quais observações apresentam registros incompletos. Essa análise permite avaliar a extensão dos dados faltantes e localizar os registros que deverão ser considerados nas etapas de tratamento e limpeza da base.
+
 ```{r}
 #| echo: false
-# Quantidade de valores ausentes por variável:
+cat("\nA quantidade de valores ausentes em cada variável existente na base de dados é: \n")
 
+# Quantidade de valores ausentes por variável:
 dados |>
   summarise( 
     across(
@@ -131,29 +170,38 @@ dados |>
 # everything(): Seleciona todas as colunas da base.
 # is.na(): Retorna TRUE se o valor for NA (ausente). A soma de TRUEs equivale à contagem de NAs.
 
-
+cat("\nAs observações onde contêm valores ausentes são: \n")
+# Em quais observações aparecem NA
 dados |>
   filter(if_any(everything(), is.na))
 
 # filter(): Filtra as linhas da base de dados segundo uma condição lógica.
 # if_any(): Verifica se a condição (is.na) é verdadeira para 'qualquer' uma das colunas selecionadas (everything()).
 
-dados |>
-  count(obra)
 ```
 
 
+De modo geral, a primeira inspeção demonstrou que a base possui uma estrutura organizada, porém não está completamente pronta para a aplicação de análises estatísticas. A identificação das diferenças entre os tipos de dados, dos valores ausentes e das inconsistências nas categorias é fundamental antes da realização dos cálculos e gráficos. Dessa forma, os resultados da Etapa 1 justificam a necessidade das etapas seguintes de investigação, limpeza e transformação dos dados, evitando que erros de registro sejam interpretados como características reais do concreto.
+
+
+### Investigação da qualidade e consistência dos dados
+
+Após a caracterização inicial da base de dados, iniciou-se a investigação de possíveis problemas de qualidade e consistência dos registros. Nessa fase, buscou-se verificar se os valores presentes na base são compatíveis com o contexto do controle tecnológico do concreto, identificando situações que possam representar erros de digitação, registros inadequados ou valores potencialmente discrepantes. 
+
+Nesse processo, foram utilizados principalmente recursos do dplyr, como filter(), select(), count() e distinct(), permitindo localizar e examinar as observações que apresentaram características potencialmente incompatíveis ou inconsistentes. A análise também contemplou a verificação da padronização das categorias das variáveis qualitativas, especialmente obra e tipo_concreto, uma vez que diferentes formas de escrita podem fazer com que registros pertencentes ao mesmo grupo sejam interpretados como categorias distintas pelo R.
+
+Desta forma, inicialmente, analisou-se possíveis erros de digitação (presença de caracteres em dados quantitativos), retornando o seguinte resultado:
 
 ```{r}
 #| echo: false
-# QUESTAO 8
+# QUESTAO 8: Analisando erros de digitação
 # filter(): Seleciona as observações (linhas) suspeitas.
 # if_any(): Varre múltiplas colunas verificando se 'qualquer' uma contém o erro.
 # -(1:3): Exclui as 3 primeiras colunas (id, obra, tipo) da varredura, pois 
 #         estas são categóricas e naturalmente contêm letras e hifens.
 # str_detect(): Função do pacote stringr que avalia a presença do padrão Regex.
 # "[^0-9.]": O acento circunflexo (^) nega a busca. Logo, procura tudo que NÃO é dígito/ponto.
-# !is.na(.x): Garante que a função ignore os NAs (que tratamos na Questão 6).
+# !is.na(.x): Garante que a função ignore os NAs.
 # select(): Usamos everything() para atender ao requisito de apresentar o registro completo.
 dados |>
   filter(
@@ -163,8 +211,13 @@ dados |>
     )
   ) |>
   select(everything())
+```
 
 
+Para verificar a existência de valores potencialmente incompatíveis com o contexto da Engenharia Civil, foram estabelecidos critérios de triagem para as principais variáveis analisadas. Foram selecionados registros com idade_dias superior a 100 dias, abatimento_mm superior a 300 mm, densidade_kg_m3 inferior a 2000 kg/m³ ou absorção_agregado_pct superior a 10%. Para as variáveis resistencia_mpa e relacao_a_c, foi realizada uma conversão temporária dos valores, com correção de possíveis registros contendo a letra “O” no lugar do algarismo “0” e substituição da vírgula pelo ponto decimal, permitindo verificar se os valores numéricos resultantes ultrapassavam os limites de 100 MPa e 1,5, respectivamente. Dessa forma, o procedimento permitiu identificar registros que apresentavam valores que merecem investigação mais detalhada, sem alterar, neste momento, os dados originais da base.
+
+```{r}
+#| echo: false
 dados |>
   filter(
     idade_dias > 100 | 
@@ -186,6 +239,10 @@ dados |>
     absorção_agregado_pct
   )
 ```
+
+
+Após a análise dos possíveis valores incompatíveis, foi realizada a verificação das variáveis qualitativas, com o objetivo de identificar inconsistências na padronização das categorias. Essa etapa é importante porque diferenças na forma de escrita, como espaços adicionais ou variações entre letras maiúsculas e minúsculas, podem fazer com que o R interprete registros pertencentes a uma mesma categoria como grupos distintos. Inicialmente, a variável obra foi investigada por meio das funções count() e distinct(), complementadas pela identificação de registros com espaços adicionais. Em seguida, foi analisada a variável tipo_concreto, utilizando distinct() para verificar todas as categorias presentes e identificar possíveis formas diferentes de representação de uma mesma classe de concreto.
+
 ```{r}
 #| echo: false
 # count(): Agrupa os dados pela variável 'obra' e conta o número de observações de cada categoria.
@@ -210,21 +267,353 @@ dados |>
 glimpse(dados)
 ```
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
+A inspeção das categorias qualitativas também revelou algumas particularidades. Na variável obra, foram encontradas cinco categorias distintas, sendo quatro delas aparentemente padronizadas e uma apresentada como “Bloco B ”, contendo espaço adicional ao final do texto. Na variável tipo_concreto, também foram identificadas cinco categorias, embora a base tenha como classes esperadas C25, C30, C35 e C40. A ocorrência de “c30”, em letras minúsculas, indica uma inconsistência de padronização que deverá ser corrigida durante a etapa de limpeza. A necessidade desse tipo de verificação está de acordo com os problemas previstos na atividade, que incluem diferenças na escrita das categorias e espaços adicionais.
 
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
 
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
+### Limpeza e transformação da base de dados
 
-Procure não apenas descrever, mas **interpretar os dados**.
+Após a identificação dos possíveis problemas e inconsistências presentes na base, iniciou-se a terceira etapa, destinada à limpeza e transformação dos dados. O objetivo dessa fase foi produzir uma versão da base adequada às análises posteriores, realizando as correções necessárias sem modificar diretamente os dados originais. Para isso, foi criada uma cópia denominada dados_limpos, sobre a qual foram aplicados os procedimentos de padronização das variáveis qualitativas, conversão das variáveis quantitativas para os tipos adequados e tratamento dos valores ausentes. Dessa maneira, buscou-se garantir maior consistência e confiabilidade aos dados antes da realização das análises estatísticas.
+
+
+
+```{r}
+#| echo: false
+# Cópia da base original
+# Operador de atribuição (<-) cria uma cópia exata do objeto 'dados'
+dados_limpos <- dados
+
+# Padronização das variáveis qualitativas
+# mutate(): Substitui as colunas existentes pelas suas versões tratadas.
+# str_trim(): Remove os espaços acidentais no início e no final do texto.
+# str_to_upper(): Converte todas as letras para maiúsculas (ex: 'c30' vira 'C30').
+# str_replace_all(): Troca hifens por 'nada', padronizando 'C-30' para 'C30'.
+dados_limpos <- dados_limpos |>
+  mutate(
+    obra = str_trim(obra),
+    tipo_concreto = str_to_upper(str_trim(str_replace_all(tipo_concreto, "-", "")))
+  )
+
+# Conversão Numérica e Correção de Grandezas
+# Coluna 4 à 10 os dados devem ser numéricos. Primeiro, limpamos erros de digitação (letras e vírgulas) e forçamos a conversão. Depois, aplicamos a lógica de engenharia para corrigir as grandezas que o read_csv2 multiplicou ou dividiu acidentalmente por interpretar o ponto como milhar
+
+# Passo 1: Limpeza de texto e conversão
+dados_limpos <- dados_limpos |>
+  mutate(
+    # across(): Aplica a cadeia de funções em múltiplas colunas simultaneamente.
+    # -(1:3): Seleciona todas as colunas da base, EXCETO as 3 primeiras (id, obra, tipo).
+    across(
+      -(1:3),
+      # Função anônima (~): Converte para texto, arruma e converte de volta para número.
+      ~ as.character(.x) |> 
+        str_replace_all(c("O" = "0", "," = ".")) |> 
+        parse_double()
+    )
+  ) |>
+  
+# Passo 2: Correção Matemática das grandezas (casas decimais deslocadas)
+  mutate(
+    # if_else(): Se a condição for TRUE, aplica o primeiro cálculo; se FALSE, mantém original.
+    
+    # Abatimentos lidos como 1110 ou 1250 são divididos por 10 (retornando a 111 e 125)
+    abatimento_mm = if_else(abatimento_mm > 300, abatimento_mm / 10, abatimento_mm),
+    
+    # Densidades lidas como 238 ou 245 recebem um 0 (multiplicado por 10) para 2380, etc.
+    densidade_kg_m3 = if_else(densidade_kg_m3 < 1000, densidade_kg_m3 * 10, densidade_kg_m3),
+    
+    # Se o consumo for absurdamente alto (maior que 1000), divide por 10.
+    cimento_kg_m3 = if_else(cimento_kg_m3 > 1000, cimento_kg_m3 / 10, cimento_kg_m3),
+    
+    # Absorções lidas como 18.4 ou 23.0 são divididas por 10 (voltando a 1.84 e 2.30)
+    absorção_agregado_pct = if_else(absorção_agregado_pct > 10, absorção_agregado_pct / 10, absorção_agregado_pct),
+    
+    # Idade de 280 dias causada por digitação extra do zero volta a ser 28
+    idade_dias = if_else(idade_dias > 200, idade_dias / 10, idade_dias) 
+  )
+
+glimpse(dados_limpos)
+
+```
+
+A criação de uma cópia da base original, denominada *dados_limpos*, tem por objetivo realizar os procedimentos de tratamento sem alterar os dados inicialmente importados. Essa decisão é importante porque preservar a base original permite manter os registros brutos como referência, possibilitando comparar os dados antes e depois do tratamento, revisar eventuais decisões de correção e evitar a perda das informações originalmente fornecidas. Assim, qualquer alteração realizada durante o processamento pode ser rastreada e, caso necessário, revisada.
+
+Na sequência, foram padronizadas as variáveis qualitativas. Na variável obra, foram removidos espaços adicionais por meio de `str_trim()`. Para tipo_concreto, além da remoção de espaços, foram convertidas as letras para maiúsculas com `str_to_upper()` e eliminados os hífens por meio de `str_replace_all()`, permitindo uniformizar categorias como c30 e C-30 para uma mesma representação, C30.
+
+Posteriormente, foi realizada a conversão das variáveis quantitativas que haviam sido inicialmente reconhecidas como caracteres. Com o uso de `across()` e funções de tratamento textual do stringr, foram corrigidas possíveis ocorrências da letra “O” no lugar do algarismo “0” e substituídas as vírgulas por pontos antes da conversão para valores numéricos. Após essa conversão, foram aplicadas correções específicas às variáveis que apresentavam casas decimais ou ordens de grandeza deslocadas. Os valores de abatimento_mm superiores a 300 foram divididos por 10; valores de densidade_kg_m3 inferiores a 1000 foram multiplicados por 10; valores de absorção_agregado_pct superiores a 10 foram divididos por 10; e valores de idade_dias superiores a 200 foram divididos por 10. Essas transformações tiveram como finalidade recuperar a grandeza considerada adequada para cada variável, com base nos problemas identificados na etapa anterior.
+
+Ao final do procedimento, o `glimpse(dados_limpos)` mostrou que as variáveis quantitativas passaram a ser reconhecidas pelo R como numéricas (`<dbl>`), enquanto *id_corpo_prova*, *obra* e *tipo_concreto* permaneceram como variáveis de caracteres (`<chr>`). Dessa forma, a base passou a apresentar uma estrutura mais adequada para as etapas seguintes de análise e exploração dos dados.
+
+
+- Identificação e tratamento dos valores ausentes
+
+
+
+```{r}
+#| echo: false
+# Tratamento de Valores Ausentes (NA): Visualizamos os NAs para decidir como agir. Em Engenharia Civil, inferir a resistência de um concreto ausente (substituindo pela média, por exemplo) pode mascarar uma falha estrutural. O mais seguro é manter o NA ou excluir
+
+# filter() e is.na(): Visualiza as linhas que ainda possuem NA após a limpeza.
+dados_limpos |> filter(if_any(everything(), is.na))
+
+```
+Após uma nova verificação dos valores ausentes o resultado identificou cinco registros contendo valores ausentes, correspondentes aos corpos de prova CP-015, CP-038, CP-077, CP-092 e CP-097. Os valores ausentes ocorreram, respectivamente, em diferentes variáveis da base: abatimento_mm no CP-015, relacao_a_c no CP-038, densidade_kg_m3 no CP-077, resistencia_mpa no CP-092 e absorção_agregado_pct no CP-097.
+
+Diante desses registros, optou-se por manter os valores ausentes (NA) na base, não sendo realizada a exclusão das observações nem a substituição dos valores por estimativas, como a média. Essa decisão foi adotada porque o preenchimento de uma informação não registrada poderia introduzir um valor artificial e interferir na interpretação dos resultados. Além disso, a ausência de uma variável não implica necessariamente que todas as demais informações daquele corpo de prova sejam inválidas. Dessa forma, os registros serão preservados e os valores disponíveis poderão continuar sendo utilizados nas análises em que forem pertinentes, enquanto os NA deverão ser considerados pelos procedimentos estatísticos que envolvam especificamente as variáveis com dados ausentes.
+
+A opção por consultar a fonte original dos dados também seria uma alternativa adequada para situações em que fosse possível recuperar os registros faltantes. Entretanto, considerando o procedimento adotado nesta atividade, não foi realizada essa recuperação, mantendo-se os NA para preservar a informação efetivamente disponível na base.
+
+```{r}
+#| echo: false
+# Questão 16: Verificação final da estrutura
+# glimpse(): Confirma que agora as 3 primeiras colunas são <chr> e as demais são <dbl>.
+cat("--- Estrutura (Glimpse) ---\n")
+glimpse(dados_limpos)
+
+# summary(): Demonstra que os limites extremos (ex: máximo de 1250 no abatimento) 
+# desapareceram, retornando à escala física normal.
+cat("\n--- Resumo Estatístico ---\n")
+summary(dados_limpos)
+
+```
+
+Após a aplicação dos procedimentos de limpeza e transformação, a estrutura e o resumo estatístico da base foram novamente verificados por meio das funções `glimpse()` e `summary()`. 
+
+As correções das grandezas produziram alterações importantes nos valores extremos. Na base original, foram identificados valores máximos de 280 dias para *idade_dias*, 1250 mm para *abatimento_mm*, 2464 kg/m³ para *densidade_kg_m3* e 18,4% para *absorção_agregado_pct*, sendo alguns desses valores indicativos de possíveis erros de registro. Após a limpeza, os valores máximos passaram para 56 dias, 175 mm, 2464 kg/m³ e 2,92%, respectivamente. Essas alterações estão diretamente relacionadas às correções aplicadas durante o processamento, corrigindo registros para valores compatíveis com a ordem de grandeza esperada.
+
+Após essas transformações, os valores mínimos e máximos apresentados pela base passaram a apresentar maior coerência com os demais registros de um conjunto de dados de controle tecnológico do concreto, indicando que os principais problemas de registro identificados nas etapas anteriores foram efetivamente tratados.
+
+
+### Exploração dos dados
+
+Com a base `dados_limpos` devidamente estruturada e tratada, iniciou-se a etapa voltada à exploração e análise descritiva dos dados. 
+
+```{r}
+#| echo: false
+# Questão 17: Resistência média
+cat("\nResistência média dos Corpos de Prova:")
+
+# summarise(): Reduz os dados a um único resumo estatístico.
+# na.rm = TRUE: Argumento essencial. Ignora os NAs para que o cálculo da média não resulte em erro.
+dados_limpos |>
+  summarise(resistencia_media_geral = mean(resistencia_mpa, na.rm = TRUE))
+
+cat("\nResistência média à compressão agrupada por bloco da obra:")
+# Média por Bloco (Obra)
+# group_by(): Divide a base de dados em "pacotes" (grupos) baseados na variável categórica.
+dados_limpos |>
+  group_by(obra) |>
+  summarise(resistencia_media = mean(resistencia_mpa, na.rm = TRUE))
+
+cat("\nResistência média agrupada por tipo de concreto:")
+# Média por Tipo de Concreto
+dados_limpos |>
+  group_by(tipo_concreto) |>
+  summarise(resistencia_media = mean(resistencia_mpa, na.rm = TRUE))
+
+cat("\nResistência média à compressão agrupada por idade dos corpos de prova:")
+# Média por Idade
+dados_limpos |>
+  group_by(idade_dias) |>
+  summarise(resistencia_media = mean(resistencia_mpa, na.rm = TRUE))
+
+# Comparação entre obras
+cat("\nComparação do desempenho entre os blocos da obra\n")
+cat("Para descobrir qual bloco teve o melhor e o pior desempenho, agrupamos por")
+cat("obra, calculamos a média e ordenamos do maior para o menor.\n")
+
+# arrange(): Ordena as linhas de um data frame com base em uma coluna.
+# desc(): Força a ordenação de forma decrescente (do maior para o menor valor).
+dados_limpos |>
+  group_by(obra) |>
+  summarise(resistencia_media = mean(resistencia_mpa, na.rm = TRUE)) |>
+  arrange(desc(resistencia_media))
+
+cat("\nAnálise:\n")
+cat("Ao observar o tibble gerado, o primeiro bloco da lista apresenta a maior")
+cat("resistência média, enquanto o último apresenta a menor.\n")
+
+# Questão 19: Tipo de concreto
+cat("\nAnálise de desempenho por Classe de Concreto\n")
+cat("Verificação se os concretos com maior classe nominal (ex: C40) de fato")
+cat("apresentaram a maior resistência média na prática.\n")
+
+dados_limpos |>
+  group_by(tipo_concreto) |>
+  summarise(resistencia_media = mean(resistencia_mpa, na.rm = TRUE)) |>
+  arrange(desc(resistencia_media))
+
+cat("\nAnálise:\n")
+cat("A classe C40 deve encabeçar a lista por ter a maior resistência especificada.\n")
+cat("A ordenação descrescente comprova se a hierarquia técnica (C40 > C35 > C30 > C25)\n")
+cat("foi mantida durante a execução da obra.\n\n")
+
+# Questão 20: Estatísticas por grupo (Múltiplas Variáveis)
+cat("\nEstatísticas médias das propriedades físicas por tipo de concreto\n")
+cat("As principais variáveis tecnológicas foram agrupadas para interpretar como a dosagem\n")
+cat("se comporta conforme a classe do concreto aumenta.\n\n")
+
+# O summarise() permite realizar múltiplos cálculos simultaneamente dentro do mesmo comando.
+# Substitui o uso do antigo aggregate() da Base R, sendo mais intuitivo e flexível.
+dados_limpos |>
+  group_by(tipo_concreto) |>
+  summarise(
+    media_resistencia = mean(resistencia_mpa, na.rm = TRUE),
+    media_cimento = mean(cimento_kg_m3, na.rm = TRUE),
+    media_relacao_ac = mean(relacao_a_c, na.rm = TRUE),
+    media_abatimento = mean(abatimento_mm, na.rm = TRUE),
+    media_densidade = mean(densidade_kg_m3, na.rm = TRUE)
+  ) |>
+  arrange(desc(media_resistencia))
+
+cat("\nInterpretação Técnica dos Resultados:\n")
+cat("- O consumo de cimento aumenta nas classes mais altas (C40) e a relação")
+cat("  água/cimento diminui. Esse é o comportamento técnico correto e esperado,")
+cat("  pois menos água e mais cimento aumentam a resistência da matriz.")
+cat("- A densidade costuma se manter estável (em torno de 2350-2450 kg/m3),")
+cat("  indicando que os agregados e o adensamento foram padronizados.")
+
+```
+
+
+
+### Criação de novas variáveis
+
+Após a exploração das características da base por meio de estatísticas descritivas e agrupamentos, iniciou-se a etapa destinada à criação de novas variáveis a partir dos dados já tratados. Nessa etapa, utilizou-se principalmente a função `mutate()`, em conjunto com `case_when()` e outras operações do `dplyr`, para gerar informações derivadas que possibilitem uma interpretação mais aprofundada dos resultados.
+
+As novas variáveis foram construídas com o propósito de relacionar a resistência observada dos corpos de prova com referências associadas às diferentes classes de concreto e, também, de classificar e comparar os registros segundo critérios definidos para a análise. Dessa forma, a utilização de variáveis derivadas permite ampliar as informações disponíveis na base sem modificar os dados originais, facilitando a identificação de padrões e a interpretação do desempenho dos corpos de prova
+
+- Variável Resistência Relativa: representa a razão entre a resistência observada e uma resistência de referência associada à classe do concreto.
+
+```{r}
+#| echo: false
+# Questão 21: Resistência relativa - A resistência de referência é a resistência característica (fck) que dá nome à classe do concreto (ex: C25 exige referência de 25 MPa). Utilizamos a função case_when() para mapear cada classe ao seu respectivo valor e, em seguida, calculamos a razão entre o valor ensaiado e essa referência.
+
+# mutate(): Adiciona novas colunas à base de dados.
+# case_when(): Avalia uma sequência de condições (como um if_else encadeado). 
+# A estrutura é `condição ~ valor_se_verdadeiro`.
+dados_limpos <- dados_limpos |>
+  mutate(
+    resistencia_referencia = case_when(
+      tipo_concreto == "C25" ~ 25,
+      tipo_concreto == "C30" ~ 30,
+      tipo_concreto == "C35" ~ 35,
+      tipo_concreto == "C40" ~ 40,
+      TRUE ~ NA_real_ # Valor padrão caso encontre uma classe não mapeada
+    ),
+    # A razão mostra o quão acima (valores > 1) ou abaixo (valores < 1) da meta estamos
+    resistencia_relativa = resistencia_mpa / resistencia_referencia
+  )
+```
+
+
+A resistência de referência foi definida a partir da resistência característica (fck) correspondente à classe do concreto, utilizando diretamente o valor indicado na própria nomenclatura da classe. Assim, foram adotados 25 MPa para C25, 30 MPa para C30, 35 MPa para C35 e 40 MPa para C40. Essa referência foi utilizada posteriormente para calcular a resistência relativa de cada corpo de prova.
+
+
+- Variável Classificação: classifica os corpos de prova segundo um critério relacionado à resistência.
+
+Os critérios de classificação foram definidos tomando como referência a resistência característica (fck) correspondente à classe de cada concreto. Os corpos de prova cuja resistência obtida foi maior ou igual à resistência de referência foram classificados como “Conforme”. Quando a resistência ficou até 10% abaixo da referência, adotou-se a classificação “Atenção”, indicando a necessidade de acompanhamento do resultado. Valores mais de 10% abaixo da referência foram classificados como “Não Conforme”, por representarem um afastamento mais significativo em relação ao valor de referência. Nos casos em que a resistência não estava disponível, adotou-se a categoria “Sem Dado”, evitando atribuir uma classificação sem informação suficiente.
+```{r}
+#| echo: false
+# Questão 22: Classificação de corpos de prova
+
+cat("Critérios técnicos definidos com base na resistência de referência:\n")
+cat("- 'Conforme': Resistência obtida é maior ou igual à de referência.\n")
+cat("- 'Atenção': Resistência caiu até 10% abaixo da referência.\n")
+cat("- 'Não Conforme': Resistência caiu mais de 10% abaixo da referência (risco estrutural).\n\n")
+
+dados_limpos <- dados_limpos |>
+  mutate(
+    classificacao = case_when(
+      resistencia_mpa >= resistencia_referencia ~ "Conforme",
+      resistencia_mpa >= 0.90 * resistencia_referencia ~ "Atenção",
+      resistencia_mpa < 0.90 * resistencia_referencia ~ "Não Conforme",
+      is.na(resistencia_mpa) ~ "Sem Dado" 
+    )
+  )
+```
+
+
+- Variável `acima_media`: indica se a resistência do corpo de prova está acima ou abaixo da resistência média de seu respectivo tipo de concreto. A variável assume os seguintes valores: TRUE ou FALSE
+
+```{r}
+#| echo: false
+# Questão 23: Variável acima_media - Para calcular se a amostra está acima da média de sua classe sem precisar calcular os valores manualmente, combinamos group_by() com mutate(). Isso força a função mean() a calcular a média internamente para cada bloco de concreto.
+
+# group_by(): Diz ao R para realizar as próximas operações separando a base por classe.
+# mutate(): Executa o teste lógico (>). O resultado será TRUE ou FALSE.
+# ungroup(): Função crítica após agrupar para criar colunas. Ela "desagrupa" a base,
+# garantindo que as futuras análises (Etapa 6) não fiquem presas a esse agrupamento.
+dados_limpos <- dados_limpos |>
+  group_by(tipo_concreto) |>
+  mutate(
+    acima_media = resistencia_mpa > mean(resistencia_mpa, na.rm = TRUE)
+  ) |>
+  ungroup() 
+
+cat("Visualizando o resultado das novas variáveis criadas (primeiros registros):\n")
+# select(): Utilizado aqui apenas para focar nas colunas recém-criadas na impressão.
+dados_limpos |>
+  select(
+    id_corpo_prova, 
+    tipo_concreto, 
+    resistencia_mpa, 
+    resistencia_relativa, 
+    classificacao, 
+    acima_media
+  ) |>
+  head()
+
+```
+
+### Dados agrupados
+
+- Número de observações por Tipo de Concreto: quantidade de corpos de prova para cada classe de concreto
+
+```{r}
+#| echo: false
+# Questão 24: Contagem de observações por grupo
+# group_by(): Cria os grupos virtuais baseados na classe do concreto.
+# summarise(): Consolida a informação.
+# n(): Função específica do dplyr que conta o número de linhas (observações) dentro de cada grupo.
+dados_limpos |>
+  group_by(tipo_concreto) |>
+  summarise(quantidade_observacoes = n())
+```
+
+- Resistência média de cada tipo de concreto ordenada em ordem decrescente
+
+```{r}
+#| echo: false
+# Questão 25: Resistência média ordenada
+
+dados_limpos |>
+  group_by(tipo_concreto) |>
+  summarise(resistencia_media = mean(resistencia_mpa, na.rm = TRUE)) |>
+  arrange(desc(resistencia_media))
+```
+
+- Resumo Estatístico para os tipos de Concreto
+
+```{r}
+#| echo: false
+# Questão 26: Resumo estatístico descritivo simultâneo
+# sum(!is.na(resistencia_mpa)): Forma inteligente de contar observações ignorando os NAs.
+dados_limpos |>
+  group_by(tipo_concreto) |>
+  summarise(
+    n_observacoes = sum(!is.na(resistencia_mpa)),
+    media = mean(resistencia_mpa, na.rm = TRUE),
+    mediana = median(resistencia_mpa, na.rm = TRUE),
+    desvio_padrao = sd(resistencia_mpa, na.rm = TRUE),
+    minimo = min(resistencia_mpa, na.rm = TRUE),
+    maximo = max(resistencia_mpa, na.rm = TRUE),
+    .groups = "drop" # Boa prática: remove o agrupamento residual no objeto resultante
+  )
+
+```
+
+Uma tabela que apresenta várias estatísticas é mais informativa do que uma tabela contendo apenas a média porque permite avaliar não apenas o valor central dos resultados, mas também a variabilidade e a dispersão dos dados. Na Engenharia Civil, a média isolada pode ocultar diferenças importantes entre os corpos de prova. Por exemplo, uma classe de concreto pode apresentar média de resistência superior ao seu valor de referência, mas, ao mesmo tempo, possuir elevado desvio-padrão e valores mínimos significativamente inferiores. A análise conjunta da média, mediana, desvio-padrão, mínimo e máximo permite, portanto, avaliar melhor a uniformidade dos resultados e a ocorrência de valores extremos, proporcionando uma interpretação mais completa do comportamento da resistência do concreto e contribuindo para uma avaliação mais adequada do controle tecnológico.
+
 
 ### 💬 Exemplo de como citar uma referência bibliográfica
 
