@@ -28,25 +28,40 @@ execute:
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+No contexto da Engenharia Civil, o controle tecnológico do concreto desempenha um papel fundamental na verificação da qualidade e do desempenho dos materiais empregados nas obras. Durante a execução de um empreendimento, são produzidos diversos dados provenientes de ensaios laboratoriais, registros de campo e informações relacionadas às características do concreto. Esses dados podem fornecer informações importantes para o acompanhamento da qualidade, a identificação de possíveis problemas e o apoio à tomada de decisões técnicas.
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Entretanto, antes da realização de qualquer análise estatística, é necessário verificar a qualidade e a consistência das informações disponíveis. Em situações reais, bases de dados podem apresentar valores ausentes, erros de digitação, diferentes formas de registro de uma mesma categoria, problemas relacionados à utilização de vírgulas e pontos decimais, valores com ordem de grandeza inadequada e outras inconsistências. Dessa forma, o tratamento e a organização dos dados constituem etapas essenciais para garantir que as análises realizadas posteriormente sejam confiáveis e representem adequadamente o fenômeno estudado.
 
+Neste relatório, será analisada uma base de dados relacionada ao controle tecnológico do concreto, composta por 100 observações e 10 variáveis que representam características como idade dos corpos de prova, resistência à compressão, consumo de cimento, relação água/cimento, abatimento, densidade e absorção de água dos agregados. A partir dessa base, serão realizadas etapas de inspeção, diagnóstico, organização, limpeza, transformação e exploração dos dados, buscando identificar possíveis inconsistências e avaliar a coerência das informações registradas.
+
+Para o processamento da base, será utilizada a linguagem de programação R, com prioridade para os recursos da família tidyverse, especialmente os pacotes dplyr, tidyr, stringr, readr, purrr e ggplot2. A utilização dessas ferramentas permitirá estruturar um fluxo de tratamento dos dados de maneira organizada e reprodutível, desde a leitura da base original até a produção de informações e visualizações úteis para a análise.
+
+Assim, o objetivo deste relatório é desenvolver uma abordagem prática de tratamento e exploração de dados aplicados à Engenharia Civil, demonstrando que a qualidade da análise depende não apenas dos métodos estatísticos empregados, mas também da identificação e do tratamento adequado dos problemas presentes nos dados. Ao final, pretende-se obter uma base organizada e consistente, capaz de fornecer informações relevantes para o acompanhamento do controle tecnológico do concreto e para a tomada de decisões no contexto da obra.
 
 
 ## 🎯 Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Realizar a inspeção, organização, limpeza, transformação e exploração de uma base de dados relacionada ao controle tecnológico do concreto, utilizando a linguagem R e, prioritariamente, as ferramentas da família tidyverse, de modo a identificar inconsistências, corrigir problemas nos registros e obter informações relevantes para a avaliação da qualidade do concreto.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Inspecionar a estrutura da base de dados e identificar os tipos e características das variáveis disponíveis;
+Verificar a existência de valores ausentes, registros inconsistentes e possíveis erros de preenchimento ou digitação;
 
+- Identificar problemas relacionados a formatos numéricos, casas decimais, unidades e ordem de grandeza dos valores;
+- Padronizar variáveis categóricas e textuais, eliminando diferenças de formatação, espaços adicionais e formas distintas de representação;
+
+- Organizar e transformar os dados utilizando, prioritariamente, funções dos pacotes dplyr, tidyr, stringr, readr e purrr;
+- Criar uma versão tratada da base de dados, denominada dados_limpos, preservando a base original para fins de comparação e rastreabilidade;
+
+- Explorar as características dos dados por meio de medidas estatísticas e representações gráficas;
+Utilizar o ggplot2 para produzir visualizações que auxiliem na identificação de padrões, tendências e possíveis anomalias nos dados;
+
+- Avaliar a coerência dos registros relacionados às propriedades do concreto, como resistência à compressão, relação água/cimento, abatimento e densidade;
+
+- Produzir informações que possam auxiliar o engenheiro responsável no acompanhamento do controle tecnológico e na tomada de decisões relacionadas à qualidade do concreto.
 ---
 
 ## 📚  Fundamentação Teórica
