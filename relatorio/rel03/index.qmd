@@ -478,8 +478,6 @@ cat("  indicando que os agregados e o adensamento foram padronizados.")
 
 ```
 
-
-
 ### Criação de novas variáveis
 
 Após a exploração das características da base por meio de estatísticas descritivas e agrupamentos, iniciou-se a etapa destinada à criação de novas variáveis a partir dos dados já tratados. Nessa etapa, utilizou-se principalmente a função `mutate()`, em conjunto com `case_when()` e outras operações do `dplyr`, para gerar informações derivadas que possibilitem uma interpretação mais aprofundada dos resultados.
@@ -508,7 +506,6 @@ dados_limpos <- dados_limpos |>
     resistencia_relativa = resistencia_mpa / resistencia_referencia
   )
 ```
-
 
 A resistência de referência foi definida a partir da resistência característica (fck) correspondente à classe do concreto, utilizando diretamente o valor indicado na própria nomenclatura da classe. Assim, foram adotados 25 MPa para C25, 30 MPa para C30, 35 MPa para C35 e 40 MPa para C40. Essa referência foi utilizada posteriormente para calcular a resistência relativa de cada corpo de prova.
 
@@ -617,6 +614,402 @@ dados_limpos |>
 ```
 
 Uma tabela que apresenta várias estatísticas é mais informativa do que uma tabela contendo apenas a média porque permite avaliar não apenas o valor central dos resultados, mas também a variabilidade e a dispersão dos dados. Na Engenharia Civil, a média isolada pode ocultar diferenças importantes entre os corpos de prova. Por exemplo, uma classe de concreto pode apresentar média de resistência superior ao seu valor de referência, mas, ao mesmo tempo, possuir elevado desvio-padrão e valores mínimos significativamente inferiores. A análise conjunta da média, mediana, desvio-padrão, mínimo e máximo permite, portanto, avaliar melhor a uniformidade dos resultados e a ocorrência de valores extremos, proporcionando uma interpretação mais completa do comportamento da resistência do concreto e contribuindo para uma avaliação mais adequada do controle tecnológico.
+
+```{r}
+#| echo: false
+# Questão 27: Seleção das variáveis quantitativas relacionadas às propriedades do concreto
+# all_of(): Seleciona as variáveis especificadas no vetor 'variaveis_concreto'.
+# Foram excluídas as variáveis de identificação e classificação, como
+# id_corpo_prova, obra e tipo_concreto.
+
+variaveis_concreto <- c(
+  "idade_dias",
+  "resistencia_mpa",
+  "cimento_kg_m3",
+  "relacao_a_c",
+  "abatimento_mm",
+  "densidade_kg_m3",
+  "absorção_agregado_pct"
+)
+
+dados_limpos |>
+  select(all_of(variaveis_concreto))
+
+```
+Para selecionar somente as variáveis quantitativas relacionadas às propriedades do concreto, foi utilizada a função select() em conjunto com all_of(). Foram selecionadas as variáveis idade_dias, resistencia_mpa, cimento_kg_m3, relacao_a_c, abatimento_mm, densidade_kg_m3 e absorção_agregado_pct. A variável id_corpo_prova não foi incluída por representar apenas a identificação dos corpos de prova, enquanto obra e tipo_concreto são variáveis qualitativas utilizadas para identificação e classificação dos registros. Dessa forma, a nova tabela apresenta exclusivamente as variáveis quantitativas relacionadas às características e propriedades analisadas do concreto.
+
+```{r}
+#| echo: false 
+# Questão 28: Média das variáveis quantitativas 
+# across(): Permite aplicar a mesma função a várias variáveis simultaneamente. 
+# all_of(): Seleciona as variáveis armazenadas no vetor 'variaveis_concreto'. 
+# na.rm = TRUE: Ignora os valores ausentes (NA) durante o cálculo da média. 
+
+dados_limpos |> 
+  summarise( 
+  across(
+    all_of(variaveis_concreto), 
+    ~ mean(.x, na.rm = TRUE) 
+                                   
+) 
+)
+```
+Os dois métodos produzem os mesmos valores médios para as variáveis analisadas. A diferença está principalmente na forma de escrita e manutenção do código. O uso de across() apresenta maior facilidade de manutenção quando o número de variáveis aumenta, pois permite aplicar a mesma função a várias colunas simultaneamente. Dessa forma, caso novas variáveis quantitativas sejam adicionadas ao vetor variaveis_concreto, elas poderão ser incluídas na análise sem a necessidade de escrever individualmente cada cálculo de média. Já com o uso de summarise() individualmente, cada nova variável exige a inclusão de uma nova expressão no código, tornando a abordagem mais extensa e menos prática para bases com muitas variáveis.
+
+```{r}
+#| echo: false
+# Questão 29: Transformação simultânea das variáveis quantitativas
+# mutate(): Cria ou modifica variáveis na base de dados.
+# across(): Permite aplicar a mesma transformação a várias variáveis simultaneamente.
+# A transformação escolhida foi a padronização dos dados pelo escore-z.
+# Essa transformação coloca as variáveis em uma escala comum, com média 0
+# e desvio padrão 1, facilitando a comparação entre grandezas com unidades diferentes.
+
+dados_limpos <- dados_limpos |>
+  mutate(
+    across(
+      all_of(variaveis_concreto),
+      ~ as.numeric(scale(.x))
+    )
+  )
+
+dados_limpos
+
+```
+A transformação escolhida foi a padronização pelo escore-z, aplicada simultaneamente às variáveis quantitativas utilizando mutate() e across(). Essa transformação permite colocar variáveis que possuem diferentes unidades e escalas, como resistência em MPa, cimento em kg/m³, abatimento em mm e densidade em kg/m³, em uma escala comum. Após a padronização, cada variável passa a apresentar média próxima de zero e desvio padrão próximo de um. Essa abordagem facilita a comparação entre as variáveis e pode ser útil em análises estatísticas posteriores.
+
+O uso de across() torna o procedimento mais eficiente, pois a mesma transformação é aplicada a todas as variáveis selecionadas sem a necessidade de escrever cada operação individualmente.
+
+```{r}
+#| echo: false
+# Questão 30: Estatísticas das variáveis quantitativas por tipo de concreto
+# group_by(): Organiza os dados de acordo com o tipo de concreto.
+# summarise(): Resume os dados calculando as estatísticas solicitadas.
+# across(): Permite calcular as mesmas estatísticas para várias variáveis simultaneamente.
+# na.rm = TRUE: Ignora os valores ausentes (NA) nos cálculos.
+
+dados_limpos |>
+  group_by(tipo_concreto) |>
+  summarise(
+    across(
+      all_of(variaveis_concreto),
+      list(
+        media = ~ mean(.x, na.rm = TRUE),
+        desvio_padrao = ~ sd(.x, na.rm = TRUE)
+      ),
+      .names = "{.col}_{.fn}"
+    ),
+    .groups = "drop"
+  )
+```
+Para obter as estatísticas das variáveis quantitativas de acordo com o tipo de concreto, foi utilizada a combinação das funções group_by(), summarise() e across(). A função group_by() permitiu separar os registros conforme as classes de concreto, enquanto summarise() foi utilizada para resumir os dados. Por meio de across(), foram calculadas simultaneamente a média e o desvio padrão para todas as variáveis armazenadas no vetor variaveis_concreto.
+
+A média foi utilizada para representar o valor central de cada variável, enquanto o desvio padrão permitiu avaliar a dispersão dos valores dentro de cada tipo de concreto. Os valores ausentes (NA) foram desconsiderados por meio do argumento na.rm = TRUE.
+
+A utilização de across() apresenta maior facilidade de manutenção em comparação com vários comandos separados. Em uma abordagem individual, seria necessário escrever uma expressão para cada variável e para cada estatística. Com across(), as mesmas operações são aplicadas automaticamente a todas as variáveis selecionadas. Assim, caso novas variáveis quantitativas sejam adicionadas ao vetor variaveis_concreto, elas serão incluídas nos cálculos sem a necessidade de modificar o comando principal.
+
+O resultado é apresentado de forma organizada, com uma linha para cada tipo de concreto e colunas correspondentes à média e ao desvio padrão de cada variável quantitativa.
+
+```{r}
+#| echo: false
+# Questão 31: Verificação e padronização da variável obra
+# str_trim(): Remove espaços em branco no início e no final dos textos.
+# str_to_upper(): Padroniza todos os textos utilizando letras maiúsculas.
+# str_squish(): Remove espaços duplicados dentro dos textos.
+# str_replace_all(): Permite corrigir grafias diferentes que representam a mesma categoria.
+
+# Antes da padronização
+dados_limpos |>
+  distinct(obra) |>
+  arrange(obra)
+
+# Padronização da variável obra
+dados_limpos <- dados_limpos |>
+  mutate(
+    obra = str_trim(obra),
+    obra = str_squish(obra),
+    obra = str_to_upper(obra),
+    obra = str_replace_all(obra, "OBRA 01", "OBRA 1"),
+    obra = str_replace_all(obra, "OBRA 02", "OBRA 2"),
+    obra = str_replace_all(obra, "OBRA 03", "OBRA 3")
+  )
+
+# Depois da padronização
+dados_limpos |>
+  distinct(obra) |>
+  arrange(obra)
+```
+Para verificar e padronizar a variável obra, foram utilizadas funções do pacote stringr. Inicialmente, foi realizada a identificação das categorias existentes por meio de distinct(), permitindo observar possíveis diferenças de grafia, utilização de letras maiúsculas e minúsculas e espaços desnecessários.
+
+Para a padronização, foi utilizada a função str_trim(), responsável por remover espaços no início e no final dos textos. Em seguida, str_squish() foi utilizada para eliminar espaços duplicados, enquanto str_to_upper() padronizou todos os valores para letras maiúsculas.
+
+Também foi utilizada str_replace_all() para corrigir possíveis diferenças de grafia entre categorias que representam a mesma obra. Dessa forma, os valores passaram a apresentar um padrão único, facilitando agrupamentos, filtros e análises posteriores.
+
+A comparação entre os resultados antes e depois da padronização permite verificar as alterações realizadas na variável obra. Após o tratamento, categorias que apresentavam apenas diferenças de formatação ou grafia passam a ser representadas de maneira consistente, reduzindo o risco de uma mesma obra ser considerada como categorias diferentes durante as análises.
+
+```{r}
+#| echo: false
+# Questão 32: Localização de padrões textuais
+# str_detect(): Verifica se um determinado padrão de texto está presente em uma variável.
+# regex(): Permite utilizar padrões de busca de forma mais flexível.
+# A busca será realizada por registros cujo tipo de concreto contenha "C30",
+# permitindo localizar também possíveis diferenças de formatação, como "c30".
+
+# Busca pelo padrão "C30" na variável tipo_concreto
+dados_limpos |>
+  filter(
+    str_detect(
+      tipo_concreto,
+      regex("C30", ignore_case = TRUE)
+    )
+  ) |>
+  select(
+    id_corpo_prova,
+    obra,
+    tipo_concreto,
+    resistencia_mpa
+  )
+```
+Para localizar registros que contenham determinado padrão textual, foi utilizada a função str_detect() do pacote stringr. A condição de busca escolhida foi a identificação dos registros da classe C30 na variável tipo_concreto. Foi utilizada a função regex() com ignore_case = TRUE, permitindo localizar tanto C30 quanto possíveis variações de letras maiúsculas e minúsculas, como c30.
+
+A utilização de padrões de texto é importante para o diagnóstico de bases de dados porque permite identificar rapidamente inconsistências de preenchimento, diferenças de formatação, categorias duplicadas e possíveis erros de digitação. Esse tipo de verificação é especialmente útil antes da realização de agrupamentos e análises estatísticas, pois valores aparentemente iguais podem ser tratados como categorias diferentes quando apresentam grafias distintas.
+
+No caso desta base, a busca pelo padrão C30 permite verificar se existem registros dessa classe e se há alguma variação na forma como ela foi registrada. Dessa maneira, o uso de str_detect() contribui para a identificação de problemas de padronização e para o aumento da qualidade e confiabilidade dos dados.
+
+```{r}
+#| echo: false
+# Questão 33: Distribuição da resistência à compressão por tipo de concreto
+# ggplot(): Define a base de dados e os mapeamentos estéticos do gráfico.
+# geom_boxplot(): Representa a distribuição dos valores por meio da mediana,
+# quartis, dispersão e possíveis valores discrepantes.
+# na.rm = TRUE: Remove da representação os registros com resistência ausente.
+
+dados_limpos |>
+  ggplot(
+    aes(
+      x = tipo_concreto,
+      y = resistencia_mpa
+    )
+  ) +
+  geom_boxplot(na.rm = TRUE) +
+  labs(
+    title = "Distribuição da resistência à compressão por tipo de concreto",
+    x = "Tipo de concreto",
+    y = "Resistência à compressão (MPa)"
+  ) +
+  theme_minimal()
+```
+Para comparar a distribuição da resistência à compressão entre os diferentes tipos de concreto, foi utilizado um gráfico de caixas, construído com a função geom_boxplot() do pacote ggplot2. Essa representação permite visualizar, para cada classe de concreto, a mediana, a dispersão dos resultados, os quartis e possíveis valores discrepantes.
+
+A comparação entre as caixas permite verificar se as classes de concreto apresentam diferenças em relação aos valores centrais de resistência e à variabilidade dos resultados. Espera-se que as classes de maior resistência nominal, como C35 e C40, apresentem valores de resistência superiores aos observados nas classes C25 e C30. Além disso, caixas mais altas ou com maior amplitude indicam maior dispersão dos resultados, enquanto caixas mais concentradas indicam maior uniformidade entre os corpos de prova.
+
+Dessa forma, o gráfico permite avaliar visualmente tanto o desempenho das diferentes classes de concreto quanto a variabilidade dos resultados obtidos no controle tecnológico.
+
+```{r}
+#| echo: false
+# Questão 34: Relação entre consumo de cimento e resistência à compressão
+# ggplot(): Define a base de dados e os mapeamentos do gráfico.
+# geom_point(): Representa cada corpo de prova como um ponto no gráfico.
+# geom_smooth(): Adiciona uma linha de tendência para facilitar a identificação
+# da relação entre o consumo de cimento e a resistência à compressão.
+# method = "lm": Utiliza um modelo de regressão linear para representar a tendência.
+# na.rm = TRUE: Desconsidera registros com valores ausentes.
+
+dados_limpos |>
+  ggplot(
+    aes(
+      x = cimento_kg_m3,
+      y = resistencia_mpa
+    )
+  ) +
+  geom_point(na.rm = TRUE) +
+  geom_smooth(
+    method = "lm",
+    se = TRUE,
+    na.rm = TRUE
+  ) +
+  labs(
+    title = "Relação entre consumo de cimento e resistência à compressão",
+    x = "Consumo de cimento (kg/m³)",
+    y = "Resistência à compressão (MPa)"
+  ) +
+  theme_minimal()
+```
+O gráfico de dispersão foi utilizado para investigar visualmente a relação entre o consumo de cimento e a resistência à compressão do concreto. Cada ponto representa uma observação da base de dados, enquanto a linha de tendência foi adicionada por meio de geom_smooth() com um modelo de regressão linear.
+
+A análise visual do gráfico permite verificar se existe uma tendência de aumento da resistência à compressão à medida que o consumo de cimento aumenta. Caso os pontos apresentem uma concentração crescente ao longo da linha de tendência, há uma evidência visual de associação positiva entre as duas variáveis.
+
+Entretanto, o gráfico, por si só, não permite afirmar que o maior consumo de cimento seja a causa do aumento da resistência. A resistência do concreto também pode ser influenciada por outros fatores, como a relação água/cimento, tipo de cimento, idade do corpo de prova e características dos agregados.
+
+Assim, o gráfico pode fornecer evidência visual compatível com a afirmação “quanto maior o consumo de cimento, maior tende a ser a resistência do concreto” caso seja observada uma tendência positiva, mas essa conclusão deve ser complementada por uma análise estatística da correlação ou do modelo de regressão.
+
+```{r}
+#| echo: false
+# Questão 35: Relação entre relação água/cimento e resistência à compressão
+# ggplot(): Define a base de dados e os mapeamentos do gráfico.
+# geom_point(): Representa cada corpo de prova como um ponto no gráfico.
+# geom_smooth(): Adiciona uma linha de tendência para facilitar a identificação
+# do comportamento entre as variáveis.
+# method = "lm": Utiliza uma regressão linear para representar a tendência.
+# na.rm = TRUE: Desconsidera registros com valores ausentes.
+
+dados_limpos |>
+  ggplot(
+    aes(
+      x = relacao_a_c,
+      y = resistencia_mpa
+    )
+  ) +
+  geom_point(na.rm = TRUE) +
+  geom_smooth(
+    method = "lm",
+    se = TRUE,
+    na.rm = TRUE
+  ) +
+  labs(
+    title = "Relação entre relação água/cimento e resistência à compressão",
+    x = "Relação água/cimento",
+    y = "Resistência à compressão (MPa)"
+  ) +
+  theme_minimal()
+```
+O gráfico de dispersão foi utilizado para investigar a relação entre a relação água/cimento e a resistência à compressão dos corpos de prova. A linha de tendência foi adicionada para facilitar a identificação do comportamento geral dos dados.
+
+A análise do gráfico permite investigar se existe uma tendência de redução da resistência à compressão à medida que a relação água/cimento aumenta. Esse comportamento é esperado tecnicamente, pois uma maior quantidade de água em relação ao cimento pode resultar em uma estrutura mais porosa após a hidratação, contribuindo para a redução da resistência.
+
+Nos dados analisados, caso os pontos apresentem uma tendência descendente, haverá uma evidência visual de associação negativa entre a relação água/cimento e a resistência à compressão. Entretanto, a dispersão dos pontos também deve ser observada, pois indica que outros fatores podem influenciar a resistência.
+
+Portanto, a relação observada merece investigação, principalmente para verificar a intensidade dessa associação e identificar possíveis observações que se afastem do comportamento geral. Uma análise de correlação ou um modelo de regressão poderia complementar a interpretação visual apresentada pelo gráfico.
+
+```{r}
+#| echo: false
+# Questão 36: Comparação do desempenho dos concretos entre as obras
+# group_by(): Organiza os dados de acordo com a obra.
+# summarise(): Calcula estatísticas descritivas da resistência à compressão.
+# arrange(): Ordena os resultados da maior para a menor resistência média.
+# ggplot(): Permite representar graficamente a distribuição dos resultados.
+# geom_boxplot(): Facilita a comparação da distribuição da resistência entre as obras.
+# na.rm = TRUE: Desconsidera os valores ausentes.
+
+# Comparação descritiva da resistência à compressão entre as obras
+comparacao_obras <- dados_limpos |>
+  group_by(obra) |>
+  summarise(
+    n_observacoes = sum(!is.na(resistencia_mpa)),
+    media = mean(resistencia_mpa, na.rm = TRUE),
+    mediana = median(resistencia_mpa, na.rm = TRUE),
+    desvio_padrao = sd(resistencia_mpa, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(media))
+
+comparacao_obras
+
+# Gráfico da distribuição da resistência por obra
+dados_limpos |>
+  ggplot(
+    aes(
+      x = obra,
+      y = resistencia_mpa
+    )
+  ) +
+  geom_boxplot(na.rm = TRUE) +
+  labs(
+    title = "Comparação da resistência à compressão entre as obras",
+    x = "Obra",
+    y = "Resistência à compressão (MPa)"
+  ) +
+  theme_minimal()
+```
+A comparação foi realizada de forma descritiva, utilizando a média, a mediana e o desvio padrão da resistência à compressão para cada obra. Também foi elaborado um gráfico de caixas para permitir uma comparação visual da distribuição dos resultados.
+
+Com base nos dados, o Bloco C não apresenta a maior resistência média. A resistência média observada foi de aproximadamente 32,37 MPa, enquanto os Blocos A, B e D apresentaram médias de aproximadamente 33,19 MPa, 35,90 MPa e 32,39 MPa, respectivamente.
+
+Portanto, os dados não dão suporte, em termos descritivos, à afirmação de que os concretos utilizados no Bloco C apresentam desempenho superior aos demais blocos. O Bloco B apresentou a maior resistência média, enquanto o Bloco C apresentou uma média ligeiramente inferior à dos Blocos A e D.
+
+A análise também mostra que a resistência apresenta variabilidade dentro de cada obra. Assim, embora a comparação das médias seja útil para uma primeira avaliação, outros fatores, como a classe do concreto, a relação água/cimento e a idade dos corpos de prova, também devem ser considerados antes de atribuir diferenças de desempenho exclusivamente à obra.
+
+```{r}
+#| echo: false
+# Questão 37: Relação entre idade e resistência à compressão
+# group_by(): Organiza os dados de acordo com a idade dos corpos de prova.
+# summarise(): Calcula a resistência média para cada idade.
+# arrange(): Organiza os resultados em ordem crescente de idade.
+# ggplot(): Define a base de dados e os mapeamentos do gráfico.
+# geom_point(): Representa as médias de resistência para cada idade.
+# geom_line(): Liga os pontos, facilitando a visualização da tendência.
+# na.rm = TRUE: Desconsidera os valores ausentes.
+
+resistencia_por_idade <- dados_limpos |>
+  group_by(idade_dias) |>
+  summarise(
+    n_observacoes = sum(!is.na(resistencia_mpa)),
+    resistencia_media = mean(resistencia_mpa, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(idade_dias)
+
+resistencia_por_idade
+
+# Gráfico da resistência média em função da idade
+resistencia_por_idade |>
+  ggplot(
+    aes(
+      x = idade_dias,
+      y = resistencia_media
+    )
+  ) +
+  geom_point() +
+  geom_line() +
+  labs(
+    title = "Resistência média à compressão em função da idade",
+    x = "Idade do corpo de prova (dias)",
+    y = "Resistência média à compressão (MPa)"
+  ) +
+  theme_minimal()
+```
+A resistência média à compressão foi comparada entre as diferentes idades dos corpos de prova. Para isso, foram utilizadas as funções group_by() e summarise(), permitindo calcular a média da resistência para cada idade. Em seguida, foi utilizado um gráfico com pontos e linhas para facilitar a visualização do comportamento dos resultados.
+
+Na base analisada, a resistência média foi de aproximadamente 28,78 MPa aos 7 dias, aumentando para 34,74 MPa aos 14 dias. Aos 28 dias, a média foi de aproximadamente 34,67 MPa, mantendo-se praticamente no mesmo nível observado aos 14 dias. Aos 56 dias, foi observada uma média de aproximadamente 33,12 MPa.
+
+Assim, os dados indicam um aumento da resistência entre 7 e 14 dias, seguido de relativa estabilidade entre 14 e 28 dias e uma pequena redução da média aos 56 dias. Portanto, embora exista uma tendência geral de aumento da resistência com o avanço da idade nas primeiras idades, os dados não apresentam crescimento contínuo em todas as idades.
+
+Essa variação merece investigação, pois a resistência do concreto normalmente tende a aumentar com a idade, especialmente nas primeiras idades. A presença de diferenças entre os resultados pode estar relacionada à variabilidade dos corpos de prova e a outros fatores, como classe do concreto, relação água/cimento e condições de produção e cura.
+
+```{r}
+#| echo: false
+# Questão 38: Tabela-resumo para acompanhamento da qualidade do concreto
+# group_by(): Organiza os dados por tipo de concreto.
+# summarise(): Calcula as principais estatísticas para o acompanhamento da qualidade.
+# n(): Informa a quantidade de registros de cada classe.
+# mean(): Calcula a resistência média dos corpos de prova.
+# median(): Apresenta a mediana da resistência, reduzindo a influência de valores extremos.
+# sd(): Mede a variabilidade dos resultados de resistência.
+# min() e max(): Apresentam os menores e maiores valores observados.
+# na.rm = TRUE: Desconsidera os valores ausentes nos cálculos.
+
+resumo_qualidade <- dados_limpos |>
+  group_by(tipo_concreto) |>
+  summarise(
+    n_observacoes = sum(!is.na(resistencia_mpa)),
+    resistencia_media = mean(resistencia_mpa, na.rm = TRUE),
+    resistencia_mediana = median(resistencia_mpa, na.rm = TRUE),
+    desvio_padrao = sd(resistencia_mpa, na.rm = TRUE),
+    resistencia_minima = min(resistencia_mpa, na.rm = TRUE),
+    resistencia_maxima = max(resistencia_mpa, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(resistencia_media))
+
+resumo_qualidade
+```
+Para o acompanhamento da qualidade do concreto, foi construída uma tabela-resumo por tipo de concreto contendo seis informações estatísticas consideradas relevantes: número de observações, resistência média, mediana, desvio padrão, resistência mínima e resistência máxima.
+
+A quantidade de observações foi incluída para verificar o volume de dados disponível para cada classe de concreto. A resistência média permite avaliar o desempenho médio dos corpos de prova e comparar as diferentes classes. A mediana complementa a média e permite identificar o comportamento central dos dados com menor influência de valores extremos.
+
+O desvio padrão foi utilizado para avaliar a variabilidade dos resultados. Valores mais elevados indicam maior dispersão das resistências, podendo sinalizar menor uniformidade no controle tecnológico. As resistências mínima e máxima permitem identificar a amplitude dos resultados e possíveis valores que mereçam uma investigação mais detalhada.
+
+A utilização do group_by() em conjunto com summarise() permite que todas essas informações sejam calculadas simultaneamente para cada tipo de concreto. Dessa forma, a tabela fornece ao engenheiro uma visão geral e organizada do desempenho e da variabilidade das diferentes classes, auxiliando no acompanhamento da qualidade do concreto.
 
 
 ### 💬 Exemplo de como citar uma referência bibliográfica
