@@ -51,43 +51,77 @@ Realizar a inspeção, organização, limpeza, transformação e exploração de
 Verificar a existência de valores ausentes, registros inconsistentes e possíveis erros de preenchimento ou digitação;
 
 - Identificar problemas relacionados a formatos numéricos, casas decimais, unidades e ordem de grandeza dos valores;
+
 - Padronizar variáveis categóricas e textuais, eliminando diferenças de formatação, espaços adicionais e formas distintas de representação;
 
 - Organizar e transformar os dados utilizando, prioritariamente, funções dos pacotes dplyr, tidyr, stringr, readr e purrr;
+
 - Criar uma versão tratada da base de dados, denominada dados_limpos, preservando a base original para fins de comparação e rastreabilidade;
 
 - Explorar as características dos dados por meio de medidas estatísticas e representações gráficas;
-Utilizar o ggplot2 para produzir visualizações que auxiliem na identificação de padrões, tendências e possíveis anomalias nos dados;
+
+- Utilizar o ggplot2 para produzir visualizações que auxiliem na identificação de padrões, tendências e possíveis anomalias nos dados;
 
 - Avaliar a coerência dos registros relacionados às propriedades do concreto, como resistência à compressão, relação água/cimento, abatimento e densidade;
 
 - Produzir informações que possam auxiliar o engenheiro responsável no acompanhamento do controle tecnológico e na tomada de decisões relacionadas à qualidade do concreto.
+
 ---
 
 ## 📚  Fundamentação Teórica
 
-Apresente os conceitos principais:
+O processamento e a análise exploratória de dados deste relatório fundamentam-se no ecossistema `tidyverse`, que operacionaliza o ciclo da ciência de dados: importar, organizar, transformar e visualizar [@wickham2023r4ds]. As principais funções utilizadas para o tratamento da base de controle tecnológico do concreto, organizadas de acordo com as etapas do fluxo de trabalho.
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+**Importação de Dados**
+A primeira etapa de qualquer análise é trazer os dados para o R. Para dados tabulares e retangulares, o pacote `readr` fornece funções otimizadas e rápidas [@wickham2023r4ds].
+* **`read_csv2()`**: Função projetada especificamente para ler arquivos delimitados por ponto e vírgula (`;`), formato padrão em países onde a vírgula (`,`) é utilizada como separador decimal[cite: 5].
+* **`parse_double()`**: Uma função de conversão estrita que força o R a interpretar um vetor de caracteres como números reais (decimais), sendo vital quando erros de digitação forçam colunas numéricas a serem lidas como texto[cite: 5, 6].
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+**Transformação de Dados**
+O pacote `dplyr` fornece a gramática principal para a manipulação dos dados, operando através de verbos que resolvem a grande maioria dos desafios de transformação [@wickham2023r4ds].
+* **`filter()`**: Seleciona um subconjunto de linhas com base em condições lógicas (por exemplo, `abatimento_mm > 300`). É a ferramenta principal para isolar valores incompatíveis na base[cite: 5, 6].
+* **`select()`**: Reduz a base de dados mantendo apenas as colunas (variáveis) de interesse. Trabalha em conjunto com funções auxiliares de seleção, como **`everything()`** (todas as colunas), **`where(is.numeric)`** (apenas colunas de um tipo específico) e **`all_of()`** (seleção baseada em um vetor externo de strings)[cite: 5, 6].
+* **`mutate()`**: Cria novas colunas ou modifica colunas existentes operando linha por linha. Foi utilizado para criar as variáveis derivadas de classificação e corrigir grandezas deslocadas[cite: 5, 6].
+* **`group_by()`** e **`summarise()`**: A combinação essencial para agregações. O `group_by()` altera o escopo das funções seguintes para operarem por subgrupos (como `tipo_concreto`), enquanto o `summarise()` reduz cada grupo a uma única linha de resumo estatístico (calculando `mean()`, `sd()`, `median()`, `min()` e `max()`)[cite: 5, 6].
+* **`arrange()`**: Altera a ordem das linhas, permitindo ranquear os resultados, frequentemente auxiliado pela função auxiliar **`desc()`** para forçar a ordem decrescente[cite: 5, 6].
+
+**Vetores Lógicos e Números**
+Operações condicionais são necessárias para limpar dados sem afetar a base inteira [@wickham2023r4ds].
+* **`if_else()`**: Avalia uma condição lógica vetorizada, retornando um valor se for verdadeira e outro se for falsa. Utilizado para dividir valores de abatimento superestimados de forma condicional[cite: 5, 6].
+* **`case_when()`**: Uma generalização do `if_else()` para múltiplas condições aninhadas. Permite classificar os corpos de prova em "Conforme", "Atenção" ou "Não Conforme" com uma sintaxe limpa[cite: 5, 6].
+
+**Strings e Expressões Regulares**
+Na prática, dados textuais frequentemente apresentam inconsistências e o pacote `stringr` é utilizado para higienizá-los [@wickham2023r4ds].
+* **`str_detect()`**: Retorna um vetor lógico indicando se um padrão textual foi encontrado na string. Fundamental para encontrar caracteres intrusos em colunas numéricas[cite: 5, 6].
+* **`str_replace_all()`**: Substitui todas as ocorrências de um padrão por outro. Permitiu trocar vírgulas por pontos e letras por zeros antes da conversão[cite: 5, 6].
+* **`str_trim()`**: Remove espaços em branco indesejados no início ou no final do texto, corrigindo erros de digitação invisíveis em categorias textuais[cite: 5, 6].
+* **`str_to_upper()`**: Padroniza todos os caracteres para letras maiúsculas, unificando categorias digitadas de formas diferentes[cite: 5, 6].
+* **Expressões Regulares (Regex)**: Linguagem concisa para descrever padrões em strings. O uso do padrão `[^0-9.]` exemplifica o poder das regex para encontrar anomalias nos dados numéricos de forma universal[cite: 5].
+
+**Valores Faltantes**
+A ausência de informação requer tratamento explícito no R [@wickham2023r4ds].
+* **`is.na()`**: Identifica se um valor é estruturalmente ausente (`NA`). É utilizado em conjunto com os filtros textuais e lógicos para diagnosticar perdas de dados sem quebrar as funções matemáticas[cite: 5].
+
+**Iteração e Operações em Colunas**
+Para evitar repetição exaustiva de código ao aplicar a mesma transformação matemática a múltiplas propriedades físicas, utilizamos as ferramentas de iteração do `dplyr` [@wickham2023r4ds].
+* **`across()`**: Permite aplicar uma função (ou uma lista de funções) a múltiplas colunas simultaneamente. Utilizado dentro de `mutate()` para conversões em massa e dentro de `summarise()` para gerar estatísticas descritivas de todas as propriedades físicas de uma só vez[cite: 5, 6].
+
+**Visualização de Dados**
+A análise exploratória visual no R é dominada pelo pacote `ggplot2`, que implementa a gramática dos gráficos através de camadas [@wickham2023r4ds][cite: 5, 6].
+* **`ggplot()`**: Inicializa o gráfico e define os mapeamentos estéticos principais através da função auxiliar **`aes()`**, como os eixos x e y[cite: 5, 6].
+* **Geometrias (`geom_*`)**: Definem a representação visual dos dados. O **`geom_boxplot()`** revela a distribuição, mediana e outliers da resistência por tipo de concreto[cite: 5, 6]. O **`geom_point()`** gera gráficos de dispersão para investigar relações contínuas (tendências), como o impacto do consumo de cimento na resistência final.
 
 ---
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
+A metodologia foi desenvolvida a partir de uma base contendo 100 observações e 10 variáveis relacionadas ao controle tecnológico do concreto. O processamento foi realizado no software R, utilizando principalmente ferramentas da família tidyverse.
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+Inicialmente, foi realizada a inspeção da estrutura da base, verificando os tipos das variáveis, valores ausentes e possíveis inconsistências. Em seguida, foram investigados erros de digitação, diferenças na escrita das categorias, valores com ordem de grandeza inadequada e problemas na representação de dados numéricos.
+
+Após o diagnóstico, foi criada uma cópia denominada dados_limpos, preservando a base original. Foram realizadas correções e padronizações utilizando funções dos pacotes dplyr, stringr e readr, incluindo a conversão de variáveis para o formato numérico, correção de caracteres e padronização das categorias.
+
+Por fim, os dados tratados foram explorados por meio de estatísticas descritivas e gráficos elaborados com ggplot2, permitindo analisar o comportamento da resistência do concreto e sua relação com outras características da base. 
 
 ---
 
@@ -1043,17 +1077,17 @@ distancia
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
+A realização deste relatório permitiu compreender, de forma prática, a importância do tratamento e da organização dos dados antes da realização de análises estatísticas aplicadas à Engenharia Civil. A partir da base de dados do controle tecnológico do concreto, foi possível identificar diferentes tipos de inconsistências que poderiam comprometer a interpretação dos resultados caso os dados fossem utilizados diretamente em sua forma original.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+Durante o processo de inspeção, foram identificados valores ausentes, erros de digitação, diferenças na padronização das categorias, problemas relacionados à representação dos números e valores com ordem de grandeza inadequada. A identificação desses problemas evidenciou que o tratamento dos dados é uma etapa essencial para garantir maior confiabilidade às análises realizadas.
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+A criação da base `dados_limpos` possibilitou organizar e padronizar as informações sem alterar a base original. Por meio das ferramentas da família tidyverse, foram realizadas correções, conversões e transformações que tornaram os dados mais adequados para a análise. Além disso, a utilização de estatísticas descritivas e gráficos permitiu explorar o comportamento da resistência à compressão e sua relação com outras variáveis relacionadas ao concreto.
 
-## Aprenda Quarto
+Os resultados obtidos também demonstraram a importância de analisar os dados de maneira conjunta, considerando não apenas valores médios, mas também medidas como mediana, desvio padrão, valores mínimo e máximo e a distribuição dos resultados. As visualizações contribuíram para identificar diferenças entre os tipos de concreto e compreender melhor o comportamento das variáveis analisadas.
 
-Acesse [Quarto](https://quarto.org/).
+Dessa forma, os objetivos propostos para a atividade foram alcançados, uma vez que foi possível inspecionar, diagnosticar, limpar, transformar e explorar uma base de dados de uma situação prática da Engenharia Civil. O uso do R e das ferramentas do tidyverse mostrou-se adequado para estruturar um processo de análise organizado, eficiente e reprodutível.
+
+Por fim, destaca-se que a qualidade das informações obtidas em uma análise está diretamente relacionada à qualidade dos dados utilizados. No contexto do controle tecnológico do concreto, a adoção de procedimentos padronizados para coleta, registro e armazenamento das informações pode reduzir a ocorrência de erros e contribuir para avaliações mais confiáveis. Assim, o conhecimento das ferramentas de tratamento e análise de dados constitui uma importante competência para o profissional de Engenharia Civil, especialmente no acompanhamento e na tomada de decisões relacionadas à qualidade dos materiais e dos processos construtivos.
+
 
 ## 📖 Referências
