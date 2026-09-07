@@ -164,7 +164,9 @@ dados |>
       everything(),
       ~ sum(is.na(.x))
     )
-  )
+  ) |>
+print(width = Inf)
+
 # summarise(): Reduz a base de dados a um resumo estatístico (neste caso, a soma de NAs).
 # across(): Permite aplicar a mesma função a múltiplas colunas simultaneamente.
 # everything(): Seleciona todas as colunas da base.
@@ -173,7 +175,9 @@ dados |>
 cat("\nAs observações onde contêm valores ausentes são: \n")
 # Em quais observações aparecem NA
 dados |>
-  filter(if_any(everything(), is.na))
+  filter(if_any(everything(), is.na)
+  ) |>
+print(width = Inf)
 
 # filter(): Filtra as linhas da base de dados segundo uma condição lógica.
 # if_any(): Verifica se a condição (is.na) é verdadeira para 'qualquer' uma das colunas selecionadas (everything()).
