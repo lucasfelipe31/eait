@@ -78,7 +78,7 @@ A primeira etapa de qualquer análise é trazer os dados para o R. Para dados ta
 
 * **`read_csv2()`**: Função projetada especificamente para ler arquivos delimitados por ponto e vírgula (`;`), formato padrão em países onde a vírgula (`,`) é utilizada como separador decimal.
 
-* **`parse_double()`**: Uma função de conversão estrita que força o R a interpretar um vetor de caracteres como números reais (decimais), sendo vital quando erros de digitação forçam colunas numéricas a serem lidas como texto[cite: 5, 6].
+* **`parse_double()`**: Uma função de conversão estrita que força o R a interpretar um vetor de caracteres como números reais (decimais), sendo vital quando erros de digitação forçam colunas numéricas a serem lidas como texto.
 
 **Transformação de Dados**
 
@@ -103,6 +103,7 @@ Operações condicionais são necessárias para limpar dados sem afetar a base i
 * **`case_when()`**: Uma generalização do `if_else()` para múltiplas condições aninhadas. Permite classificar os corpos de prova em "Conforme", "Atenção" ou "Não Conforme" com uma sintaxe limpa.
 
 **Strings e Expressões Regulares**
+
 Na prática, dados textuais frequentemente apresentam inconsistências e o pacote `stringr` é utilizado para higienizá-los [@wickham2023r4ds].
 
 * **`str_detect()`**: Retorna um vetor lógico indicando se um padrão textual foi encontrado na string. Fundamental para encontrar caracteres intrusos em colunas numéricas.
@@ -113,7 +114,7 @@ Na prática, dados textuais frequentemente apresentam inconsistências e o pacot
 
 * **`str_to_upper()`**: Padroniza todos os caracteres para letras maiúsculas, unificando categorias digitadas de formas diferentes.
 
-* **Expressões Regulares (Regex)**: Linguagem concisa para descrever padrões em strings. O uso do padrão `[^0-9.]` exemplifica o poder das regex para encontrar anomalias nos dados numéricos de forma universal.
+* Expressões Regulares (Regex): Linguagem concisa para descrever padrões em strings. O uso do padrão `[^0-9.]` exemplifica o poder das regex para encontrar anomalias nos dados numéricos de forma universal.
 
 **Valores Faltantes**
 
@@ -133,7 +134,7 @@ A análise exploratória visual no R é dominada pelo pacote `ggplot2`, que impl
 
 * **`ggplot()`**: Inicializa o gráfico e define os mapeamentos estéticos principais através da função auxiliar **`aes()`**, como os eixos x e y.
 
-* **`geom_*()`**: Definem a representação visual dos dados. O **`geom_boxplot()`** revela a distribuição, mediana e outliers da resistência por tipo de concreto[cite: 5, 6]. O **`geom_point()`** gera gráficos de dispersão para investigar relações contínuas (tendências), como o impacto do consumo de cimento na resistência final.
+* **`geom_*()`**: Definem a representação visual dos dados. O **`geom_boxplot()`** revela a distribuição, mediana e outliers da resistência por tipo de concreto. O **`geom_point()`** gera gráficos de dispersão para investigar relações contínuas (tendências), como o impacto do consumo de cimento na resistência final.
 
 ---
 
@@ -635,7 +636,8 @@ dados_limpos |>
     classificacao, 
     acima_media
   ) |>
-  head()
+  head() |>
+print(width = Inf)
 
 ```
 
