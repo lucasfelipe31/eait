@@ -690,93 +690,100 @@ dados_limpos |>
 
 Uma tabela que apresenta várias estatísticas é mais informativa do que uma tabela contendo apenas a média porque permite avaliar não apenas o valor central dos resultados, mas também a variabilidade e a dispersão dos dados. Na Engenharia Civil, a média isolada pode ocultar diferenças importantes entre os corpos de prova. Por exemplo, uma classe de concreto pode apresentar média de resistência superior ao seu valor de referência, mas, ao mesmo tempo, possuir elevado desvio-padrão e valores mínimos significativamente inferiores. A análise conjunta da média, mediana, desvio-padrão, mínimo e máximo permite, portanto, avaliar melhor a uniformidade dos resultados e a ocorrência de valores extremos, proporcionando uma interpretação mais completa do comportamento da resistência do concreto e contribuindo para uma avaliação mais adequada do controle tecnológico.
 
-```{r}
-#| echo: false
-# Questão 27: Seleção das variáveis quantitativas relacionadas às propriedades do concreto
-# all_of(): Seleciona as variáveis especificadas no vetor 'variaveis_concreto'.
-# Foram excluídas as variáveis de identificação e classificação, como
-# id_corpo_prova, obra e tipo_concreto.
+### Seleção e Organização de variáveis
 
-variaveis_concreto <- c(
-  "idade_dias",
-  "resistencia_mpa",
-  "cimento_kg_m3",
-  "relacao_a_c",
-  "abatimento_mm",
-  "densidade_kg_m3",
-  "absorção_agregado_pct"
-)
-
-dados_limpos |>
-  select(all_of(variaveis_concreto))
-
-```
-Para selecionar somente as variáveis quantitativas relacionadas às propriedades do concreto, foi utilizada a função select() em conjunto com all_of(). Foram selecionadas as variáveis idade_dias, resistencia_mpa, cimento_kg_m3, relacao_a_c, abatimento_mm, densidade_kg_m3 e absorção_agregado_pct. A variável id_corpo_prova não foi incluída por representar apenas a identificação dos corpos de prova, enquanto obra e tipo_concreto são variáveis qualitativas utilizadas para identificação e classificação dos registros. Dessa forma, a nova tabela apresenta exclusivamente as variáveis quantitativas relacionadas às características e propriedades analisadas do concreto.
+As propriedades físicas correspondem às variáveis numéricas:
 
 ```{r}
 #| echo: false 
-# Questão 28: Média das variáveis quantitativas 
-# across(): Permite aplicar a mesma função a várias variáveis simultaneamente. 
-# all_of(): Seleciona as variáveis armazenadas no vetor 'variaveis_concreto'. 
-# na.rm = TRUE: Ignora os valores ausentes (NA) durante o cálculo da média. 
-
-dados_limpos |> 
-  summarise( 
-  across(
-    all_of(variaveis_concreto), 
-    ~ mean(.x, na.rm = TRUE) 
-                                   
-) 
+# Questão 27: Seleção de variáveis quantitativas
+# Definindo um vetor com os nomes exatos das colunas desejadas
+variaveis_quantitativas <- c(
+  "idade_dias", "resistencia_mpa", "cimento_kg_m3", 
+  "relacao_a_c", "abatimento_mm", "densidade_kg_m3", "absorção_agregado_pct"
 )
-```
-Os dois métodos produzem os mesmos valores médios para as variáveis analisadas. A diferença está principalmente na forma de escrita e manutenção do código. O uso de across() apresenta maior facilidade de manutenção quando o número de variáveis aumenta, pois permite aplicar a mesma função a várias colunas simultaneamente. Dessa forma, caso novas variáveis quantitativas sejam adicionadas ao vetor variaveis_concreto, elas poderão ser incluídas na análise sem a necessidade de escrever individualmente cada cálculo de média. Já com o uso de summarise() individualmente, cada nova variável exige a inclusão de uma nova expressão no código, tornando a abordagem mais extensa e menos prática para bases com muitas variáveis.
 
-```{r}
-#| echo: false
-# Questão 29: Transformação simultânea das variáveis quantitativas
-# mutate(): Cria ou modifica variáveis na base de dados.
-# across(): Permite aplicar a mesma transformação a várias variáveis simultaneamente.
-# A transformação escolhida foi a padronização dos dados pelo escore-z.
-# Essa transformação coloca as variáveis em uma escala comum, com média 0
-# e desvio padrão 1, facilitando a comparação entre grandezas com unidades diferentes.
+# select(): Escolhe colunas específicas.
+# all_of(): Garante que a seleção utilize estritamente os nomes contidos no vetor externo.
+dados_propriedades <- dados_limpos |>
+  select(all_of(variaveis_quantitativas))
 
-dados_limpos <- dados_limpos |>
-  mutate(
+cat("Visualização da nova tabela (apenas propriedades físicas):\n")
+head(dados_propriedades)
+
+# Questão 28: Média simultânea com across()
+cat("\nQuestão 28: Média das variáveis quantitativas utilizando across()\n")
+
+# summarise(): Consolida os dados.
+# across(): Aplica a mesma função (~ mean) em todas as colunas selecionadas (everything()).
+dados_propriedades |>
+  summarise(
     across(
-      all_of(variaveis_concreto),
-      ~ as.numeric(scale(.x))
+      everything(), 
+      ~ mean(.x, na.rm = TRUE)
     )
   )
 
-dados_limpos
-
 ```
-A transformação escolhida foi a padronização pelo escore-z, aplicada simultaneamente às variáveis quantitativas utilizando mutate() e across(). Essa transformação permite colocar variáveis que possuem diferentes unidades e escalas, como resistência em MPa, cimento em kg/m³, abatimento em mm e densidade em kg/m³, em uma escala comum. Após a padronização, cada variável passa a apresentar média próxima de zero e desvio padrão próximo de um. Essa abordagem facilita a comparação entre as variáveis e pode ser útil em análises estatísticas posteriores.
+Comparação de abordagem: A utilização de `across()` torna o código mais simples e eficiente, pois evita a necessidade de utilizar `summarise()` individualmente para cada variável. Nesse caso, seria necessário escrever sete linhas de código, uma para cada variável analisada, enquanto o uso de across() permite realizar a mesma operação de forma conjunta. Essa abordagem também facilita a manutenção do código, especialmente quando o número de variáveis aumenta, como em bases contendo diversas propriedades obtidas em ensaios de laboratório.
 
-O uso de across() torna o procedimento mais eficiente, pois a mesma transformação é aplicada a todas as variáveis selecionadas sem a necessidade de escrever cada operação individualmente.
 
+Para atender à necessidade de realizar uma transformação simultânea nas variáveis quantitativas, foram criadas novas variáveis centralizadas em relação à média de cada propriedade. A transformação consiste em subtrair a média da respectiva variável de cada observação, permitindo identificar se determinado resultado está acima ou abaixo do comportamento médio da base. A utilização de mutate() em conjunto com across() possibilitou aplicar o procedimento simultaneamente às diferentes propriedades do concreto, sem alterar os valores originais.
 ```{r}
-#| echo: false
-# Questão 30: Estatísticas das variáveis quantitativas por tipo de concreto
-# group_by(): Organiza os dados de acordo com o tipo de concreto.
-# summarise(): Resume os dados calculando as estatísticas solicitadas.
-# across(): Permite calcular as mesmas estatísticas para várias variáveis simultaneamente.
-# na.rm = TRUE: Ignora os valores ausentes (NA) nos cálculos.
+#| echo: false 
+# Questão 29: Transformação simultânea (mutate + across)
 
+
+# mutate(): Altera colunas existentes.
+# across(): Varre todas as colunas (everything()) e aplica a função de arredondamento.
+dados_limpos <- dados_limpos |>
+  mutate(
+    across(
+      c(resistencia_mpa,
+        cimento_kg_m3,
+        relacao_a_c,
+        abatimento_mm,
+        densidade_kg_m3,
+        absorção_agregado_pct),
+      ~ .x - mean(.x, na.rm = TRUE),
+      .names = "{.col}_centrada"
+    )
+  )
+
+
+
+# Questão 30: Múltiplas estatísticas com across()
+
+
+# group_by(): Agrupa pelo tipo de concreto (necessário usar a base 'dados_limpos').
+# across(): Aplica a lista de funções (media e dp) às colunas quantitativas.
+# .names: Formata o nome das novas colunas de saída automaticamente.
 dados_limpos |>
   group_by(tipo_concreto) |>
   summarise(
     across(
-      all_of(variaveis_concreto),
+      all_of(variaveis_quantitativas), 
       list(
         media = ~ mean(.x, na.rm = TRUE),
-        desvio_padrao = ~ sd(.x, na.rm = TRUE)
+        dp = ~ sd(.x, na.rm = TRUE)
       ),
       .names = "{.col}_{.fn}"
     ),
     .groups = "drop"
-  )
+  ) |>
+  # Selecionando apenas algumas colunas para a impressão caber na tela
+  select(tipo_concreto, resistencia_mpa_media, resistencia_mpa_dp, abatimento_mm_media, abatimento_mm_dp)
+
+
+
 ```
+A utilização de across(), como observado acima, permite aplicar simultaneamente diferentes funções estatísticas às variáveis quantitativas, evitando a necessidade de escrever comandos separados para cada uma delas. Nesse caso, uma lista de funções pode ser fornecida ao across(), possibilitando obter, por exemplo, a média e o desvio-padrão de cada variável para cada tipo de concreto. Essa abordagem torna o código mais compacto, organizado e padronizado, além de facilitar sua manutenção quando novas variáveis forem acrescentadas à base. Comparativamente à elaboração de vários comandos individuais, o procedimento reduz a repetição do código e diminui a possibilidade de erros de digitação ou de aplicação inconsistente das mesmas operações entre as diferentes variáveis.
+
+O uso de across() torna o procedimento mais eficiente, pois a mesma transformação é aplicada a todas as variáveis selecionadas sem a necessidade de escrever cada operação individualmente.
+
+30
+
+
 Para obter as estatísticas das variáveis quantitativas de acordo com o tipo de concreto, foi utilizada a combinação das funções group_by(), summarise() e across(). A função group_by() permitiu separar os registros conforme as classes de concreto, enquanto summarise() foi utilizada para resumir os dados. Por meio de across(), foram calculadas simultaneamente a média e o desvio padrão para todas as variáveis armazenadas no vetor variaveis_concreto.
 
 A média foi utilizada para representar o valor central de cada variável, enquanto o desvio padrão permitiu avaliar a dispersão dos valores dentro de cada tipo de concreto. Os valores ausentes (NA) foram desconsiderados por meio do argumento na.rm = TRUE.
@@ -784,6 +791,8 @@ A média foi utilizada para representar o valor central de cada variável, enqua
 A utilização de across() apresenta maior facilidade de manutenção em comparação com vários comandos separados. Em uma abordagem individual, seria necessário escrever uma expressão para cada variável e para cada estatística. Com across(), as mesmas operações são aplicadas automaticamente a todas as variáveis selecionadas. Assim, caso novas variáveis quantitativas sejam adicionadas ao vetor variaveis_concreto, elas serão incluídas nos cálculos sem a necessidade de modificar o comando principal.
 
 O resultado é apresentado de forma organizada, com uma linha para cada tipo de concreto e colunas correspondentes à média e ao desvio padrão de cada variável quantitativa.
+
+
 
 ```{r}
 #| echo: false
