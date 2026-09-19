@@ -69,40 +69,613 @@ Utilizar o ambiente R e o pacote leem como ferramentas de apoio à análise esta
 
 ## 📚  Fundamentação Teórica
 
-### Introdução ao ambiente R
+### Ambiente R
 
-#### O que é o R?
+#### Introdução e Instalação 
 
-O R é um ambiente de software livre e de código aberto voltado para manipulação de dados, cálculo estatístico e geração de gráficos. Por isso, é comum ouvir duas formas de tratamento: "o R", quando se fala do programa/sistema como um todo, e "a linguagem R", quando se fala especificamente da sintaxe usada para escrever os comandos. Diferente de programas estatísticos comerciais fechados, o R permite que o próprio usuário crie novas funções e as compartilhe livremente com a comunidade por meio de pacotes.
+##### O que é o R? 
 
-Já o RStudio é a interface (IDE - Integrated Development Environment) mais usada para trabalhar com o R. Ele não substitui o R, apenas facilita seu uso por meio de janelas, botões e atalhos: sem o R instalado, o RStudio não funciona. A tela do RStudio é dividida em quatro áreas principais: o editor de scripts (onde o código é escrito), o console (onde o código é executado), o painel de ambiente/histórico (onde aparecem os objetos criados) e o painel de arquivos/gráficos/pacotes/ajuda.
+No estudo da linguagem, é comum ouvir duas grafias:
 
-#### Princípios do R
+* **"O R"** (O Ambiente/Software): Refere-se ao sistema interativo e integrado de software livre e de código aberto (*open source*), projetado para manipulação de dados, computação estatística e exibição gráfica.
 
-Toda a lógica interna do R pode ser resumida em três ideias simples, propostas por John Chambers, criador da linguagem S (base histórica do R):
+* **"A R"** (A Linguagem): Refere-se especificamente à linguagem de programação computacional, suas regras sintáticas e semânticas.
 
-- Tudo que existe no R é um objeto: números, textos, tabelas, gráficos e até as próprias funções são objetos guardados na memória do computador.
-- Tudo que acontece no R é uma chamada de função: até uma simples soma como `10 + 15` é, por trás dos panos, uma função sendo executada.
-- Interfaces com outros programas fazem parte do R: o R se comunica nativamente com linguagens como C, C++, Python e com tecnologias web (HTML, JavaScript), estendendo seu uso muito além da estatística básica.
+O R é mantido globalmente pelo **R Core Team** e distribuído pela rede mundial de servidores **CRAN** (*Comprehensive R Archive Network*), anunciada em 1997. No Brasil, os principais espelhos (*mirrors*) estão hospedados em instituições como a UFPR, USP e Fiocruz.
 
-#### Interface
 
-O RStudio apresenta sua interface organizada em quatro quadrantes principais, cada um destinado a uma função específica durante o desenvolvimento das análises:
 
-- 1º Quadrante – Editor de Scripts: espaço destinado à criação, edição e armazenamento dos códigos desenvolvidos em R, normalmente salvos em arquivos com extensão .R. Permite organizar os comandos de forma estruturada e reutilizá-los posteriormente.
-- 2º Quadrante – Console: ambiente no qual os comandos são executados efetivamente, apresentando os resultados diretamente ao usuário. Também é possível inserir comandos manualmente, embora eles não sejam automaticamente organizados no script.
-- 3º Quadrante – Ambiente e Histórico: apresenta os objetos criados durante a sessão, como variáveis, vetores, tabelas, conjuntos de dados e funções. Também possibilita consultar o histórico dos comandos executados e acompanhar os elementos armazenados no ambiente de trabalho.
-- 4º Quadrante – Área de Visualização e Apoio: destinado principalmente à exibição dos gráficos e resultados visuais produzidos pelas análises. Essa área também permite acessar arquivos e diretórios, gerenciar pacotes instalados e consultar a documentação e os recursos de ajuda disponíveis no R.
+##### RStudio
 
-#### Sintaxe e Semântica 
+O RStudio (desenvolvido por J. J. Allaire e mantido pela **Posit**) é um ambiente de desenvolvimento integrado (**IDE** - *Integrated Development Environment*), sendo apenas uma interface gráfica ("casca"), ou seja, não funciona sem o R instalado prévia e independentemente no computador.
 
-A linguagem R, assim como outras linguagens de programação, apresenta regras de sintaxe e semântica, que orientam a forma como os comandos devem ser escritos e interpretados pelo sistema.
+O RStudio organiza seu espaço de trabalho em Quatro Quadrantes Padrão:
 
-- Sintaxe é o conjunto de regras que definem como o código deve ser escrito; 
+1. **Superior Esquerdo (Editor de Scripts)**: Criação, edição e salvamento de arquivos de código (`.R`).
 
-- Semântica é o significado por trás de cada comando, ou seja, o que ele realmente faz quando executado. Entender essa diferença evita a maioria dos erros cometidos por quem está começando.
+2. **Inferior Esquerdo (Console do R)**: Execução interativa imediata das instruções e exibição do prompt de comando (`>`).
 
-Assim, compreender os conceitos de sintaxe e semântica é fundamental para utilizar o R de maneira adequada. Enquanto a sintaxe está relacionada à forma correta de escrever e estruturar os comandos, a semântica está associada à interpretação e ao significado das operações realizadas. O domínio desses conceitos contribui para a correta aplicação dos procedimentos estatísticos abordados no estudo, incluindo a organização e análise dos dados, as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose.
+3. **Superior Direito (Environment & History)**: Monitoramento de objetos e variáveis ativos na memória RAM (`.GlobalEnv`) e histórico de comandos executados.
+
+4. **Inferior Direito (Files, Plots, Packages, Help & Viewer)**: Gerenciador de arquivos, renderizador de gráficos, gerenciador de pacotes e documentação técnica oficial.
+
+```
+┌──────────────────────────────────────┬──────────────────────────────────────┐
+│  1. Editor de Scripts (.R)           │  3. Environment & History            │
+│  (Escrever e editar o código)        │  (Objetos na memória RAM)            │
+├──────────────────────────────────────┼──────────────────────────────────────┤
+│  2. Console do R (Prompt '>')        │  4. Files, Plots, Packages, Help     │
+│  (Onde o código é processado)        │  (Arquivos, Gráficos e Manuais)      │
+└──────────────────────────────────────┴──────────────────────────────────────┘
+```
+
+##### Instalação
+
+**Passo 1: Instalar o R Base**
+
+1. Acessar o portal oficial do projeto: https://www.r-project.org.
+2. Clicar em **CRAN** e escolher o espelho geográfico mais próximo (ex.: no Brasil, `https://cran-r.c3sl.ufpr.br/`).
+3. Selecionar o sistema operacional (Windows, macOS ou Linux).
+4. Baixar e executar o instalador base (ex.: `Download R for Windows > base`), mantendo as opções padrão recomendadas.
+
+
+**Passo 2: Instalar o RStudio Desktop**
+
+1. Acessar https://posit.co (ou https://rstudio.com).
+2. Baixar o **RStudio Desktop** gratuito correspondente ao sistema operacional.
+3. Executar o instalador. Ao ser aberto, o RStudio detectará automaticamente a instalação do R no sistema.
+
+---
+
+#### Definições Importantes
+
+##### Os Três Princípios de John Chambers
+
+A arquitetura do R é fundamentada em três princípios formulados por John Chambers (criador da linguagem S):
+
+1. **Princípio do Objeto**: *"Tudo o que existe no R é um objeto."*
+   Toda variável, vetor, tabela, gráfico e até funções são objetos alocados na memória virtual.
+   
+2. **Princípio da Função**: *"Tudo o que acontece no R é uma chamada de função."*
+   Qualquer cálculo ou exibição resulta da execução de uma função. Operadores aritméticos como `+` ou `-` são chamadas de funções primitivas (ex.: `` `+`(2, 3) ``).
+   
+3. **Princípio da Interface**: *"Interfaces com outros programas são parte integrante do R."*
+   O R se conecta nativamente com linguagens de alto desempenho como C, C++ e FORTRAN, além de exportar dados para HTML, JavaScript e bibliotecas gráficas.
+   
+      
+      
+
+##### Regras de Sintaxe Elementar
+
+* **Prompt de Comando (`>`)**: Indica que o R está livre para receber instruções.
+
+* **Prompt de Continuação (`+`)**: Surge quando um comando enviado está incompleto (ex.: parêntese aberto sem fechar).
+
+* **Comentários (`#`)**: Toda linha iniciada com `#` é ignorada pelo interpretador. Serve para documentar o código. É importante que caracteres especiais e acentos (`ç`, `ã`, `é`) sejam evitados em comentários e nomes de objetos para evitar problemas de codificação (*encoding*) entre sistemas diferentes.
+
+
+
+
+##### Nomes Sintáticos vs. Não Sintáticos
+
+* **Sintáticos (Válidos)**: Começam com letra ou ponto (desde que o ponto não seja seguido de número). Podem conter letras, números, `_` e `.`. O R é **sensível ao caso (*case-sensitive*)**: `Dados` e `dados` são objetos distintos.
+
+* **Palavras Reservadas (Proibidas para nomes)**: `if`, `else`, `while`, `repeat`, `for`, `function`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`.
+
+
+
+##### Operador de Atribuição `<-`
+
+Utilizado para associar um valor ou objeto a um nome na memória:
+
+```r
+nome_objeto <- valor
+```
+
+Observação importante: Por que usar `<-` e evitar o `=` na atribuição de objetos? 
+
+Primeiramente, o operador `<-` possui maior precedência gramatical no R. Além disso, o operador `=` deve ser reservado para a passagem de argumentos dentro de chamadas de funções (ex.: `mean(x = dados)`).
+
+---
+
+#### Área de Trabalho, Diretório e Gestão de Sessão
+
+##### O Diretório de Trabalho (`getwd()` e `setwd()`)
+
+ O diretório de trabalho é a pasta no computador para onde o R direciona a leitura e a gravação de arquivos.
+
+```r
+# Consulta o diretório de trabalho atual
+getwd()
+
+# Define um novo diretório de trabalho
+setwd("C:/meu_projeto_r")
+```
+
+* O Windows utiliza barra invertida (`\`). No R, deve-se utilizar sempre a barra inclinada normal (`/`) para caminhos de diretório.
+
+
+
+##### Ambiente Global (`.GlobalEnv`)
+
+É o espaço de memória ativa que armazena os nomes associados aos objetos criados na sessão.
+
+```r
+# Lista os objetos presentes no Ambiente Global
+ls()
+
+# Remove um objeto específico da memória
+rm(nome_objeto)
+
+# Limpa todos os objetos do Ambiente Global
+rm(list = ls())
+```
+
+
+##### Arquivos de Sessão: `.RData` e `.Rhistory`
+
+Ao fechar o RStudio, o sistema pergunta se o usuário deseja salvar a imagem da área de trabalho:
+
+* **`.RData`**: Salva em formato binário todos os objetos salvos na RAM.
+
+* **`.Rhistory`**: Salva o histórico textual dos comandos executados no console.
+
+Recomendação: Não dependa do salvamento automático de `.RData`. Isso polui a memória com objetos antigos. Prefira guardar todo o seu trabalho em **Scripts R (`.R`)** organizados e reprodutíveis.
+
+```r
+# Executa um script externo inteiro no R
+source("script_auxiliar.R")
+```
+
+---
+
+#### Tipos de Dados Atômicos e Atributos Intrínsecos
+
+Todo objeto no R possui dois **atributos intrínsecos**:
+
+1. **Modo ou Tipo (`typeof()` / `mode()`)**: Estrutura física de representação na memória virtual.
+2. **Comprimento (`length()`)**: Quantidade de elementos contidos no objeto.
+
+
+
+##### Os Quatro Tipos Atômicos Principais
+
+```r
+# Logical (Lógico / Booleano)
+modo_logico <- TRUE  # ou FALSE
+
+# Integer (Inteiro) - Sufixo 'L' obrigatório
+modo_inteiro <- 10L
+
+# Double / Numeric (Real / Decimal com dupla precisão)
+modo_real <- 10.5
+
+# Character (Cadeia de caracteres / Texto) - Envolto por aspas
+modo_texto <- "Aprendendo R"
+```
+
+##### Dados Especiais
+
+* **`NA` (*Not Available*)**: Dado ausente ou omitido. Preserva a tipagem do vetor.
+
+* **`NaN` (*Not a Number*)**: Indefinição matemática (ex.: `0 / 0` ou `sqrt(-1)`).
+
+* **`NULL` (*Nulo*)**: Ausência completa de objeto ou dimensão nula (`length` igual a 0).
+
+
+##### Coerção de Tipos (Forçamento)
+
+* **Coerção Implícita**: Ocorre automaticamente quando misturamos tipos em um mesmo vetor. A hierarquia de conversão é:
+  $$	ext{Character} > 	ext{Double} > 	ext{Integer} > 	ext{Logical}$$
+  
+* **Coerção Explícita**: Convertida manualmente por funções com prefixo `as.`:
+
+```r
+x_texto <- "123"
+x_num <- as.numeric(x_texto)    # Converte texto para número real
+x_int <- as.integer(x_num)      # Converte para inteiro
+```
+
+---
+
+#### Estruturas de Dados do R Base
+
+O R organiza seus dados em estruturas **homogêneas** (elementos do mesmo tipo) e **heterogêneas** (elementos de diferentes tipos).
+
+```
+                      ┌─────────────────────────────────────────┐
+                      │          ESTRUTURAS DE DADOS            │
+                      └─────────────────────────────────────────┘
+                                           │
+         ┌─────────────────────────────────┴─────────────────────────────────┐
+         ▼                                                                   ▼
+┌──────────────────┐                                               ┌──────────────────┐
+│   HOMOGÊNEAS     │                                               │   HETEROGÊNEAS   │
+│ (Mesmo tipo)     │                                               │ (Tipos mistos)   │
+└──────────────────┘                                               └──────────────────┘
+         │                                                                   │
+         ├─ Vetores Atômicos (1D)                                            ├─ Listas (1D)
+         ├─ Matrizes (2D)                                                    └─ Data Frames (2D)
+         └─ Arrays (nD)
+```
+
+---
+
+##### Vetores Atômicos (Unidimensionais e Homogêneos)
+
+O vetor atômico é a estrutura fundamental do R. Na verdade, escalares isolados são vetores de comprimento 1.
+
+```r
+# Criando vetores com a função c() (concatenar)
+v_num <- c(10, 20, 30, 40)
+v_text <- c("A", "B", "C")
+
+# Sequências Regulares
+seq_simples <- 1:10                       # Operador de dois pontos
+seq_passo <- seq(from = 0, to = 1, by = 0.2) # Função seq()
+seq_rep <- rep(x = 1:3, times = 3)        # Repetição de vetores
+seq_each <- rep(x = 1:3, each = 3)        # Repetição elemento a elemento
+
+# Indexação de Vetores (Atenção: A contagem no R começa no índice 1)
+v_num[1]         # Retorna o 1º elemento (10)
+v_num[c(2, 4)]   # Retorna o 2º e 4º elementos (20, 40)
+v_num[-1]        # Exclui o 1º elemento
+v_num[v_num > 20] # Indexação lógica (30, 40)
+```
+
+---
+
+##### Matrizes (Bidimensionais e Homogêneas)
+Uma matriz é um vetor atômico ao qual foi adicionado o atributo de dimensão (`dim`), organizando os dados em linhas e colunas.
+
+```r
+# Criando uma matriz 3x2 (3 linhas, 2 colunas)
+mat <- matrix(data = 1:6, nrow = 3, ncol = 2, byrow = FALSE)
+
+# Indexação de Matrizes [Linha, Coluna]
+mat[1, 2]   # Elemento da Linha 1, Coluna 2
+mat[1, ]    # Toda a Linha 1
+mat[, 2]    # Toda a Coluna 2
+
+# Transposição de matrizes
+mat_transposta <- t(mat)
+```
+
+---
+
+##### Arrays (Multidimensionais e Homogêneos)
+
+Estrutura que estende as matrizes para 3 ou mais dimensões (ex.: 2 linhas, 3 colunas, 2 matrizes).
+
+```r
+meu_array <- array(data = 1:12, dim = c(2, 3, 2))
+```
+
+---
+
+##### Listas (Unidimensionais e Heterogêneas)
+
+Listas são vetores cujos elementos podem ser de diferentes tipos e formatos (vetores, matrizes, outras listas e funções). Por isso, são chamadas de **objetos recursivos**.
+
+```r
+# Criando uma lista nomeada
+minha_lista <- list(
+  codigo = 101,
+  nome = "Análise de Dados",
+  notas = c(8.5, 9.0, 7.5),
+  matriz = matrix(1:4, nrow = 2)
+)
+
+# Acesso aos elementos da lista
+minha_lista$nome        # Acesso por Cifrão ($)
+minha_lista[["notas"]]  # Acesso por Colchete Duplo [[ ]] (retorna o conteúdo)
+minha_lista[2]          # Acesso por Colchete Simples [ ] (retorna uma sublista)
+```
+
+---
+
+##### Quadros de Dados / Data Frames (Bidimensionais e Heterogêneos)
+
+O **Data Frame** é a estrutura de dados retangular padrão para análise estatística. Internamente, é uma lista especial de vetores atômicos de mesmo comprimento, onde cada vetor representa uma coluna.
+
+```r
+# Criando um Data Frame
+df_alunos <- data.frame(
+  id = 1:3,
+  nome = c("Ana", "Bruno", "Carlos"),
+  nota = c(9.5, 8.0, 8.5),
+  aprovado = c(TRUE, TRUE, TRUE)
+)
+
+# Acessando Colunas e Elementos
+df_alunos$nome            # Retorna o vetor da coluna 'nome'
+df_alunos[1, "nota"]       # Retorna a nota do primeiro aluno (9.5)
+df_alunos[df_alunos$nota > 8.0, ] # Filtragem de linhas por condição
+
+# Estrutura do Data Frame
+str(df_alunos)    # Exibe a estrutura interna das colunas
+summary(df_alunos)# Exibe resumo estatístico
+dim(df_alunos)    # Retorna o número de linhas e colunas (ex: 3 4)
+```
+
+- **Atenção na utilização de `attach()` e `detach()`**: A função `attach()` adiciona o data frame ao caminho de busca, permitindo acessar suas colunas diretamente pelo nome. Porém, ela gera **altos riscos de mascaramento de variáveis** e erros sutis no código. Prefira sempre referenciar colunas explicitamente (`df$coluna`).
+
+---
+
+#### Importação e Exportação de Dados
+
+O R interage com arquivos externos salvos no disco rígido por meio de funções de leitura e escrita.
+
+
+- **Leitura Manual e Interativa**
+
+```r
+# Lê dados digitados diretamente no console (finaliza com linha em branco)
+vetor_console <- scan()
+```
+
+- **Importando e Exportando Arquivos de Texto (`.txt` e `.csv`)**
+
+As funções nativas da família `read.table()` convertem arquivos texto em quadros de dados (`data.frame`).
+
+```r
+# Importando arquivo .txt ou .csv
+dados_txt <- read.table(
+  file = "meus_dados.txt", 
+  header = TRUE,       # Considera a primeira linha como nome de colunas
+  sep = ";",           # Delimitador de colunas
+  dec = ","            # Separador de decimais
+)
+
+# Atalho conveniente para CSV padrão brasileiro (sep = ";", dec = ",")
+dados_csv <- read.csv2("meus_dados.csv")
+
+# Exportando Data Frame para arquivo CSV
+write.csv2(x = df_alunos, file = "alunos_exportados.csv", row.names = FALSE)
+```
+
+- **Trabalhando com Planilhas do Excel (`.xlsx`)**
+Para ler e escrever arquivos em formato binário do Excel, utilize pacotes especializados do CRAN como `readxl` e `writexl`:
+
+```r
+# Instalar e carregar pacotes
+install.packages("readxl")
+install.packages("writexl")
+
+library(readxl)
+library(writexl)
+
+# Lendo planilha Excel
+dados_excel <- read_excel("dados.xlsx", sheet = "Aba1")
+
+# Exportando para Excel
+write_xlsx(x = df_alunos, path = "alunos.xlsx")
+```
+
+- **Serialização Única com Arquivos `.rds`**
+Ao contrário do `.RData` (que salva todo o workspace), os arquivos `.rds` salvam um único objeto R de forma binária compacta, permitindo carregá-lo com qualquer nome desejado.
+
+```r
+# Salva um objeto individual
+saveRDS(object = df_alunos, file = "df_alunos.rds")
+
+# Recupera o objeto salvo atribuindo-o a um novo nome
+meus_dados_recuperados <- readRDS("df_alunos.rds")
+```
+
+---
+
+#### Funções, Estruturas de Controle e Vetorização
+
+##### Criação de Funções
+
+Uma função no R possui três componentes fundamentais:
+
+* **`formals()`**: A lista de argumentos de entrada.
+
+* **`body()`**: O bloco de código entre chaves `{}` a ser executado.
+
+* **`environment()`**: O ambiente onde a função foi criada (ambiente envolvente).
+
+```r
+# Sintaxe geral para criar uma função
+minha_media <- function(vetor_numerico, remover_na = TRUE) {
+  # Corpo da função
+  soma <- sum(vetor_numerico, na.rm = remover_na)
+  total <- length(vetor_numerico)
+  resultado <- soma / total
+  
+  return(resultado) # Valor retornado
+}
+
+# Chamada da função com mapeamento de argumentos
+resultado_final <- minha_media(vetor_numerico = c(10, 20, 30, NA), remover_na = TRUE)
+```
+
+##### Operador Pipe Nativo (`|>`)
+
+Introduzido no R 4.1.0, o operador pipe passa o resultado da expressão da esquerda como o primeiro argumento da função da direita, tornando a leitura do código linear e limpa:
+
+```r
+# Modo Tradicional Aninhado (Difícil de ler):
+subconjunto <- head(sort(abs(c(-5, 10, -20, 8)), decreasing = TRUE), n = 2)
+
+# Modo com Pipe Nativo (|>) (Leitura fluida de cima para baixo):
+subconjunto <- c(-5, 10, -20, 8) |> 
+  abs() |> 
+  sort(decreasing = TRUE) |> 
+  head(n = 2)
+```
+
+##### Estruturas Condicionais
+
+Permitem executar blocos de código dependendo de testes lógicos.
+
+```r
+# Condicional Clássico if / else
+nota_aluno <- 7.5
+
+if (nota_aluno >= 7.0) {
+  print("Aluno Aprovado!")
+} else if (nota_aluno >= 5.0) {
+  print("Aluno em Recuperação!")
+} else {
+  print("Aluno Reprovado!")
+}
+
+# Condicional Vetorizado ifelse() - Trabalha em vetores inteiros de uma só vez
+notas <- c(8.5, 4.0, 6.5, 9.0)
+situacao <- ifelse(test = notas >= 7.0, yes = "Aprovado", no = "Reprovado")
+```
+
+##### Laços de Repetição (Loops)
+
+```r
+# Laço for (Iteração sobre uma sequência)
+for (i in 1:5) {
+  print(paste("Iteração número:", i))
+}
+
+# Laço while (Executa enquanto a condição for verdadeira)
+contador <- 1
+while (contador <= 3) {
+  print(contador)
+  contador <- contador + 1
+}
+```
+
+##### Vetorização e a Família `apply`
+
+No R, laços tradicionais como `for` podem ser lentos em grandes volumes de dados. A **vetorização** e a **família `apply`** executam operações repetitivas em C nativo com alta eficiência:
+
+* **`apply(X, MARGIN, FUN)`**: Aplica uma função nas linhas (`MARGIN = 1`) ou colunas (`MARGIN = 2`) de uma matriz ou data frame.
+
+* **`lapply(X, FUN)`**: Aplica uma função a cada elemento de uma lista/vetor e **retorna uma lista**.
+
+* **`sapply(X, FUN)`**: Versão simplificada do `lapply` que **retorna um vetor atômico ou matriz**.
+
+```r
+matriz_dados <- matrix(1:12, nrow = 4, ncol = 3)
+
+# Calcula a média de cada coluna (MARGIN = 2)
+medias_colunas <- apply(X = matriz_dados, MARGIN = 2, FUN = mean)
+
+# Aplica a função de raiz quadrada em cada elemento de uma lista
+lista_num <- list(a = c(4, 9), b = c(16, 25))
+raizes <- lapply(X = lista_num, FUN = sqrt)
+```
+
+---
+
+#### Gerenciamento de Pacotes, NAMESPACE e Ambientes
+
+##### Estrutura Física de um Pacote
+
+Um pacote R é um diretório padronizado contendo:
+
+* **`DESCRIPTION`**: Metadados (autor, versão, licença, dependências).
+
+* **`NAMESPACE`**: Define quais funções são exportadas (visíveis) e importadas.
+
+* **`R/`**: Pasta que armazena os códigos-fonte dos scripts e funções `.R`.
+
+* **`man/`**: Arquivos de documentação de ajuda (`.Rd`).
+
+
+
+##### Instalar vs. Carregar vs. Anexar
+
+1. **Instalação (`install.packages("pacote")`)**: Baixa os arquivos do CRAN e grava no disco rígido. Executada uma única vez.
+
+2. **Carregamento e Anexação (`library(pacote)`)**: Carrega o pacote na memória RAM e o coloca no Caminho de Busca (`search()`).
+
+3. **Operador de Escopo (`::`)**: Acessa uma função sem anexar o pacote inteiro à busca (evita poluição e conflitos):
+
+```r
+# Usa a função obj_addr do pacote lobstr sem anexá-lo
+lobstr::obj_addr(df_alunos)
+
+# Acessa funções internas não exportadas do pacote (Uso avançado)
+pacote:::funcao_interna()
+```
+
+##### Ambientes e o Caminho de Busca (`search()`)
+
+O R procura o significado de uma função navegando por uma hierarquia de ambientes chamada **Caminho de Busca**:
+
+```r
+search()
+# Retorna: ".GlobalEnv", "package:stats", "package:graphics", ..., "package:base"
+```
+Ao digitar um comando, o R busca primeiro no `.GlobalEnv`. Se não encontrar, busca sequencialmente no último pacote anexado até chegar ao pacote `base`.
+
+---
+
+
+#### Funções Mais Utilizadas no R
+
+A tabela a seguir apresenta os principais comandos e funções do R Base organizados por categoria, prontos para consulta rápida:
+
+| Categoria | Função | O que faz | Exemplo de uso |
+| :--- | :--- | :--- | :--- |
+| **Inspeção & Sistema** | `typeof(x)` | Retorna o tipo atômico interno do objeto | `typeof(10L)` → `"integer"` |
+| | `class(x)` | Retorna a classe lógica externa do objeto | `class(df)` → `"data.frame"` |
+| | `length(x)` | Retorna o comprimento/quantidade de elementos | `length(c(1, 2, 3))` → `3` |
+| | `dim(x)` | Retorna as dimensões (linhas e colunas) | `dim(matriz)` → `c(4, 2)` |
+| | `str(x)` | Exibe a estrutura interna detalhada do objeto | `str(df_alunos)` |
+| | `summary(x)` | Exibe resumo estatístico descritivo | `summary(dados)` |
+| | `ls()` | Lista os objetos ativos no Ambiente Global | `ls()` |
+| | `rm(x)` | Remove um objeto da memória RAM | `rm(v_num)` |
+| **Criação & Sequências** | `c(...)` | Concatena/agrupa elementos em um vetor | `c(1, 5, 10)` |
+| | `seq()` | Gera sequências numéricas regulares | `seq(from = 1, to = 10, by = 2)` |
+| | `rep()` | Repete valores ou vetores | `rep(x = 1:3, times = 2)` |
+| | `matrix()` | Constrói uma matriz bidimensional | `matrix(1:6, nrow = 2, ncol = 3)` |
+| | `list(...)` | Cria uma lista heterogênea | `list(a = 1, b = "texto")` |
+| | `data.frame(...)` | Constrói um quadro de dados | `data.frame(x = 1:3, y = c("A", "B", "C"))` |
+| **Estatística & Matemática** | `sum(x)` | Calcula a soma de um vetor | `sum(c(10, 20, 30))` → `60` |
+| | `mean(x)` | Calcula a média aritmética | `mean(c(10, 20, 30))` → `20` |
+| | `sd(x)` | Calcula o desvio padrão amostral | `sd(v_num)` |
+| | `median(x)` | Calcula a mediana dos dados | `median(v_num)` |
+| | `min(x)` / `max(x)` | Retorna o valor mínimo ou máximo | `max(c(2, 9, 4))` → `9` |
+| | `quantile(x)` | Calcula os quantis/percentis estatísticos | `quantile(v_num)` |
+| | `abs(x)` / `sqrt(x)` | Calcula o valor absoluto ou a raiz quadrada | `sqrt(16)` → `4` |
+| **Manipulação & Indexação** | `head(x, n)` | Exibe as primeiras n linhas de um objeto | `head(df, 5)` |
+| | `tail(x, n)` | Exibe as últimas n linhas de um objeto | `tail(df, 5)` |
+| | `sort(x)` | Ordena os elementos de um vetor | `sort(v_num, decreasing = TRUE)` |
+| | `order(x)` | Retorna os índices de ordenação dos dados | `df[order(df$nota), ]` |
+| | `which(x)` | Retorna as posições onde o teste lógico é `TRUE` | `which(v_num > 15)` |
+| | `unique(x)` | Remove valores duplicados de um vetor | `unique(c(1, 1, 2, 3))` → `c(1, 2, 3)` |
+| **Importação & Exportação** | `read.table()` | Lê arquivos de texto genéricos | `read.table("dados.txt", header = TRUE)` |
+| | `read.csv2()` | Lê arquivos CSV no padrão brasileiro | `read.csv2("dados.csv")` |
+| | `saveRDS()` | Salva um objeto R em um arquivo `.rds` | `saveRDS(df, "dados.rds")` |
+| | `readRDS()` | Lê um arquivo `.rds` | `readRDS("dados.rds")` |
+| **Pacotes & Ajuda** | `install.packages()` | Instala pacote do repositório CRAN | `install.packages("styler")` |
+| | `library()` | Carrega e anexa um pacote à sessão | `library(styler)` |
+| | `help(f)` / `?f` | Abre o manual técnico de uma função | `?mean` |
+
+
+---
+
+#### Boas Práticas de Programação e Conclusão
+
+
+1. **Nomenclatura Clara (Estilo `snake_case`)**: Nomeie objetos e variáveis usando letras minúsculas separadas por underline (ex.: `calcula_media_altura`, `dados_limpos`).
+
+2. **Espaçamento**: Coloque espaços ao redor de operadores binários (`<-`, `=`, `+`, `-`, `==`, `|>`) e após vírgulas nas chamadas de funções:
+   ```r
+   # Incorreto:
+   x<-c(1,2,3);y=x*2
+   
+   # Correto:
+   x <- c(1, 2, 3)
+   y <- x * 2
+   ```
+3. **Indentação**: Recue o código dentro de chaves `{}` usando 2 espaços para facilitar a leitura.
+
+4. **Uso do Pacote `styler`**: Instale e utilize o pacote `styler` no RStudio (*Addins > Style active file*) para reformatar e padronizar automaticamente seus scripts conforme as regras oficiais da comunidade.
+
+
+O R é um ambiente computacional dinâmico, extensível e indispensável para qualquer profissional que atue com manipulação de dados, estatística e modelagem. Compreender os conceitos de sintaxe e semântica é fundamental para utilizar o R de maneira adequada. Enquanto a sintaxe está relacionada à forma correta de escrever e estruturar os comandos, a semântica está associada à interpretação e ao significado das operações realizadas. O domínio desses conceitos contribui para a correta aplicação dos procedimentos estatísticos abordados no estudo, incluindo a organização e análise dos dados, as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose.
 
 
 ### Estatística Descritiva
