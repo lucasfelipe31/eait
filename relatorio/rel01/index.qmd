@@ -158,7 +158,7 @@ A arquitetura do R é fundamentada em três princípios formulados por John Cham
 
 ##### Nomes Sintáticos vs. Não Sintáticos
 
-* **Sintáticos (Válidos)**: Começam com letra ou ponto (desde que o ponto não seja seguido de número). Podem conter letras, números, `_` e `.`. O R é **sensível ao caso (*case-sensitive*)**: `Dados` e `dados` são objetos distintos.
+* **Sintáticos (Válidos)**: Começam com letra ou ponto (desde que o ponto não seja seguido de número). Podem conter letras, números, `_` e `.`. O R é sensível ao caso (*case-sensitive*): `Dados` e `dados` são objetos distintos.
 
 * **Palavras Reservadas (Proibidas para nomes)**: `if`, `else`, `while`, `repeat`, `for`, `function`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`.
 
@@ -178,7 +178,7 @@ Primeiramente, o operador `<-` possui maior precedência gramatical no R. Além 
 
 ---
 
-#### Área de Trabalho, Diretório e Gestão de Sessão
+#### Área de Trabalho e Diretório 
 
 ##### O Diretório de Trabalho (`getwd()` e `setwd()`)
 
@@ -220,7 +220,7 @@ Ao fechar o RStudio, o sistema pergunta se o usuário deseja salvar a imagem da 
 
 * **`.Rhistory`**: Salva o histórico textual dos comandos executados no console.
 
-Recomendação: Não dependa do salvamento automático de `.RData`. Isso polui a memória com objetos antigos. Prefira guardar todo o seu trabalho em **Scripts R (`.R`)** organizados e reprodutíveis.
+Recomenda-se não depender do salvamento automático de `.RData`. Isso polui a memória com objetos antigos. Recomenda-se manter o trabalho desenvolvido em **Scripts R (`.R`)** organizados e reprodutíveis.
 
 ```r
 # Executa um script externo inteiro no R
@@ -231,9 +231,10 @@ source("script_auxiliar.R")
 
 #### Tipos de Dados Atômicos e Atributos Intrínsecos
 
-Todo objeto no R possui dois **atributos intrínsecos**:
+Todo objeto no R possui dois atributos intrínsecos:
 
 1. **Modo ou Tipo (`typeof()` / `mode()`)**: Estrutura física de representação na memória virtual.
+
 2. **Comprimento (`length()`)**: Quantidade de elementos contidos no objeto.
 
 
@@ -265,8 +266,12 @@ modo_texto <- "Aprendendo R"
 
 ##### Coerção de Tipos (Forçamento)
 
-* **Coerção Implícita**: Ocorre automaticamente quando misturamos tipos em um mesmo vetor. A hierarquia de conversão é:
-  $$	ext{Character} > 	ext{Double} > 	ext{Integer} > 	ext{Logical}$$
+* **Coerção Implícita**: Ocorre automaticamente quando são combinados diferentes tipos em um mesmo vetor. A hierarquia de conversão é:
+
+$$
+\text{raw} < \text{logical} < \text{integer} < \text{double} <
+\text{complex} < \text{character}
+$$
   
 * **Coerção Explícita**: Convertida manualmente por funções com prefixo `as.`:
 
@@ -326,6 +331,7 @@ v_num[v_num > 20] # Indexação lógica (30, 40)
 ---
 
 ##### Matrizes (Bidimensionais e Homogêneas)
+
 Uma matriz é um vetor atômico ao qual foi adicionado o atributo de dimensão (`dim`), organizando os dados em linhas e colunas.
 
 ```r
@@ -398,7 +404,7 @@ summary(df_alunos)# Exibe resumo estatístico
 dim(df_alunos)    # Retorna o número de linhas e colunas (ex: 3 4)
 ```
 
-- **Atenção na utilização de `attach()` e `detach()`**: A função `attach()` adiciona o data frame ao caminho de busca, permitindo acessar suas colunas diretamente pelo nome. Porém, ela gera **altos riscos de mascaramento de variáveis** e erros sutis no código. Prefira sempre referenciar colunas explicitamente (`df$coluna`).
+A função `attach()` adiciona o data frame ao caminho de busca, permitindo acessar suas colunas diretamente pelo nome. Porém, ela gera altos riscos de mascaramento de variáveis e erros sutis no código. Recomenda-se referenciar as colunas explicitamente (`df$coluna`).
 
 ---
 
@@ -567,7 +573,7 @@ raizes <- lapply(X = lista_num, FUN = sqrt)
 
 ---
 
-#### Gerenciamento de Pacotes, NAMESPACE e Ambientes
+#### Gerenciamento de Pacotes e Ambientes
 
 ##### Estrutura Física de um Pacote
 
@@ -614,7 +620,7 @@ Ao digitar um comando, o R busca primeiro no `.GlobalEnv`. Se não encontrar, bu
 
 #### Funções Mais Utilizadas no R
 
-A tabela a seguir apresenta os principais comandos e funções do R Base organizados por categoria, prontos para consulta rápida:
+A tabela a seguir apresenta os principais comandos e funções do R Base organizados por categoria:
 
 | Categoria | Função | O que faz | Exemplo de uso |
 | :--- | :--- | :--- | :--- |
@@ -656,12 +662,12 @@ A tabela a seguir apresenta os principais comandos e funções do R Base organiz
 
 ---
 
-#### Boas Práticas de Programação e Conclusão
+#### Boas Práticas de Programação
 
 
-1. **Nomenclatura Clara (Estilo `snake_case`)**: Nomeie objetos e variáveis usando letras minúsculas separadas por underline (ex.: `calcula_media_altura`, `dados_limpos`).
+1. Nomenclatura Clara (Estilo `snake_case`): Os objetos e as variáveis devem ser nomeados usando letras minúsculas separadas por underline (ex.: `calcula_media_altura`, `dados_limpos`).
 
-2. **Espaçamento**: Coloque espaços ao redor de operadores binários (`<-`, `=`, `+`, `-`, `==`, `|>`) e após vírgulas nas chamadas de funções:
+2. Espaçamento: Recomenda-se o uso de espaços ao redor de operadores binários (`<-`, `=`, `+`, `-`, `==`, `|>`) e após vírgulas nas chamadas de funções:
    ```r
    # Incorreto:
    x<-c(1,2,3);y=x*2
@@ -670,9 +676,9 @@ A tabela a seguir apresenta os principais comandos e funções do R Base organiz
    x <- c(1, 2, 3)
    y <- x * 2
    ```
-3. **Indentação**: Recue o código dentro de chaves `{}` usando 2 espaços para facilitar a leitura.
+3. Indentação: O código dentro de chaves `{}` deve ser recuado usando 2 espaços para facilitar a leitura.
 
-4. **Uso do Pacote `styler`**: Instale e utilize o pacote `styler` no RStudio (*Addins > Style active file*) para reformatar e padronizar automaticamente seus scripts conforme as regras oficiais da comunidade.
+4. Uso do Pacote `styler`: O pacote `styler` pode ser utilizado no RStudio (*Addins > Style active file*) para reformatar e padronizar automaticamente os scripts conforme as regras oficiais da comunidade.
 
 
 O R é um ambiente computacional dinâmico, extensível e indispensável para qualquer profissional que atue com manipulação de dados, estatística e modelagem. Compreender os conceitos de sintaxe e semântica é fundamental para utilizar o R de maneira adequada. Enquanto a sintaxe está relacionada à forma correta de escrever e estruturar os comandos, a semântica está associada à interpretação e ao significado das operações realizadas. O domínio desses conceitos contribui para a correta aplicação dos procedimentos estatísticos abordados no estudo, incluindo a organização e análise dos dados, as medidas de posição e dispersão, além dos coeficientes de assimetria e curtose.
@@ -796,7 +802,7 @@ AS < 0, diz-se que a distribuição é assimétrica negativa.
 
 A curtose, por sua vez, está relacionada à concentração dos dados na região central e ao comportamento das extremidades da distribuição. Uma curtose mais elevada pode indicar maior presença de valores extremos e caudas mais pesadas, enquanto uma curtose menor está associada a uma distribuição mais achatada e com menor intensidade nas caudas. 
 
-A curtose de uma distribuição normal é 3. Se uma dada distribuição tem uma curtose menor que 3, ela tende a produzir menos outliers e menos extremos do que a distribuição normal. Se uma dada distribuição tem uma curtose maior que 3, ela tende a produzir mais outliers do que a distribuição normal. Para fazer esses testes vamos utilizar o pacote moments [@moral2025].
+A curtose de uma distribuição normal é 3. Se uma dada distribuição tem uma curtose menor que 3, ela tende a produzir menos outliers e menos extremos do que a distribuição normal. Se uma dada distribuição tem uma curtose maior que 3, ela tende a produzir mais outliers do que a distribuição normal. Para esses cálculos, será utilizado o pacote `moments` [@moral2025].
 
 Assim, assimetria e curtose são características que ajudam a compreender melhor o formato de uma distribuição. Enquanto a assimetria está relacionada ao equilíbrio dos dados em torno do centro, a curtose ajuda a analisar a concentração central e a presença de valores extremos.
 
@@ -828,7 +834,6 @@ A partir dessas condições, foram gerados 75 resultados simulados de resistênc
 
 
 ```{r}
-#| echo: false
 resistencia <- read.csv2(
   "C:/Relatórios/EAIT/eait/relatorio/rel01/resistencia25.csv",
   dec = ","
@@ -838,7 +843,6 @@ resistencia <- read.csv2(
 ```{r}
 #| label: tbl-dados
 #| tbl-cap: "Resultados simulados de resistência à compressão aos 28 dias para diferentes relações água/cimento"
-#| echo: false
 
 library(knitr)
 library(leem)
@@ -859,7 +863,6 @@ kable(
 :::
 
 ```{r}
-#| echo: false
 # Criando os vetores 
 G1 <- resistencia$AC_050
 G2 <- resistencia$AC_060
@@ -888,7 +891,6 @@ $$
 Dessa forma, foram utilizadas cinco classes de frequência para cada conjunto de dados, permitindo representar individualmente a distribuição dos resultados de resistência à compressão nas diferentes condições consideradas. A partir desse procedimento, os valores de resistência à compressão foram agrupados em intervalos de classe. A frequência absoluta (Fi) representa o número de observações pertencentes a cada classe, enquanto a frequência relativa (Fr) expressa a proporção de observações de cada classe em relação ao total do respectivo conjunto de dados. As frequências acumuladas permitem identificar a quantidade de observações acumulada até determinada classe ou a partir dela. Essas formas de representação possibilitam organizar e sintetizar os resultados, facilitando a visualização da distribuição das resistências à compressão e fornecendo uma base para as etapas posteriores da análise estatística.
 
 ```{r}
-#| echo: false
 # Tabulação Criando os objetos leem
 tab_G1 <- G1 |>
   new_leem(variable = "continuous") |>
@@ -953,7 +955,6 @@ A relação A/C = 0,50 é mantida constante dentro desse conjunto, de modo que a
 ```{r}
 #| label: tbl-frequencia-g1
 #| tbl-cap: "Distribuição de frequência da resistência à compressão: A/C = 0,50"
-#| echo: false
 
 formatar_tabela_freq(tab_G1)
 ```
@@ -963,7 +964,6 @@ formatar_tabela_freq(tab_G1)
 ```{r}
 #| label: tbl-frequencia-g2
 #| tbl-cap: "Distribuição de frequência da resistência à compressão: A/C = 0,60"
-#| echo: false
 
 formatar_tabela_freq(tab_G2)
 
@@ -975,7 +975,6 @@ formatar_tabela_freq(tab_G2)
 ```{r}
 #| label: tbl-frequencia-g3
 #| tbl-cap: "Distribuição de frequência da resistência à compressão: A/C = 0,70"
-#| echo: false
 
 formatar_tabela_freq(tab_G3)
 ```
@@ -999,7 +998,6 @@ Além de facilitar a visualização da distribuição, a representação gráfic
 ```{r}
 #| label: fig-histograma-g1
 #| fig-cap: "Histograma de frequências da resistência à compressão: A/C = 0,50"
-#| echo: false
 
 G1 |>
   new_leem(variable = "continuous") |>
@@ -1015,7 +1013,6 @@ Da mesma forma, para os dados agrupados pertencentes às condições do Grupo 2:
 ```{r}
 #| label: fig-histograma-g2
 #| fig-cap: "Histograma de frequências da resistência à compressão: A/C = 0,60"
-#| echo: false
 
 G2 |>
   new_leem(variable = "continuous") |>
@@ -1031,7 +1028,6 @@ E, para o Grupo 3, o histograma será:
 ```{r}
 #| label: fig-histograma-g3
 #| fig-cap: "Histograma de frequências da resistência à compressão: A/C = 0,70"
-#| echo: false
 
 G3 |>
   new_leem(variable = "continuous") |>
@@ -1048,8 +1044,6 @@ G3 |>
 
 Após a organização dos dados em tabelas e sua representação gráfica, as medidas de posição permitem sintetizar o conjunto de observações por meio de valores que representam sua região central. Neste estudo, essas medidas serão determinadas para os três grupos de resistência à compressão, permitindo comparar o comportamento central dos resultados para diferentes relações água/cimento. Além dos valores obtidos diretamente a partir das 25 observações, serão consideradas as estimativas provenientes dos dados agrupados em classes, possibilitando observar as diferenças decorrentes do processo de agrupamento. Para variáveis quantitativas contínuas agrupadas em intervalos, o ponto médio das classes é utilizado nos cálculos, podendo ocorrer perda de precisão em relação aos dados não agrupados [@batista2024estatistica].
 ```{r}
-#| echo: false
-
 pos_G1 <- G1 |>
   new_leem(variable = "continuous") |>
   mpos(grouped = TRUE)
@@ -1066,7 +1060,6 @@ pos_G3 <- G3 |>
 ```{r}
 #| label: tbl-medidas-posicao
 #| tbl-cap: "Medidas de posição dos dados agrupados da resistência à compressão para diferentes relações água/cimento"
-#| echo: false
 
 tabela_posicao <- rbind(
   `GRUPO 1 (A/C = 0,50)` = as.numeric(pos_G1),
@@ -1095,7 +1088,6 @@ knitr::kable(
 ```
 
 ```{r}
-#| echo: false
 # Medidas de posição dos dados não agrupados (dados brutos)
 pos_G1_bruto <- G1 |>
   new_leem(variable = "continuous") |>
@@ -1115,7 +1107,6 @@ Para complementar a análise, a @tbl-medidas-posicao-brutas apresenta as medidas
 ```{r}
 #| label: tbl-medidas-posicao-brutas
 #| tbl-cap: "Medidas de posição dos dados não agrupados (dados brutos)"
-#| echo: false
 
 tabela_posicao_bruta <- rbind(
   `Grupo 1 (A/C = 0,50)` = as.numeric(pos_G1_bruto),
@@ -1152,7 +1143,6 @@ Além da representação da distribuição de frequência, é possível utilizar
 ```{r}
 #| label: fig-hist-g1
 #| fig-cap: "Histograma de frequências e medidas de posição: Grupo 1 (A/C = 0,50)"
-#| echo: false
 G1 |>
   new_leem(variable = "continuous") |>
   hist(
@@ -1174,7 +1164,6 @@ G1 |>
 ```{r}
 #| label: fig-hist-g2
 #| fig-cap: "Histograma de frequências e medidas de posição: Grupo 2 (A/C = 0,60)"
-#| echo: false
 G2 |>
   new_leem(variable = "continuous") |>
   hist(
@@ -1195,7 +1184,7 @@ G2 |>
 ```{r}
 #| label: fig-hist-g3
 #| fig-cap: "Histograma de frequências e medidas de posição: Grupo 3 (A/C = 0,70)"
-#| echo: false
+
 G3 |>
   new_leem(variable = "continuous") |>
   hist(
@@ -1216,7 +1205,6 @@ G3 |>
 
 As medidas de posição permitem identificar a região central de um conjunto de dados, porém, isoladamente, não são suficientes para caracterizar sua variabilidade. Segundo @batista2024estatistica, diferentes conjuntos podem apresentar valores centrais semelhantes e, ainda assim, possuir diferentes níveis de dispersão. As medidas de dispersão são utilizadas justamente para quantificar o quanto as observações variam em torno de um valor central, geralmente a média aritmética. Neste estudo, serão analisadas a amplitude, variância, desvio padrão, coeficiente de variação e erro-padrão da média dos três grupos de resistência à compressão. A utilização conjunta dessas medidas permitirá avaliar não apenas a extensão entre os valores mínimo e máximo, mas também a variabilidade das observações e a precisão da estimativa da média. Essa análise é particularmente relevante para comparar a consistência dos resultados obtidos sob diferentes relações água/cimento.
 ```{r}
-#| echo: false
 # AMPLITUDE
 amplitude_G1 <- G1 |>
   new_leem(variable = "continuous") |>
@@ -1233,7 +1221,6 @@ amplitude_G3 <- G3 |>
 
 
 ```{r}
-#| echo: false
 # Variancia dos dados não agrupados
 variancia_G1 <- G1 |>
   new_leem(variable = "continuous") |>
@@ -1250,7 +1237,6 @@ variancia_G3 <- G3 |>
 
 
 ```{r}
-#| echo: false
 # Desvio padrão dos dados não agrupados
 desvio_G1 <- G1 |>
   new_leem(variable = "continuous") |>
@@ -1266,7 +1252,6 @@ desvio_G3 <- G3 |>
 ```
 
 ```{r}
-#| echo: false
 # Coeficiente de variação para dados não agrupados
 cv_G1 <- G1 |>
   new_leem(variable = "continuous") |>
@@ -1283,7 +1268,6 @@ cv_G3 <- G3 |>
 
 
 ```{r}
-#| echo: false
 # Erro padrão da media
 erro_G1 <- G1 |>
   new_leem(variable = "continuous") |>
@@ -1301,7 +1285,6 @@ erro_G3 <- G3 |>
 ```{r}
 #| label: tbl-medidas-dispersao
 #| tbl-cap: "Medidas de dispersão da resistência à compressão para diferentes relações água/cimento"
-#| echo: false
 
 tabela_dispersao <- data.frame(
   `Medida de Dispersão` = c(
@@ -1371,7 +1354,6 @@ Por fim, o erro-padrão da média apresentou valores próximos entre os grupos, 
 A análise das medidas de assimetria e curtose permite complementar a avaliação da distribuição dos resultados de resistência à compressão, possibilitando verificar não apenas sua tendência central e dispersão, mas também o formato das distribuições. Conforme apresentado na @sec-assimetria, a assimetria está relacionada ao equilíbrio dos dados em torno da região central, enquanto a curtose está associada ao grau de concentração dos valores e ao comportamento das caudas da distribuição.
 
 ```{r}
-#| echo: false
 # Assimetria
 assim_G1 <- G1 |>
   new_leem(variable = "continuous") |>
@@ -1390,13 +1372,11 @@ assim_G2 <- G2 |>
 ```{r}
 #| label: fig-assimetria
 #| fig-cap: "Representação didática das Medidas de Assimetria"
-#| echo: false
 
 showskew(mpos = TRUE)
 ```
 
 ```{r}
-#| echo: false
 # Pacote moments
 library(moments)
 
@@ -1414,7 +1394,6 @@ curtose_G3 <- kurtosis(G3)
 ```{r}
 #| label: tbl-assimetria-curtose
 #| tbl-cap: "Coeficientes de assimetria e curtose da resistência à compressão"
-#| echo: false
 
 # Classificação da assimetria
 classificar_assimetria <- function(x) {
@@ -1499,7 +1478,6 @@ Em relação à curtose, os valores calculados por meio da função `kurtosis()`
 ```{r}
 #| label: fig-curtose
 #| fig-cap: "Representação didática das Medidas de Curtose"
-#| echo: false
 showkur()
 ```
 
