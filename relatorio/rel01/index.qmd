@@ -91,13 +91,13 @@ O RStudio (desenvolvido por J. J. Allaire e mantido pela **Posit**) é um ambien
 
 O RStudio organiza seu espaço de trabalho em Quatro Quadrantes Padrão:
 
-1. **Superior Esquerdo (Editor de Scripts)**: Criação, edição e salvamento de arquivos de código (`.R`).
+1. Superior Esquerdo (Editor de Scripts): Criação, edição e salvamento de arquivos de código (`.R`).
 
-2. **Inferior Esquerdo (Console do R)**: Execução interativa imediata das instruções e exibição do prompt de comando (`>`).
+2. Inferior Esquerdo (Console do R): Execução interativa imediata das instruções e exibição do prompt de comando (`>`).
 
-3. **Superior Direito (Environment & History)**: Monitoramento de objetos e variáveis ativos na memória RAM (`.GlobalEnv`) e histórico de comandos executados.
+3. Superior Direito (Environment & History): Monitoramento de objetos e variáveis ativos na memória RAM (`.GlobalEnv`) e histórico de comandos executados.
 
-4. **Inferior Direito (Files, Plots, Packages, Help & Viewer)**: Gerenciador de arquivos, renderizador de gráficos, gerenciador de pacotes e documentação técnica oficial.
+4. Inferior Direito (Files, Plots, Packages, Help & Viewer): Gerenciador de arquivos, renderizador de gráficos, gerenciador de pacotes e documentação técnica oficial.
 
 ```
 ┌──────────────────────────────────────┬──────────────────────────────────────┐
