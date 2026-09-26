@@ -75,15 +75,22 @@ Dessa maneira, a visualização de dados não deve ser compreendida apenas como 
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
+O presente trabalho foi desenvolvido a partir da análise de uma base de dados simulada contendo informações referentes a **300 obras de Engenharia Civil** distribuídas em diferentes regiões do Brasil. A base apresenta variáveis relacionadas ao tipo de obra, região, área construída, custo total, prazo de execução, resistência à compressão do concreto, consumo de cimento, índice de falhas, satisfação do cliente e adoção de práticas sustentáveis.
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+Inicialmente, a base de dados foi importada para o ambiente R e submetida a uma inspeção preliminar, utilizando funções como `head()`, `tail()`, `dim()`, `str()`, `glimpse()` e `summary()`. Essa etapa teve como finalidade verificar a estrutura dos dados, identificar o número de observações e variáveis, reconhecer os tipos das variáveis e verificar a existência de valores ausentes ou possíveis inconsistências.
 
----
+Após a inspeção inicial, os dados foram organizados e transformados conforme a necessidade de cada análise. Sempre que pertinente, foram utilizados recursos de manipulação de dados, especialmente as funções `group_by()` e `summarise()`, para obtenção de estatísticas agrupadas. O operador `|>` foi empregado para estabelecer fluxos de processamento entre as etapas de transformação e visualização.
+
+Na etapa de visualização com **Base R**, foram utilizados os recursos gráficos nativos da linguagem. Foi elaborado um gráfico de dispersão por meio da função `plot()`, relacionando a área construída das obras ao custo total. Também foi construído um histograma da resistência à compressão do concreto utilizando `hist()`, permitindo analisar sua distribuição. Essas representações foram utilizadas para investigar relações entre variáveis quantitativas e identificar possíveis comportamentos atípicos.
+
+Posteriormente, foram desenvolvidos gráficos utilizando o pacote **ggplot2**, explorando a estrutura baseada em dados, mapeamento estético e geometrias gráficas. Foram consideradas representações como gráficos de dispersão, boxplots, histogramas e gráficos de barras, conforme a natureza das variáveis e as questões propostas na atividade.
+
+Para ampliar a comunicação dos resultados, foram utilizados os pacotes **plotly** e **highcharter**, permitindo a criação de gráficos interativos. Esses recursos possibilitaram uma exploração mais dinâmica das informações, complementando as representações estáticas desenvolvidas anteriormente.
+
+Por fim, foram utilizados recursos do pacote **leaflet** para a representação espacial das informações relacionadas às obras, permitindo a elaboração de mapas interativos. Dessa forma, diferentes sistemas gráficos foram aplicados à mesma base de dados, buscando adequar cada representação ao tipo de informação analisada.
+
+A metodologia adotada, portanto, foi estruturada em quatro etapas principais: **(1) inspeção e preparação dos dados; (2) exploração gráfica utilizando Base R; (3) construção de visualizações com ggplot2 e gráficos interativos; e (4) representação espacial utilizando mapas interativos**. A interpretação dos gráficos foi realizada considerando o contexto da Engenharia Civil, buscando relacionar os padrões observados às possíveis aplicações na análise e no acompanhamento de obras.
+
 
 ## 🔍 Resultados e Discussão
 
