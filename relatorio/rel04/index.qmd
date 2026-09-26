@@ -1,6 +1,6 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
+author: "Bruno Henrique e Lucas Felipe"
 title: "Relatório de Aula Prática 04"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
