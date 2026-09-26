@@ -41,16 +41,18 @@ Dessa forma, esta atividade tem como objetivo explorar, visualizar e comunicar d
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Desenvolver a capacidade de explorar, analisar, visualizar e comunicar dados relacionados ao controle tecnológico do concreto, utilizando diferentes sistemas gráficos da linguagem R como ferramentas de apoio à interpretação e à tomada de decisões na Engenharia Civil.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
-
----
+- Aplicar as funções gráficas nativas do Base R para representar e explorar dados de engenharia;
+- Utilizar o ggplot2 para construir gráficos a partir da combinação de dados, mapeamentos estéticos e diferentes camadas gráficas;
+- Elaborar visualizações interativas utilizando as bibliotecas plotly e highcharter;
+- Representar informações de caráter espacial por meio de mapas interativos com o leaflet;
+- Utilizar o operador |> para organizar e encadear etapas de transformação e visualização dos dados;
+- Identificar tendências, padrões, dispersões e possíveis valores atípicos presentes nos dados;
+- Comparar diferentes formas de representação gráfica e avaliar sua adequação aos dados analisados;
+- Desenvolver a capacidade de interpretar e comunicar resultados gráficos aplicados a situações práticas da Engenharia Civil.
 
 ## 📚  Fundamentação Teórica
 
