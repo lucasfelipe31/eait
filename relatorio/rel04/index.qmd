@@ -56,18 +56,22 @@ Desenvolver a capacidade de explorar, analisar, visualizar e comunicar dados rel
 
 ## 📚  Fundamentação Teórica
 
-Apresente os conceitos principais:
+A análise de dados constitui uma importante ferramenta para a Engenharia Civil, uma vez que permite transformar informações obtidas em obras, ensaios e processos construtivos em subsídios para a tomada de decisões. Nesse contexto, a visualização de dados desempenha papel fundamental, pois possibilita representar informações numéricas de maneira gráfica, facilitando a identificação de padrões, tendências, relações entre variáveis, dispersões e possíveis valores atípicos.
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+Os gráficos podem ser utilizados para diferentes finalidades, como comparar características de obras, investigar relações entre área construída e custo, analisar a distribuição da resistência do concreto e representar informações associadas à localização dos empreendimentos. A escolha da representação gráfica deve considerar a natureza das variáveis e o objetivo da análise, de modo que o gráfico contribua efetivamente para a interpretação dos dados.
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+A linguagem R apresenta diferentes recursos para a construção de visualizações estatísticas. O **Base R** disponibiliza funções gráficas nativas, como `plot()`, `hist()`, `boxplot()` e `barplot()`, que permitem produzir gráficos de dispersão, histogramas, boxplots e gráficos de barras, respectivamente. Esses recursos possibilitam realizar análises exploratórias diretamente a partir das estruturas básicas da linguagem.
 
----
+Outro importante sistema de visualização é o **ggplot2**, baseado na chamada gramática dos gráficos. Nesse sistema, os gráficos são construídos a partir da combinação entre os dados, o mapeamento estético definido por `aes()`, geometrias (`geom_*()`), escalas, camadas, facetas e temas. Essa estrutura permite produzir representações mais flexíveis e sistemáticas, adequadas à comparação de grupos e à investigação de relações entre variáveis. A utilização do `ggplot2` é também indicada na bibliografia da disciplina como ferramenta para análise e visualização de dados.
+
+Além dos gráficos estáticos, a linguagem R permite desenvolver visualizações interativas. O pacote **plotly** possibilita transformar gráficos, inclusive objetos produzidos pelo `ggplot2`, em representações interativas, permitindo ao usuário explorar informações por meio de recursos como movimentação do cursor e identificação de valores. O **highcharter**, por sua vez, oferece recursos avançados para construção de gráficos interativos, ampliando as possibilidades de apresentação dos resultados.
+
+Para informações de natureza espacial, o pacote **leaflet** permite a construção de mapas interativos. Esse recurso é particularmente relevante para aplicações na Engenharia Civil que envolvam a localização de obras, empreendimentos e demais elementos distribuídos geograficamente.
+
+A atividade também utiliza conceitos de manipulação e transformação de dados antes da etapa de visualização. Nesse processo, funções como `group_by()`, `summarise()`, `filter()` e `mutate()` podem ser empregadas para organizar os dados e gerar informações resumidas que posteriormente serão representadas graficamente. O operador `|>` permite estruturar essas operações em um fluxo sequencial, tornando o código mais organizado e facilitando a compreensão das etapas de processamento. A própria atividade recomenda a utilização desse fluxo antes da construção dos gráficos.
+
+Dessa maneira, a visualização de dados não deve ser compreendida apenas como uma etapa estética da análise, mas como uma ferramenta de investigação e comunicação. No contexto da Engenharia Civil, gráficos adequadamente selecionados podem auxiliar na identificação de comportamentos atípicos, na comparação do desempenho de diferentes obras e materiais e na comunicação de informações técnicas para profissionais e gestores.
+
 
 ## ⚙️ Metodologia
 
