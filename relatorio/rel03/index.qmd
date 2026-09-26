@@ -80,6 +80,10 @@ A primeira etapa de qualquer análise é trazer os dados para o R. Para dados ta
 
 * **`parse_double()`**: Uma função de conversão estrita que força o R a interpretar um vetor de caracteres como números reais (decimais), sendo vital quando erros de digitação forçam colunas numéricas a serem lidas como texto.
 
+* **`read_delim()`**: Permite importar arquivos de texto delimitados, especificando explicitamente o caractere utilizado para separar as colunas. Neste relatório, foi utilizado o ponto e vírgula (;) como delimitador.
+
+* `locale()`: Permite configurar convenções utilizadas durante a importação dos dados, como o separador decimal. Foi utilizado para indicar o ponto (.) como separador decimal da base analisada.
+
 **Transformação de Dados**
 
 O pacote `dplyr` fornece a gramática principal para a manipulação dos dados, operando através de verbos que resolvem a grande maioria dos desafios de transformação [@wickham2023r4ds].
@@ -94,6 +98,20 @@ O pacote `dplyr` fornece a gramática principal para a manipulação dos dados, 
 
 * **`arrange()`**: Altera a ordem das linhas, permitindo ranquear os resultados, frequentemente auxiliado pela função auxiliar **`desc()`** para forçar a ordem decrescente.
 
+* `glimpse()`: Apresenta uma visão compacta da estrutura da base de dados, permitindo verificar as variáveis, seus tipos e alguns de seus valores.
+
+* `slice_head()` e `slice_tail()`: Permitem selecionar, respectivamente, as primeiras e as últimas observações de uma base de dados, sendo úteis na inspeção inicial dos registros.
+
+* `count()`: Realiza a contagem das observações de acordo com uma ou mais variáveis, facilitando a identificação da frequência das categorias.
+
+
+* `distinct()`: Retorna combinações ou valores únicos de uma ou mais variáveis, sendo útil para identificar categorias existentes e possíveis inconsistências de padronização.
+
+* `ungroup()`: Remove agrupamentos previamente estabelecidos por group_by(), evitando que operações posteriores continuem sendo executadas separadamente por grupo.
+
+* `n()`: Utilizada dentro de operações de resumo para determinar o número de observações existentes em cada grupo.
+
+
 **Vetores Lógicos e Números**
 
 Operações condicionais são necessárias para limpar dados sem afetar a base inteira [@wickham2023r4ds].
@@ -101,6 +119,7 @@ Operações condicionais são necessárias para limpar dados sem afetar a base i
 * **`if_else()`**: Avalia uma condição lógica vetorizada, retornando um valor se for verdadeira e outro se for falsa. Utilizado para dividir valores de abatimento superestimados de forma condicional.
 
 * **`case_when()`**: Uma generalização do `if_else()` para múltiplas condições aninhadas. Permite classificar os corpos de prova em "Conforme", "Atenção" ou "Não Conforme" com uma sintaxe limpa.
+
 
 **Strings e Expressões Regulares**
 
@@ -114,7 +133,12 @@ Na prática, dados textuais frequentemente apresentam inconsistências e o pacot
 
 * **`str_to_upper()`**: Padroniza todos os caracteres para letras maiúsculas, unificando categorias digitadas de formas diferentes.
 
+* `str_squish()`: Remove espaços em branco no início e no final dos textos e reduz sequências de múltiplos espaços internos a um único espaço, auxiliando na padronização das categorias.
+
+* `regex()`: Permite definir expressões regulares utilizadas na busca por padrões textuais, incluindo opções como ignorar diferenças entre letras maiúsculas e minúsculas.
+
 * Expressões Regulares (Regex): Linguagem concisa para descrever padrões em strings. O uso do padrão `[^0-9.]` exemplifica o poder das regex para encontrar anomalias nos dados numéricos de forma universal.
+
 
 **Valores Faltantes**
 
@@ -122,11 +146,15 @@ A ausência de informação requer tratamento explícito no R [@wickham2023r4ds]
 
 * **`is.na()`**: Identifica se um valor é estruturalmente ausente (`NA`). É utilizado em conjunto com os filtros textuais e lógicos para diagnosticar perdas de dados sem quebrar as funções matemáticas.
 
+
 **Iteração e Operações em Colunas**
 
 Para evitar repetição exaustiva de código ao aplicar a mesma transformação matemática a múltiplas propriedades físicas, utilizamos as ferramentas de iteração do `dplyr` [@wickham2023r4ds].
 
 * **`across()`**: Permite aplicar uma função (ou uma lista de funções) a múltiplas colunas simultaneamente. Utilizado dentro de `mutate()` para conversões em massa e dentro de `summarise()` para gerar estatísticas descritivas de todas as propriedades físicas de uma só vez.
+
+* `if_any()`: Verifica se uma determinada condição é verdadeira em pelo menos uma das colunas selecionadas. Pode ser utilizada para localizar observações que apresentam valores ausentes ou inconsistências em qualquer uma das variáveis investigadas.
+
 
 **Visualização de Dados**
 
@@ -135,6 +163,14 @@ A análise exploratória visual no R é dominada pelo pacote `ggplot2`, que impl
 * **`ggplot()`**: Inicializa o gráfico e define os mapeamentos estéticos principais através da função auxiliar **`aes()`**, como os eixos x e y.
 
 * **`geom_*()`**: Definem a representação visual dos dados. O **`geom_boxplot()`** revela a distribuição, mediana e outliers da resistência por tipo de concreto. O **`geom_point()`** gera gráficos de dispersão para investigar relações contínuas (tendências), como o impacto do consumo de cimento na resistência final.
+
+* `geom_smooth()`: Adiciona ao gráfico uma curva ou linha de tendência. 
+
+* `geom_line()`: Conecta observações por meio de linhas, facilitando a visualização da evolução ou tendência de uma variável ao longo de outra, como na relação entre idade e resistência média.
+
+* `labs()`: Define elementos textuais do gráfico, como título e rótulos dos eixos.
+
+* `theme_minimal()`: Aplica ao gráfico um tema visual simplificado, reduzindo elementos gráficos desnecessários e favorecendo a leitura dos dados.
 
 ---
 
@@ -184,11 +220,17 @@ dados <- read_delim(
   show_col_types = FALSE
 )
 
-slice_head(dados) # Visualiza as primeiras linhas 
-slice_tail(dados) # Visualiza as útlimas linhas
+dados |>
+  slice_head(n = 6) # Visualiza as seis primeiras linhas 
 
-cat("\nO número de observações e variáveis existentes na base de dados são:")
-dim (dados) # Número de observações e variáveis existentes na base
+dados |>
+  slice_tail(n = 10) # Visualiza as dez útlimas linhas
+
+cat(
+  "\nA base de dados possui",
+  dim(dados)[1], "observações e",
+  dim(dados)[2], "variáveis.\n"
+)
 ```
 
 
@@ -206,7 +248,7 @@ A análise dos tipos das variáveis, realizada por meio da função `glimpse()`,
 
 
 
-- Resumo das Variáveis (`summary()`)
+* **Resumo das Variáveis (`summary()`)**
 
 
 ```{r}
@@ -288,7 +330,6 @@ dados |>
 Para verificar a existência de valores potencialmente incompatíveis com o contexto da Engenharia Civil, foram estabelecidos critérios de triagem para as principais variáveis analisadas. Foram selecionados registros com idade_dias superior a 100 dias, abatimento_mm superior a 300 mm, densidade_kg_m3 inferior a 2000 kg/m³ ou absorção_agregado_pct superior a 10%. Para as variáveis resistencia_mpa e relacao_a_c, foi realizada uma conversão temporária dos valores, com correção de possíveis registros contendo a letra “O” no lugar do algarismo “0” e substituição da vírgula pelo ponto decimal, permitindo verificar se os valores numéricos resultantes ultrapassavam os limites de 100 MPa e 1,5, respectivamente. Dessa forma, o procedimento permitiu identificar registros que apresentavam valores que merecem investigação mais detalhada, sem alterar, neste momento, os dados originais da base.
 
 ```{r}
-#| echo: false
 dados |>
   filter(
     idade_dias > 100 | 
@@ -455,7 +496,7 @@ Após essas transformações, os valores mínimos e máximos apresentados pela b
 Com a base `dados_limpos` devidamente estruturada e tratada, iniciou-se a etapa voltada à exploração e análise descritiva dos dados. 
 
 ```{r}
-# Questão 17: Resistência média
+# 17: Resistência média
 cat("\nResistência média dos Corpos de Prova:")
 
 # summarise(): Reduz os dados a um único resumo estatístico.
@@ -498,7 +539,7 @@ cat("\nAnálise:\n")
 cat("Ao observar o tibble gerado, o primeiro bloco da lista apresenta a maior")
 cat("resistência média, enquanto o último apresenta a menor.\n")
 
-# Questão 19: Tipo de concreto
+# 19: Tipo de concreto
 cat("\nAnálise de desempenho por Classe de Concreto\n")
 cat("Verificação se os concretos com maior classe nominal (ex: C40) de fato")
 cat("apresentaram a maior resistência média na prática.\n")
@@ -513,7 +554,7 @@ cat("A classe C40 deve encabeçar a lista por ter a maior resistência especific
 cat("A ordenação descrescente comprova se a hierarquia técnica (C40 > C35 > C30 > C25)\n")
 cat("foi mantida durante a execução da obra.\n\n")
 
-# Questão 20: Estatísticas por grupo (Múltiplas Variáveis)
+# 20: Estatísticas por grupo (Múltiplas Variáveis)
 cat("\nEstatísticas médias das propriedades físicas por tipo de concreto\n")
 cat("As principais variáveis tecnológicas foram agrupadas para interpretar como a dosagem\n")
 cat("se comporta conforme a classe do concreto aumenta.\n\n")
@@ -692,7 +733,7 @@ dados_propriedades <- dados_limpos |>
 cat("Visualização da nova tabela (apenas propriedades físicas):\n")
 head(dados_propriedades)
 
-# Questão 28: Média simultânea com across()
+# 28: Média simultânea com across()
 cat("\nQuestão 28: Média das variáveis quantitativas utilizando across()\n")
 
 # summarise(): Consolida os dados.
@@ -727,7 +768,7 @@ dados_limpos <- dados_limpos |>
       .names = "{.col}_centrada"
     )
   )
-# Questão 30: Múltiplas estatísticas com across()
+# 30: Múltiplas estatísticas com across()
 # group_by(): Agrupa pelo tipo de concreto (necessário usar a base 'dados_limpos').
 # across(): Aplica a lista de funções (media e dp) às colunas quantitativas.
 # .names: Formata o nome das novas colunas de saída automaticamente.
@@ -751,21 +792,12 @@ A utilização de `across()`, como observado acima, permite aplicar simultaneame
 
 O uso de `across()` torna o procedimento mais eficiente, pois a mesma transformação é aplicada a todas as variáveis selecionadas sem a necessidade de escrever cada operação individualmente.
 
-30
-
-
-Para obter as estatísticas das variáveis quantitativas de acordo com o tipo de concreto, foi utilizada a combinação das funções `group_by()`, `summarise()` e `across()`. A função `group_by()` permitiu separar os registros conforme as classes de concreto, enquanto `summarise()` foi utilizada para resumir os dados. Por meio de `across()`, foram calculadas simultaneamente a média e o desvio padrão para todas as variáveis armazenadas no vetor variaveis_concreto.
-
-A média foi utilizada para representar o valor central de cada variável, enquanto o desvio padrão permitiu avaliar a dispersão dos valores dentro de cada tipo de concreto. Os valores ausentes (NA) foram desconsiderados por meio do argumento na.rm = TRUE.
-
-A utilização de `across()` apresenta maior facilidade de manutenção em comparação com vários comandos separados. Em uma abordagem individual, seria necessário escrever uma expressão para cada variável e para cada estatística. Com across(), as mesmas operações são aplicadas automaticamente a todas as variáveis selecionadas. Assim, caso novas variáveis quantitativas sejam adicionadas ao vetor variaveis_concreto, elas serão incluídas nos cálculos sem a necessidade de modificar o comando principal.
-
 O resultado é apresentado de forma organizada, com uma linha para cada tipo de concreto e colunas correspondentes à média e ao desvio padrão de cada variável quantitativa.
 
 
 
 ```{r}
-# Questão 31: Verificação e padronização da variável obra
+# 31: Verificação e padronização da variável obra
 # str_trim(): Remove espaços em branco no início e no final dos textos.
 # str_to_upper(): Padroniza todos os textos utilizando letras maiúsculas.
 # str_squish(): Remove espaços duplicados dentro dos textos.
@@ -792,17 +824,16 @@ dados_limpos |>
   distinct(obra) |>
   arrange(obra)
 ```
-Para verificar e padronizar a variável obra, foram utilizadas funções do pacote stringr. Inicialmente, foi realizada a identificação das categorias existentes por meio de distinct(), permitindo observar possíveis diferenças de grafia, utilização de letras maiúsculas e minúsculas e espaços desnecessários.
+Para verificar e padronizar a variável obra, foram utilizadas funções do pacote stringr. Inicialmente, foi realizada a identificação das categorias existentes por meio de `distinct()`, permitindo observar possíveis diferenças de grafia, utilização de letras maiúsculas e minúsculas e espaços desnecessários.
 
-Para a padronização, foi utilizada a função str_trim(), responsável por remover espaços no início e no final dos textos. Em seguida, str_squish() foi utilizada para eliminar espaços duplicados, enquanto str_to_upper() padronizou todos os valores para letras maiúsculas.
+Para a padronização, foi utilizada a função `str_trim()`, responsável por remover espaços no início e no final dos textos. Em seguida, `str_squish()` foi utilizada para eliminar espaços duplicados, enquanto `str_to_upper()` padronizou todos os valores para letras maiúsculas.
 
-Também foi utilizada str_replace_all() para corrigir possíveis diferenças de grafia entre categorias que representam a mesma obra. Dessa forma, os valores passaram a apresentar um padrão único, facilitando agrupamentos, filtros e análises posteriores.
+Também foi utilizada `str_replace_all()` para corrigir possíveis diferenças de grafia entre categorias que representam a mesma obra. Dessa forma, os valores passaram a apresentar um padrão único, facilitando agrupamentos, filtros e análises posteriores.
 
 A comparação entre os resultados antes e depois da padronização permite verificar as alterações realizadas na variável obra. Após o tratamento, categorias que apresentavam apenas diferenças de formatação ou grafia passam a ser representadas de maneira consistente, reduzindo o risco de uma mesma obra ser considerada como categorias diferentes durante as análises.
 
 ```{r}
-#| echo: false
-# Questão 32: Localização de padrões textuais
+# 32: Localização de padrões textuais
 # str_detect(): Verifica se um determinado padrão de texto está presente em uma variável.
 # regex(): Permite utilizar padrões de busca de forma mais flexível.
 # A busca será realizada por registros cujo tipo de concreto contenha "C30",
@@ -823,15 +854,14 @@ dados_limpos |>
     resistencia_mpa
   )
 ```
-Para localizar registros que contenham determinado padrão textual, foi utilizada a função str_detect() do pacote stringr. A condição de busca escolhida foi a identificação dos registros da classe C30 na variável tipo_concreto. Foi utilizada a função regex() com ignore_case = TRUE, permitindo localizar tanto C30 quanto possíveis variações de letras maiúsculas e minúsculas, como c30.
+Para localizar registros que contenham determinado padrão textual, foi utilizada a função `str_detect()` do pacote stringr. A condição de busca escolhida foi a identificação dos registros da classe C30 na variável tipo_concreto. Foi utilizada a função `regex()` com ignore_case = TRUE, permitindo localizar tanto C30 quanto possíveis variações de letras maiúsculas e minúsculas, como c30.
 
 A utilização de padrões de texto é importante para o diagnóstico de bases de dados porque permite identificar rapidamente inconsistências de preenchimento, diferenças de formatação, categorias duplicadas e possíveis erros de digitação. Esse tipo de verificação é especialmente útil antes da realização de agrupamentos e análises estatísticas, pois valores aparentemente iguais podem ser tratados como categorias diferentes quando apresentam grafias distintas.
 
-No caso desta base, a busca pelo padrão C30 permite verificar se existem registros dessa classe e se há alguma variação na forma como ela foi registrada. Dessa maneira, o uso de str_detect() contribui para a identificação de problemas de padronização e para o aumento da qualidade e confiabilidade dos dados.
+No caso desta base, a busca pelo padrão C30 permite verificar se existem registros dessa classe e se há alguma variação na forma como ela foi registrada. Dessa maneira, o uso de `str_detect()` contribui para a identificação de problemas de padronização e para o aumento da qualidade e confiabilidade dos dados.
 
 ```{r}
-#| echo: false
-# Questão 33: Distribuição da resistência à compressão por tipo de concreto
+# 33: Distribuição da resistência à compressão por tipo de concreto
 # ggplot(): Define a base de dados e os mapeamentos estéticos do gráfico.
 # geom_boxplot(): Representa a distribuição dos valores por meio da mediana,
 # quartis, dispersão e possíveis valores discrepantes.
@@ -859,8 +889,7 @@ A comparação entre as caixas permite verificar se as classes de concreto apres
 Dessa forma, o gráfico permite avaliar visualmente tanto o desempenho das diferentes classes de concreto quanto a variabilidade dos resultados obtidos no controle tecnológico.
 
 ```{r}
-#| echo: false
-# Questão 34: Relação entre consumo de cimento e resistência à compressão
+# 34: Relação entre consumo de cimento e resistência à compressão
 # ggplot(): Define a base de dados e os mapeamentos do gráfico.
 # geom_point(): Representa cada corpo de prova como um ponto no gráfico.
 # geom_smooth(): Adiciona uma linha de tendência para facilitar a identificação
@@ -897,8 +926,7 @@ Entretanto, o gráfico, por si só, não permite afirmar que o maior consumo de 
 Assim, o gráfico pode fornecer evidência visual compatível com a afirmação “quanto maior o consumo de cimento, maior tende a ser a resistência do concreto” caso seja observada uma tendência positiva, mas essa conclusão deve ser complementada por uma análise estatística da correlação ou do modelo de regressão.
 
 ```{r}
-#| echo: false
-# Questão 35: Relação entre relação água/cimento e resistência à compressão
+# 35: Relação entre relação água/cimento e resistência à compressão
 # ggplot(): Define a base de dados e os mapeamentos do gráfico.
 # geom_point(): Representa cada corpo de prova como um ponto no gráfico.
 # geom_smooth(): Adiciona uma linha de tendência para facilitar a identificação
@@ -935,8 +963,7 @@ Nos dados analisados, caso os pontos apresentem uma tendência descendente, have
 Portanto, a relação observada merece investigação, principalmente para verificar a intensidade dessa associação e identificar possíveis observações que se afastem do comportamento geral. Uma análise de correlação ou um modelo de regressão poderia complementar a interpretação visual apresentada pelo gráfico.
 
 ```{r}
-#| echo: false
-# Questão 36: Comparação do desempenho dos concretos entre as obras
+# 36: Comparação do desempenho dos concretos entre as obras
 # group_by(): Organiza os dados de acordo com a obra.
 # summarise(): Calcula estatísticas descritivas da resistência à compressão.
 # arrange(): Ordena os resultados da maior para a menor resistência média.
@@ -983,8 +1010,7 @@ Portanto, os dados não dão suporte, em termos descritivos, à afirmação de q
 A análise também mostra que a resistência apresenta variabilidade dentro de cada obra. Assim, embora a comparação das médias seja útil para uma primeira avaliação, outros fatores, como a classe do concreto, a relação água/cimento e a idade dos corpos de prova, também devem ser considerados antes de atribuir diferenças de desempenho exclusivamente à obra.
 
 ```{r}
-#| echo: false
-# Questão 37: Relação entre idade e resistência à compressão
+# 37: Relação entre idade e resistência à compressão
 # group_by(): Organiza os dados de acordo com a idade dos corpos de prova.
 # summarise(): Calcula a resistência média para cada idade.
 # arrange(): Organiza os resultados em ordem crescente de idade.
@@ -1030,8 +1056,7 @@ Assim, os dados indicam um aumento da resistência entre 7 e 14 dias, seguido de
 Essa variação merece investigação, pois a resistência do concreto normalmente tende a aumentar com a idade, especialmente nas primeiras idades. A presença de diferenças entre os resultados pode estar relacionada à variabilidade dos corpos de prova e a outros fatores, como classe do concreto, relação água/cimento e condições de produção e cura.
 
 ```{r}
-#| echo: false
-# Questão 38: Tabela-resumo para acompanhamento da qualidade do concreto
+# 38: Tabela-resumo para acompanhamento da qualidade do concreto
 # group_by(): Organiza os dados por tipo de concreto.
 # summarise(): Calcula as principais estatísticas para o acompanhamento da qualidade.
 # n(): Informa a quantidade de registros de cada classe.
@@ -1064,434 +1089,16 @@ O desvio padrão foi utilizado para avaliar a variabilidade dos resultados. Valo
 
 A utilização do group_by() em conjunto com summarise() permite que todas essas informações sejam calculadas simultaneamente para cada tipo de concreto. Dessa forma, a tabela fornece ao engenheiro uma visão geral e organizada do desempenho e da variabilidade das diferentes classes, auxiliando no acompanhamento da qualidade do concreto.
 
-### Desafio Final
 
-``` {r}
-# ============================================================
-# DESAFIO FINAL — O ENGENHEIRO RESPONSÁVEL PELOS DADOS
-# Controle tecnológico do concreto
-# ============================================================
-
-# ============================================================
-# ETAPA 1 — CARREGAMENTO DOS PACOTES E DA BASE
-# ============================================================
-
-library(tidyverse)
-
-# Importação da base de dados
-dados <- read_csv2(
-  "base_processamento_dados_engenharia_civil.csv",
-  locale = locale(decimal_mark = "."),
-  show_col_types = FALSE
-)
-
-# Inspeção inicial da estrutura da base
-glimpse(dados)
-
-# Visualização das primeiras observações
-dados |>
-  slice_head(n = 10)
-
-
-# ============================================================
-# ETAPA 2 — INSPEÇÃO E IDENTIFICAÇÃO DE POSSÍVEIS PROBLEMAS
-# ============================================================
-
-# Verificação das categorias existentes em tipo_concreto
-dados |>
-  count(tipo_concreto, sort = TRUE)
-
-# Verificação das categorias existentes em obra
-dados |>
-  count(obra, sort = TRUE)
-
-# Verificação de possíveis diferenças de preenchimento em obra
-dados |>
-  distinct(obra) |>
-  arrange(obra)
-
-# Identificação de valores ausentes em cada variável
-dados |>
-  summarise(
-    across(
-      everything(),
-      ~ sum(is.na(.x))
-    )
-  )
-
-# Localização dos registros que apresentam algum valor ausente
-dados |>
-  filter(
-    if_any(
-      everything(),
-      is.na
-    )
-  )
-
-
-# ============================================================
-# ETAPA 3 — LIMPEZA E PADRONIZAÇÃO DOS DADOS
-# ============================================================
-
-dados_limpos <- dados |>
-  mutate(
-    # Padronização dos textos da variável obra
-    obra = str_trim(obra),
-    obra = str_squish(obra),
-
-    # Padronização da classe do concreto
-    tipo_concreto = str_trim(tipo_concreto),
-    tipo_concreto = str_to_upper(tipo_concreto),
-    tipo_concreto = str_replace_all(tipo_concreto, "-", "")
-  ) |>
-  mutate(
-    # Conversão das variáveis quantitativas para formato numérico.
-    # A substituição de "O" por "0" corrige possíveis erros de digitação.
-    across(
-      -(1:3),
-      ~ as.character(.x) |>
-        str_replace_all("O", "0") |>
-        str_replace_all(",", ".") |>
-        parse_double()
-    )
-  )
-
-
-# ============================================================
-# ETAPA 4 — CORREÇÃO DE VALORES INCONSISTENTES
-# ============================================================
-
-# Algumas observações apresentam valores incompatíveis com
-# as unidades esperadas. As correções abaixo procuram recuperar
-# a escala provável dos dados sem alterar os valores que já
-# estavam dentro de uma faixa coerente.
-
-dados_limpos <- dados_limpos |>
-  mutate(
-    # Valores de abatimento acima de 300 mm são interpretados
-    # como erro de escala.
-    abatimento_mm = if_else(
-      abatimento_mm > 300,
-      abatimento_mm / 10,
-      abatimento_mm
-    ),
-
-    # Valores de densidade abaixo de 1000 kg/m³ são interpretados
-    # como erro de escala.
-    densidade_kg_m3 = if_else(
-      densidade_kg_m3 < 1000,
-      densidade_kg_m3 * 10,
-      densidade_kg_m3
-    ),
-
-    # Valores de consumo de cimento acima de 1000 kg/m³
-    # são interpretados como erro de escala.
-    cimento_kg_m3 = if_else(
-      cimento_kg_m3 > 1000,
-      cimento_kg_m3 / 10,
-      cimento_kg_m3
-    ),
-
-    # Valores de absorção acima de 10% são tratados como
-    # possível erro de escala.
-    absorção_agregado_pct = if_else(
-      absorção_agregado_pct > 10,
-      absorção_agregado_pct / 10,
-      absorção_agregado_pct
-    ),
-
-    # Idades muito elevadas são verificadas como possível
-    # erro de digitação/escala.
-    idade_dias = if_else(
-      idade_dias > 200,
-      idade_dias / 10,
-      idade_dias
-    )
-  )
-
-
-# ============================================================
-# ETAPA 5 — VERIFICAÇÃO DA BASE APÓS A LIMPEZA
-# ============================================================
-
-glimpse(dados_limpos)
-
-# Verificação das classes de concreto após a padronização
-dados_limpos |>
-  count(tipo_concreto, sort = TRUE)
-
-# Verificação dos valores ausentes após o tratamento
-dados_limpos |>
-  summarise(
-    across(
-      everything(),
-      ~ sum(is.na(.x))
-    )
-  )
-
-
-# ============================================================
-# ETAPA 6 — ESTATÍSTICAS DESCRITIVAS GERAIS
-# ============================================================
-
-resumo_geral <- dados_limpos |>
-  summarise(
-    n_observacoes = sum(!is.na(resistencia_mpa)),
-    resistencia_media = mean(resistencia_mpa, na.rm = TRUE),
-    resistencia_mediana = median(resistencia_mpa, na.rm = TRUE),
-    desvio_padrao = sd(resistencia_mpa, na.rm = TRUE),
-    resistencia_minima = min(resistencia_mpa, na.rm = TRUE),
-    resistencia_maxima = max(resistencia_mpa, na.rm = TRUE)
-  )
-
-resumo_geral
-
-
-# ============================================================
-# ETAPA 7 — ESTATÍSTICAS POR TIPO DE CONCRETO
-# ============================================================
-
-resumo_classes <- dados_limpos |>
-  group_by(tipo_concreto) |>
-  summarise(
-    n_observacoes = sum(!is.na(resistencia_mpa)),
-    resistencia_media = mean(resistencia_mpa, na.rm = TRUE),
-    resistencia_mediana = median(resistencia_mpa, na.rm = TRUE),
-    desvio_padrao = sd(resistencia_mpa, na.rm = TRUE),
-    resistencia_minima = min(resistencia_mpa, na.rm = TRUE),
-    resistencia_maxima = max(resistencia_mpa, na.rm = TRUE),
-    .groups = "drop"
-  ) |>
-  arrange(desc(resistencia_media))
-
-resumo_classes
-
-
-# ============================================================
-# ETAPA 8 — PRIMEIRA VARIÁVEL DERIVADA
-# RESISTÊNCIA DE REFERÊNCIA E RESISTÊNCIA RELATIVA
-# ============================================================
-
-# A resistência de referência foi definida de acordo com a
-# classe nominal do concreto:
-# C25 = 25 MPa
-# C30 = 30 MPa
-# C35 = 35 MPa
-# C40 = 40 MPa
-
-dados_limpos <- dados_limpos |>
-  mutate(
-    resistencia_referencia = case_when(
-      tipo_concreto == "C25" ~ 25,
-      tipo_concreto == "C30" ~ 30,
-      tipo_concreto == "C35" ~ 35,
-      tipo_concreto == "C40" ~ 40,
-      TRUE ~ NA_real_
-    ),
-
-    # Razão entre a resistência observada e a resistência
-    # de referência da respectiva classe.
-    resistencia_relativa =
-      resistencia_mpa / resistencia_referencia
-  )
-
-
-# ============================================================
-# ETAPA 9 — SEGUNDA VARIÁVEL DERIVADA
-# CLASSIFICAÇÃO DO RESULTADO
-# ============================================================
-
-dados_limpos <- dados_limpos |>
-  mutate(
-    classificacao = case_when(
-      is.na(resistencia_mpa) ~ "Sem Dado",
-      resistencia_mpa >= resistencia_referencia ~ "Conforme",
-      resistencia_mpa >= 0.90 * resistencia_referencia ~ "Atenção",
-      resistencia_mpa < 0.90 * resistencia_referencia ~ "Não Conforme"
-    )
-  )
-
-# Quantidade de registros por classificação
-dados_limpos |>
-  count(classificacao, sort = TRUE)
-
-
-# ============================================================
-# ETAPA 10 — ANÁLISE DO COMPORTAMENTO POR OBRA
-# ============================================================
-
-comparacao_obras <- dados_limpos |>
-  group_by(obra) |>
-  summarise(
-    n_observacoes = sum(!is.na(resistencia_mpa)),
-    resistencia_media = mean(resistencia_mpa, na.rm = TRUE),
-    resistencia_mediana = median(resistencia_mpa, na.rm = TRUE),
-    desvio_padrao = sd(resistencia_mpa, na.rm = TRUE),
-    .groups = "drop"
-  ) |>
-  arrange(desc(resistencia_media))
-
-comparacao_obras
-
-
-# ============================================================
-# ETAPA 11 — ANÁLISE DA IDADE E RESISTÊNCIA
-# ============================================================
-
-resistencia_por_idade <- dados_limpos |>
-  group_by(idade_dias) |>
-  summarise(
-    n_observacoes = sum(!is.na(resistencia_mpa)),
-    resistencia_media = mean(resistencia_mpa, na.rm = TRUE),
-    .groups = "drop"
-  ) |>
-  arrange(idade_dias)
-
-resistencia_por_idade
-
-
-# ============================================================
-# ETAPA 12 — GRÁFICO 1
-# DISTRIBUIÇÃO DA RESISTÊNCIA POR TIPO DE CONCRETO
-# ============================================================
-
-dados_limpos |>
-  ggplot(
-    aes(
-      x = tipo_concreto,
-      y = resistencia_mpa
-    )
-  ) +
-  geom_boxplot(na.rm = TRUE) +
-  labs(
-    title = "Distribuição da resistência à compressão por tipo de concreto",
-    x = "Tipo de concreto",
-    y = "Resistência à compressão (MPa)"
-  ) +
-  theme_minimal()
-
-
-# ============================================================
-# ETAPA 13 — GRÁFICO 2
-# RELAÇÃO ENTRE CONSUMO DE CIMENTO E RESISTÊNCIA
-# ============================================================
-
-dados_limpos |>
-  ggplot(
-    aes(
-      x = cimento_kg_m3,
-      y = resistencia_mpa
-    )
-  ) +
-  geom_point(na.rm = TRUE) +
-  geom_smooth(
-    method = "lm",
-    se = TRUE,
-    na.rm = TRUE
-  ) +
-  labs(
-    title = "Relação entre consumo de cimento e resistência à compressão",
-    x = "Consumo de cimento (kg/m³)",
-    y = "Resistência à compressão (MPa)"
-  ) +
-  theme_minimal()
-
-
-# ============================================================
-# ETAPA 14 — GRÁFICO 3
-# RELAÇÃO ENTRE IDADE E RESISTÊNCIA MÉDIA
-# ============================================================
-
-resistencia_por_idade |>
-  ggplot(
-    aes(
-      x = idade_dias,
-      y = resistencia_media
-    )
-  ) +
-  geom_point() +
-  geom_line() +
-  labs(
-    title = "Resistência média à compressão em função da idade",
-    x = "Idade do corpo de prova (dias)",
-    y = "Resistência média à compressão (MPa)"
-  ) +
-  theme_minimal()
-
-
-# ============================================================
-# ETAPA 15 — INFORMAÇÕES PARA AUXILIAR O ENGENHEIRO
-# ============================================================
-
-# Percentual de registros em cada classificação
-informacoes_engenheiro <- dados_limpos |>
-  count(classificacao) |>
-  mutate(
-    percentual = n / sum(n) * 100
-  ) |>
-  arrange(desc(n))
-
-informacoes_engenheiro
-
-
-# Resistência média e quantidade de resultados por obra
-dados_limpos |>
-  group_by(obra) |>
-  summarise(
-    n_observacoes = sum(!is.na(resistencia_mpa)),
-    resistencia_media = mean(resistencia_mpa, na.rm = TRUE),
-    .groups = "drop"
-  ) |>
-  arrange(desc(resistencia_media))
-
-
-# Identificação dos registros classificados como "Não Conforme"
-dados_limpos |>
-  filter(classificacao == "Não Conforme") |>
-  select(
-    id_corpo_prova,
-    obra,
-    tipo_concreto,
-    idade_dias,
-    resistencia_mpa,
-    resistencia_referencia,
-    resistencia_relativa,
-    classificacao
-  )
-
-
-# ============================================================
-# ETAPA 16 — TABELA FINAL PARA O RELATÓRIO
-# ============================================================
-
-tabela_final <- dados_limpos |>
-  select(
-    id_corpo_prova,
-    obra,
-    tipo_concreto,
-    idade_dias,
-    resistencia_mpa,
-    cimento_kg_m3,
-    relacao_a_c,
-    abatimento_mm,
-    densidade_kg_m3,
-    absorção_agregado_pct,
-    resistencia_referencia,
-    resistencia_relativa,
-    classificacao
-  )
-
-tabela_final
-```
 **Reflexão final**
 
-A principal diferença entre utilizar Base R e a família tidyverse está na forma de organizar e expressar as operações de processamento. O Base R oferece funções mais tradicionais e flexíveis, enquanto o tidyverse apresenta uma estrutura mais padronizada, na qual funções como filter(), select(), mutate(), summarise() e group_by() permitem construir uma sequência de transformação dos dados de maneira mais legível. Além disso, ferramentas como across(), stringr, tidyr e ggplot2 facilitam a aplicação das mesmas operações a várias variáveis, o tratamento de textos, a reorganização dos dados e a produção de gráficos.
+A principal diferença entre utilizar Base R e a família `tidyverse` está na forma de organizar e expressar as operações de processamento. O R oferece funções mais tradicionais e flexíveis, enquanto o `tidyverse` apresenta uma estrutura mais padronizada, na qual funções como `filter()`, `select()`, `mutate()`, `summarise()` e `group_by()` permitem construir uma sequência de transformação dos dados de maneira mais legível. Além disso, ferramentas como `across()`, `stringr`, `tidyr` e `ggplot2` facilitam a aplicação das mesmas operações a várias variáveis, o tratamento de textos, a reorganização dos dados e a produção de gráficos.
 
 O processamento e a limpeza dos dados são etapas fundamentais antes da aplicação de métodos estatísticos na Engenharia Civil porque resultados incorretos ou inconsistentes podem comprometer diretamente a interpretação do desempenho dos materiais. Erros de digitação, unidades incorretas, categorias duplicadas e valores ausentes precisam ser identificados antes da análise para evitar conclusões equivocadas e fornecer informações confiáveis para a tomada de decisões técnicas.
 
 O principal problema identificado na base foi a presença de inconsistências de preenchimento e de escala, incluindo diferenças na forma de registrar categorias, valores numéricos incompatíveis com as unidades esperadas e registros ausentes. Como decisão de tratamento, os textos foram padronizados e os valores que apresentavam indícios claros de erro de escala foram corrigidos de acordo com a unidade esperada, enquanto os valores ausentes foram mantidos como NA, evitando a criação de valores artificiais.
 
-Foram utilizadas principalmente funções da família tidyverse, como read_csv2(), glimpse(), count(), distinct(), filter(), select(), mutate(), summarise(), group_by(), across(), case_when(), if_else(), str_trim(), str_squish(), str_to_upper(), str_replace_all(), parse_double() e funções do ggplot2.
+Foram utilizadas principalmente funções da família tidyverse, como `read_csv2()`, `glimpse()`, `count()`, `distinct()`, `filter()`, `select()`, `mutate()`, `summarise()`, `group_by()`, `across()`, `case_when()`, `if_else()`, `str_trim()`, `str_squish()`, `str_to_upper()`, `str_replace_all()`, `parse_double()` e funções do `ggplot2`.
 
 A solução é adequada porque organiza o processamento em etapas claramente identificadas, registra as decisões por meio de comentários e produz uma base limpa acompanhada de estatísticas, variáveis derivadas e representações gráficas. Dessa forma, outro profissional consegue compreender o procedimento realizado, reproduzir a análise e utilizar os resultados como apoio ao acompanhamento do controle tecnológico do concreto.
 
