@@ -36,7 +36,6 @@ A linguagem de programação R destaca-se como uma ferramenta para análise esta
 Dessa forma, esta atividade tem como objetivo explorar, visualizar e comunicar dados relacionados ao controle tecnológico do concreto, aplicando diferentes sistemas gráficos da linguagem R. Busca-se, por meio dessas ferramentas, desenvolver a capacidade de selecionar representações gráficas adequadas, interpretar os resultados obtidos e compreender como a visualização de dados pode auxiliar na análise e na tomada de decisões no contexto da Engenharia Civil.
 
 
-
 ## 🎯 Objetivos
 
 ### Objetivo geral
