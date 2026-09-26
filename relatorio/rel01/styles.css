@@ -16,9 +16,16 @@
   text-indent: 0;
 }
 
+#quarto-document-content h5 {
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+}
+
+
 /* Itens de listas */
 #quarto-document-content li {
   text-align: justify !important;
+  margin-bottom: 0.6em;
 }
 
 .tabela-dados {
