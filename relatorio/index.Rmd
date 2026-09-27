@@ -178,5 +178,8 @@ Relatórios desenvolvidos:
 - [Relatório 01 (24/08/2026)](rel01/index.html){target="_blank"}
 - [Relatório 02 (31/08/2026)](rel02/index.html){target="_blank"}
 - [Relatório 03 (07/09/2026)](rel03/index.html){target="_blank"}
-- [Relatório 04 (XX/XX/XXXX)](rel04/index.html){target="_blank"}
+- [Relatório 04 (28/09/2026)](rel04/index.html){target="_blank"}
+- [Relatório 05 (xx/xx/2026)](rel05/index.html){target="_blank"}
+- [Relatório 06 (xx/xx/2026)](rel06/index.html){target="_blank"}
+- [Relatório 07 (xx/xx/2026)](rel07/index.html){target="_blank"}
 - ...
