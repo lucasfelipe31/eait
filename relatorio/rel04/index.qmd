@@ -15,7 +15,7 @@ format:
     toc: true
     number-sections: true
     theme: bootstrap
-    #css: styles.css
+    css: styles.css
     code-fold: true
     code-tools: true
 execute:
@@ -61,7 +61,7 @@ Os gráficos podem ser utilizados para diferentes finalidades, como comparar car
 
 A linguagem R apresenta diferentes recursos para a construção de visualizações estatísticas. O **Base R** disponibiliza funções gráficas nativas, como `plot()`, `hist()`, `boxplot()` e `barplot()`, que permitem produzir gráficos de dispersão, histogramas, boxplots e gráficos de barras, respectivamente. Esses recursos possibilitam realizar análises exploratórias diretamente a partir das estruturas básicas da linguagem.
 
-Outro importante sistema de visualização é o **ggplot2**, baseado na chamada gramática dos gráficos. Nesse sistema, os gráficos são construídos a partir da combinação entre os dados, o mapeamento estético definido por `aes()`, geometrias (`geom_*()`), escalas, camadas, facetas e temas. Essa estrutura permite produzir representações mais flexíveis e sistemáticas, adequadas à comparação de grupos e à investigação de relações entre variáveis. A utilização do `ggplot2` é também indicada na bibliografia da disciplina como ferramenta para análise e visualização de dados.
+Outro importante sistema de visualização é o **ggplot2**, baseado na chamada gramática dos gráficos. Nesse sistema, os gráficos são construídos a partir da combinação entre os dados, o mapeamento estético definido por `aes()`, geometrias (`geom_*()`), escalas, camadas, facetas e temas. Essa estrutura permite produzir representações mais flexíveis e sistemáticas, adequadas à comparação de grupos e à investigação de relações entre variáveis. A utilização do `ggplot2` é também indicada na bibliografia da disciplina como ferramenta para análise e visualização de dados [@ggplot2].
 
 Além dos gráficos estáticos, a linguagem R permite desenvolver visualizações interativas. O pacote **plotly** possibilita transformar gráficos, inclusive objetos produzidos pelo `ggplot2`, em representações interativas, permitindo ao usuário explorar informações por meio de recursos como movimentação do cursor e identificação de valores. O **highcharter**, por sua vez, oferece recursos avançados para construção de gráficos interativos, ampliando as possibilidades de apresentação dos resultados.
 
@@ -94,10 +94,10 @@ A metodologia adotada, portanto, foi estruturada em quatro etapas principais: **
 ## 🔍 Resultados e Discussão
 
 
+A análise de dados constitui uma ferramenta importante para o acompanhamento e a tomada de decisões em empreendimentos de Engenharia Civil, uma vez que permite integrar informações relacionadas às características das obras, aos custos, aos prazos de execução, ao desempenho dos materiais empregados e a outros indicadores associados à qualidade e à gestão dos empreendimentos. Nesse contexto, a representação gráfica dos dados contribui para a identificação de padrões, tendências, diferenças entre grupos e possíveis situações atípicas que poderiam ser menos perceptíveis por meio da análise exclusivamente numérica.
 
-A análise gráfica da base de dados busca transformar os registros das obras em informação visual útil à Engenharia Civil, combinando inspeção dos dados, estatísticas descritivas e diferentes sistemas de visualização disponíveis no R. Para isso, são utilizados **Base R**, **ggplot2**, **plotly**, **highcharter** e **leaflet**, de acordo com a finalidade de cada representação.
+Além disso, a análise gráfica de determinada base de dados busca transformar os registros das obras em informação visual útil à Engenharia Civil, combinando inspeção dos dados, estatísticas descritivas e diferentes sistemas de visualização disponíveis no R. Para isso, são utilizados **Base R**, **ggplot2**, **plotly**, **highcharter** e **leaflet**, de acordo com a finalidade de cada representação.
 
-Os códigos foram organizados de forma didática e comentada. Sempre que possível, utiliza-se o operador `|>` para manter o fluxo de transformação dos dados explícito antes da visualização.
 
 ```{r}
 library(ggplot2)
@@ -113,8 +113,7 @@ dados <- read.csv(
   stringsAsFactors = FALSE,
   fileEncoding = "UTF-8"
 )
-```
-```{r}
+
 # Primeiras seis observações
 head(dados)
 
@@ -123,38 +122,1304 @@ tail(dados)
 
 # Dimensões: número de linhas e número de colunas
 dim(dados)
-```
-A importação resulta em uma base com **300 observações e 11 variáveis**. A inspeção das primeiras e últimas linhas mostra que os registros foram lidos em colunas distintas e com os nomes esperados, não havendo indício inicial de deslocamento de colunas ou falha de separação durante a leitura.
 
-
-### Dimensões da base
-
-```{r}
 # Número de observações (linhas)
 nrow(dados)
 
 # Número de variáveis (colunas)
 ncol(dados)
 
-# A função dim() fornece os dois valores simultaneamente
-dim(dados)
 ```
 
-A base contém **300 obras** e **11 variáveis**. Portanto, cada linha representa uma obra e cada coluna armazena uma característica associada a essa obra.
+A base de dados utilizada neste estudo reúne informações referentes a 300 obras distribuídas em diferentes regiões do Brasil, contemplando empreendimentos residenciais, comerciais, industriais e de infraestrutura. Para cada obra, são disponibilizadas informações referentes à área construída, custo total, prazo de execução, resistência à compressão do concreto, consumo de cimento, índice de falhas, satisfação do cliente e adoção de práticas sustentáveis, além de variáveis destinadas à identificação e à classificação dos empreendimentos.
 
-### 💬 Exemplo de como citar uma referência bibliográfica
+Sob a perspectiva da Engenharia Civil, essas variáveis possibilitam avaliar diferentes dimensões do desempenho das obras. A área construída, o custo total e o prazo de execução estão diretamente relacionados ao planejamento e à gestão dos empreendimentos, enquanto a resistência à compressão e o consumo de cimento fornecem informações relacionadas ao controle tecnológico do concreto. De forma complementar, o índice de falhas permite investigar aspectos associados à qualidade da execução, ao passo que a satisfação do cliente e a adoção de práticas sustentáveis ampliam a análise para dimensões relacionadas ao desempenho do empreendimento e às práticas contemporâneas de gestão e sustentabilidade na construção civil.
 
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
+Antes da elaboração das representações gráficas, realizou-se uma inspeção inicial da base, etapa necessária para verificar sua estrutura, dimensões e organização. A base é constituída por 300 observações e 11 variáveis, sendo cada observação correspondente a uma obra. A análise inicial também permite reconhecer os diferentes tipos de variáveis presentes no conjunto de dados e, consequentemente, selecionar técnicas de visualização compatíveis com a natureza das informações analisadas.
 
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
+A exploração gráfica apresentada nas seções seguintes busca, portanto, transformar os registros individuais das obras em informações visualmente interpretáveis, permitindo comparar grupos de empreendimentos, analisar a distribuição de indicadores, investigar associações entre variáveis e identificar padrões relevantes para o contexto da Engenharia Civil. Para isso, são empregados diferentes sistemas gráficos disponíveis na linguagem R, selecionados de acordo com a finalidade de cada análise e com as características dos dados representados.
 
-### 📊  Análise de Dados
+Cada linha representa uma obra e cada coluna armazena uma característica associada a essa obra.
+
+
+### Estrutura e tipos das variáveis
+
+A estrutura da base, examinada por meio das funções `str()` e `glimpse()`, identificando-se, de forma resumida, o tipo de dado associado a cada variável. 
 
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+# Estrutura da base no Base R
+str(dados)
+
+# Estrutura apresentada pelo dplyr/tibble
+glimpse(dados)
+
+# Classes atribuídas pelo R a cada coluna
+sapply(dados, class)
+
+# Identificação automática das colunas numéricas
+variaveis_numericas <- names(dados)[sapply(dados, is.numeric)]
+variaveis_numericas
+
+# Identificação automática das colunas não numéricas
+variaveis_qualitativas <- names(dados)[!sapply(dados, is.numeric)]
+variaveis_qualitativas
 ```
+
+Foram reconhecidas como quantitativas as variáveis `area_construida`, `custo_total`, `prazo_meses`, `resistencia_mpa`, `consumo_cimento`, `indice_falhas` e `satisfacao`, pois apresentam valores numéricos que representam medidas, contagens ou indicadores passíveis de operações matemáticas.
+
+As variáveis `tipo_obra`, `regiao` e `sustentavel` foram reconhecidas como qualitativas, pois representam categorias ou classificações das obras, tendo sido reconhecidas como caracteres. Embora `id_obra` possa ser armazenada pelo R como variável numérica, sua função é exclusivamente identificar cada empreendimento, não devendo ser interpretada como uma variável quantitativa para fins de análise estatística.
+
+A variável `indice_falhas` é numérica discreta, enquanto as medidas de área, custo, resistência, consumo de cimento e satisfação são tratadas numericamente no banco.
+
+### Síntese descritiva das variáveis
+
+A função `summary()` foi utilizada para obter uma visão geral da distribuição das variáveis da base, apresentando medidas como valores mínimo e máximo, quartis, mediana e média para as variáveis quantitativas, além de informações sobre as categorias das variáveis qualitativas. Essa análise inicial permite verificar a amplitude dos dados e identificar valores que mereçam atenção antes da elaboração das representações gráficas.
+
+```{r}
+# Resumo geral da base
+summary(dados)
+```
+
+De modo geral, os resultados apresentam valores compatíveis com diferentes tipos e portes de empreendimentos da Engenharia Civil. A área construída varia de 45,9 m² a 1.855,9 m², enquanto o custo total varia de aproximadamente R$ 112 mil a R$ 6,53 milhões, amplitudes que podem ser justificadas pela presença de obras residenciais, comerciais, industriais e de infraestrutura. Os prazos de execução, entre 6 e 36 meses, também se encontram em uma faixa plausível para empreendimentos com características distintas.
+
+Em relação ao controle tecnológico do concreto, a resistência à compressão varia de 17,82 MPa a 44,43 MPa, com média de 32,18 MPa. Esses valores não demonstram, isoladamente, incompatibilidade evidente, uma vez que diferentes obras podem especificar concretos com diferentes classes de resistência. Entretanto, o valor mínimo de 17,82 MPa merece atenção em análises posteriores, pois sua adequação depende da aplicação do concreto e da resistência especificada em projeto.
+
+O consumo de cimento apresentou maior amplitude, variando de 188,4 kg/m³ a 467,6 kg/m³. Embora esses valores possam ocorrer em diferentes dosagens, especialmente considerando concretos com requisitos distintos de resistência e desempenho, os extremos merecem ser investigados em conjunto com a resistência obtida e com as características de cada empreendimento. Particularmente, consumos mais baixos podem demandar atenção quando associados a concretos destinados a funções estruturais ou submetidos a requisitos específicos de durabilidade.
+
+Quanto aos demais indicadores, o índice de falhas varia de 0 a 7 ocorrências, enquanto a satisfação dos clientes apresenta valores entre 1 e 10, respeitando os limites definidos para essa variável. Assim, a análise pelo `summary()` não evidencia valores claramente impossíveis ou incompatíveis com o contexto apresentado, mas identifica alguns valores extremos que podem ser explorados posteriormente por meio de gráficos e análises comparativas.
+
+### Verificação de valores ausentes
+
+A verificação de valores ausentes é uma etapa importante da análise exploratória, pois permite identificar possíveis lacunas que poderiam comprometer cálculos estatísticos, comparações e representações gráficas posteriores. No contexto de dados de obras, essa conferência ajuda a assegurar que informações como custo, prazo, resistência do concreto e demais indicadores estejam devidamente registradas.
+
+
+```{r}
+# Quantidade total de valores ausentes
+n_ausentes <- sum(is.na(dados))
+n_ausentes
+
+# Quantidade de valores ausentes por variável
+ausentes_por_variavel <- colSums(is.na(dados))
+ausentes_por_variavel
+
+# Linhas que apresentam pelo menos um valor ausente
+linhas_com_ausentes <- which(!complete.cases(dados))
+linhas_com_ausentes
+
+# Caso existam linhas incompletas, este comando as mostrará
+if (length(linhas_com_ausentes) > 0) {
+  dados[linhas_com_ausentes, ]
+}
+```
+
+Os resultados mostram que a base não apresenta valores ausentes. O total de valores NA identificado foi zero, e todas as variáveis apresentaram contagem igual a 0 para dados faltantes.
+
+Além disso, o resultado integer(0) indica que nenhuma observação da base contém valores ausentes. Portanto, não há linhas específicas que necessitem de tratamento, exclusão ou imputação por ausência de dados. A base encontra-se, nesse aspecto, completa e adequada para prosseguir com as etapas de análise gráfica e estatística.
+
+---
+
+### Visualizações com Base R
+
+
+As funções gráficas do Base R permitem realizar uma exploração visual inicial dos dados de forma direta, possibilitando identificar distribuições, tendências, associações entre variáveis e observações atípicas. Nesta etapa, essas ferramentas são aplicadas às informações das obras para avaliar aspectos relevantes do desempenho e dos custos dos empreendimentos.
+
+#### Relação entre área construída e custo total
+
+```{r}
+# Gráfico de dispersão no Base R
+plot(
+  dados$area_construida,
+  dados$custo_total,
+  main = "Área construída × custo total",
+  xlab = "Área construída (m²)",
+  ylab = "Custo total (R$)",
+  pch = 19,
+  col = "steelblue",
+  cex = 0.8
+)
+
+# Correlação linear como medida auxiliar à interpretação visual
+cor_area_custo <- cor(
+  dados$area_construida,
+  dados$custo_total
+)
+cor_area_custo
+
+# Modelo linear simples apenas como apoio descritivo para identificar
+# obras que se afastam bastante da tendência geral.
+modelo_area_custo <- lm(
+  custo_total ~ area_construida,
+  data = dados
+)
+
+# Adiciona a reta de tendência ao gráfico
+abline(modelo_area_custo, col = "red", lwd = 2, lty = 2)
+
+# Calcula os resíduos: diferença entre custo observado e custo estimado
+analise_residuos <- dados |>
+  mutate(
+    custo_estimado = predict(modelo_area_custo),
+    residuo = custo_total - custo_estimado
+  )
+
+# Cinco obras mais acima da tendência linear
+analise_residuos |>
+  arrange(desc(residuo)) |>
+  select(id_obra, tipo_obra, regiao, area_construida, custo_total, residuo) |>
+  head(5)
+
+# Cinco obras mais abaixo da tendência linear
+analise_residuos |>
+  arrange(residuo) |>
+  select(id_obra, tipo_obra, regiao, area_construida, custo_total, residuo) |>
+  head(5)
+```
+
+O gráfico de dispersão evidencia uma relação positiva entre a área construída e o custo total das obras, indicando que, de modo geral, empreendimentos com maiores áreas apresentam custos mais elevados. Essa associação também é confirmada pelo coeficiente de correlação obtido, de aproximadamente 0,806, que indica uma relação linear positiva relativamente forte entre as duas variáveis. Ainda assim, a dispersão dos pontos demonstra que a área construída, isoladamente, não explica toda a variação dos custos, o que é coerente com o contexto da Engenharia Civil, no qual fatores como tipo de obra, padrão construtivo, localização, materiais e complexidade de execução também influenciam o custo final.
+
+A comparação dos valores observados com a linha de tendência permite identificar obras cujo custo se encontra consideravelmente acima ou abaixo do esperado para sua área construída. Entre os maiores desvios positivos destacam-se as obras de identificadores 201, 243, 210, 8 e 53, cujos custos superam o valor estimado pela relação linear em aproximadamente R$ 2,15 milhões a R$ 2,76 milhões. As obras 201, 243, 8 e 53 são classificadas como infraestrutura, sugerindo que características específicas desse tipo de empreendimento podem contribuir para custos elevados mesmo quando possuem áreas semelhantes às de outras obras.
+
+No sentido oposto, as obras 92, 285, 14, 21 e 99 apresentaram os maiores resíduos negativos, com custos entre aproximadamente R$ 1,34 milhão e R$ 1,79 milhão abaixo do valor estimado pela tendência geral. A maioria desses casos corresponde a obras industriais. Esses resultados não significam necessariamente erro ou anormalidade nos registros, mas indicam empreendimentos que merecem análise mais detalhada quanto às suas características específicas. Observa-se ainda uma maior dispersão dos custos entre as obras de maior área, reforçando que outros fatores, além da dimensão construída, tornam-se relevantes para explicar as diferenças de custo entre os empreendimentos.
+
+
+#### Distribuição da resistência à compressão
+
+O histograma permite avaliar como os valores de resistência à compressão do concreto se distribuem entre as obras, facilitando a identificação da faixa de maior concentração dos resultados, da forma da distribuição e de possíveis valores extremos.
+
+
+```{r}
+# Média da resistência
+media_resistencia <- mean(dados$resistencia_mpa)
+media_resistencia
+
+# Histograma da resistência à compressão
+hist(
+  dados$resistencia_mpa,
+  breaks = 10,
+  col = "lightblue",
+  border = "white",
+  main = "Distribuição da resistência à compressão",
+  xlab = "Resistência (MPa)"
+)
+
+# Linha vertical indicando a média
+abline(
+  v = media_resistencia,
+  col = "red",
+  lwd = 2,
+  lty = 2
+)
+
+# Mediana para comparação com a média
+median(dados$resistencia_mpa)
+```
+A distribuição apresenta formato aproximadamente simétrico, com concentração principal dos valores entre cerca de 27 MPa e 38 MPa. A média da resistência foi de 32,18 MPa, representada pela linha vertical tracejada, enquanto a mediana foi de 31,94 MPa. A proximidade entre essas duas medidas reforça a interpretação de que não há assimetria acentuada na distribuição.
+
+Observa-se, entretanto, a presença de alguns valores nas extremidades, especialmente uma resistência próxima de 18 MPa e resultados superiores a 44 MPa. Esses valores são menos frequentes em relação à região central da distribuição, mas não podem ser considerados incompatíveis com o contexto da Engenharia Civil apenas com base no histograma, pois a resistência requerida depende da classe do concreto, do elemento estrutural, das condições de exposição e das especificações de projeto. Assim, esses resultados devem ser interpretados como valores extremos da base que merecem atenção, e não necessariamente como inconsistências ou falhas de controle tecnológico.
+
+
+#### Distribuição do custo por tipo de obra
+
+O boxplot permite comparar a distribuição dos custos entre as diferentes categorias de empreendimento, evidenciando diferenças de tendência central, variabilidade e possíveis valores atípicos. Essa comparação é relevante para verificar como o perfil da obra pode estar associado ao custo total do empreendimento.
+
+```{r}
+# Boxplot de custo por tipo de obra
+boxplot(
+  custo_total ~ tipo_obra,
+  data = dados,
+  col = c("lightblue", "lightgreen", "orange", "khaki"),
+  main = "Custo total por tipo de obra",
+  xlab = "Tipo de obra",
+  ylab = "Custo total (R$)",
+  las = 2
+)
+
+# Estatísticas descritivas para apoiar a leitura do boxplot
+resumo_custo_tipo <- dados |>
+  group_by(tipo_obra) |>
+  summarise(
+    n = n(),
+    media = mean(custo_total),
+    mediana = median(custo_total),
+    desvio_padrao = sd(custo_total),
+    .groups = "drop"
+  ) |>
+  arrange(desc(mediana))
+
+resumo_custo_tipo
+
+# Verificação dos outliers segundo a regra padrão do boxplot (1,5 × IQR)
+outliers_por_tipo <- lapply(
+  split(dados$custo_total, dados$tipo_obra),
+  function(x) boxplot.stats(x)$out
+)
+
+outliers_por_tipo
+```
+Os resultados mostram que as obras de Infraestrutura apresentam a maior mediana de custo, aproximadamente R$ 3,87 milhões, seguidas pelas obras Comerciais (R$ 2,88 milhões), Residenciais (R$ 2,48 milhões) e Industriais (R$ 2,14 milhões). A média das obras de Infraestrutura também é a mais elevada, cerca de R$ 3,73 milhões, reforçando a presença de custos superiores nesse grupo.
+
+Quanto à dispersão, as obras de Infraestrutura apresentam a maior variabilidade, com desvio-padrão de aproximadamente R$ 1,55 milhão, enquanto as obras Industriais apresentam a menor, com cerca de R$ 770 mil. Visualmente, o boxplot também evidencia maior amplitude dos custos nas categorias Infraestrutura e Comercial.
+
+Não foram identificados outliers pelo critério utilizado pelo boxplot() do Base R, uma vez que a consulta aos valores extremos retornou numeric(0) para todas as quatro categorias. Portanto, embora existam diferenças consideráveis de custo dentro dos grupos, nenhum valor ultrapassou os limites adotados pelo boxplot para ser classificado como observação atípica.
+
+
+#### Distribuição das obras por região
+
+A distribuição regional das obras permite verificar como os empreendimentos da base estão espacialmente concentrados no território brasileiro. Essa análise possibilita comparar a composição da amostra com a distribuição observada no setor da construção civil entre as grandes regiões do país.
+
+```{r}
+# Tabela de frequências por região
+obras_regiao <- table(dados$regiao)
+obras_regiao
+
+# Percentuais por região
+prop.table(obras_regiao) * 100
+
+# Gráfico de barras
+barplot(
+  obras_regiao,
+  col = heat.colors(length(obras_regiao)),
+  main = "Quantidade de obras por região",
+  xlab = "Região",
+  ylab = "Número de obras",
+  las = 2
+)
+```
+
+Os resultados mostram maior concentração de obras na Região Sudeste, com 101 empreendimentos (33,67%), seguida pelas regiões Nordeste, com 78 (26,00%), e Sul, com 69 (23,00%). O Centro-Oeste reúne 34 obras (11,33%), enquanto o Norte apresenta a menor participação, com 18 empreendimentos (6,00%).
+
+De modo geral, essa ordenação é coerente com a distribuição regional da construção civil brasileira. Dados da Pesquisa Anual da Indústria da Construção (PAIC) do IBGE mostram que, em 2023, o Sudeste concentrou 49,8% do valor das incorporações, obras e serviços da construção, seguido pelo Nordeste (18,1%), Sul (16,2%), Centro-Oeste (9,4%) e Norte (6,5%), mantendo a mesma ordem observada na base analisada. 
+
+Entretanto, as proporções não são equivalentes: na base, o Sudeste está menos representado, enquanto Nordeste e Sul apresentam participações relativamente maiores. Assim, os dados reproduzem de forma razoável o padrão geral de concentração regional da atividade construtiva, mas não devem ser interpretados como uma representação proporcional exata do mercado brasileiro.
+
+---
+
+### Visualizações com ggplot2
+
+O ggplot2 amplia as possibilidades de exploração gráfica ao permitir o mapeamento simultâneo de diferentes características dos dados. Nesse contexto, a utilização de cores por categoria facilita a comparação entre os tipos de obra e permite verificar se a relação entre área construída e custo total se mantém quando os empreendimentos são analisados separadamente.
+
+#### Área construída e custo segundo o tipo de obra
+
+```{r}
+# Gráfico de dispersão com mapeamento da cor para o tipo de obra
+ggplot(
+  dados,
+  aes(
+    x = area_construida,
+    y = custo_total,
+    color = tipo_obra
+  )
+) +
+  geom_point(size = 2.2, alpha = 0.75) +
+  labs(
+    title = "Relação entre área construída e custo total",
+    subtitle = "Pontos diferenciados pelo tipo de obra",
+    x = "Área construída (m²)",
+    y = "Custo total (R$)",
+    color = "Tipo de obra"
+  ) +
+  scale_y_continuous(
+    labels = label_number(
+      prefix = "R$ ",
+      big.mark = ".",
+      decimal.mark = ","
+    )
+  ) +
+  theme_minimal()
+
+# Correlação área × custo em cada tipo de obra
+correlacoes_tipo <- dados |>
+  group_by(tipo_obra) |>
+  summarise(
+    n = n(),
+    correlacao = cor(area_construida, custo_total),
+    custo_medio = mean(custo_total),
+    .groups = "drop"
+  ) |>
+  arrange(desc(custo_medio))
+
+correlacoes_tipo
+```
+
+O padrão identificado anteriormente permanece evidente após a separação por tipo de obra: em todas as categorias há uma forte relação positiva entre área construída e custo total. As correlações variam de aproximadamente 0,934 a 0,950, indicando associação linear elevada dentro de cada grupo. Assim, o aumento da área construída está consistentemente relacionado ao aumento do custo, independentemente do tipo de empreendimento.
+
+A separação por cores, contudo, revela diferenças importantes entre as categorias. As obras de Infraestrutura apresentam o maior custo médio, cerca de R$ 3,73 milhões, e concentram vários dos pontos de maior custo total. Em seguida aparecem as obras Comerciais, com custo médio de aproximadamente R$ 2,95 milhões, enquanto as Residenciais e Industriais apresentam médias menores, de cerca de R$ 2,45 milhões e R$ 2,03 milhões, respectivamente.
+
+Também se observa que obras com áreas semelhantes podem apresentar custos distintos conforme sua classificação. Isso indica que o tipo de obra acrescenta informação relevante à relação entre área e custo, sugerindo que fatores associados à natureza do empreendimento influenciam o custo além da dimensão construída. Entre os grupos, as obras Residenciais apresentam a maior correlação entre área e custo (r ≈ 0,950), embora as diferenças entre as correlações sejam pequenas.
+
+
+
+#### Custo por tipo de obra no ggplot2
+
+A utilização do ggplot2 para representar o custo total por tipo de obra permite manter a mesma análise estatística do boxplot elaborado no Base R, porém com maior controle sobre os elementos visuais e a apresentação gráfica. O preenchimento diferenciado por categoria facilita a comparação entre os grupos e melhora a leitura do gráfico.
+
+```{r}
+ggplot(
+  dados,
+  aes(
+    x = tipo_obra,
+    y = custo_total,
+    fill = tipo_obra
+  )
+) +
+  geom_boxplot(alpha = 0.75) +
+  labs(
+    title = "Distribuição do custo por tipo de obra",
+    x = "Tipo de obra",
+    y = "Custo total (R$)"
+  ) +
+  scale_y_continuous(
+    labels = label_number(
+      prefix = "R$ ",
+      big.mark = ".",
+      decimal.mark = ","
+    )
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    axis.text.x = element_text(angle = 20, hjust = 1)
+  )
+```
+
+A interpretação permanece coerente com o boxplot anterior: as obras de Infraestrutura apresentam a maior mediana de custo e maior dispersão, enquanto as obras Industriais concentram os menores valores centrais e menor variabilidade. Da mesma forma, não são observados outliers visíveis segundo o critério padrão de identificação utilizado pelo boxplot.
+
+Em comparação com o Base R, o ggplot2 oferece vantagens principalmente quanto à personalização e organização visual. O sistema de camadas permite modificar separadamente títulos, eixos, cores, escalas, temas e outros elementos, além de facilitar a padronização estética entre diferentes gráficos do relatório. Neste caso, a formatação monetária do eixo vertical, o preenchimento por categoria e a disposição dos elementos tornam a comparação entre os tipos de obra mais clara e adequada para apresentação dos resultados.
+
+#### Histograma e densidade da resistência
+
+A sobreposição da curva de densidade ao histograma permite visualizar de forma mais contínua o comportamento da resistência à compressão, complementando a leitura obtida apenas pelas frequências das classes e facilitando a identificação do formato geral da distribuição.
+
+```{r}
+ggplot(
+  dados,
+  aes(x = resistencia_mpa)
+) +
+  geom_histogram(
+    aes(y = after_stat(density)),
+    bins = 10,
+    fill = "lightblue",
+    color = "white"
+  ) +
+  geom_density(
+    linewidth = 1,
+    color = "red"
+  ) +
+  geom_vline(
+    xintercept = mean(dados$resistencia_mpa),
+    linetype = "dashed",
+    linewidth = 0.9
+  ) +
+  labs(
+    title = "Distribuição da resistência à compressão",
+    subtitle = "Histograma com curva de densidade",
+    x = "Resistência (MPa)",
+    y = "Densidade"
+  ) +
+  theme_minimal()
+```
+
+A curva de densidade reforça a interpretação realizada no histograma do Base R. Observa-se uma distribuição predominantemente concentrada na faixa central, com maior densidade em torno de 30 a 35 MPa, próxima da média de aproximadamente 32,18 MPa.
+
+O formato da curva indica uma distribuição aproximadamente simétrica, embora não perfeitamente regular, com pequenas variações na região central e caudas pouco pronunciadas nas extremidades. Os valores muito baixos e muito elevados permanecem pouco frequentes, confirmando que representam situações menos comuns dentro da amostra, sem alterar de forma significativa o padrão geral da distribuição.
+
+Assim, a curva de densidade não contradiz a análise anterior; ao contrário, torna mais evidente a concentração dos resultados em torno dos valores centrais e a baixa frequência de resistências extremas.
+
+#### Práticas sustentáveis por tipo de obra
+
+A comparação da adoção de práticas sustentáveis entre os diferentes tipos de obra permite verificar se determinadas categorias apresentam maior incorporação dessas iniciativas. O agrupamento das barras facilita a comparação direta entre obras classificadas como sustentáveis e não sustentáveis dentro de cada categoria.
+
+```{r}
+ggplot(
+  dados,
+  aes(
+    x = tipo_obra,
+    fill = sustentavel
+  )
+) +
+  geom_bar(position = "dodge") +
+  labs(
+    title = "Adoção de práticas sustentáveis por tipo de obra",
+    x = "Tipo de obra",
+    y = "Número de obras",
+    fill = "Sustentável"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 20, hjust = 1)
+  )
+
+# Contagem e percentual dentro de cada tipo de obra
+sustentabilidade_tipo <- dados |>
+  count(tipo_obra, sustentavel, name = "n") |>
+  group_by(tipo_obra) |>
+  mutate(percentual = 100 * n / sum(n)) |>
+  ungroup()
+
+sustentabilidade_tipo
+```
+Os resultados mostram que, em termos absolutos, as obras Residenciais apresentam o maior número de empreendimentos com práticas sustentáveis, com 50 obras, seguidas pelas Comerciais (39), Industriais (21) e de Infraestrutura (13). Entretanto, essa comparação deve considerar o tamanho diferente de cada grupo.
+
+Proporcionalmente, a maior frequência de adoção ocorre nas obras Comerciais, nas quais 48,75% dos empreendimentos são classificados como sustentáveis. Em seguida aparecem as obras Industriais (40,38%) e Residenciais (39,68%). As obras de Infraestrutura apresentam a menor proporção, com 30,95% de adoção.
+
+Assim, embora as obras Residenciais concentrem o maior número absoluto de casos sustentáveis, as Comerciais apresentam a maior frequência relativa de adoção, enquanto as obras de Infraestrutura apresentam a menor. Essa distinção entre valores absolutos e percentuais é importante para evitar interpretações influenciadas apenas pelo número total de obras em cada categoria.
+
+#### Relação entre área e custo nas diferentes regiões
+
+A utilização de facetas por região permite verificar se a associação entre área construída e custo total se mantém quando os empreendimentos são analisados segundo sua localização geográfica. Essa abordagem é útil para identificar diferenças regionais no comportamento dos custos e para avaliar se há padrões específicos que mereçam destaque.
+
+```{r}
+ggplot(
+  dados,
+  aes(
+    x = area_construida,
+    y = custo_total
+  )
+) +
+  geom_point(alpha = 0.65) +
+  geom_smooth(
+    method = "lm",
+    se = FALSE,
+    color = "red"
+  ) +
+  facet_wrap(~regiao) +
+  labs(
+    title = "Área construída × custo total por região",
+    x = "Área construída (m²)",
+    y = "Custo total (R$)"
+  ) +
+  scale_y_continuous(
+    labels = label_number(
+      prefix = "R$ ",
+      big.mark = ".",
+      decimal.mark = ","
+    )
+  ) +
+  theme_minimal()
+
+# Medidas auxiliares para comparar os painéis
+resumo_relacao_regiao <- dados |>
+  group_by(regiao) |>
+  summarise(
+    n = n(),
+    correlacao = cor(area_construida, custo_total),
+    inclinacao = unname(coef(lm(custo_total ~ area_construida))[2]),
+    .groups = "drop"
+  ) |>
+  arrange(desc(correlacao))
+
+resumo_relacao_regiao
+```
+Os gráficos mostram que a relação positiva entre área construída e custo total está presente em todas as regiões, isto é, obras maiores tendem a apresentar custos mais elevados independentemente da localização. As correlações por região confirmam esse padrão, variando de aproximadamente 0,747 no Norte a 0,831 no Sudeste, o que indica associação linear de intensidade moderada a forte em todos os casos.
+
+Apesar da semelhança no comportamento geral, observam-se algumas diferenças entre as regiões. O Sudeste e o Nordeste apresentam as maiores inclinações das retas de tendência, cerca de 3145 e 3142, respectivamente, sugerindo maior aumento do custo total a cada incremento de área construída. Já o Norte apresenta a menor inclinação, aproximadamente 2230, além da menor correlação, o que indica uma relação um pouco menos ajustada em comparação com as demais regiões. Esse resultado, contudo, deve ser interpretado com cautela, pois o Norte também possui o menor número de observações (n = 18), o que pode tornar o padrão visual menos estável.
+
+Assim, não se observa uma ruptura do padrão geral entre as regiões, mas sim variações na intensidade da associação e na dispersão dos dados. Entre elas, o Norte se destaca como o comportamento mais distinto, principalmente pela menor correlação e pela menor inclinação da reta de tendência, enquanto o Sudeste apresenta a associação mais forte e a maior quantidade de observações.
+
+#### Consumo de cimento e resistência à compressão
+
+A construção de um gráfico autoral com múltiplas camadas permite aprofundar a análise exploratória ao combinar diferentes recursos visuais em uma única representação. Neste caso, foram selecionadas variáveis diretamente relacionadas ao controle tecnológico do concreto, de modo a investigar se o consumo de cimento está associado ao desempenho mecânico do material nas diferentes categorias de obra.
+
+A escolha das variáveis consumo de cimento e resistência à compressão é tecnicamente justificada por sua relevância na Engenharia Civil, uma vez que ambas estão associadas à dosagem e ao desempenho do concreto. A utilização de pontos permite visualizar a dispersão dos dados e a distribuição das observações, enquanto a reta de tendência auxilia na avaliação do comportamento linear entre as variáveis. As facetas por tipo de obra tornam possível comparar esse comportamento entre categorias distintas, e o uso da cor para a variável sustentabilidade acrescenta uma camada adicional de interpretação ao gráfico.
+
+```{r}
+ggplot(
+  dados,
+  aes(
+    x = consumo_cimento,
+    y = resistencia_mpa,
+    color = sustentavel
+  )
+) +
+  # Primeira camada: observações individuais
+  geom_point(
+    alpha = 0.65,
+    size = 2
+  ) +
+  # Segunda camada: tendência linear em cada faceta
+  geom_smooth(
+    method = "lm",
+    se = FALSE,
+    color = "black",
+    linewidth = 0.8
+  ) +
+  # Um painel para cada tipo de obra
+  facet_wrap(~tipo_obra) +
+  # Ajuste explícito da escala de cores
+  scale_color_manual(
+    values = c("Não" = "firebrick3", "Sim" = "forestgreen")
+  ) +
+  labs(
+    title = "Consumo de cimento × resistência à compressão",
+    subtitle = "Facetas por tipo de obra e cor pela classificação de sustentabilidade",
+    x = "Consumo de cimento (kg/m³)",
+    y = "Resistência (MPa)",
+    color = "Sustentável"
+  ) +
+  theme_classic()
+
+# Correlação geral entre consumo de cimento e resistência
+cor(dados$consumo_cimento, dados$resistencia_mpa)
+
+# Correlação separada por tipo de obra
+dados |>
+  group_by(tipo_obra) |>
+  summarise(
+    correlacao = cor(consumo_cimento, resistencia_mpa),
+    .groups = "drop"
+  )
+```
+Os resultados indicam que a relação entre consumo de cimento e resistência à compressão é fraca nesta base de dados. A correlação geral é de aproximadamente 0,067, valor que sugere ausência de associação linear relevante entre as duas variáveis quando consideradas de forma agregada. A análise por tipo de obra confirma esse comportamento, com correlações igualmente baixas: Comercial = -0,058, Industrial = 0,213, Infraestrutura = 0,091 e Residencial = 0,070. Mesmo no grupo Industrial, que apresentou o maior coeficiente, a associação permanece fraca.
+
+Esse gráfico revela um aspecto que não havia aparecido com a mesma clareza nas análises anteriores: maior consumo de cimento não implica, necessariamente, maior resistência à compressão dentro desta base. Esse resultado não contradiz o conhecimento técnico sobre o concreto, mas mostra que a resistência não depende apenas dessa variável isoladamente. Outros fatores importantes, como relação água/cimento, tipo de cimento, idade do concreto, características dos agregados e condições de cura, não estão disponíveis no conjunto de dados e podem explicar parte da variabilidade observada.
+
+
+---
+
+### Visualizações interativas com plotly
+
+A utilização do plotly acrescenta interatividade às representações gráficas, permitindo examinar individualmente cada observação por meio dos tooltips. Esse recurso é especialmente útil em bases com muitas obras, pois possibilita identificar diretamente empreendimentos que se afastam do comportamento predominante e consultar suas características sem perder a visão geral dos dados.
+
+#### Exploração interativa da relação entre área e custo
+
+O gráfico interativo mantém o padrão anteriormente observado de relação positiva entre área construída e custo total, mas permite investigar com maior precisão os pontos mais afastados da tendência geral. Ao passar o cursor sobre cada observação, o identificador da obra facilita o reconhecimento dos empreendimentos com custos relativamente elevados ou reduzidos para suas respectivas áreas.
+
+```{r}
+# Criação do gráfico estático com informação textual para o tooltip
+g_interativo <- ggplot(
+  dados,
+  aes(
+    x = area_construida,
+    y = custo_total,
+    color = tipo_obra
+  )
+) +
+  geom_point(
+    aes(
+      text = paste0(
+        "ID: ", id_obra,
+        "<br>Tipo: ", tipo_obra,
+        "<br>Região: ", regiao,
+        "<br>Área: ", area_construida, " m²",
+        "<br>Custo: R$ ", round(custo_total, 2)
+      )
+    ),
+    size = 2.5,
+    alpha = 0.75
+  ) +
+  labs(
+    title = "Área construída × custo total",
+    x = "Área construída (m²)",
+    y = "Custo total (R$)",
+    color = "Tipo de obra"
+  ) +
+  theme_minimal()
+
+# Conversão para objeto interativo
+# O argumento tooltip restringe as informações exibidas ao texto criado acima.
+ggplotly(
+  g_interativo,
+  tooltip = "text"
+)
+```
+
+Entre os casos de custo acima do esperado, destacam-se as obras 201 e 243, ambas de Infraestrutura na região Nordeste, além da obra 210, classificada como Comercial no Nordeste, e das obras 8 e 53, de Infraestrutura no Sudeste. Esses empreendimentos correspondem aos principais desvios positivos identificados anteriormente, apresentando custos consideravelmente superiores aos de outras obras com áreas semelhantes.
+
+No sentido oposto, entre os casos de custo abaixo do esperado para a área construída, destacam-se as obras 92 e 14, do tipo Industrial na região Sul; a obra 285, Industrial no Centro-Oeste; a obra 99, Industrial no Nordeste; e a obra 21, Residencial na região Norte.
+
+A principal contribuição da interatividade, portanto, está na possibilidade de passar da identificação visual de um ponto atípico para sua identificação individual, permitindo associá-lo imediatamente ao tipo de obra, à região e ao respectivo identificador. Isso torna o gráfico particularmente útil para etapas posteriores de investigação dos fatores que podem explicar os desvios observados.
+
+#### Custo médio por tipo de obra com plot_ly()
+
+O uso direto de plot_ly() permite construir gráficos interativos sem a etapa intermediária de criação de um objeto ggplot, oferecendo maior controle sobre os elementos interativos e sobre a estrutura dos traces. Neste caso, os dados foram previamente agregados por tipo de obra, permitindo comparar os respectivos custos médios
+
+
+```{r}
+# Agregação antes da visualização
+custo_medio_tipo <- dados |>
+  group_by(tipo_obra) |>
+  summarise(
+    custo_medio = mean(custo_total),
+    .groups = "drop"
+  ) |>
+  arrange(custo_medio)
+
+# Gráfico criado diretamente no plotly
+plot_ly(
+  data = custo_medio_tipo,
+  x = ~tipo_obra,
+  y = ~custo_medio,
+  type = "scatter",
+  mode = "lines+markers",
+  text = ~paste0(
+    "Tipo: ", tipo_obra,
+    "<br>Custo médio: R$ ", round(custo_medio, 2)
+  ),
+  hoverinfo = "text"
+) |>
+  layout(
+    title = "Custo médio por tipo de obra",
+    xaxis = list(title = "Tipo de obra"),
+    yaxis = list(title = "Custo médio (R$)")
+  )
+```
+
+Os resultados mostram que as obras de Infraestrutura apresentam o maior custo médio, aproximadamente R$ 3,73 milhões, seguidas pelas obras Comerciais, com cerca de R$ 2,95 milhões. As obras Residenciais apresentam custo médio em torno de R$ 2,45 milhões, enquanto as Industriais possuem o menor valor médio, próximo de R$ 2,03 milhões.
+
+O plot_ly() direto é especialmente vantajoso quando o objetivo principal já é produzir uma visualização interativa, pois permite definir de forma mais imediata elementos como traces, tooltips, marcadores, linhas e recursos de interação. Já o ggplotly() é mais conveniente quando o gráfico já foi desenvolvido previamente com ggplot2 e se deseja apenas acrescentar interatividade com poucas alterações no código.
+
+Neste exemplo, como os dados foram agregados por categoria antes da construção do gráfico, o uso de plot_ly() mostra-se adequado por permitir representar diretamente os valores médios calculados e disponibilizá-los de forma interativa para consulta.
+
+
+---
+
+### Visualizações interativas com highcharter
+
+O highcharter permite construir visualizações interativas com boa capacidade de personalização, sendo útil para apresentar comparações entre categorias de forma clara e dinâmica. Nesta etapa, os dados são previamente agregados com dplyr, de modo que os gráficos representem indicadores resumidos das diferentes categorias de obra.
+
+#### Custo médio por tipo de obra
+
+```{r}
+# Resumo de custo médio e mediano por tipo
+resumo_custos_hc <- dados |>
+  group_by(tipo_obra) |>
+  summarise(
+    custo_medio = mean(custo_total),
+    custo_mediano = median(custo_total),
+    .groups = "drop"
+  ) |>
+  arrange(desc(custo_medio))
+
+resumo_custos_hc
+
+# Gráfico de colunas interativo
+hchart(
+  resumo_custos_hc,
+  "column",
+  hcaes(
+    x = tipo_obra,
+    y = custo_medio
+  )
+) |>
+  hc_title(
+    text = "Custo médio por tipo de obra"
+  ) |>
+  hc_xAxis(
+    title = list(text = "Tipo de obra")
+  ) |>
+  hc_yAxis(
+    title = list(text = "Custo médio (R$)")
+  ) |>
+  hc_tooltip(
+    valuePrefix = "R$ ",
+    valueDecimals = 2
+  )
+```
+
+O gráfico de colunas evidencia diferenças no custo médio entre os tipos de empreendimento. As obras de Infraestrutura apresentam o maior custo médio, aproximadamente R$ 3,73 milhões, seguidas pelas obras Comerciais, com cerca de R$ 2,95 milhões, Residenciais, com aproximadamente R$ 2,45 milhões, e Industriais, com cerca de R$ 2,03 milhões.
+
+Esse ordenamento coincide com o observado no boxplot da Questão 8, no qual as medianas também seguiram a sequência Infraestrutura, Comercial, Residencial e Industrial. Embora os dois gráficos utilizem medidas distintas — o gráfico de colunas representa a média, enquanto o boxplot destaca principalmente a mediana e a dispersão —, ambos conduzem à mesma interpretação quanto à posição relativa dos custos entre os grupos.
+
+Observa-se ainda que média e mediana apresentam valores próximos dentro de cada categoria, embora não idênticos. Por exemplo, em Infraestrutura, a média é de aproximadamente R$ 3,73 milhões, enquanto a mediana é de R$ 3,87 milhões. Essas diferenças refletem a distribuição interna dos custos, mas não são suficientes para alterar o ranking entre os tipos de obra.
+
+#### Prazo médio por região
+
+A comparação do prazo médio entre as regiões permite verificar se a duração dos empreendimentos apresenta diferenças geográficas relevantes. A agregação regional facilita a identificação de padrões gerais, embora não permita, isoladamente, determinar as causas dessas variações.
+
+```{r}
+# Prazo médio por região
+prazo_medio_regiao <- dados |>
+  group_by(regiao) |>
+  summarise(
+    prazo_medio = mean(prazo_meses),
+    .groups = "drop"
+  ) |>
+  arrange(desc(prazo_medio))
+
+prazo_medio_regiao
+
+# Construção do gráfico usando categorias explícitas no eixo X
+highchart() |>
+  hc_title(
+    text = "Prazo médio das obras por região"
+  ) |>
+  hc_xAxis(
+    categories = prazo_medio_regiao$regiao,
+    title = list(text = "Região")
+  ) |>
+  hc_yAxis(
+    title = list(text = "Prazo médio (meses)")
+  ) |>
+  hc_add_series(
+    name = "Prazo médio",
+    data = round(prazo_medio_regiao$prazo_medio, 2),
+    type = "line"
+  ) |>
+  hc_tooltip(
+    valueSuffix = " meses",
+    valueDecimals = 2
+  )
+```
+
+Os resultados mostram que a Região Norte apresenta o maior prazo médio, com aproximadamente 22,17 meses, seguida pelo Nordeste (21,62 meses) e pelo Sudeste (21,57 meses). As menores médias são observadas no Sul (19,87 meses) e no Centro-Oeste (19,35 meses).
+
+As diferenças indicam que algumas regiões apresentam prazos médios um pouco maiores, especialmente Norte, Nordeste e Sudeste. Entretanto, a amplitude entre o maior e o menor valor é relativamente pequena, de cerca de 2,8 meses, não sendo suficiente para afirmar a existência de um comportamento regional sistemático sem análises adicionais.
+
+Fatores logísticos, climáticos, disponibilidade de materiais e mão de obra, características das obras e condições de acesso aos canteiros poderiam contribuir para diferenças de prazo entre regiões. Contudo, essas informações não estão disponíveis na base analisada. Assim, o gráfico permite identificar diferenças regionais, mas não possibilita atribuí-las diretamente a fatores logísticos ou climáticos, que exigiriam variáveis específicas e uma investigação complementar.
+
+#### Participação dos tipos de obra
+
+O gráfico de pizza permite representar a participação relativa de cada tipo de obra no conjunto analisado, destacando visualmente a proporção ocupada por cada categoria em relação ao total de 300 empreendimentos.
+
+```{r}
+# Contagem por tipo de obra
+contagem_tipo <- dados |>
+  count(tipo_obra, name = "n") |>
+  mutate(
+    percentual = 100 * n / sum(n)
+  )
+
+contagem_tipo
+
+# Gráfico de pizza
+hchart(
+  contagem_tipo,
+  "pie",
+  hcaes(
+    name = tipo_obra,
+    y = n
+  )
+) |>
+  hc_title(
+    text = "Participação dos tipos de obra"
+  ) |>
+  hc_tooltip(
+    pointFormat = "Quantidade: <b>{point.y}</b>"
+  )
+```
+Os resultados mostram predominância das obras Residenciais, que representam 42,0% da base, com 126 empreendimentos. Em seguida aparecem as obras Comerciais, com 26,67% (80 obras), as Industriais, com 17,33% (52 obras), e as de Infraestrutura, com 14,0% (42 obras).
+
+Embora o gráfico de pizza seja adequado para evidenciar a ideia de parte em relação ao todo, ele não é necessariamente a melhor opção quando o objetivo principal é comparar com precisão as frequências entre categorias. Nesse aspecto, o gráfico de barras tende a ser mais eficiente, pois utiliza um eixo comum e facilita a percepção das diferenças de magnitude entre os grupos.
+
+Assim, o gráfico de pizza é útil para comunicar a composição percentual da base de forma intuitiva, enquanto o gráfico de barras é mais indicado quando se deseja comparar quantitativamente as categorias com maior precisão.
+
+#### Comparação entre custo médio e mediano
+
+A comparação simultânea entre média e mediana permite avaliar se a interpretação dos custos por tipo de obra se mantém quando são utilizadas diferentes medidas de tendência central. O uso de múltiplas séries no highcharter facilita essa comparação, enquanto recursos interativos, como o tooltip, permitem consultar os valores com maior precisão sem sobrecarregar visualmente o gráfico.
+
+```{r}
+highchart() |>
+  hc_chart(
+    type = "column",
+    zoomType = "x"
+  ) |>
+  hc_title(
+    text = "Custo médio e mediano por tipo de obra"
+  ) |>
+  hc_xAxis(
+    categories = resumo_custos_hc$tipo_obra,
+    title = list(text = "Tipo de obra")
+  ) |>
+  hc_yAxis(
+    title = list(text = "Custo (R$)")
+  ) |>
+  hc_add_series(
+    name = "Média",
+    data = round(resumo_custos_hc$custo_medio, 2)
+  ) |>
+  hc_add_series(
+    name = "Mediana",
+    data = round(resumo_custos_hc$custo_mediano, 2)
+  ) |>
+  hc_tooltip(
+    shared = TRUE,
+    valuePrefix = "R$ ",
+    valueDecimals = 2
+  )
+```
+
+Os resultados mostram que média e mediana apresentam valores próximos em todas as categorias, e a ordenação dos tipos de obra permanece a mesma: Infraestrutura, Comercial, Residencial e Industrial. Isso indica que a posição relativa dos grupos não depende da medida de tendência central escolhida. Observa-se que, nas obras de Infraestrutura, Residenciais e Industriais, a mediana é ligeiramente superior à média, enquanto nas obras Comerciais ocorre o contrário.
+
+Para apresentações executivas, o tooltip personalizado se destaca como um dos recursos mais úteis do highcharter, pois permite disponibilizar valores e informações adicionais apenas quando há interesse do usuário, mantendo o gráfico visualmente mais limpo. A utilização de múltiplas séries também é relevante, pois possibilita comparar indicadores relacionados no mesmo gráfico, como média e mediana, sem necessidade de criar representações separadas.
+
+---
+
+### Representação espacial com leaflet
+
+A utilização do leaflet permite incorporar a dimensão geográfica à análise dos dados, tornando possível representar posteriormente a localização das obras e associar informações técnicas a diferentes regiões. Antes da inclusão dos elementos temáticos, é necessário definir um mapa base adequado, que funcione como suporte visual para as demais camadas.
+
+#### Definição do mapa base
+
+Para a construção do mapa base foi escolhido o provedor CartoDB.Positron, com visualização centralizada aproximadamente na Região Sudeste do Brasil. Esse provedor apresenta fundo claro, cores discretas e boa legibilidade de ruas, limites e nomes geográficos, características que favorecem a sobreposição posterior de marcadores, círculos e outras informações temáticas.
+
+A escolha é adequada porque o objetivo do mapa base não é destacar o próprio fundo cartográfico, mas fornecer referência espacial para os dados que serão adicionados nas etapas seguintes. Assim, o estilo visual mais neutro reduz a competição entre o mapa e os elementos gráficos associados às obras, contribuindo para uma representação mais limpa e de fácil interpretação.
+
+Nesta etapa, portanto, o mapa ainda não representa a localização individual das obras, servindo apenas para estabelecer o contexto geográfico e preparar a visualização para a inclusão das demais camadas de informação.
+
+
+
+```{r}
+leaflet() |>
+  addProviderTiles(
+    providers$CartoDB.Positron
+  ) |>
+  # Visualização aproximada da Região Sudeste
+  setView(
+    lng = -44.5,
+    lat = -21.0,
+    zoom = 5
+  )
+```
+
+
+#### Distribuição regional por marcadores
+
+A representação por marcadores permite associar a distribuição quantitativa das obras a uma referência espacial. Como as cinco regiões brasileiras não possuem uma capital própria, foi adotada uma capital de referência para cada região apenas para posicionar os marcadores no mapa, sem que isso signifique que as obras estejam concentradas nessas cidades.
+
+```{r}
+# Número de obras por região
+contagem_regiao <- dados |>
+  count(regiao, name = "n_obras")
+
+# Capitais de referência e coordenadas aproximadas
+capitais_regioes <- data.frame(
+  regiao = c(
+    "Norte",
+    "Nordeste",
+    "Centro-Oeste",
+    "Sudeste",
+    "Sul"
+  ),
+  cidade_referencia = c(
+    "Manaus",
+    "Salvador",
+    "Brasília",
+    "Belo Horizonte",
+    "Curitiba"
+  ),
+  lat = c(
+    -3.1190,
+    -12.9777,
+    -15.7939,
+    -19.9167,
+    -25.4284
+  ),
+  lon = c(
+    -60.0217,
+    -38.5016,
+    -47.8828,
+    -43.9345,
+    -49.2733
+  )
+)
+
+# Junção das coordenadas com a quantidade de obras
+mapa_regioes <- capitais_regioes |>
+  left_join(
+    contagem_regiao,
+    by = "regiao"
+  )
+
+mapa_regioes
+
+# Mapa com marcadores e popups
+leaflet(mapa_regioes) |>
+  addProviderTiles(
+    providers$CartoDB.Positron
+  ) |>
+  setView(
+    lng = -52,
+    lat = -15,
+    zoom = 4
+  ) |>
+  addMarkers(
+    lng = ~lon,
+    lat = ~lat,
+    popup = ~paste0(
+      "<b>", regiao, "</b><br>",
+      "Cidade de referência: ", cidade_referencia, "<br>",
+      "Número de obras: ", n_obras
+    )
+  )
+```
+Os resultados são coerentes com o barplot da Questão 9, pois utilizam a mesma contagem regional da base. A Região Sudeste apresenta o maior número de obras, com 101 empreendimentos, seguida pelo Nordeste, com 78, pelo Sul, com 69, pelo Centro-Oeste, com 34, e pelo Norte, com 18.
+
+A principal diferença entre as duas representações está na forma de comunicação. O gráfico de barras facilita a comparação quantitativa direta entre as regiões, enquanto o mapa acrescenta a dimensão geográfica, permitindo visualizar onde cada grupo regional está situado no território brasileiro.
+
+Deve-se destacar, entretanto, que os marcadores não representam a localização real das 300 obras, mas apenas pontos de referência associados às cinco regiões. Assim, o mapa é adequado para demonstrar a distribuição regional da quantidade de empreendimentos, mas não deve ser interpretado como uma representação espacial precisa das obras individuais.
+
+#### Destaque da região com maior concentração de obras
+
+O uso de círculos permite destacar visualmente uma região de interesse no mapa, complementando os marcadores pontuais e facilitando a identificação de áreas com maior concentração de empreendimentos. Neste caso, o destaque foi aplicado à região que apresentou a maior quantidade de obras na base.
+
+```{r}
+# Seleciona a região com maior número de obras
+regiao_destaque <- mapa_regioes |>
+  slice_max(
+    order_by = n_obras,
+    n = 1,
+    with_ties = FALSE
+  )
+
+regiao_destaque
+
+# Mapa com todos os marcadores e um círculo na região de maior frequência
+leaflet(mapa_regioes) |>
+  addProviderTiles(
+    providers$CartoDB.Positron
+  ) |>
+  setView(
+    lng = -52,
+    lat = -15,
+    zoom = 4
+  ) |>
+  addMarkers(
+    lng = ~lon,
+    lat = ~lat,
+    popup = ~paste0(
+      "<b>", regiao, "</b><br>",
+      "Obras: ", n_obras
+    )
+  ) |>
+  addCircles(
+    data = regiao_destaque,
+    lng = ~lon,
+    lat = ~lat,
+    radius = 250000,
+    color = "red",
+    fillColor = "red",
+    fillOpacity = 0.25,
+    popup = ~paste0(
+      "Região com maior número de obras: ",
+      regiao,
+      " (", n_obras, ")"
+    )
+  )
+```
+
+A Região Sudeste foi identificada como a de maior concentração, com 101 obras, sendo representada no mapa por um círculo sobre a capital de referência adotada, Belo Horizonte. O recurso torna mais evidente, de forma espacial, o resultado já observado anteriormente no gráfico de barras e na contagem regional.
+
+Caso estivessem disponíveis as coordenadas exatas de cada obra, diversas outras variáveis poderiam ser representadas geograficamente. Seria possível, por exemplo, mapear o custo total, utilizando o tamanho ou a cor dos círculos; a resistência à compressão do concreto; o consumo de cimento; o prazo de execução; o índice de falhas; a satisfação do cliente; o tipo de obra; e a adoção de práticas sustentáveis.
+
+Com essas informações, o mapa poderia deixar de representar apenas a distribuição regional agregada e passar a revelar padrões espaciais mais detalhados, como concentrações de obras de maior custo, regiões com maior incidência de falhas, áreas com maior adoção de práticas sustentáveis ou agrupamentos de empreendimentos com determinadas características técnicas.
+
+---
+
+### Aplicações próximas da prática profissional
+
+A análise descritiva de dados pode ser utilizada para verificar afirmações relacionadas ao desempenho e ao custo dos diferentes tipos de empreendimento, aproximando a exploração estatística de situações comuns da prática profissional. Nesse contexto, medidas de tendência central e dispersão permitem comparar categorias e identificar padrões relevantes para a tomada de decisão.
+
+#### Comparação descritiva entre tipos de obra
+
+
+```{r}
+# Resumo descritivo por tipo de obra
+resumo_q25 <- dados |>
+  group_by(tipo_obra) |>
+  summarise(
+    n = n(),
+    custo_medio = mean(custo_total),
+    custo_mediano = median(custo_total),
+    desvio_padrao = sd(custo_total),
+    .groups = "drop"
+  ) |>
+  arrange(desc(custo_medio))
+
+resumo_q25
+
+# Representação gráfica das médias
+ggplot(
+  resumo_q25,
+  aes(
+    x = reorder(tipo_obra, custo_medio),
+    y = custo_medio
+  )
+) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Custo médio por tipo de obra",
+    x = "Tipo de obra",
+    y = "Custo médio (R$)"
+  ) +
+  scale_y_continuous(
+    labels = label_number(
+      prefix = "R$ ",
+      big.mark = ".",
+      decimal.mark = ","
+    )
+  ) +
+  theme_minimal()
+```
+
+Os resultados dão suporte, em termos descritivos, à afirmação de que as obras de Infraestrutura apresentam custo médio superior às demais categorias. O custo médio desse grupo é de aproximadamente R$ 3,73 milhões, valor superior ao observado nas obras Comerciais (R$ 2,95 milhões), Residenciais (R$ 2,45 milhões) e Industriais (R$ 2,03 milhões).
+
+O gráfico de barras reforça visualmente essa diferença, com Infraestrutura ocupando a primeira posição no custo médio. A mediana também é mais elevada nesse grupo, cerca de R$ 3,87 milhões, o que indica que a conclusão não depende apenas de alguns valores extremos.
+Por outro lado, as obras de Infraestrutura também apresentam a maior dispersão dos custos, com desvio-padrão de aproximadamente R$ 1,55 milhão. Assim, embora esse tipo de obra possua o maior custo médio na amostra analisada, há variabilidade considerável entre os empreendimentos.
+
+Como a análise é apenas descritiva, os resultados permitem afirmar que na base estudada as obras de Infraestrutura apresentam custo médio superior às demais, mas não permitem generalizar essa diferença para todas as obras de Engenharia Civil sem a realização de uma análise inferencial.
+
+
+#### Sustentabilidade e custo total
+
+A comparação entre obras classificadas como sustentáveis e não sustentáveis permite investigar se a adoção de práticas sustentáveis está associada a diferenças sistemáticas no custo total dos empreendimentos. Para isso, o boxplot permite comparar posição central, dispersão e valores extremos, enquanto a curva de densidade evidencia o grau de sobreposição entre as distribuições dos dois grupos.
+
+
+
+```{r}
+# Gráfico 1 — Base R
+boxplot(
+  custo_total ~ sustentavel,
+  data = dados,
+  col = c("lightgray", "lightgreen"),
+  main = "Custo total segundo a classificação de sustentabilidade",
+  xlab = "Obra sustentável",
+  ylab = "Custo total (R$)"
+)
+
+# Gráfico 2 — ggplot2
+ggplot(
+  dados,
+  aes(
+    x = custo_total,
+    fill = sustentavel,
+    color = sustentavel
+  )
+) +
+  geom_density(
+    alpha = 0.25,
+    linewidth = 0.9
+  ) +
+  labs(
+    title = "Distribuição do custo por classificação de sustentabilidade",
+    x = "Custo total (R$)",
+    y = "Densidade",
+    fill = "Sustentável",
+    color = "Sustentável"
+  ) +
+  scale_x_continuous(
+    labels = label_number(
+      prefix = "R$ ",
+      big.mark = ".",
+      decimal.mark = ","
+    )
+  ) +
+  theme_minimal()
+
+# Resumo dos dois grupos
+resumo_sustentabilidade <- dados |>
+  group_by(sustentavel) |>
+  summarise(
+    n = n(),
+    media = mean(custo_total),
+    mediana = median(custo_total),
+    desvio_padrao = sd(custo_total),
+    .groups = "drop"
+  )
+
+resumo_sustentabilidade
+
+# Verificação adicional: médias dentro de cada tipo de obra
+dados |>
+  group_by(tipo_obra, sustentavel) |>
+  summarise(
+    custo_medio = mean(custo_total),
+    .groups = "drop"
+  )
+```
+
+Os resultados mostram que as obras sustentáveis apresentam custo médio ligeiramente superior, cerca de R$ 2,75 milhões, em comparação com aproximadamente R$ 2,65 milhões nas obras não sustentáveis. As medianas, entretanto, são muito próximas: aproximadamente R$ 2,55 milhões para as sustentáveis e R$ 2,51 milhões para as não sustentáveis. Os desvios-padrão também são semelhantes, em torno de R$ 1,21 milhão e R$ 1,25 milhão, respectivamente.
+
+O boxplot evidencia ampla sobreposição entre os grupos e mostra alguns valores elevados classificados como outliers. A curva de densidade reforça essa interpretação, pois as distribuições praticamente se sobrepõem em grande parte da faixa de custos. Dessa forma, não se observa, descritivamente, uma diferença sistemática expressiva de custo total associada apenas à classificação de sustentabilidade.
+
+A análise por tipo de obra acrescenta uma informação importante: o comportamento não é uniforme entre as categorias. As obras sustentáveis apresentam custo médio maior nas categorias Comercial e Industrial, enquanto em Infraestrutura e Residencial ocorre o contrário. Isso sugere que o tipo de empreendimento pode interferir na comparação e que a pequena diferença global entre obras sustentáveis e não sustentáveis não deve ser interpretada isoladamente como efeito da sustentabilidade sobre o custo.
+
+#### Relação entre falhas e satisfação
+
+A análise conjunta do número de falhas registradas e da satisfação dos clientes permite verificar se empreendimentos com maior ocorrência de problemas apresentam, de forma consistente, avaliações mais baixas. Como o índice de falhas assume poucos valores inteiros, a utilização de geom_jitter() é adequada para reduzir a sobreposição dos pontos e tornar a distribuição das observações mais visível.
+
+```{r}
+# Para tornar a sobreposição dos pontos visível, utiliza-se jitter.
+set.seed(123)
+
+ggplot(
+  dados,
+  aes(
+    x = indice_falhas,
+    y = satisfacao
+  )
+) +
+  geom_jitter(
+    width = 0.12,
+    height = 0.05,
+    alpha = 0.55,
+    size = 2
+  ) +
+  geom_smooth(
+    method = "lm",
+    se = FALSE,
+    color = "red",
+    linewidth = 0.9
+  ) +
+  labs(
+    title = "Índice de falhas × satisfação do cliente",
+    x = "Número de falhas registradas",
+    y = "Satisfação (0 a 10)"
+  ) +
+  theme_minimal()
+
+# Correlação linear como apoio à interpretação visual
+cor_falhas_satisfacao <- cor(
+  dados$indice_falhas,
+  dados$satisfacao
+)
+cor_falhas_satisfacao
+
+# Satisfação média por número de falhas
+dados |>
+  group_by(indice_falhas) |>
+  summarise(
+    n = n(),
+    satisfacao_media = mean(satisfacao),
+    .groups = "drop"
+  )
+```
+
+Os resultados indicam ausência de associação linear relevante entre as variáveis. O coeficiente de correlação é aproximadamente -0,053, valor muito próximo de zero, enquanto a reta de tendência apresenta apenas uma pequena inclinação negativa. Visualmente, observa-se ampla variação da satisfação para praticamente todos os níveis de falhas, sem formação de um padrão claramente crescente ou decrescente.
+
+As médias de satisfação por quantidade de falhas também não apresentam comportamento monotônico. Por exemplo, a satisfação média varia de 5,72 nas obras sem falhas para 5,98 nas obras com três falhas, enquanto as obras com quatro falhas apresentam média de aproximadamente 4,96. Nos níveis mais elevados, como seis e sete falhas, há poucas observações (n = 3 e n = 2, respectivamente), o que torna essas médias pouco representativas para identificar uma tendência geral.
+
+A escolha do gráfico de dispersão com jitter é adequada porque ambas as variáveis são numéricas e o deslocamento aleatório evita que observações com o mesmo número de falhas fiquem completamente sobrepostas. A reta obtida com geom_smooth(method = "lm") complementa a visualização, confirmando que, nesta base, não há evidência visual de uma relação linear clara entre maior número de falhas e menor satisfação do cliente.
+
+#### Síntese gráfica para acompanhamento das obras
+
+A construção de um painel gráfico permite reunir, em uma sequência organizada, informações gerenciais e técnicas relevantes para o acompanhamento dos empreendimentos. A combinação de diferentes tipos de gráfico favorece uma leitura progressiva dos dados, partindo da caracterização geral das obras e avançando para aspectos econômicos, temporais e relacionados ao controle tecnológico do concreto.
+
+O painel foi organizado em quatro gráficos, evitando reunir variáveis com unidades e interpretações distintas em uma mesma representação. Inicialmente, o gráfico de barras agrupadas apresenta o perfil das obras por tipo e região, permitindo identificar simultaneamente a composição dos empreendimentos e sua distribuição regional. Observa-se predominância das obras Residenciais, sobretudo nas regiões Sudeste, Nordeste e Sul, enquanto o Sudeste apresenta a maior quantidade de obras em todas as categorias.
+
+
+
+**Gráfico 1 — Perfil por tipo e região**
+
+```{r}
+ggplot(
+  dados,
+  aes(
+    x = tipo_obra,
+    fill = regiao
+  )
+) +
+  geom_bar(position = "dodge") +
+  labs(
+    title = "Perfil das obras por tipo e região",
+    x = "Tipo de obra",
+    y = "Número de obras",
+    fill = "Região"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 20, hjust = 1)
+  )
+```
+
+
+Na sequência, os histogramas de custo total e prazo de execução permitem avaliar separadamente suas distribuições. O custo apresenta maior concentração aproximadamente entre R$ 1,5 milhão e R$ 3,5 milhões, com redução progressiva da frequência nos valores mais elevados e presença de poucas obras acima de R$ 6 milhões. Já os prazos encontram-se distribuídos ao longo de uma faixa relativamente ampla, entre aproximadamente 6 e 36 meses, sem concentração tão acentuada em uma única região da distribuição. A separação desses dois gráficos é adequada porque custo e prazo possuem escalas e unidades distintas.
+
+
+**Gráfico 2 — Distribuição do custo**
+
+```{r}
+ggplot(
+  dados,
+  aes(x = custo_total)
+) +
+  geom_histogram(
+    bins = 20,
+    fill = "steelblue",
+    color = "white"
+  ) +
+  labs(
+    title = "Distribuição do custo total",
+    x = "Custo total (R$)",
+    y = "Frequência"
+  ) +
+  scale_x_continuous(
+    labels = label_number(
+      prefix = "R$ ",
+      big.mark = ".",
+      decimal.mark = ","
+    )
+  ) +
+  theme_minimal()
+```
+
+**Gráfico 3 — Distribuição do prazo**
+
+```{r}
+ggplot(
+  dados,
+  aes(x = prazo_meses)
+) +
+  geom_histogram(
+    binwidth = 3,
+    boundary = 0,
+    fill = "darkseagreen3",
+    color = "white"
+  ) +
+  labs(
+    title = "Distribuição do prazo das obras",
+    x = "Prazo (meses)",
+    y = "Frequência"
+  ) +
+  theme_minimal()
+```
+Por fim, o gráfico de dispersão relaciona o consumo de cimento à resistência à compressão, acrescentando ao painel uma dimensão diretamente associada ao controle tecnológico do concreto. Conforme identificado anteriormente, os pontos apresentam ampla dispersão e a reta de tendência possui inclinação pouco acentuada, reforçando que não há relação linear forte entre essas duas variáveis na base analisada.
+
+
+**Gráfico 4 — Consumo de cimento e resistência**
+
+```{r}
+ggplot(
+  dados,
+  aes(
+    x = consumo_cimento,
+    y = resistencia_mpa,
+    color = tipo_obra
+  )
+) +
+  geom_point(alpha = 0.65) +
+  geom_smooth(
+    method = "lm",
+    se = FALSE,
+    color = "black"
+  ) +
+  labs(
+    title = "Consumo de cimento × resistência",
+    x = "Consumo de cimento (kg/m³)",
+    y = "Resistência (MPa)",
+    color = "Tipo de obra"
+  ) +
+  theme_minimal()
+```
+
+A ordem escolhida segue, portanto, uma lógica de leitura do geral para o específico: primeiro é apresentado o perfil dos empreendimentos; em seguida, indicadores relevantes ao planejamento e à gestão, representados pelo custo e pelo prazo; e, por último, uma relação técnica associada ao desempenho do concreto. Dessa forma, o painel sintetiza diferentes dimensões das obras sem sobrecarregar uma única visualização e oferece ao engenheiro uma visão integrada dos principais resultados da base.
+
+
+---
+
+### Reflexão final
+
+A principal diferença entre a produção de gráficos no Base R e no ggplot2 está na forma como a visualização é construída. No Base R, o gráfico costuma ser gerado diretamente por uma função específica, como `plot()`, `hist()` ou `boxplot()`, cujos argumentos controlam a aparência e os elementos principais da figura. Essa abordagem é simples, direta e eficiente para análises exploratórias mais imediatas. No ggplot2, por outro lado, a construção ocorre de forma modular, a partir da combinação entre dados, mapeamentos estéticos, geometrias, escalas, facetas e temas. Essa estrutura em camadas proporciona maior flexibilidade para elaborar gráficos mais complexos, comparar grupos e incorporar diferentes dimensões de informação em uma mesma representação.
+
+Na Engenharia Civil, a escolha do sistema gráfico e da geometria constitui uma decisão técnica relevante, pois interfere diretamente na forma como os resultados são interpretados. Diferentes tipos de gráfico são mais adequados para diferentes objetivos analíticos. Gráficos de dispersão permitem investigar relações entre variáveis numéricas, boxplots evidenciam tendência central, dispersão e possíveis valores atípicos, gráficos de barras facilitam comparações entre categorias e mapas acrescentam a dimensão espacial à análise. Uma escolha inadequada pode dificultar a identificação de padrões importantes ou até induzir a interpretações equivocadas. Dessa forma, a visualização deve ser entendida como parte da própria análise dos dados, e não apenas como um recurso estético de apresentação.
+
+Entre os gráficos produzidos ao longo da atividade, o gráfico de área construída em função do custo total, com diferenciação por tipo de obra, elaborado com o ggplot2, mostrou-se um dos mais informativos. A escolha desse sistema foi adequada porque permitiu representar simultaneamente duas variáveis numéricas e uma variável categórica, utilizando a posição dos pontos para mostrar a relação entre área e custo e as cores para distinguir os diferentes tipos de empreendimento. Além disso, a estrutura do ggplot2 facilitou a personalização dos eixos, dos rótulos, da legenda e do tema, tornando a interpretação mais clara.
+
+Esse gráfico revela uma associação positiva evidente entre área construída e custo total, indicando que obras maiores tendem a apresentar custos mais elevados. Ao mesmo tempo, a diferenciação por tipo de obra mostra que empreendimentos com áreas semelhantes podem apresentar níveis de custo distintos, sugerindo que a natureza da obra também exerce influência importante sobre o valor final. As obras de Infraestrutura, por exemplo, aparecem com frequência entre os custos mais elevados, enquanto as Industriais tendem a ocupar faixas inferiores para áreas comparáveis. A visualização também facilita a identificação de obras que se afastam da tendência geral e que poderiam ser analisadas individualmente para investigar fatores adicionais relacionados ao custo.
+
+De forma geral, a atividade evidencia que a escolha adequada do sistema gráfico, da geometria e dos elementos visuais amplia a capacidade de transformar dados brutos em informações úteis para o planejamento, o controle e a tomada de decisões na Engenharia Civil.
+
+
 
 ## 🧠 Considerações finais
 
