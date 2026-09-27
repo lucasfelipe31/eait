@@ -107,15 +107,14 @@ library(highcharter)
 library(leaflet)
 library(scales)
 
-```
-```{r}
 # Importação da base: O arquivo deve estar no mesmo diretório do relatório.
 dados <- read.csv(
   "dados_engenharia_civil.csv",
   stringsAsFactors = FALSE,
   fileEncoding = "UTF-8"
 )
-
+```
+```{r}
 # Primeiras seis observações
 head(dados)
 
@@ -125,7 +124,23 @@ tail(dados)
 # Dimensões: número de linhas e número de colunas
 dim(dados)
 ```
+A importação resulta em uma base com **300 observações e 11 variáveis**. A inspeção das primeiras e últimas linhas mostra que os registros foram lidos em colunas distintas e com os nomes esperados, não havendo indício inicial de deslocamento de colunas ou falha de separação durante a leitura.
 
+
+### Dimensões da base
+
+```{r}
+# Número de observações (linhas)
+nrow(dados)
+
+# Número de variáveis (colunas)
+ncol(dados)
+
+# A função dim() fornece os dois valores simultaneamente
+dim(dados)
+```
+
+A base contém **300 obras** e **11 variáveis**. Portanto, cada linha representa uma obra e cada coluna armazena uma característica associada a essa obra.
 
 ### 💬 Exemplo de como citar uma referência bibliográfica
 
