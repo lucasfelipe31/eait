@@ -93,21 +93,39 @@ A metodologia adotada, portanto, foi estruturada em quatro etapas principais: **
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
 
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
+A análise gráfica da base de dados busca transformar os registros das obras em informação visual útil à Engenharia Civil, combinando inspeção dos dados, estatísticas descritivas e diferentes sistemas de visualização disponíveis no R. Para isso, são utilizados **Base R**, **ggplot2**, **plotly**, **highcharter** e **leaflet**, de acordo com a finalidade de cada representação.
 
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
+Os códigos foram organizados de forma didática e comentada. Sempre que possível, utiliza-se o operador `|>` para manter o fluxo de transformação dos dados explícito antes da visualização.
 
-Procure não apenas descrever, mas **interpretar os dados**.
+```{r}
+library(ggplot2)
+library(dplyr)
+library(plotly)
+library(highcharter)
+library(leaflet)
+library(scales)
+
+```
+```{r}
+# Importação da base: O arquivo deve estar no mesmo diretório do relatório.
+dados <- read.csv(
+  "dados_engenharia_civil.csv",
+  stringsAsFactors = FALSE,
+  fileEncoding = "UTF-8"
+)
+
+# Primeiras seis observações
+head(dados)
+
+# Últimas seis observações
+tail(dados)
+
+# Dimensões: número de linhas e número de colunas
+dim(dados)
+```
+
 
 ### 💬 Exemplo de como citar uma referência bibliográfica
 
