@@ -31,7 +31,7 @@ A análise e a interpretação de dados constituem etapas fundamentais para a to
 
 O controle tecnológico do concreto, por exemplo, gera um conjunto significativo de informações relacionadas às suas propriedades e condições de produção. A utilização de ferramentas computacionais para organizar, analisar e representar esses dados contribui para uma avaliação mais eficiente dos resultados e para a comunicação das informações entre profissionais, gestores e demais envolvidos no empreendimento.
 
-A linguagem de programação R destaca-se como uma ferramenta para análise estatística e visualização de dados, oferecendo diferentes sistemas gráficos que podem ser aplicados de acordo com os objetivos da análise. Entre eles, destacam-se o Base R, com funções gráficas nativas como `plot()`, `hist()`, `boxplot()` e `barplot()`; o ggplot2, baseado na construção de gráficos por meio da combinação entre dados, mapeamentos estéticos e camadas; além das bibliotecas plotly, highcharter e leaflet, que possibilitam a elaboração de visualizações interativas e, no caso do leaflet, a representação espacial dos dados.
+A linguagem de programação R destaca-se como uma ferramenta para análise estatística e visualização de dados, oferecendo diferentes sistemas gráficos que podem ser aplicados de acordo com os objetivos da análise. Entre eles, destacam-se o Base R, com funções gráficas nativas como `plot()`, `hist()`, `boxplot()` e `barplot()`; o `ggplot2`, baseado na construção de gráficos por meio da combinação entre dados, mapeamentos estéticos e camadas; além das bibliotecas plotly, highcharter e leaflet, que possibilitam a elaboração de visualizações interativas e, no caso do leaflet, a representação espacial dos dados.
 
 Dessa forma, esta atividade tem como objetivo explorar, visualizar e comunicar dados relacionados ao controle tecnológico do concreto, aplicando diferentes sistemas gráficos da linguagem R. Busca-se, por meio dessas ferramentas, desenvolver a capacidade de selecionar representações gráficas adequadas, interpretar os resultados obtidos e compreender como a visualização de dados pode auxiliar na análise e na tomada de decisões no contexto da Engenharia Civil.
 
@@ -45,7 +45,7 @@ Desenvolver a capacidade de explorar, analisar, visualizar e comunicar dados rel
 ### Objetivos específicos
 
 - Aplicar as funções gráficas nativas do Base R para representar e explorar dados de engenharia;
-- Utilizar o ggplot2 para construir gráficos a partir da combinação de dados, mapeamentos estéticos e diferentes camadas gráficas;
+- Utilizar o `ggplot2` para construir gráficos a partir da combinação de dados, mapeamentos estéticos e diferentes camadas gráficas;
 - Elaborar visualizações interativas utilizando as bibliotecas plotly e highcharter;
 - Representar informações de caráter espacial por meio de mapas interativos com o leaflet;
 - Utilizar o operador |> para organizar e encadear etapas de transformação e visualização dos dados;
@@ -165,7 +165,7 @@ variaveis_qualitativas <- names(dados)[!sapply(dados, is.numeric)]
 variaveis_qualitativas
 ```
 
-Foram reconhecidas como quantitativas as variáveis ìd_obra`, `area_construida`, `custo_total`, `prazo_meses`, `resistencia_mpa`, `consumo_cimento`, `indice_falhas` e `satisfacao`, pois apresentam valores numéricos que representam medidas, contagens ou indicadores passíveis de operações matemáticas. Entretanto, `id_obra` funciona apenas como identificador e, portanto, não deve ser tratada como variável quantitativa nas análises estatísticas.
+Foram reconhecidas como quantitativas as variáveis `id_obra`, `area_construida`, `custo_total`, `prazo_meses`, `resistencia_mpa`, `consumo_cimento`, `indice_falhas` e `satisfacao`, pois apresentam valores numéricos que representam medidas, contagens ou indicadores passíveis de operações matemáticas. Entretanto, `id_obra` funciona apenas como identificador e, portanto, não deve ser tratada como variável quantitativa nas análises estatísticas.
 
 As variáveis `tipo_obra`, `regiao` e `sustentavel` foram reconhecidas como qualitativas, pois representam categorias ou classificações das obras, tendo sido reconhecidas como caracteres. 
 
@@ -360,7 +360,7 @@ Os resultados mostram que as obras de Infraestrutura apresentam a maior mediana 
 
 Quanto à dispersão, as obras de Infraestrutura apresentam a maior variabilidade, com desvio-padrão de aproximadamente R$ 1,55 milhão, enquanto as obras Industriais apresentam a menor, com cerca de R$ 770 mil. Visualmente, o boxplot também evidencia maior amplitude dos custos nas categorias Infraestrutura e Comercial.
 
-Não foram identificados outliers pelo critério utilizado pelo `boxplot()` do Base R, uma vez que a consulta aos valores extremos retornou `numeric(0)` para todas as quatro categorias. Portanto, embora existam diferenças consideráveis de custo dentro dos grupos, nenhum valor ultrapassou os limites adotados pelo boxplot para ser classificado como observação atípica.
+Não foram identificados *outliers* pelo critério utilizado pelo `boxplot()` do Base R, uma vez que a consulta aos valores extremos retornou `numeric(0)` para todas as quatro categorias. Portanto, embora existam diferenças consideráveis de custo dentro dos grupos, nenhum valor ultrapassou os limites adotados pelo boxplot para ser classificado como observação atípica.
 
 
 #### Distribuição das obras por região
@@ -394,9 +394,9 @@ Entretanto, as proporções não são equivalentes: na base, o Sudeste está men
 
 ---
 
-### Visualizações com ggplot2
+### Visualização Gráfica com `ggplot2`
 
-O ggplot2 amplia as possibilidades de exploração gráfica ao permitir o mapeamento simultâneo de diferentes características dos dados. Nesse contexto, a utilização de cores por categoria facilita a comparação entre os tipos de obra e permite verificar se a relação entre área construída e custo total se mantém quando os empreendimentos são analisados separadamente.
+O `ggplot2` amplia as possibilidades de exploração gráfica ao permitir o mapeamento simultâneo de diferentes características dos dados. Nesse contexto, a utilização de cores por categoria facilita a comparação entre os tipos de obra e permite verificar se a relação entre área construída e custo total se mantém quando os empreendimentos são analisados separadamente.
 
 #### Área construída e custo segundo o tipo de obra
 
@@ -449,9 +449,9 @@ Também se observa que obras com áreas semelhantes podem apresentar custos dist
 
 
 
-#### Custo por tipo de obra no ggplot2
+#### Custo por tipo de obra no `ggplot2`
 
-A utilização do ggplot2 para representar o custo total por tipo de obra permite manter a mesma análise estatística do boxplot elaborado no Base R, porém com maior controle sobre os elementos visuais e a apresentação gráfica. O preenchimento diferenciado por categoria facilita a comparação entre os grupos e melhora a leitura do gráfico.
+A utilização do `ggplot2` para representar o custo total por tipo de obra permite manter a mesma análise estatística do boxplot elaborado no Base R, porém com maior controle sobre os elementos visuais e a apresentação gráfica. O preenchimento diferenciado por categoria facilita a comparação entre os grupos e melhora a leitura do gráfico.
 
 ```{r}
 ggplot(
@@ -484,7 +484,7 @@ ggplot(
 
 A interpretação permanece coerente com o boxplot anterior: as obras de Infraestrutura apresentam a maior mediana de custo e maior dispersão, enquanto as obras Industriais concentram os menores valores centrais e menor variabilidade. Da mesma forma, não são observados outliers visíveis segundo o critério padrão de identificação utilizado pelo boxplot.
 
-Em comparação com o Base R, o ggplot2 oferece vantagens principalmente quanto à personalização e organização visual. O sistema de camadas permite modificar separadamente títulos, eixos, cores, escalas, temas e outros elementos, além de facilitar a padronização estética entre diferentes gráficos do relatório. Neste caso, a formatação monetária do eixo vertical, o preenchimento por categoria e a disposição dos elementos tornam a comparação entre os tipos de obra mais clara e adequada para apresentação dos resultados.
+Em comparação com o Base R, o `ggplot2` oferece vantagens principalmente quanto à personalização e organização visual. O sistema de camadas permite modificar separadamente títulos, eixos, cores, escalas, temas e outros elementos, além de facilitar a padronização estética entre diferentes gráficos do relatório. Neste caso, a formatação monetária do eixo vertical, o preenchimento por categoria e a disposição dos elementos tornam a comparação entre os tipos de obra mais clara e adequada para apresentação dos resultados.
 
 #### Histograma e densidade da resistência
 
@@ -676,9 +676,9 @@ Esse gráfico revela um aspecto que não havia aparecido com a mesma clareza nas
 
 ---
 
-### Visualizações interativas com plotly
+### Visualizações interativas com `plotly`
 
-A utilização do plotly acrescenta interatividade às representações gráficas, permitindo examinar individualmente cada observação por meio dos tooltips. Esse recurso é especialmente útil em bases com muitas obras, pois possibilita identificar diretamente empreendimentos que se afastam do comportamento predominante e consultar suas características sem perder a visão geral dos dados.
+A utilização do `plotly` acrescenta interatividade às representações gráficas, permitindo examinar individualmente cada observação por meio dos tooltips. Esse recurso é especialmente útil em bases com muitas obras, pois possibilita identificar diretamente empreendimentos que se afastam do comportamento predominante e consultar suas características sem perder a visão geral dos dados.
 
 #### Exploração interativa da relação entre área e custo
 
@@ -731,7 +731,7 @@ A principal contribuição da interatividade, portanto, está na possibilidade d
 
 #### Custo médio por tipo de obra com `plot_ly()`
 
-O uso direto de `plot_ly()` permite construir gráficos interativos sem a etapa intermediária de criação de um objeto ggplot, oferecendo maior controle sobre os elementos interativos e sobre a estrutura dos traces. Neste caso, os dados foram previamente agregados por tipo de obra, permitindo comparar os respectivos custos médios
+O uso direto de `plot_ly()` permite construir gráficos interativos sem a etapa intermediária de criação de um objeto `ggplot`, oferecendo maior controle sobre os elementos interativos e sobre a estrutura dos traces. Neste caso, os dados foram previamente agregados por tipo de obra, permitindo comparar os respectivos custos médios
 
 
 ```{r}
@@ -766,16 +766,16 @@ plot_ly(
 
 Os resultados mostram que as obras de Infraestrutura apresentam o maior custo médio, aproximadamente R$ 3,73 milhões, seguidas pelas obras Comerciais, com cerca de R$ 2,95 milhões. As obras Residenciais apresentam custo médio em torno de R$ 2,45 milhões, enquanto as Industriais possuem o menor valor médio, próximo de R$ 2,03 milhões.
 
-O `plot_ly()` direto é especialmente vantajoso quando o objetivo principal já é produzir uma visualização interativa, pois permite definir de forma mais imediata elementos como traces, tooltips, marcadores, linhas e recursos de interação. Já o `ggplotly()` é mais conveniente quando o gráfico já foi desenvolvido previamente com ggplot2 e se deseja apenas acrescentar interatividade com poucas alterações no código.
+O `plot_ly()` direto é especialmente vantajoso quando o objetivo principal já é produzir uma visualização interativa, pois permite definir de forma mais imediata elementos como traces, tooltips, marcadores, linhas e recursos de interação. Já o `ggplotly()` é mais conveniente quando o gráfico já foi desenvolvido previamente com `ggplot2` e se deseja apenas acrescentar interatividade com poucas alterações no código.
 
 Neste exemplo, como os dados foram agregados por categoria antes da construção do gráfico, o uso de `plot_ly()` mostra-se adequado por permitir representar diretamente os valores médios calculados e disponibilizá-los de forma interativa para consulta.
 
 
 ---
 
-### Visualizações interativas com highcharter
+### Visualizações interativas com `highcharter`
 
-O highcharter permite construir visualizações interativas com boa capacidade de personalização, sendo útil para apresentar comparações entre categorias de forma clara e dinâmica. Nesta etapa, os dados são previamente agregados com dplyr, de modo que os gráficos representem indicadores resumidos das diferentes categorias de obra.
+O `highcharter` permite construir visualizações interativas com boa capacidade de personalização, sendo útil para apresentar comparações entre categorias de forma clara e dinâmica. Nesta etapa, os dados são previamente agregados com dplyr, de modo que os gráficos representem indicadores resumidos das diferentes categorias de obra.
 
 #### Custo médio por tipo de obra
 
@@ -905,7 +905,7 @@ Assim, o gráfico de pizza é útil para comunicar a composição percentual da 
 
 #### Comparação entre custo médio e mediano
 
-A comparação simultânea entre média e mediana permite avaliar se a interpretação dos custos por tipo de obra se mantém quando são utilizadas diferentes medidas de tendência central. O uso de múltiplas séries no highcharter facilita essa comparação, enquanto recursos interativos, como o tooltip, permitem consultar os valores com maior precisão sem sobrecarregar visualmente o gráfico.
+A comparação simultânea entre média e mediana permite avaliar se a interpretação dos custos por tipo de obra se mantém quando são utilizadas diferentes medidas de tendência central. O uso de múltiplas séries no `highcharter` facilita essa comparação, enquanto recursos interativos, como o tooltip, permitem consultar os valores com maior precisão sem sobrecarregar visualmente o gráfico.
 
 ```{r}
 highchart() |>
@@ -940,17 +940,17 @@ highchart() |>
 
 Os resultados mostram que média e mediana apresentam valores próximos em todas as categorias, e a ordenação dos tipos de obra permanece a mesma: Infraestrutura, Comercial, Residencial e Industrial. Isso indica que a posição relativa dos grupos não depende da medida de tendência central escolhida. Observa-se que, nas obras de Infraestrutura, Residenciais e Industriais, a mediana é ligeiramente superior à média, enquanto nas obras Comerciais ocorre o contrário.
 
-Para apresentações executivas, o tooltip personalizado se destaca como um dos recursos mais úteis do highcharter, pois permite disponibilizar valores e informações adicionais apenas quando há interesse do usuário, mantendo o gráfico visualmente mais limpo. A utilização de múltiplas séries também é relevante, pois possibilita comparar indicadores relacionados no mesmo gráfico, como média e mediana, sem necessidade de criar representações separadas.
+Para apresentações executivas, o tooltip personalizado se destaca como um dos recursos mais úteis do `highcharter`, pois permite disponibilizar valores e informações adicionais apenas quando há interesse do usuário, mantendo o gráfico visualmente mais limpo. A utilização de múltiplas séries também é relevante, pois possibilita comparar indicadores relacionados no mesmo gráfico, como média e mediana, sem necessidade de criar representações separadas.
 
 ---
 
-### Representação espacial com leaflet
+### Representação espacial com `leaflet`
 
-A utilização do leaflet permite incorporar a dimensão geográfica à análise dos dados, tornando possível representar posteriormente a localização das obras e associar informações técnicas a diferentes regiões. Antes da inclusão dos elementos temáticos, é necessário definir um mapa base adequado, que funcione como suporte visual para as demais camadas.
+A utilização do `leaflet` permite incorporar a dimensão geográfica à análise dos dados, tornando possível representar posteriormente a localização das obras e associar informações técnicas a diferentes regiões. Antes da inclusão dos elementos temáticos, é necessário definir um mapa base adequado, que funcione como suporte visual para as demais camadas.
 
 #### Definição do mapa base
 
-Para a construção do mapa base foi utilizada a função addTiles(), fornecendo uma representação cartográfica de fundo adequada à sobreposição posterior de marcadores, círculos e demais elementos temáticos. A escolha de um mapa-base visualmente discreto favorece a leitura das informações adicionadas nas camadas seguintes.
+Para a construção do mapa base foi utilizada a função `addTiles()`, fornecendo uma representação cartográfica de fundo adequada à sobreposição posterior de marcadores, círculos e demais elementos temáticos. A escolha de um mapa-base visualmente discreto favorece a leitura das informações adicionadas nas camadas seguintes.
 
 A escolha é adequada porque o objetivo do mapa base não é destacar o próprio fundo cartográfico, mas fornecer referência espacial para os dados que serão adicionados nas etapas seguintes. Assim, o estilo visual mais neutro reduz a competição entre o mapa e os elementos gráficos associados às obras, contribuindo para uma representação mais limpa e de fácil interpretação.
 
@@ -1403,11 +1403,11 @@ A ordem escolhida segue, portanto, uma lógica de leitura do geral para o espec�
 
 ### Reflexão final
 
-A principal diferença entre a produção de gráficos no Base R e no ggplot2 está na forma como a visualização é construída. No Base R, o gráfico costuma ser gerado diretamente por uma função específica, como `plot()`, `hist()` ou `boxplot()`, cujos argumentos controlam a aparência e os elementos principais da figura. Essa abordagem é simples, direta e eficiente para análises exploratórias mais imediatas. No ggplot2, por outro lado, a construção ocorre de forma modular, a partir da combinação entre dados, mapeamentos estéticos, geometrias, escalas, facetas e temas. Essa estrutura em camadas proporciona maior flexibilidade para elaborar gráficos mais complexos, comparar grupos e incorporar diferentes dimensões de informação em uma mesma representação.
+A principal diferença entre a produção de gráficos no Base R e no `ggplot2` está na forma como a visualização é construída. No Base R, o gráfico costuma ser gerado diretamente por uma função específica, como `plot()`, `hist()` ou `boxplot()`, cujos argumentos controlam a aparência e os elementos principais da figura. Essa abordagem é simples, direta e eficiente para análises exploratórias mais imediatas. No `ggplot2`, por outro lado, a construção ocorre de forma modular, a partir da combinação entre dados, mapeamentos estéticos, geometrias, escalas, facetas e temas. Essa estrutura em camadas proporciona maior flexibilidade para elaborar gráficos mais complexos, comparar grupos e incorporar diferentes dimensões de informação em uma mesma representação.
 
 Na Engenharia Civil, a escolha do sistema gráfico e da geometria constitui uma decisão técnica relevante, pois interfere diretamente na forma como os resultados são interpretados. Diferentes tipos de gráfico são mais adequados para diferentes objetivos analíticos. Gráficos de dispersão permitem investigar relações entre variáveis numéricas, boxplots evidenciam tendência central, dispersão e possíveis valores atípicos, gráficos de barras facilitam comparações entre categorias e mapas acrescentam a dimensão espacial à análise. Uma escolha inadequada pode dificultar a identificação de padrões importantes ou até induzir a interpretações equivocadas. Dessa forma, a visualização deve ser entendida como parte da própria análise dos dados, e não apenas como um recurso estético de apresentação.
 
-Entre os gráficos produzidos ao longo da atividade, o gráfico de área construída em função do custo total, com diferenciação por tipo de obra, elaborado com o ggplot2, mostrou-se um dos mais informativos. A escolha desse sistema foi adequada porque permitiu representar simultaneamente duas variáveis numéricas e uma variável categórica, utilizando a posição dos pontos para mostrar a relação entre área e custo e as cores para distinguir os diferentes tipos de empreendimento. Além disso, a estrutura do ggplot2 facilitou a personalização dos eixos, dos rótulos, da legenda e do tema, tornando a interpretação mais clara.
+Entre os gráficos produzidos ao longo da atividade, o gráfico de área construída em função do custo total, com diferenciação por tipo de obra, elaborado com o `ggplot2`, mostrou-se um dos mais informativos. A escolha desse sistema foi adequada porque permitiu representar simultaneamente duas variáveis numéricas e uma variável categórica, utilizando a posição dos pontos para mostrar a relação entre área e custo e as cores para distinguir os diferentes tipos de empreendimento. Além disso, a estrutura do `ggplot2` facilitou a personalização dos eixos, dos rótulos, da legenda e do tema, tornando a interpretação mais clara.
 
 Esse gráfico revela uma associação positiva evidente entre área construída e custo total, indicando que obras maiores tendem a apresentar custos mais elevados. Ao mesmo tempo, a diferenciação por tipo de obra mostra que empreendimentos com áreas semelhantes podem apresentar níveis de custo distintos, sugerindo que a natureza da obra também exerce influência importante sobre o valor final. As obras de Infraestrutura, por exemplo, aparecem com frequência entre os custos mais elevados, enquanto as Industriais tendem a ocupar faixas inferiores para áreas comparáveis. A visualização também facilita a identificação de obras que se afastam da tendência geral e que poderiam ser analisadas individualmente para investigar fatores adicionais relacionados ao custo.
 
@@ -1419,7 +1419,7 @@ De forma geral, a atividade evidencia que a escolha adequada do sistema gráfico
 
 A prática desenvolvida teve como objetivo explorar, visualizar e comunicar dados associados a uma situação aplicada à Engenharia Civil, utilizando diferentes sistemas gráficos disponíveis na linguagem R. A partir da análise realizada, considera-se que esse objetivo foi alcançado, uma vez que foi possível percorrer diferentes etapas do tratamento e da exploração dos dados, desde a inspeção inicial da base até a construção e interpretação de visualizações estáticas, interativas e espaciais. Mais do que produzir gráficos isolados, a atividade permitiu compreender como diferentes formas de representação podem ser empregadas para responder a questões específicas relacionadas ao perfil, ao custo, ao prazo e a características técnicas dos empreendimentos.
 
-Um dos principais aprendizados obtidos foi a compreensão de que a construção de uma visualização constitui parte integrante da análise dos dados. A escolha entre gráfico de dispersão, histograma, boxplot, barras, facetas ou mapas modifica a forma como determinado comportamento pode ser percebido e interpretado. Da mesma maneira, a utilização de diferentes sistemas gráficos evidenciou características próprias de cada abordagem. O Base R mostrou-se adequado para análises diretas e rápidas, enquanto o ggplot2 proporcionou maior flexibilidade na construção de gráficos em camadas e na comparação entre grupos. Os pacotes plotly e highcharter acrescentaram recursos de interatividade importantes para a exploração individual das observações e para apresentações, enquanto o leaflet introduziu a dimensão espacial à análise.
+Um dos principais aprendizados obtidos foi a compreensão de que a construção de uma visualização constitui parte integrante da análise dos dados. A escolha entre gráfico de dispersão, histograma, boxplot, barras, facetas ou mapas modifica a forma como determinado comportamento pode ser percebido e interpretado. Da mesma maneira, a utilização de diferentes sistemas gráficos evidenciou características próprias de cada abordagem. O Base R mostrou-se adequado para análises diretas e rápidas, enquanto o `ggplot2` proporcionou maior flexibilidade na construção de gráficos em camadas e na comparação entre grupos. Os pacotes `plotly` e `highcharter` acrescentaram recursos de interatividade importantes para a exploração individual das observações e para apresentações, enquanto o `leaflet` introduziu a dimensão espacial à análise.
 
 A sequência de códigos desenvolvida também permitiu consolidar um fluxo de trabalho aplicável a outras situações da Engenharia Civil. Inicialmente, a estrutura e a qualidade da base foram verificadas por meio de funções de inspeção e resumo; posteriormente, os dados foram transformados e agrupados conforme a necessidade de cada análise; por fim, foram utilizadas diferentes geometrias, escalas, temas, facetas e recursos interativos de acordo com o objetivo de cada representação. Dessa forma, o script elaborado pode ser entendido não apenas como uma solução para a atividade proposta, mas como uma estrutura reutilizável para futuras análises de dados técnicos e gerenciais.
 
