@@ -960,9 +960,7 @@ Nesta etapa, portanto, o mapa ainda não representa a localização individual d
 
 ```{r}
 leaflet() |>
-  addProviderTiles(
-    providers$CartoDB.Positron
-  ) |>
+  addTiles() |>
   # Visualização aproximada da Região Sudeste
   setView(
     lng = -44.5,
@@ -1024,9 +1022,7 @@ mapa_regioes
 
 # Mapa com marcadores e popups
 leaflet(mapa_regioes) |>
-  addProviderTiles(
-    providers$CartoDB.Positron
-  ) |>
+  addTiles() |>
   setView(
     lng = -52,
     lat = -15,
@@ -1065,9 +1061,7 @@ regiao_destaque
 
 # Mapa com todos os marcadores e um círculo na região de maior frequência
 leaflet(mapa_regioes) |>
-  addProviderTiles(
-    providers$CartoDB.Positron
-  ) |>
+  addTiles() |>
   setView(
     lng = -52,
     lat = -15,
@@ -1423,14 +1417,21 @@ De forma geral, a atividade evidencia que a escolha adequada do sistema gráfico
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
+A prática desenvolvida teve como objetivo explorar, visualizar e comunicar dados associados a uma situação aplicada à Engenharia Civil, utilizando diferentes sistemas gráficos disponíveis na linguagem R. A partir da análise realizada, considera-se que esse objetivo foi alcançado, uma vez que foi possível percorrer diferentes etapas do tratamento e da exploração dos dados, desde a inspeção inicial da base até a construção e interpretação de visualizações estáticas, interativas e espaciais. Mais do que produzir gráficos isolados, a atividade permitiu compreender como diferentes formas de representação podem ser empregadas para responder a questões específicas relacionadas ao perfil, ao custo, ao prazo e a características técnicas dos empreendimentos.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+Um dos principais aprendizados obtidos foi a compreensão de que a construção de uma visualização constitui parte integrante da análise dos dados. A escolha entre gráfico de dispersão, histograma, boxplot, barras, facetas ou mapas modifica a forma como determinado comportamento pode ser percebido e interpretado. Da mesma maneira, a utilização de diferentes sistemas gráficos evidenciou características próprias de cada abordagem. O Base R mostrou-se adequado para análises diretas e rápidas, enquanto o ggplot2 proporcionou maior flexibilidade na construção de gráficos em camadas e na comparação entre grupos. Os pacotes plotly e highcharter acrescentaram recursos de interatividade importantes para a exploração individual das observações e para apresentações, enquanto o leaflet introduziu a dimensão espacial à análise.
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+A sequência de códigos desenvolvida também permitiu consolidar um fluxo de trabalho aplicável a outras situações da Engenharia Civil. Inicialmente, a estrutura e a qualidade da base foram verificadas por meio de funções de inspeção e resumo; posteriormente, os dados foram transformados e agrupados conforme a necessidade de cada análise; por fim, foram utilizadas diferentes geometrias, escalas, temas, facetas e recursos interativos de acordo com o objetivo de cada representação. Dessa forma, o script elaborado pode ser entendido não apenas como uma solução para a atividade proposta, mas como uma estrutura reutilizável para futuras análises de dados técnicos e gerenciais.
+
+Quanto à qualidade da base, os dados apresentaram boa consistência para os objetivos da prática. As 300 observações estavam completas, sem valores ausentes, e as variáveis apresentaram, em sua maioria, amplitudes compatíveis com o contexto proposto. Alguns valores extremos foram identificados em determinadas análises, porém não foram encontrados indícios suficientes para classificá-los simplesmente como erros. Ao contrário, esses casos demonstraram a importância de analisar observações atípicas considerando o contexto técnico e outras características da obra. Deve-se destacar, entretanto, que a base possui limitações quanto à interpretação de determinadas relações. Por exemplo, a resistência à compressão do concreto não pode ser explicada adequadamente apenas pelo consumo de cimento, uma vez que informações relevantes como relação água/cimento, idade de ensaio, tipo de cimento, características dos agregados e condições de cura não estão disponíveis.
+
+As análises também demonstraram que relações aparentemente simples podem depender de fatores adicionais. A área construída apresentou associação clara com o custo total, mas a separação por tipo de obra e por região mostrou que empreendimentos com dimensões semelhantes podem apresentar custos bastante distintos. Da mesma forma, a classificação de sustentabilidade, quando analisada isoladamente, não apresentou diferença expressiva e uniforme nos custos, e o índice de falhas mostrou associação praticamente inexistente com a satisfação dos clientes na base utilizada. Esses resultados reforçam que a interpretação dos dados deve considerar simultaneamente diferentes variáveis, evitando conclusões fundamentadas apenas em uma única associação gráfica.
+
+Como melhoria para futuras aplicações, seria recomendável ampliar a base com informações técnicas e gerenciais adicionais, como localização exata de cada empreendimento, relação água/cimento, classe de resistência especificada em projeto, idade dos ensaios, padrão construtivo, custo por metro quadrado, características dos materiais, ocorrência de atrasos e causas das falhas registradas. A disponibilidade de coordenadas geográficas individuais também permitiria substituir a representação regional aproximada por uma análise espacial efetiva das obras, possibilitando identificar concentrações e padrões geográficos com maior precisão.
+
+Na etapa de representação espacial, verificou-se ainda uma limitação relacionada ao provedor utilizado como mapa-base. Embora os marcadores, coordenadas e popups tenham sido corretamente processados pelo leaflet, o fundo cartográfico do CartoDB.Positron apresentou indicação de necessidade de chave de acesso. Para aplicações futuras, esse aspecto pode ser solucionado mediante configuração da chave exigida pelo provedor ou pela utilização de outro mapa-base compatível com o ambiente empregado. Essa ocorrência evidencia também que visualizações interativas dependem não somente do código produzido, mas de serviços externos e de suas condições de acesso.
+
+De maneira geral, a atividade permitiu integrar programação, estatística descritiva, visualização de dados e interpretação técnica em um mesmo fluxo de análise. A principal contribuição da prática foi demonstrar que os recursos gráficos da linguagem R podem auxiliar não apenas na apresentação de resultados, mas também na identificação de padrões, comparação de empreendimentos, investigação de observações atípicas e comunicação de informações relevantes para o acompanhamento e a tomada de decisões na Engenharia Civil.
 
 ## Aprenda Quarto
 
