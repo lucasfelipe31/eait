@@ -144,7 +144,7 @@ Cada linha representa uma obra e cada coluna armazena uma característica associ
 
 ### Estrutura e tipos das variáveis
 
-A estrutura da base, examinada por meio das funções `str()` e `glimpse()`, identificando-se, de forma resumida, o tipo de dado associado a cada variável. 
+A estrutura da base, examinada por meio das funções `str()` e `glimpse()`, permite identificar, de forma resumida, o tipo de dado associado a cada variável.”
 
 ```{r}
 # Estrutura da base no Base R
@@ -165,9 +165,9 @@ variaveis_qualitativas <- names(dados)[!sapply(dados, is.numeric)]
 variaveis_qualitativas
 ```
 
-Foram reconhecidas como quantitativas as variáveis `area_construida`, `custo_total`, `prazo_meses`, `resistencia_mpa`, `consumo_cimento`, `indice_falhas` e `satisfacao`, pois apresentam valores numéricos que representam medidas, contagens ou indicadores passíveis de operações matemáticas.
+Foram reconhecidas como quantitativas as variáveis ìd_obra`, `area_construida`, `custo_total`, `prazo_meses`, `resistencia_mpa`, `consumo_cimento`, `indice_falhas` e `satisfacao`, pois apresentam valores numéricos que representam medidas, contagens ou indicadores passíveis de operações matemáticas. Entretanto, `id_obra` funciona apenas como identificador e, portanto, não deve ser tratada como variável quantitativa nas análises estatísticas.
 
-As variáveis `tipo_obra`, `regiao` e `sustentavel` foram reconhecidas como qualitativas, pois representam categorias ou classificações das obras, tendo sido reconhecidas como caracteres. Embora `id_obra` possa ser armazenada pelo R como variável numérica, sua função é exclusivamente identificar cada empreendimento, não devendo ser interpretada como uma variável quantitativa para fins de análise estatística.
+As variáveis `tipo_obra`, `regiao` e `sustentavel` foram reconhecidas como qualitativas, pois representam categorias ou classificações das obras, tendo sido reconhecidas como caracteres. 
 
 A variável `indice_falhas` é numérica discreta, enquanto as medidas de área, custo, resistência, consumo de cimento e satisfação são tratadas numericamente no banco.
 
@@ -212,9 +212,9 @@ if (length(linhas_com_ausentes) > 0) {
 }
 ```
 
-Os resultados mostram que a base não apresenta valores ausentes. O total de valores NA identificado foi zero, e todas as variáveis apresentaram contagem igual a 0 para dados faltantes.
+Os resultados mostram que a base não apresenta valores ausentes. O total de valores `NA` identificado foi zero, e todas as variáveis apresentaram contagem igual a 0 para dados faltantes.
 
-Além disso, o resultado integer(0) indica que nenhuma observação da base contém valores ausentes. Portanto, não há linhas específicas que necessitem de tratamento, exclusão ou imputação por ausência de dados. A base encontra-se, nesse aspecto, completa e adequada para prosseguir com as etapas de análise gráfica e estatística.
+Além disso, o resultado `integer(0)` indica que nenhuma observação da base contém valores ausentes. Portanto, não há linhas específicas que necessitem de tratamento, exclusão ou imputação por ausência de dados. A base encontra-se, nesse aspecto, completa e adequada para prosseguir com as etapas de análise gráfica e estatística.
 
 ---
 
@@ -360,7 +360,7 @@ Os resultados mostram que as obras de Infraestrutura apresentam a maior mediana 
 
 Quanto à dispersão, as obras de Infraestrutura apresentam a maior variabilidade, com desvio-padrão de aproximadamente R$ 1,55 milhão, enquanto as obras Industriais apresentam a menor, com cerca de R$ 770 mil. Visualmente, o boxplot também evidencia maior amplitude dos custos nas categorias Infraestrutura e Comercial.
 
-Não foram identificados outliers pelo critério utilizado pelo boxplot() do Base R, uma vez que a consulta aos valores extremos retornou numeric(0) para todas as quatro categorias. Portanto, embora existam diferenças consideráveis de custo dentro dos grupos, nenhum valor ultrapassou os limites adotados pelo boxplot para ser classificado como observação atípica.
+Não foram identificados outliers pelo critério utilizado pelo `boxplot()` do Base R, uma vez que a consulta aos valores extremos retornou `numeric(0)` para todas as quatro categorias. Portanto, embora existam diferenças consideráveis de custo dentro dos grupos, nenhum valor ultrapassou os limites adotados pelo boxplot para ser classificado como observação atípica.
 
 
 #### Distribuição das obras por região
@@ -388,7 +388,7 @@ barplot(
 
 Os resultados mostram maior concentração de obras na Região Sudeste, com 101 empreendimentos (33,67%), seguida pelas regiões Nordeste, com 78 (26,00%), e Sul, com 69 (23,00%). O Centro-Oeste reúne 34 obras (11,33%), enquanto o Norte apresenta a menor participação, com 18 empreendimentos (6,00%).
 
-De modo geral, essa ordenação é coerente com a distribuição regional da construção civil brasileira. Dados da Pesquisa Anual da Indústria da Construção (PAIC) do IBGE mostram que, em 2023, o Sudeste concentrou 49,8% do valor das incorporações, obras e serviços da construção, seguido pelo Nordeste (18,1%), Sul (16,2%), Centro-Oeste (9,4%) e Norte (6,5%), mantendo a mesma ordem observada na base analisada. 
+De modo geral, essa ordenação é coerente com a distribuição regional da construção civil brasileira. Dados da Pesquisa Anual da Indústria da Construção (PAIC) do IBGE mostram que, em 2023, o Sudeste concentrou 49,8% do valor das incorporações, obras e serviços da construção, seguido pelo Nordeste (18,1%), Sul (16,2%), Centro-Oeste (9,4%) e Norte (6,5%) [@ibge2025paic], mantendo a mesma ordem observada na base analisada. 
 
 Entretanto, as proporções não são equivalentes: na base, o Sudeste está menos representado, enquanto Nordeste e Sul apresentam participações relativamente maiores. Assim, os dados reproduzem de forma razoável o padrão geral de concentração regional da atividade construtiva, mas não devem ser interpretados como uma representação proporcional exata do mercado brasileiro.
 
@@ -729,9 +729,9 @@ No sentido oposto, entre os casos de custo abaixo do esperado para a área const
 
 A principal contribuição da interatividade, portanto, está na possibilidade de passar da identificação visual de um ponto atípico para sua identificação individual, permitindo associá-lo imediatamente ao tipo de obra, à região e ao respectivo identificador. Isso torna o gráfico particularmente útil para etapas posteriores de investigação dos fatores que podem explicar os desvios observados.
 
-#### Custo médio por tipo de obra com plot_ly()
+#### Custo médio por tipo de obra com `plot_ly()`
 
-O uso direto de plot_ly() permite construir gráficos interativos sem a etapa intermediária de criação de um objeto ggplot, oferecendo maior controle sobre os elementos interativos e sobre a estrutura dos traces. Neste caso, os dados foram previamente agregados por tipo de obra, permitindo comparar os respectivos custos médios
+O uso direto de `plot_ly()` permite construir gráficos interativos sem a etapa intermediária de criação de um objeto ggplot, oferecendo maior controle sobre os elementos interativos e sobre a estrutura dos traces. Neste caso, os dados foram previamente agregados por tipo de obra, permitindo comparar os respectivos custos médios
 
 
 ```{r}
@@ -766,9 +766,9 @@ plot_ly(
 
 Os resultados mostram que as obras de Infraestrutura apresentam o maior custo médio, aproximadamente R$ 3,73 milhões, seguidas pelas obras Comerciais, com cerca de R$ 2,95 milhões. As obras Residenciais apresentam custo médio em torno de R$ 2,45 milhões, enquanto as Industriais possuem o menor valor médio, próximo de R$ 2,03 milhões.
 
-O plot_ly() direto é especialmente vantajoso quando o objetivo principal já é produzir uma visualização interativa, pois permite definir de forma mais imediata elementos como traces, tooltips, marcadores, linhas e recursos de interação. Já o ggplotly() é mais conveniente quando o gráfico já foi desenvolvido previamente com ggplot2 e se deseja apenas acrescentar interatividade com poucas alterações no código.
+O `plot_ly()` direto é especialmente vantajoso quando o objetivo principal já é produzir uma visualização interativa, pois permite definir de forma mais imediata elementos como traces, tooltips, marcadores, linhas e recursos de interação. Já o `ggplotly()` é mais conveniente quando o gráfico já foi desenvolvido previamente com ggplot2 e se deseja apenas acrescentar interatividade com poucas alterações no código.
 
-Neste exemplo, como os dados foram agregados por categoria antes da construção do gráfico, o uso de plot_ly() mostra-se adequado por permitir representar diretamente os valores médios calculados e disponibilizá-los de forma interativa para consulta.
+Neste exemplo, como os dados foram agregados por categoria antes da construção do gráfico, o uso de `plot_ly()` mostra-se adequado por permitir representar diretamente os valores médios calculados e disponibilizá-los de forma interativa para consulta.
 
 
 ---
@@ -950,7 +950,7 @@ A utilização do leaflet permite incorporar a dimensão geográfica à análise
 
 #### Definição do mapa base
 
-Para a construção do mapa base foi escolhido o provedor CartoDB.Positron, com visualização centralizada aproximadamente na Região Sudeste do Brasil. Esse provedor apresenta fundo claro, cores discretas e boa legibilidade de ruas, limites e nomes geográficos, características que favorecem a sobreposição posterior de marcadores, círculos e outras informações temáticas.
+Para a construção do mapa base foi utilizada a função addTiles(), fornecendo uma representação cartográfica de fundo adequada à sobreposição posterior de marcadores, círculos e demais elementos temáticos. A escolha de um mapa-base visualmente discreto favorece a leitura das informações adicionadas nas camadas seguintes.
 
 A escolha é adequada porque o objetivo do mapa base não é destacar o próprio fundo cartográfico, mas fornecer referência espacial para os dados que serão adicionados nas etapas seguintes. Assim, o estilo visual mais neutro reduz a competição entre o mapa e os elementos gráficos associados às obras, contribuindo para uma representação mais limpa e de fácil interpretação.
 
@@ -1230,7 +1230,7 @@ A análise por tipo de obra acrescenta uma informação importante: o comportame
 
 #### Relação entre falhas e satisfação
 
-A análise conjunta do número de falhas registradas e da satisfação dos clientes permite verificar se empreendimentos com maior ocorrência de problemas apresentam, de forma consistente, avaliações mais baixas. Como o índice de falhas assume poucos valores inteiros, a utilização de geom_jitter() é adequada para reduzir a sobreposição dos pontos e tornar a distribuição das observações mais visível.
+A análise conjunta do número de falhas registradas e da satisfação dos clientes permite verificar se empreendimentos com maior ocorrência de problemas apresentam, de forma consistente, avaliações mais baixas. Como o índice de falhas assume poucos valores inteiros, a utilização de `geom_jitter()` é adequada para reduzir a sobreposição dos pontos e tornar a distribuição das observações mais visível.
 
 ```{r}
 # Para tornar a sobreposição dos pontos visível, utiliza-se jitter.
@@ -1283,7 +1283,7 @@ Os resultados indicam ausência de associação linear relevante entre as variá
 
 As médias de satisfação por quantidade de falhas também não apresentam comportamento monotônico. Por exemplo, a satisfação média varia de 5,72 nas obras sem falhas para 5,98 nas obras com três falhas, enquanto as obras com quatro falhas apresentam média de aproximadamente 4,96. Nos níveis mais elevados, como seis e sete falhas, há poucas observações (n = 3 e n = 2, respectivamente), o que torna essas médias pouco representativas para identificar uma tendência geral.
 
-A escolha do gráfico de dispersão com jitter é adequada porque ambas as variáveis são numéricas e o deslocamento aleatório evita que observações com o mesmo número de falhas fiquem completamente sobrepostas. A reta obtida com geom_smooth(method = "lm") complementa a visualização, confirmando que, nesta base, não há evidência visual de uma relação linear clara entre maior número de falhas e menor satisfação do cliente.
+A escolha do gráfico de dispersão com jitter é adequada porque ambas as variáveis são numéricas e o deslocamento aleatório evita que observações com o mesmo número de falhas fiquem completamente sobrepostas. A reta obtida com `geom_smooth(method = "lm")` complementa a visualização, confirmando que, nesta base, não há evidência visual de uma relação linear clara entre maior número de falhas e menor satisfação do cliente.
 
 #### Síntese gráfica para acompanhamento das obras
 
@@ -1429,12 +1429,7 @@ As análises também demonstraram que relações aparentemente simples podem dep
 
 Como melhoria para futuras aplicações, seria recomendável ampliar a base com informações técnicas e gerenciais adicionais, como localização exata de cada empreendimento, relação água/cimento, classe de resistência especificada em projeto, idade dos ensaios, padrão construtivo, custo por metro quadrado, características dos materiais, ocorrência de atrasos e causas das falhas registradas. A disponibilidade de coordenadas geográficas individuais também permitiria substituir a representação regional aproximada por uma análise espacial efetiva das obras, possibilitando identificar concentrações e padrões geográficos com maior precisão.
 
-Na etapa de representação espacial, verificou-se ainda uma limitação relacionada ao provedor utilizado como mapa-base. Embora os marcadores, coordenadas e popups tenham sido corretamente processados pelo leaflet, o fundo cartográfico do CartoDB.Positron apresentou indicação de necessidade de chave de acesso. Para aplicações futuras, esse aspecto pode ser solucionado mediante configuração da chave exigida pelo provedor ou pela utilização de outro mapa-base compatível com o ambiente empregado. Essa ocorrência evidencia também que visualizações interativas dependem não somente do código produzido, mas de serviços externos e de suas condições de acesso.
-
 De maneira geral, a atividade permitiu integrar programação, estatística descritiva, visualização de dados e interpretação técnica em um mesmo fluxo de análise. A principal contribuição da prática foi demonstrar que os recursos gráficos da linguagem R podem auxiliar não apenas na apresentação de resultados, mas também na identificação de padrões, comparação de empreendimentos, investigação de observações atípicas e comunicação de informações relevantes para o acompanhamento e a tomada de decisões na Engenharia Civil.
 
-## Aprenda Quarto
-
-Acesse [Quarto](https://quarto.org/).
 
 ## 📖 Referências
