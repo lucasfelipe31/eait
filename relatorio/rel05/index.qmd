@@ -1,21 +1,22 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
-title: "Relatório de Aula Prática XX"
+author: "Bruno Henrique e Lucas Felipe"
+title: "Relatório de Aula Prática 05"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
 csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
 subtitle: "<a href='https://bendeivide.github.io/courses/epaec/' target='_blank'>Estatística e Probabilidade</a> </br> <a href='https://bendeivide.github.io' target='_blank'>Prof. Ben Dêivide (DEFIM/CAP/UFSJ)</a>"
 include-before-body: header.html
-date: today
+date: now
+date-format: "DD/MM/YYYY, HH:mm"
 lang: pt-BR
 format:
   html:
     toc: true
     number-sections: true
     theme: bootstrap
-    #css: styles.css
+    css: styles.css
     code-fold: true
     code-tools: true
 execute:
@@ -77,28 +78,14 @@ Descreva como o experimento foi realizado.
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
+A análise de fenômenos associados à engenharia civil frequentemente envolve variáveis sujeitas à aleatoriedade, tornando necessária a utilização de modelos probabilísticos capazes de representar diferentes comportamentos e níveis de incerteza. Nesse contexto, as distribuições de probabilidade constituem ferramentas importantes para estimar a ocorrência de eventos, avaliar riscos e fornecer subsídios quantitativos à tomada de decisão em situações relacionadas ao controle de qualidade, à confiabilidade de equipamentos, ao desempenho de materiais e às condições ambientais.
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
+Nesta seção, são apresentados e discutidos os resultados obtidos por meio da aplicação de diferentes distribuições de probabilidade a situações associadas ao projeto de uma Pequena Central Hidrelétrica (PCH). As análises abrangem variáveis aleatórias discretas e contínuas, empregando as distribuições Normal, Binomial, Poisson, Exponencial, Weibull e Gama, selecionadas de acordo com as características dos fenômenos avaliados.
 
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
+Os cálculos são realizados na linguagem R, utilizando funções específicas para obtenção de probabilidades, quantis e medidas teóricas, além da geração de valores pseudoaleatórios para realização de simulações. Os códigos são apresentados de forma comentada e didática, permitindo relacionar os procedimentos computacionais aos respectivos conceitos estatísticos.
 
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
+Além dos resultados teóricos, são utilizadas simulações para observar o comportamento empírico das variáveis e, quando aplicável, compará-lo com os valores previstos pelos modelos probabilísticos. Essa abordagem permite avaliar a proximidade entre teoria e simulação e discutir as implicações práticas dos resultados para aspectos como risco, qualidade, segurança, confiabilidade e planejamento em engenharia.
 
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
 
 ### 📊  Análise de Dados
 
