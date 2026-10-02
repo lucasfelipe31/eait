@@ -87,12 +87,269 @@ Os cálculos são realizados na linguagem R, utilizando funções específicas p
 Além dos resultados teóricos, são utilizadas simulações para observar o comportamento empírico das variáveis e, quando aplicável, compará-lo com os valores previstos pelos modelos probabilísticos. Essa abordagem permite avaliar a proximidade entre teoria e simulação e discutir as implicações práticas dos resultados para aspectos como risco, qualidade, segurança, confiabilidade e planejamento em engenharia.
 
 
-### 📊  Análise de Dados
+### Controle de Qualidade do Concreto: Distribuição Normal
+
+A resistência à compressão do concreto é uma variável fundamental para o controle tecnológico do material, uma vez que apresenta variações decorrentes de fatores relacionados à dosagem, produção, execução, cura e realização dos ensaios. Dessa forma, a utilização de modelos probabilísticos permite representar essa variabilidade e estimar a ocorrência de valores de resistência em diferentes intervalos.
+
+Neste estudo, considera-se que a resistência à compressão do concreto, representada pela variável aleatória $X$, segue uma distribuição Normal com média $\mu = 35$ MPa e desvio padrão $\sigma = 4$ MPa. Assim:
+
+$$
+X \sim N(35,4^2)
+$$
+
+A partir dessa distribuição, são determinadas probabilidades associadas a diferentes valores de resistência, um percentil da distribuição e a probabilidade relacionada à média de um conjunto de amostras. Posteriormente, realiza-se uma simulação computacional com valores aleatórios, permitindo comparar o comportamento observado com a distribuição teórica.
+
+#### Probabilidade de resistência inferior a 30 MPa
+
+Inicialmente, determina-se a probabilidade de uma amostra apresentar resistência à compressão inferior a $30$ MPa, ou seja:
+
+$$
+P(X < 30)
+$$
+
+Como se deseja calcular a probabilidade acumulada à esquerda de $30$ MPa em uma distribuição Normal, utiliza-se a função `pnorm()`.
 
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+# Define a média da resistência à compressão, em MPa
+media <- 35
+
+# Define o desvio padrão da resistência à compressão, em MPa
+desvio_padrao <- 4
+
+# Calcula a probabilidade acumulada de a resistência
+# à compressão ser inferior a 30 MPa
+prob_inferior_30 <- pnorm(
+  q = 30,
+  mean = media,
+  sd = desvio_padrao
+)
+
+# Exibe a probabilidade calculada
+prob_inferior_30
 ```
+
+O objeto `prob_inferior_30` armazena a probabilidade de ocorrência de valores inferiores a $30$ MPa. Após a execução do código, o resultado obtido será analisado em relação à proporção esperada de amostras situadas abaixo desse limite de resistência.
+
+#### Probabilidade de resistência entre 32 e 38 MPa
+
+Em seguida, determina-se a probabilidade de a resistência à compressão estar compreendida entre $32$ MPa e $38$ MPa:
+
+$$
+P(32 < X < 38)
+$$
+
+Para calcular uma probabilidade compreendida entre dois valores, utiliza-se a diferença entre as probabilidades acumuladas nos limites superior e inferior:
+
+$$
+P(32 < X < 38)
+=
+P(X < 38)-P(X < 32)
+$$
+
+A função `pnorm()` é novamente utilizada para obter as probabilidades acumuladas correspondentes.
+
+```{r}
+# Calcula a probabilidade acumulada de a resistência
+# ser inferior a 38 MPa
+prob_ate_38 <- pnorm(
+  q = 38,
+  mean = media,
+  sd = desvio_padrao
+)
+
+# Calcula a probabilidade acumulada de a resistência
+# ser inferior a 32 MPa
+prob_ate_32 <- pnorm(
+  q = 32,
+  mean = media,
+  sd = desvio_padrao
+)
+
+# Calcula a probabilidade de a resistência estar
+# compreendida entre 32 MPa e 38 MPa
+prob_32_38 <- prob_ate_38 - prob_ate_32
+
+# Exibe a probabilidade calculada
+prob_32_38
+```
+
+O objeto `prob_32_38` representa a proporção teórica de resultados de resistência esperados no intervalo entre $32$ MPa e $38$ MPa.
+
+#### Determinação do percentil de 5%
+
+Também se deseja determinar o valor de resistência abaixo do qual se encontram apenas $5\%$ das amostras.
+
+Nesse caso, diferentemente dos cálculos anteriores, a probabilidade acumulada é conhecida e deseja-se encontrar o valor correspondente da variável $X$. Portanto, utiliza-se a função `qnorm()`.
+
+Matematicamente, procura-se o valor $x_{0,05}$ que satisfaça:
+
+$$
+P(X < x_{0,05}) = 0,05
+$$
+
+```{r}
+# Calcula o percentil de 5% da distribuição Normal
+# Esse valor corresponde à resistência abaixo da qual
+# se espera encontrar aproximadamente 5% das amostras
+percentil_5 <- qnorm(
+  p = 0.05,
+  mean = media,
+  sd = desvio_padrao
+)
+
+# Exibe o valor correspondente ao percentil de 5%
+percentil_5
+```
+
+O valor armazenado em `percentil_5` corresponde, portanto, ao limite inferior abaixo do qual se espera encontrar aproximadamente $5\%$ dos resultados de resistência à compressão.
+
+#### Probabilidade de a média de 10 amostras ser inferior a 33 MPa
+
+Nesta análise, considera-se uma amostra constituída por $n = 10$ resultados de resistência. A variável de interesse passa, portanto, a ser a média amostral $\bar{X}$.
+
+Como a variável original apresenta distribuição Normal, a distribuição da média amostral também será Normal. Sua média permanece igual à média populacional:
+
+$$
+\mu_{\bar{X}} = \mu = 35
+$$
+
+Entretanto, o desvio padrão da distribuição das médias é reduzido e corresponde ao erro padrão da média:
+
+$$
+\sigma_{\bar{X}}
+=
+\frac{\sigma}{\sqrt{n}}
+$$
+
+Substituindo-se $\sigma = 4$ MPa e $n = 10$:
+
+$$
+\sigma_{\bar{X}}
+=
+\frac{4}{\sqrt{10}}
+$$
+
+Deseja-se calcular:
+
+$$
+P(\bar{X} < 33)
+$$
+
+```{r}
+# Define o número de amostras consideradas
+n <- 10
+
+# Calcula o erro padrão da média
+# O erro padrão representa a variabilidade esperada
+# entre diferentes médias de amostras com tamanho n = 10
+erro_padrao <- desvio_padrao / sqrt(n)
+
+# Exibe o erro padrão calculado
+erro_padrao
+
+# Calcula a probabilidade de a média de 10 amostras
+# ser inferior a 33 MPa
+prob_media_inferior_33 <- pnorm(
+  q = 33,
+  mean = media,
+  sd = erro_padrao
+)
+
+# Exibe a probabilidade calculada
+prob_media_inferior_33
+```
+
+O objeto `erro_padrao` representa a dispersão esperada das médias amostrais em torno de $\mu = 35$ MPa, enquanto `prob_media_inferior_33` fornece a probabilidade de uma média calculada a partir de $10$ amostras apresentar valor inferior a $33$ MPa.
+
+#### Simulação da distribuição da resistência à compressão
+
+Além dos cálculos teóricos, é realizada uma simulação computacional para observar o comportamento de uma amostra de valores gerados a partir da distribuição definida.
+
+São simulados $1.000$ valores de resistência à compressão utilizando a função `rnorm()`, considerando os mesmos parâmetros estabelecidos anteriormente:
+
+$$
+\mu = 35 \text{ MPa}
+$$
+
+e
+
+$$
+\sigma = 4 \text{ MPa}
+$$
+
+A função `set.seed()` é utilizada para fixar uma semente de geração de números pseudoaleatórios, permitindo que os mesmos valores sejam reproduzidos em futuras execuções do código.
+
+```{r}
+# Define uma semente para tornar a simulação reproduzível
+# Dessa forma, os mesmos números pseudoaleatórios
+# serão obtidos quando o código for executado novamente
+set.seed(123)
+
+# Define o número de valores que serão simulados
+n_simulacoes <- 1000
+
+# Gera 1.000 valores aleatórios provenientes
+# de uma distribuição Normal com média de 35 MPa
+# e desvio padrão de 4 MPa
+resistencia_simulada <- rnorm(
+  n = n_simulacoes,
+  mean = media,
+  sd = desvio_padrao
+)
+```
+
+Para visualizar a distribuição dos valores simulados, constrói-se um histograma. O argumento `probability = TRUE` é utilizado para representar densidades no eixo vertical, possibilitando a sobreposição da função de densidade teórica da distribuição Normal.
+
+A curva teórica é acrescentada ao gráfico por meio das funções `curve()` e `dnorm()`.
+
+```{r}
+# Constrói o histograma dos 1.000 valores simulados
+# probability = TRUE transforma o eixo vertical
+# em densidade, permitindo comparar o histograma
+# com a curva teórica da distribuição Normal
+hist(
+  resistencia_simulada,
+  probability = TRUE,
+  breaks = "Sturges",
+  main = "Distribuição simulada da resistência à compressão",
+  xlab = "Resistência à compressão (MPa)",
+  ylab = "Densidade"
+)
+
+# Adiciona ao histograma a curva de densidade
+# teórica da distribuição Normal considerada
+curve(
+  dnorm(
+    x,
+    mean = media,
+    sd = desvio_padrao
+  ),
+  add = TRUE,
+  lwd = 2
+)
+```
+
+Como forma complementar de avaliar a simulação, podem ser calculadas a média e o desvio padrão dos $1.000$ valores gerados. Esses resultados permitem verificar o quanto a amostra simulada se aproxima dos parâmetros teóricos da distribuição, isto é, $\mu = 35$ MPa e $\sigma = 4$ MPa.
+
+```{r}
+# Calcula a média dos valores simulados
+media_simulada <- mean(resistencia_simulada)
+
+# Calcula o desvio padrão dos valores simulados
+desvio_simulado <- sd(resistencia_simulada)
+
+# Exibe a média obtida na simulação
+media_simulada
+
+# Exibe o desvio padrão obtido na simulação
+desvio_simulado
+```
+
+A comparação entre os parâmetros teóricos e os resultados da simulação permite avaliar visual e numericamente a capacidade da amostra gerada de reproduzir o comportamento esperado para a distribuição Normal utilizada na modelagem da resistência à compressão do concreto.
+
+
+
+
 
 ## 🧠 Considerações finais
 
