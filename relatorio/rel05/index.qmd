@@ -60,7 +60,6 @@ Aplicar modelos de distribuição de probabilidade a diferentes situações rela
 - Aplicar o método de Monte Carlo na análise de um problema relacionado à resistência do concreto;
 
 - Interpretar os resultados obtidos considerando sua aplicação prática na Engenharia Civil;
-
 - Avaliar como a modelagem probabilística pode auxiliar na análise de riscos, confiabilidade e tomada de decisões em projetos de engenharia.
 
 ---
@@ -82,15 +81,16 @@ $$
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
+A atividade foi desenvolvida utilizando a linguagem de programação R para a resolução de problemas envolvendo distribuições de probabilidade aplicadas à Engenharia Civil. O procedimento metodológico foi estruturado em etapas, contemplando a definição dos modelos probabilísticos, realização dos cálculos teóricos, simulação computacional e interpretação dos resultados.
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+Inicialmente, foram analisadas as características de cada problema proposto, identificando-se a natureza da variável aleatória e a distribuição de probabilidade mais adequada para sua representação. Foram consideradas as distribuições Normal, Binomial, Poisson, Exponencial, Weibull e Gama, abrangendo diferentes situações relacionadas à qualidade dos materiais, ocorrência de defeitos, fissuração, confiabilidade de equipamentos, capacidade de suporte do solo e precipitação.
 
----
+Em seguida, foram realizados os cálculos das probabilidades de ocorrência dos eventos especificados em cada situação. Para isso, foram utilizadas funções estatísticas disponíveis no R, como pnorm(), qnorm(), rnorm(), dbinom(), pbinom() e outras funções correspondentes às distribuições analisadas. Também foram determinados parâmetros estatísticos, incluindo esperança, variância, desvio-padrão e quantis.Posteriormente, foram realizadas simulações computacionais utilizando funções de geração de números aleatórios do R. Os resultados simulados foram apresentados por meio de tabelas e representações gráficas, permitindo verificar o comportamento das distribuições e comparar as frequências observadas nas simulações com as probabilidades calculadas teoricamente.
+
+Por fim, foi realizada uma análise integrada por meio de simulação de Monte Carlo, utilizando 10.000 realizações para representar a resistência à compressão do concreto. A proporção de valores simulados abaixo de 30 MPa foi comparada com a probabilidade teórica previamente calculada, permitindo avaliar a aproximação entre os resultados e discutir a utilidade da simulação computacional para a análise de incertezas em problemas de Engenharia 
+
+Todas as etapas de cálculo, simulação e representação gráfica foram executadas no ambiente R, com os códigos apresentados e comentados no relatório. A interpretação dos resultados foi realizada considerando o contexto de aplicação de cada problema, buscando relacionar os conceitos probabilísticos com situações práticas de análise de riscos, qualidade, confiabilidade e planejamento na Engenharia Civil.
+
 
 ## 🔍 Resultados e Discussão
 
