@@ -2503,17 +2503,11 @@ Neste exercício, a proximidade entre a proporção simulada e a probabilidade t
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
+Os resultados obtidos demonstram a aplicabilidade da distribuição Normal na análise da variabilidade da resistência à compressão do concreto. Considerando uma resistência média de 35 MPa e desvio padrão de 4 MPa, verificou-se que a probabilidade de uma amostra apresentar resistência inferior a 30 MPa é de aproximadamente 10,56%. Esse resultado indica que, sob as condições estabelecidas no modelo, existe uma parcela relativamente pequena, porém significativa, de resultados abaixo desse limite, evidenciando a importância do controle estatístico da resistência do concreto. 
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+Para o intervalo entre 32 e 38 MPa, a probabilidade calculada foi de aproximadamente 54,67%, indicando que pouco mais da metade dos resultados esperados se concentra nessa faixa. O percentil de 5% foi estimado em aproximadamente 28,42 MPa, representando um valor abaixo do qual se espera encontrar cerca de 5% dos resultados da distribuição. Esses resultados permitem compreender a dispersão dos valores de resistência e estabelecer referências quantitativas para avaliação da variabilidade do material. 
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
-
-## Aprenda Quarto
-
-Acesse [Quarto](https://quarto.org/).
+Na análise da média de 10 amostras, a probabilidade de a média amostral ser inferior a 33 MPa foi de aproximadamente 5,69%. A redução do desvio padrão da média para aproximadamente 1,26 MPa demonstra o efeito do tamanho da amostra sobre a variabilidade das médias, uma vez que o erro padrão diminui à medida que aumenta o número de observações consideradas. 
+A simulação de 1.000 valores apresentou média de aproximadamente 35,06 MPa e desvio padrão de 3,97 MPa, valores muito próximos dos parâmetros teóricos adotados, de 35 MPa e 4 MPa. Essa proximidade evidencia que a simulação reproduziu adequadamente o comportamento esperado da distribuição Normal. O histograma também possibilita observar visualmente a concentração dos valores em torno da média e a dispersão característica do modelo. 
 
 ## 📖 Referências
