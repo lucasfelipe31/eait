@@ -36,7 +36,6 @@ Para o desenvolvimento das análises, utiliza-se a linguagem R como ferramenta d
 Dessa forma, o relatório busca demonstrar como a modelagem probabilística pode contribuir para a interpretação da variabilidade presente em problemas de Engenharia Civil, fornecendo informações que podem auxiliar na avaliação de riscos, na análise de confiabilidade e na tomada de decisões técnicas.
 
 
-
 ## 🎯 Objetivos
 
 ### Objetivo geral
@@ -61,8 +60,6 @@ Aplicar modelos de distribuição de probabilidade a diferentes situações rela
 
 - Interpretar os resultados obtidos considerando sua aplicação prática na Engenharia Civil;
 - Avaliar como a modelagem probabilística pode auxiliar na análise de riscos, confiabilidade e tomada de decisões em projetos de engenharia.
-
----
 
 ## 📚  Fundamentação Teórica
 
