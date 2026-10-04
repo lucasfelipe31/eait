@@ -28,9 +28,12 @@ execute:
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+A análise de fenômenos aleatórios constitui uma importante ferramenta para a tomada de decisões na Engenharia Civil, uma vez que diversas variáveis relacionadas aos materiais, estruturas, equipamentos e condições ambientais apresentam comportamento sujeito à variabilidade. Nesse contexto, a utilização de modelos probabilísticos permite representar matematicamente situações de incerteza e estimar a ocorrência de eventos de interesse para o planejamento, controle de qualidade, segurança e confiabilidade dos sistemas de engenharia.
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Neste relatório, são estudadas diferentes distribuições de probabilidade aplicadas a situações relacionadas à construção e à infraestrutura, considerando fenômenos associados ao controle de qualidade do concreto, ocorrência de defeitos em elementos pré-moldados, formação de fissuras em túneis, confiabilidade de equipamentos, capacidade de suporte do solo e precipitação. A atividade contempla tanto variáveis aleatórias discretas quanto contínuas, permitindo relacionar os conceitos teóricos da probabilidade com problemas de interesse prático na Engenharia Civil.
+
+Para o desenvolvimento das análises, utiliza-se a linguagem R como ferramenta de cálculo, visualização e simulação. São empregadas funções específicas para obtenção de probabilidades, quantis, valores esperados e variâncias, além da geração de amostras aleatórias a partir das distribuições estudadas. Também são realizadas simulações de Monte Carlo, possibilitando comparar resultados obtidos teoricamente com aqueles observados a partir de experimentos computacionais.
+Dessa forma, o relatório busca demonstrar como a modelagem probabilística pode contribuir para a interpretação da variabilidade presente em problemas de Engenharia Civil, fornecendo informações que podem auxiliar na avaliação de riscos, na análise de confiabilidade e na tomada de decisões técnicas.
 
 
 
@@ -38,14 +41,27 @@ Descreva o contexto da prática e sua importância.
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Aplicar modelos de distribuição de probabilidade a diferentes situações relacionadas à Engenharia Civil, utilizando a linguagem R para realizar cálculos, simulações e interpretações dos resultados obtidos.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Identificar e aplicar distribuições de probabilidade adequadas a diferentes fenômenos de Engenharia Civil;
+
+- Calcular probabilidades associadas às distribuições Normal, Binomial, Poisson, Exponencial, Weibull e Gama;
+
+- Determinar valores esperados, variâncias, desvios-padrão e quantis teóricos;
+
+- Utilizar funções específicas da linguagem R para o cálculo e a simulação das distribuições de probabilidade;
+
+- Gerar amostras aleatórias para representar os fenômenos estudados;
+
+- Comparar resultados teóricos com resultados obtidos por meio de simulações computacionais;
+
+- Aplicar o método de Monte Carlo na análise de um problema relacionado à resistência do concreto;
+
+- Interpretar os resultados obtidos considerando sua aplicação prática na Engenharia Civil;
+
+- Avaliar como a modelagem probabilística pode auxiliar na análise de riscos, confiabilidade e tomada de decisões em projetos de engenharia.
 
 ---
 
