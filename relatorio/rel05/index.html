@@ -59,7 +59,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
@@ -185,7 +205,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">04/10/2026, 17:31</p>
+      <p class="date">04/10/2026, 18:09</p>
     </div>
   </div>
   
@@ -226,7 +246,7 @@ window.Quarto = {
 </section>
 <section id="fundamentação-teórica" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</h2>
-<p>A probabilidade é uma ferramenta matemática utilizada para representar e analisar fenômenos que apresentam incerteza ou variabilidade. Na Engenharia Civil, sua aplicação é relevante devido à presença de fatores aleatórios relacionados às propriedades dos materiais, condições ambientais, desempenho de estruturas, produtividade, ocorrência de falhas e segurança. A modelagem probabilística permite quantificar a possibilidade de ocorrência de determinados eventos e fornecer informações para a tomada de decisões técnicas.</p>
+<p>Segundo Batista e Oliveira <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span>, a probabilidade é uma ferramenta matemática utilizada para representar e analisar fenômenos que apresentam incerteza ou variabilidade. Na Engenharia Civil, sua aplicação é relevante devido à presença de fatores aleatórios relacionados às propriedades dos materiais, condições ambientais, desempenho de estruturas, produtividade, ocorrência de falhas e segurança. A modelagem probabilística permite quantificar a possibilidade de ocorrência de determinados eventos e fornecer informações para a tomada de decisões técnicas.</p>
 <p>Uma variável aleatória é uma função que associa valores numéricos aos possíveis resultados de um experimento aleatório. As variáveis aleatórias podem ser classificadas em discretas, quando assumem valores isolados e contáveis, ou contínuas, quando podem assumir qualquer valor dentro de determinado intervalo. Essa distinção é importante para a escolha do modelo probabilístico adequado a cada problema.</p>
 <p>As distribuições de probabilidade descrevem matematicamente o comportamento de uma variável aleatória. Entre as principais distribuições utilizadas em aplicações de Engenharia Civil estão as distribuições Binomial e Poisson, para variáveis discretas, e as distribuições Normal, Exponencial, Weibull e Gama, para variáveis contínuas.</p>
 <section id="distribuição-normal" class="level3" data-number="3.1">
@@ -2709,12 +2729,17 @@ P(X&lt;30)
 <p>Na análise da média de 10 amostras, a probabilidade de a média amostral ser inferior a 33 MPa foi de aproximadamente 5,69%. A redução do desvio padrão da média para aproximadamente 1,26 MPa demonstra o efeito do tamanho da amostra sobre a variabilidade das médias, uma vez que o erro padrão diminui à medida que aumenta o número de observações consideradas. A simulação de 1.000 valores apresentou média de aproximadamente 35,06 MPa e desvio padrão de 3,97 MPa, valores muito próximos dos parâmetros teóricos adotados, de 35 MPa e 4 MPa. Essa proximidade evidencia que a simulação reproduziu adequadamente o comportamento esperado da distribuição Normal. O histograma também possibilita observar visualmente a concentração dos valores em torno da média e a dispersão característica do modelo.</p>
 </section>
 <section id="referências" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="referências"><span class="header-section-number">7</span> 📖 Referências</h2>
+
 <!-- -->
+
 
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">7 📖 Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-Rbasico2022" class="csl-entry" role="listitem">
+BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro Branco, MG: [s.n.], 2022. p. 321
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -3232,7 +3257,7 @@ P(X&lt;30)
 <span id="cb141-63"><a href="#cb141-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb141-64"><a href="#cb141-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
 <span id="cb141-65"><a href="#cb141-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb141-66"><a href="#cb141-66" aria-hidden="true" tabindex="-1"></a>A probabilidade é uma ferramenta matemática utilizada para representar e analisar fenômenos que apresentam incerteza ou variabilidade. Na Engenharia Civil, sua aplicação é relevante devido à presença de fatores aleatórios relacionados às propriedades dos materiais, condições ambientais, desempenho de estruturas, produtividade, ocorrência de falhas e segurança. A modelagem probabilística permite quantificar a possibilidade de ocorrência de determinados eventos e fornecer informações para a tomada de decisões técnicas.</span>
+<span id="cb141-66"><a href="#cb141-66" aria-hidden="true" tabindex="-1"></a>Segundo Batista e Oliveira @Rbasico2022, a probabilidade é uma ferramenta matemática utilizada para representar e analisar fenômenos que apresentam incerteza ou variabilidade. Na Engenharia Civil, sua aplicação é relevante devido à presença de fatores aleatórios relacionados às propriedades dos materiais, condições ambientais, desempenho de estruturas, produtividade, ocorrência de falhas e segurança. A modelagem probabilística permite quantificar a possibilidade de ocorrência de determinados eventos e fornecer informações para a tomada de decisões técnicas.</span>
 <span id="cb141-67"><a href="#cb141-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb141-68"><a href="#cb141-68" aria-hidden="true" tabindex="-1"></a>Uma variável aleatória é uma função que associa valores numéricos aos possíveis resultados de um experimento aleatório. As variáveis aleatórias podem ser classificadas em discretas, quando assumem valores isolados e contáveis, ou contínuas, quando podem assumir qualquer valor dentro de determinado intervalo. Essa distinção é importante para a escolha do modelo probabilístico adequado a cada problema.</span>
 <span id="cb141-69"><a href="#cb141-69" aria-hidden="true" tabindex="-1"></a></span>

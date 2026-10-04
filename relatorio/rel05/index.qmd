@@ -63,7 +63,7 @@ Aplicar modelos de distribuição de probabilidade a diferentes situações rela
 
 ## 📚  Fundamentação Teórica
 
-A probabilidade é uma ferramenta matemática utilizada para representar e analisar fenômenos que apresentam incerteza ou variabilidade. Na Engenharia Civil, sua aplicação é relevante devido à presença de fatores aleatórios relacionados às propriedades dos materiais, condições ambientais, desempenho de estruturas, produtividade, ocorrência de falhas e segurança. A modelagem probabilística permite quantificar a possibilidade de ocorrência de determinados eventos e fornecer informações para a tomada de decisões técnicas.
+Segundo Batista e Oliveira @Rbasico2022, a probabilidade é uma ferramenta matemática utilizada para representar e analisar fenômenos que apresentam incerteza ou variabilidade. Na Engenharia Civil, sua aplicação é relevante devido à presença de fatores aleatórios relacionados às propriedades dos materiais, condições ambientais, desempenho de estruturas, produtividade, ocorrência de falhas e segurança. A modelagem probabilística permite quantificar a possibilidade de ocorrência de determinados eventos e fornecer informações para a tomada de decisões técnicas.
 
 Uma variável aleatória é uma função que associa valores numéricos aos possíveis resultados de um experimento aleatório. As variáveis aleatórias podem ser classificadas em discretas, quando assumem valores isolados e contáveis, ou contínuas, quando podem assumir qualquer valor dentro de determinado intervalo. Essa distinção é importante para a escolha do modelo probabilístico adequado a cada problema.
 
@@ -2514,3 +2514,4 @@ Na análise da média de 10 amostras, a probabilidade de a média amostral ser i
 A simulação de 1.000 valores apresentou média de aproximadamente 35,06 MPa e desvio padrão de 3,97 MPa, valores muito próximos dos parâmetros teóricos adotados, de 35 MPa e 4 MPa. Essa proximidade evidencia que a simulação reproduziu adequadamente o comportamento esperado da distribuição Normal. O histograma também possibilita observar visualmente a concentração dos valores em torno da média e a dispersão característica do modelo. 
 
 ## 📖 Referências
+
