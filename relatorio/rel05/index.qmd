@@ -72,10 +72,12 @@ As distribuições de probabilidade descrevem matematicamente o comportamento de
 ### Distribuição Normal
 
 A distribuição Normal é uma das distribuições contínuas mais utilizadas em estatística. Seu gráfico apresenta uma forma aproximadamente simétrica e em formato de sino, sendo caracterizada pela média (μ\mu) e pelo desvio-padrão (σ\sigma). A média determina a posição central da distribuição, enquanto o desvio-padrão representa a dispersão dos valores em torno da média.
+
 Sua função densidade de probabilidade é dada por:
 
-f(x)=1σ2πe−12(x−μσ)2f(x)=\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
-
+$$
+f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+$$
 Na Engenharia Civil, a distribuição Normal pode ser empregada para representar variáveis que apresentam comportamento aproximadamente simétrico, como determinadas propriedades dos materiais e resultados de ensaios de controle tecnológico. No R, funções como dnorm(), pnorm(), qnorm() e rnorm() permitem, respectivamente, calcular a densidade, probabilidades acumuladas, quantis e gerar valores aleatórios dessa distribuição.
 
 ### Distribuição Binomial
@@ -83,8 +85,9 @@ Na Engenharia Civil, a distribuição Normal pode ser empregada para representar
 A distribuição Binomial é uma distribuição discreta utilizada quando um experimento possui um número fixo de tentativas independentes, cada uma apresentando dois resultados possíveis, geralmente denominados sucesso e fracasso. A distribuição é caracterizada pelo número de tentativas nn e pela probabilidade de sucesso pp.
 A probabilidade de ocorrência de exatamente xx sucessos é determinada por:
 
-P(X=x)=(nx)px(1−p)n−xP(X=x)=\binom{n}{x}p^x(1-p)^{n-x}
-
+$$
+P(X=x) = \binom{n}{x}p^x(1-p)^{n-x}
+$$
 Esse modelo pode ser aplicado, por exemplo, à análise da ocorrência de determinado evento em um conjunto de elementos construtivos, como a quantidade de peças que apresentam defeitos em uma amostra.No R, podem ser utilizadas funções como dbinom(), pbinom(), qbinom() e rbinom() para realizar cálculos e simulações relacionados à distribuição Binomial.
 
 ### Distribuição de Poisson
@@ -92,7 +95,9 @@ Esse modelo pode ser aplicado, por exemplo, à análise da ocorrência de determ
 A distribuição de Poisson é uma distribuição discreta utilizada para modelar a quantidade de ocorrências de determinado evento em um intervalo específico de tempo, espaço ou outra unidade de exposição. É caracterizada pelo parâmetro λ\lambda, que representa o número médio de ocorrências no intervalo analisado.
 Sua função de probabilidade é:
 
-P(X=x)=e−λλxx!P(X=x)=\frac{e^{-\lambda}\lambda^x}{x!}
+$$
+P(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}
+$$
 
 Na Engenharia Civil, a distribuição de Poisson pode ser empregada para representar situações como a quantidade de defeitos em determinado comprimento de uma estrutura, ocorrência de falhas em equipamentos ou número de eventos registrados em determinado período. No R, as funções dpois(), ppois(), qpois() e rpois() permitem realizar os principais cálculos relacionados a esse modelo probabilístico.
 
@@ -101,8 +106,9 @@ Na Engenharia Civil, a distribuição de Poisson pode ser empregada para represe
 A distribuição Exponencial é uma distribuição contínua frequentemente utilizada para representar o tempo de espera até a ocorrência de determinado evento. Seu parâmetro é a taxa média de ocorrência, normalmente representada por λ\lambda.
 Sua função densidade é expressa por:
 
-f(x)=λe−λx,x≥0f(x)=\lambda e^{-\lambda x}, \quad x\geq0
-
+$$
+f(x) = \lambda e^{-\lambda x}, \quad x \geq 0
+$$
 Esse modelo apresenta aplicação em estudos de confiabilidade, manutenção e análise do tempo até a ocorrência de falhas em equipamentos e sistemas. Em Engenharia Civil, pode ser utilizado, por exemplo, na avaliação do tempo de funcionamento de determinados equipamentos ou do intervalo entre ocorrências de eventos.No R, as funções dexp(), pexp(), qexp() e rexp() permitem calcular probabilidades, quantis e gerar amostras aleatórias segundo a distribuição Exponencial.
 
 ### Distribuição Weibull
