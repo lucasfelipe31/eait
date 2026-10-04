@@ -63,7 +63,7 @@ Aplicar modelos de distribuição de probabilidade a diferentes situações rela
 
 ## 📚  Fundamentação Teórica
 
-Segundo Batista e Oliveira @Rbasico2022, a probabilidade é uma ferramenta matemática utilizada para representar e analisar fenômenos que apresentam incerteza ou variabilidade. Na Engenharia Civil, sua aplicação é relevante devido à presença de fatores aleatórios relacionados às propriedades dos materiais, condições ambientais, desempenho de estruturas, produtividade, ocorrência de falhas e segurança. A modelagem probabilística permite quantificar a possibilidade de ocorrência de determinados eventos e fornecer informações para a tomada de decisões técnicas.
+Segundo @Rbasico2022, a probabilidade é uma ferramenta matemática utilizada para representar e analisar fenômenos que apresentam incerteza ou variabilidade. Na Engenharia Civil, sua aplicação é relevante devido à presença de fatores aleatórios relacionados às propriedades dos materiais, condições ambientais, desempenho de estruturas, produtividade, ocorrência de falhas e segurança. A modelagem probabilística permite quantificar a possibilidade de ocorrência de determinados eventos e fornecer informações para a tomada de decisões técnicas.
 
 Uma variável aleatória é uma função que associa valores numéricos aos possíveis resultados de um experimento aleatório. As variáveis aleatórias podem ser classificadas em discretas, quando assumem valores isolados e contáveis, ou contínuas, quando podem assumir qualquer valor dentro de determinado intervalo. Essa distinção é importante para a escolha do modelo probabilístico adequado a cada problema.
 
