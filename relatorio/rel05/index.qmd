@@ -30,7 +30,7 @@ execute:
 
 A análise de fenômenos aleatórios desempenha um papel importante na Engenharia Civil, especialmente em projetos de infraestrutura que envolvem variáveis sujeitas a incertezas. Em empreendimentos como as Pequenas Centrais Hidrelétricas (PCHs), diversos fatores podem apresentar comportamento aleatório, como vazões de cursos d’água, ocorrência de eventos, resistência dos materiais, duração de atividades e demais parâmetros relacionados ao planejamento, à execução e à segurança das estruturas. Nesse contexto, a utilização de modelos probabilísticos permite representar matematicamente essas incertezas e fornecer informações relevantes para a tomada de decisões técnicas.
 
-As distribuições de probabilidade constituem ferramentas fundamentais para descrever o comportamento de variáveis aleatórias discretas e contínuas. A partir desses modelos, é possível determinar probabilidades de ocorrência, valores esperados, variâncias e quantis, possibilitando uma análise mais abrangente dos fenômenos estudados. A escolha adequada da distribuição para cada situação é essencial para que os resultados obtidos sejam coerentes com as características do problema e possam contribuir para avaliações e decisões no âmbito da Engenharia Civil.
+As distribuições de probabilidade constituem ferramentas fundamentais para descrever o comportamento de variáveis aleatórias discretas e contínuas. A partir desses modelos, é possível determinar probabilidades de ocorrência, valores esperados, variâncias e quantis, possibilitando uma análise mais abrangente dos fenômenos estudados. A escolha adequada da distribuição para cada situação é essencial para que os resultados obtidos sejam coerentes com as características do problema e possam contribuir para avaliações e decisões no âmbito da Engenharia Civil. Neste trabalho, as distribuições discretas e contínuas são aplicadas à análise de situações relacionadas à implantação de uma PCH, por meio de cálculos teóricos e simulações estatísticas desenvolvidos na linguagem R, mantida pelo @RCoreTeam2024. 
 
 Nesse sentido, a linguagem R apresenta-se como uma ferramenta computacional relevante para a aplicação prática dos conceitos de probabilidade e estatística. Por meio de funções específicas, é possível realizar cálculos teóricos, gerar valores aleatórios e desenvolver simulações de Monte Carlo, permitindo comparar resultados simulados com aqueles obtidos analiticamente. Essa abordagem possibilita não apenas verificar os conceitos estudados, mas também compreender o comportamento das variáveis e a influência da aleatoriedade nos resultados.
 
@@ -64,7 +64,7 @@ Este trabalho tem como objetivo aplicar diferentes distribuições de probabilid
 
 ## 📚  Fundamentação Teórica
 
-Segundo [@BussabMorettin2024], a probabilidade é uma ferramenta matemática utilizada para representar e analisar fenômenos que apresentam incerteza ou variabilidade. Na Engenharia Civil, sua aplicação é relevante devido à presença de fatores aleatórios relacionados às propriedades dos materiais, condições ambientais, desempenho de estruturas, produtividade, ocorrência de falhas e segurança. A modelagem probabilística permite quantificar a possibilidade de ocorrência de determinados eventos e fornecer informações para a tomada de decisões técnicas.
+Segundo [@BussabMorettin2024], a probabilidade é uma ferramenta matemática utilizada para representar e analisar fenômenos que apresentam incerteza ou variabilidade. Na Engenharia Civil, sua aplicação é relevante devido à presença de fatores aleatórios relacionados às propriedades dos materiais, condições ambientais, desempenho de estruturas, produtividade, ocorrência de falhas e segurança. A modelagem probabilística permite quantificar a possibilidade de ocorrência de determinados eventos e fornecer informações para a tomada de decisões técnicas. 
 
 Uma variável aleatória é uma função que associa valores numéricos aos possíveis resultados de um experimento aleatório. As variáveis aleatórias podem ser classificadas em discretas, quando assumem valores isolados e contáveis, ou contínuas, quando podem assumir qualquer valor dentro de determinado intervalo. Essa distinção é importante para a escolha do modelo probabilístico adequado a cada problema.
 
@@ -72,7 +72,7 @@ As distribuições de probabilidade descrevem matematicamente o comportamento de
 
 ### Distribuição Normal
 
-A distribuição Normal é uma das distribuições contínuas mais utilizadas em estatística. Seu gráfico apresenta uma forma aproximadamente simétrica e em formato de sino, sendo caracterizada pela média (μ\mu) e pelo desvio-padrão (σ\sigma). A média determina a posição central da distribuição, enquanto o desvio-padrão representa a dispersão dos valores em torno da média.
+A distribuição Normal é uma das distribuições contínuas mais utilizadas em estatística. Seu gráfico apresenta uma forma aproximadamente simétrica e em formato de sino, sendo caracterizada pela média (μ\mu) e pelo desvio-padrão (σ\sigma). A média determina a posição central da distribuição, enquanto o desvio-padrão representa a dispersão dos valores em torno da média, segundo @Montgomery2004.
 
 Sua função densidade de probabilidade é dada por:
 
